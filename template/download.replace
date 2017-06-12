@@ -1,0 +1,7 @@
+NAV_HOME = ''
+NAV_DOWNLOAD = 'active'
+NAV_ABOUT = ''
+
+PREVIOUS = '#'
+NEXT = '#'
+PRINT = './download_print.html'
