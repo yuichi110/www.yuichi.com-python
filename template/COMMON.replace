@@ -4,6 +4,7 @@ DESCRIPTION = 'Sample Description'
 NAV_HOME = 'active'
 NAV_DOWNLOAD = ''
 NAV_QA = ''
+NAV_BOOKS = ''
 NAV_ABOUT = ''
 
 MD_INDEX = './'

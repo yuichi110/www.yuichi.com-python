@@ -1,7 +1,5 @@
 NAV_HOME = ''
-NAV_DOWNLOAD = ''
 NAV_QA = 'active'
-NAV_ABOUT = ''
 
 PREVIOUS = '#'
 NEXT = '#'

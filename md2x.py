@@ -86,7 +86,7 @@ class Md2Html_v0_1:
     def run(self):
         self.cd_to_script_dir()
 
-        #  LOAD CONFIG
+        # LOAD CONFIG
         config_text = self.get_config_text(self.config_path)
         config = self.get_config(config_text)
         output_types = self.load_basic_section(config)
@@ -105,17 +105,12 @@ class Md2Html_v0_1:
         self.check_pdf_exist(output_types)
 
         # CONVERT
-        if self.TYPE_HTML in output_types:
-            self.convert_html()
-        if self.TYPE_PRINT in output_types:
-            self.convert_print()
-        if self.TYPE_PDF_ALL in output_types:
-            self.convert_pdf_all()
-        if self.TYPE_PDF in output_types:
-            self.convert_pdf()
+        self.convert_html(output_types)
+        self.convert_print(output_types)
+        self.convert_pdf_all(output_types)
+        self.convert_pdf(output_types)
         self.copy_other_files()
         logging.info('CONVERSION FINISHED WITHOUT PROBLEMS!!')
-
 
 
     def cd_to_script_dir(self):
@@ -684,7 +679,10 @@ class Md2Html_v0_1:
     ### CONVERT ###
     ###############
 
-    def convert_html(self):
+    def convert_html(self, output_types):
+        if self.TYPE_HTML not in output_types:
+            return
+
         logging.info('convert html : start')
         try:
             for (markdown, d) in self.conv_markdown_dict.items():
@@ -745,7 +743,10 @@ class Md2Html_v0_1:
         logging.info('convert html : success')
 
 
-    def convert_print(self):
+    def convert_print(self, output_types):
+        if self.TYPE_PRINT not in output_types:
+            return
+
         logging.info('convert print : start')
         try:
             for (markdown, d) in self.conv_markdown_dict.items():
@@ -800,7 +801,10 @@ class Md2Html_v0_1:
 
         logging.info('convert print : success')
 
-    def convert_pdf(self):
+    def convert_pdf(self, output_types):
+        if self.TYPE_PDF not in output_types:
+            return
+
         logging.info('convert pdf : start')
         try:
             for (markdown, d) in self.conv_markdown_dict.items():
@@ -856,7 +860,10 @@ class Md2Html_v0_1:
 
         logging.info('convert html : success')
 
-    def convert_pdf_all(self):
+    def convert_pdf_all(self, output_types):
+        if self.TYPE_PDF_ALL not in output_types:
+            return
+
         logging.info('convert pdf : start')
         try:
             html_sum = ''

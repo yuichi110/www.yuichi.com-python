@@ -41,6 +41,9 @@
      <a class="blog-nav-item {{ NAV_QA }}" href="./qa.html">
       質問と回答
      </a>
+     <a class="blog-nav-item {{ NAV_BOOKS }}" href="./books.html">
+      おすすめ書籍
+     </a>
      <a class="blog-nav-item {{ NAV_ABOUT }}" href="./about.html">
       このページについて
      </a>
@@ -69,9 +72,9 @@
           <nav>
 
            <ul class="pager">
-            <li><a href="{{ PREVIOUS }}">← Previous</a></li>
+            <li id="previous-li"><a href="{{ PREVIOUS }}" id="previous-a">← Previous</a></li>
      	   <li><a href="#">Page Top</a></li>
-            <li class="pager-next"><a href="{{ NEXT }}">Next →</a></li>
+            <li id="next-li" class="pager-next"><a href="{{ NEXT }}" id="next-a">Next →</a></li>
            </ul>
           </nav>
 
@@ -128,6 +131,39 @@
          </div>
      <div class="print"><a href="{{ PRINT }}"><img src="./assets/images/print.png"> 印刷する</a></div>
      <!-- SNS end -->
+          <div class="sidebar-module">
+          <h3>
+           Python入門
+          </h3>
+          <ol class="list-unstyled">
+          <li>
+           <a href="./">
+            トップページ
+           </a>
+          </li>
+          <li>
+           <a href="./download.html">
+            ダウンロード
+           </a>
+          </li>
+          <li>
+           <a href="./qa.html">
+            質問と回答
+           </a>
+          </li>
+          <li>
+           <a href="./books.html">
+            おすすめPython書籍
+           </a>
+          </li>
+          <li>
+           <a href="./about.html">
+            このページについて
+           </a>
+          </li>
+          </ol>
+          </div>
+
           <div class="sidebar-module">
            <h3>
             初級編
@@ -251,6 +287,7 @@
            </ol>
           </div>
 
+          <div class="sidebar-module">
           <h3>
            中級編
           </h3>
@@ -258,6 +295,8 @@
            <li>
              前書き
            </li>
+          </ol>
+          </div>
 
      	 <!-- amazon -->
      	 <div class="sidebar-module">
@@ -270,7 +309,7 @@
      	 <!-- amazon end-->
           <div class="sidebar-module">
            <h4>
-            Elsewhere
+            その他
            </h4>
            <ol class="list-unstyled">
             <li>
@@ -293,6 +332,13 @@
            </li>
      	  </ol>
           </div>
+          <div class="sidebar-module">
+            <!-- padding for side bar -->
+            <div class="hidden-xs">
+              <p style="height:500px"></p>
+            </div>
+          </div>
+
          </div>
          <!-- /.blog-sidebar -->
 
@@ -318,6 +364,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/delete_useless_dom.js"></script>
 
     <!-- GOOGLE ANALYTICS -->
     <script>

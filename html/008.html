@@ -39,6 +39,9 @@
      <a class="blog-nav-item " href="./qa.html">
       質問と回答
      </a>
+     <a class="blog-nav-item " href="./books.html">
+      おすすめ書籍
+     </a>
      <a class="blog-nav-item " href="./about.html">
       このページについて
      </a>
@@ -648,8 +651,8 @@ print(is_even)
      <!-- GENERATED HTML END -->
      <nav>
       <ul class="pager">
-       <li>
-        <a href="./007.html">
+       <li id="previous-li">
+        <a href="./007.html" id="previous-a">
          ← Previous
         </a>
        </li>
@@ -658,8 +661,8 @@ print(is_even)
          Page Top
         </a>
        </li>
-       <li class="pager-next">
-        <a href="./009.html">
+       <li class="pager-next" id="next-li">
+        <a href="./009.html" id="next-a">
          Next →
         </a>
        </li>
@@ -739,6 +742,38 @@ print(is_even)
       </a>
      </div>
      <!-- SNS end -->
+     <div class="sidebar-module">
+      <h3>
+       Python入門
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="./">
+         トップページ
+        </a>
+       </li>
+       <li>
+        <a href="./download.html">
+         ダウンロード
+        </a>
+       </li>
+       <li>
+        <a href="./qa.html">
+         質問と回答
+        </a>
+       </li>
+       <li>
+        <a href="./books.html">
+         おすすめPython書籍
+        </a>
+       </li>
+       <li>
+        <a href="./about.html">
+         このページについて
+        </a>
+       </li>
+      </ol>
+     </div>
      <div class="sidebar-module">
       <h3>
        初級編
@@ -861,62 +896,71 @@ print(is_even)
        </li>
       </ol>
      </div>
-     <h3>
-      中級編
-     </h3>
-     <ol class="list-unstyled">
-      <li>
-       前書き
-      </li>
-      <!-- amazon -->
-      <div class="sidebar-module">
-       <!--
+     <div class="sidebar-module">
+      <h3>
+       中級編
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        前書き
+       </li>
+      </ol>
+     </div>
+     <!-- amazon -->
+     <div class="sidebar-module">
+      <!--
      	 <img src="./assets/sample/amazon.png">
        -->
-       <script type="text/javascript">
-        amazon_ad_tag ="grit-22"; amazon_ad_width ="300"; amazon_ad_height ="250"; amazon_ad_link_target ="new";
-       </script>
-       <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
-       </script>
+      <script type="text/javascript">
+       amazon_ad_tag ="grit-22"; amazon_ad_width ="300"; amazon_ad_height ="250"; amazon_ad_link_target ="new";
+      </script>
+      <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
+      </script>
+     </div>
+     <!-- amazon end-->
+     <div class="sidebar-module">
+      <h4>
+       その他
+      </h4>
+      <ol class="list-unstyled">
+       <li>
+        <a href="#">
+         <span class="icon-github">
+         </span>
+         GitHub
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         <i class="icon-twitter">
+         </i>
+         Twitter
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         <span class="icon-facebook">
+         </span>
+         Facebook
+        </a>
+       </li>
+       <li class="li-none">
+        <a href="#" id="rw_email_contact">
+         Mail
+        </a>
+        <script type="text/javascript">
+         var _rwObsfuscatedHref0 = "mai";var _rwObsfuscatedHref1 = "lto";var _rwObsfuscatedHref2 = ":yu";var _rwObsfuscatedHref3 = "ich";var _rwObsfuscatedHref4 = "i@y";var _rwObsfuscatedHref5 = "uic";var _rwObsfuscatedHref6 = "hi.";var _rwObsfuscatedHref7 = "com";var _rwObsfuscatedHref = _rwObsfuscatedHref0+_rwObsfuscatedHref1+_rwObsfuscatedHref2+_rwObsfuscatedHref3+_rwObsfuscatedHref4+_rwObsfuscatedHref5+_rwObsfuscatedHref6+_rwObsfuscatedHref7; document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
+        </script>
+       </li>
+      </ol>
+     </div>
+     <div class="sidebar-module">
+      <!-- padding for side bar -->
+      <div class="hidden-xs">
+       <p style="height:500px">
+       </p>
       </div>
-      <!-- amazon end-->
-      <div class="sidebar-module">
-       <h4>
-        Elsewhere
-       </h4>
-       <ol class="list-unstyled">
-        <li>
-         <a href="#">
-          <span class="icon-github">
-          </span>
-          GitHub
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <i class="icon-twitter">
-          </i>
-          Twitter
-         </a>
-        </li>
-        <li>
-         <a href="#">
-          <span class="icon-facebook">
-          </span>
-          Facebook
-         </a>
-        </li>
-        <li class="li-none">
-         <a href="#" id="rw_email_contact">
-          Mail
-         </a>
-         <script type="text/javascript">
-          var _rwObsfuscatedHref0 = "mai";var _rwObsfuscatedHref1 = "lto";var _rwObsfuscatedHref2 = ":yu";var _rwObsfuscatedHref3 = "ich";var _rwObsfuscatedHref4 = "i@y";var _rwObsfuscatedHref5 = "uic";var _rwObsfuscatedHref6 = "hi.";var _rwObsfuscatedHref7 = "com";var _rwObsfuscatedHref = _rwObsfuscatedHref0+_rwObsfuscatedHref1+_rwObsfuscatedHref2+_rwObsfuscatedHref3+_rwObsfuscatedHref4+_rwObsfuscatedHref5+_rwObsfuscatedHref6+_rwObsfuscatedHref7; document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
-         </script>
-        </li>
-       </ol>
-      </div>
-     </ol>
+     </div>
     </div>
     <!-- /.blog-sidebar -->
    </div>
@@ -946,6 +990,8 @@ print(is_even)
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
   </script>
   <script src="./assets/js/bootstrap.min.js">
+  </script>
+  <script src="./assets/js/delete_useless_dom.js">
   </script>
   <!-- GOOGLE ANALYTICS -->
   <script>
