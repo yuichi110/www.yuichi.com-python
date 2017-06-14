@@ -1,5 +1,6 @@
 NAV_HOME = ''
 NAV_DOWNLOAD = ''
+NAV_QA = ''
 NAV_ABOUT = 'active'
 
 PREVIOUS = '#'

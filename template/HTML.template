@@ -32,17 +32,20 @@
   <div class="blog-masthead">
    <div class="container">
     <nav class="blog-nav">
-     <a class="blog-nav-item {{ NAV_HOME }}" href="./index.html">
-      Home
+     <a class="blog-nav-item {{ NAV_HOME }}" href="./">
+      サイトトップ
      </a>
      <a class="blog-nav-item {{ NAV_DOWNLOAD }}" href="./download.html">
-      Download
+      ダウンロード
+     </a>
+     <a class="blog-nav-item {{ NAV_QA }}" href="./qa.html">
+      質問と回答
      </a>
      <a class="blog-nav-item {{ NAV_ABOUT }}" href="./about.html">
-      About
+      このページについて
      </a>
      <a class="blog-nav-item" href="http://www.yuichi.com/">
-      Grid Computing
+      GRIT Computing
      </a>
     </nav>
    </div>
@@ -61,7 +64,10 @@
 
           {{ MARKDOWN }}
 
+
+
           <nav>
+
            <ul class="pager">
             <li><a href="{{ PREVIOUS }}">← Previous</a></li>
      	   <li><a href="#">Page Top</a></li>
@@ -300,6 +306,10 @@
         <p>
          Copyright &copy; 2017 Yuichi Ito All Rights Reserved.
         </p>
+        <p align='center'>
+修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
+<a href="https://github.com/yuichi110/www.yuichi.com-python/issues">Git Hub Issues<span class="icon-github"></span></a>
+</p>
         </div>
        </footer>
 

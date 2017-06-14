@@ -3,9 +3,15 @@ DESCRIPTION = 'Sample Description'
 
 NAV_HOME = 'active'
 NAV_DOWNLOAD = ''
+NAV_QA = ''
 NAV_ABOUT = ''
 
-MD_INDEX = './index.html'
+MD_INDEX = './'
+MD_DOWLOAD = './download.html'
+MD_QA = './qa.html'
+MD_QA2 = './qa2.html'
+MD_ABOUT = './about.html'
+
 MD_0005 = './001.html'
 MD_0010 = './002.html'
 MD_0015 = './003.html'
