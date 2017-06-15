@@ -981,6 +981,21 @@ class Md2Html_v0_1:
         html = markdown_mod.markdown(markdown_text, extensions=extensions)
         return html
 
+    def modify_html_add_table_of_contents(self, html):
+
+        class Tag:
+            def __init__(self, tag_name, title):
+                self.tag_name = tag_name
+                self.title = title
+                self.children = []
+
+            def add_child(self, tag):
+                self.children.append(tag)
+
+        def make_table_of_contents(top_level_tags):
+            return ''
+
+        
 
     def modify_html_bootstrap(self, html):
         soup = bs4.BeautifulSoup(html, 'html.parser')
