@@ -55,12 +55,14 @@
   </div>
   <div class="container">
    <div class="blog-header">
+    <a href='./' style=" text-decoration: none;">
     <h1 class="blog-title">
      Python入門
     </h1>
     <p class="lead blog-description">
      プログラミング言語Pythonについて
     </p>
+    </a>
    </div>
    <div class="row">
     <div class="col-sm-8 blog-main">
