@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,6 +71,48 @@
      <h2>
       制御構造
      </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         if による条件分岐
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         インデントとコードブロック
+        </a>
+       </li>
+       <li>
+        <a href="header-3">
+         for によるループ
+        </a>
+       </li>
+       <li>
+        <a href="header-4">
+         while によるループ
+        </a>
+       </li>
+       <li>
+        <a href="header-5">
+         break と continue によるループ制御
+        </a>
+       </li>
+       <li>
+        <a href="header-6">
+         3項演算子
+        </a>
+       </li>
+       <li>
+        <a href="header-7">
+         1ライナーの条件式
+        </a>
+       </li>
+      </ul>
+     </div>
      <p>
       プログラムの基本的な流れは上から下へ一行ずつ実行していくというものです。
 単純なプログラムですと、テキストファイルに実施する処理を順番に羅列するだけで実現できます。
@@ -94,7 +139,7 @@
 これらの処理を使うこと自体はそれほど難しくないので、何度も書いて慣れてしまえば、
 簡単に使いこなせるようになるはずです。
      </p>
-     <h3>
+     <h3 id="header-1">
       if による条件分岐
      </h3>
      <p>
@@ -158,7 +203,7 @@ print(‘0’) や print(‘-‘) は実行されません。
 このxに代入する値をいろいろ変えて動かしてみると、どの条件式がチェックされ、
 「if、elif、else」のどの処理が実行されたのかイメージできるはずです。
      </p>
-     <h3>
+     <h3 id="header-2">
       インデントとコードブロック
      </h3>
      <p>
@@ -275,7 +320,7 @@ print(a)
 ただ、コメントにもあるように「とりあえずプログラムの構造を作っておきたい」という場合に pass 文を利用することはよくあります。
 pass を書かかずにブロックに何もないとプログラムはエラーとなります。
      </p>
-     <h3>
+     <h3 id="header-3">
       for によるループ
      </h3>
      <p>
@@ -392,7 +437,7 @@ i が既に使われている場合は j, k と使っていくのですが、
 l (小文字のL)は数字の1や大文字のI (i)と見分けが使いにくいので使用は避けることが望ましいとされています。
 変数名としてよい名前が浮かばないときに i が使われることも多いのですが、あまりよい使い方ではありません。
      </p>
-     <h3>
+     <h3 id="header-4">
       while によるループ
      </h3>
      <p>
@@ -467,7 +512,7 @@ i+=1はiをインクリメント(i = i + 1)しています。
 2**iが123456789より大きくなったらループを抜けるという動きをします。
 ループを抜けた際iに入っている値が必要な桁数を表しています。
      </p>
-     <h3>
+     <h3 id="header-5">
       break と continue によるループ制御
      </h3>
      <p>
@@ -582,7 +627,7 @@ i に10が代入されたタイミングで break が実行され、ループか
       気をつけないと無限ループから抜けられなくなりますが、
 適切に使えば while の条件式に判定をいれるよりも綺麗なコードが書けます。
      </p>
-     <h3>
+     <h3 id="header-6">
       3項演算子
      </h3>
      <p>
@@ -622,7 +667,7 @@ print(is_even)
 <span class="c1"># False</span>
 </pre>
      </div>
-     <h3>
+     <h3 id="header-7">
       1ライナーの条件式
      </h3>
      <p>

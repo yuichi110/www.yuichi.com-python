@@ -1,12 +1,16 @@
 
-/* */
+/* Background */
 body{background-image:url(../images/Paper00.png);}
+
+
+/* Header */
 
 .blog-main h2{
 position: relative;
 padding: 0.5em;
 background: #66c388;
 color: white;
+margin-bottom: 2em;
 }
 
 .blog-main h2::before {
@@ -20,20 +24,55 @@ border-right: solid 20px rgb(149, 158, 155);
 }
 
 .blog-main h3 {
-padding: 0.25em 0.5em;
+padding: 1em 0.5em;
 color: #494949;
-background: transparent;
-border-left: solid 5px #5d94d6;
-margin:1em 0;
+background: #ffffff;
+border-left: solid 8px #5d94d6;
+margin:1.5em 0;
 }
+
+/*
+.blog-main h4{
+position: relative;
+display: inline-block;
+padding: 0 55px;
+}
+
+.blog-main h4:before, .blog-main h4:after{
+content: '';
+position: absolute;
+top: 50%;
+display: inline-block;
+width: 45px;
+height: 2px;
+border-top: solid 1px black;
+border-bottom: solid 1px black;
+}
+
+.blog-main h4:before {left:0;}
+.blog-main h4:after {right: 0;}
+*/
+
+.blog-main h4 {
+color: #364e96;/*文字色*/
+padding: 0.5em 0;/*上下の余白*/
+border-top: solid 3px #364e96;/*上線*/
+border-bottom: solid 3px #364e96;/*下線*/
+}
+
+/* margin */
 
 .blog-main p{
   margin:1em 0;
 }
 
+
+/* side bar */
+
 .blog-sidebar h3 {
 border-bottom: solid 3px black;
 }
+
 
 .blog-masthead {
   background-color: #333333;

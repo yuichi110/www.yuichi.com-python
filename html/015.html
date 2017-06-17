@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,6 +71,28 @@
      <h2>
       セット
      </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         初期化
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         操作
+        </a>
+       </li>
+       <li>
+        <a href="header-3">
+         ハッシュの仕組み
+        </a>
+       </li>
+      </ul>
+     </div>
      <p>
       次は「セット」です。セットを一言で説明すると、「集合」という概念を実現するための型です。
 たとえば、ある空の集合にAを追加すると、その集合にはAがあります。
@@ -76,6 +101,9 @@
 そして集合は「順序を持たない」ので「A、B」も、「B、A」も同じ意味を持ちます。
 セットの内部実装には非常に重要な概念があるのですが、とりあえず使い方を説明してしまいます。
      </p>
+     <h3 id="header-1">
+      初期化
+     </h3>
      <p>
       空のセットのオブジェクトを作るにはset() 関数を使います。
 空でない場合は{}に要素を並べることで作ることもできます。
@@ -99,6 +127,9 @@
       空のセットを作る際に注意して欲しいことは「変数 = {}」 としてしまうと、
   セットではなく次に説明する「辞書型のオブジェクト」が作成されてしまうということです。
      </p>
+     <h3 id="header-2">
+      操作
+     </h3>
      <p>
       セットへの要素の追加にはadd、削除にはremoveメソッドを使います。
      </p>
@@ -188,7 +219,7 @@ appendだと「末尾に加える」という意味合いになります。
 追加や削除、有無のチェックなどの機能を見ると、なんだかリストに似ているような気がしたかもしれませんが、
 両者の仕組みはまったく異なっています。
      </p>
-     <h3>
+     <h3 id="header-3">
       ハッシュの仕組み
      </h3>
      <p>

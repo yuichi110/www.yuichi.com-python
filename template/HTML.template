@@ -21,7 +21,10 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet">
   <link href="./assets/icomoon/style.css" rel="stylesheet"/>
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

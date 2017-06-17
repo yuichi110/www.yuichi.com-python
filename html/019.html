@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,12 +71,34 @@
      <h2>
       基数と文字コードの仕組み
      </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         基数
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         文字コード
+        </a>
+       </li>
+       <li>
+        <a href="header-3">
+         バイト配列
+        </a>
+       </li>
+      </ul>
+     </div>
      <p>
       日本でプログラミングをする以上、プログラミングにおける「日本語の処理」は必須の知識です。
 ただ、日本語について扱うには「文字コード」と文字データがどのように表現されているかを知るための「基数の知識」が必要です。
 そのため、順を追って基数と文字コード、そして次の章にて日本語の処理を扱うという手順で説明します。
      </p>
-     <h3>
+     <h3 id="header-1">
       基数
      </h3>
      <p>
@@ -190,7 +215,7 @@
       intの第一引数に数字のもとになる文字列を入れ、第二引数に基数を指定します。
 第二引数を省略すると10進数として扱われます。基数とN進数に関しては以上です。
      </p>
-     <h3>
+     <h3 id="header-2">
       文字コード
      </h3>
      <p>
@@ -266,7 +291,7 @@ Hello Python.
 実際、次の章でも説明しますが python3 はUTF-8 をデフォルトの文字コードにしています。
 可能であれば UTF-8 でコードを書くようにして下さい。
      </p>
-     <h3>
+     <h3 id="header-3">
       バイト配列
      </h3>
      <p>

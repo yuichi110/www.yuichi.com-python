@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,7 +71,39 @@
      <h2>
       Python 3 のインストールと実行
      </h2>
-     <h3>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         Windows 10 へのインストール
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         Mac へのインストール
+        </a>
+       </li>
+       <li>
+        <a href="header-3">
+         Python の実行
+        </a>
+       </li>
+       <li>
+        <a href="header-4">
+         コメント
+        </a>
+       </li>
+       <li>
+        <a href="header-5">
+         エラーの読み方
+        </a>
+       </li>
+      </ul>
+     </div>
+     <h3 id="header-1">
       Windows 10 へのインストール
      </h3>
      <p>
@@ -133,7 +168,7 @@ Python 2.xと3.xのプログラムには一部互換性がないので、2で作
 大きな差ですと明記しますが、コマンド名やOSのディレクトリ構造といった小さい箇所は適時読み変えて下さい。
 また、「ターミナル」と言った場合はパワーシェルやコマンドプロンプトのことを指します。
      </p>
-     <h3>
+     <h3 id="header-2">
       Mac へのインストール
      </h3>
      <p>
@@ -174,7 +209,7 @@ python2.7          python3.5          pythonw
       Python3 を使うつもりで間違えて Python2 を使ったり、
 その逆が発生したりしないように注意をしてください。
      </p>
-     <h3>
+     <h3 id="header-3">
       Python の実行
      </h3>
      <p>
@@ -307,7 +342,7 @@ PyCharm といった IDE (統合開発環境) を使った開発が現場では�
 あまり複雑なことには使えませんがある処理をコピー・ペーストで実行したり、
 SSH 経由で他のマシンに実行させたりする場合に便利です。
      </p>
-     <h3>
+     <h3 id="header-4">
       コメント
      </h3>
      <p>
@@ -386,7 +421,7 @@ Python では「プログラムとして解釈されないテキスト」を書�
 自分でコードを書く際も積極的にコメントを書くようにして下さい。
 ただ、コメントでわざわざ書かなくてもいい自明のことは書かないようにして下さい。
      </p>
-     <h3>
+     <h3 id="header-5">
       エラーの読み方
      </h3>
      <p>

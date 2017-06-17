@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,6 +71,33 @@
      <h2>
       モジュール
      </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         モジュールの作成
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         モジュールのリロード
+        </a>
+       </li>
+       <li>
+        <a href="header-3">
+         モジュールの読み込みと実行
+        </a>
+       </li>
+       <li>
+        <a href="header-4">
+         モジュール紹介
+        </a>
+       </li>
+      </ul>
+     </div>
      <p>
       Pythonのプログラムは書けば書くほど大きくなります。
 数百行のコードでしたらひとつのファイルに書けないことはないですが、
@@ -178,7 +208,7 @@ import されるモジュール名が長かったりわかりにくかったり�
       あるモジュールをテストするといったシナリオでは有効な使い方ですが、
 本番環境用のコードでは使用しないほうがよいです。
      </p>
-     <h3>
+     <h3 id="header-1">
       モジュールの作成
      </h3>
      <p>
@@ -251,7 +281,7 @@ python!
 モジュールの探索には規則があり、それを知ることで別の場所にあるモジュールを読み込むこともできます。
 ただ、それらは難しいため本書ではなく本シリーズの下編にて扱います。
      </p>
-     <h3>
+     <h3 id="header-2">
       モジュールのリロード
      </h3>
      <p>
@@ -328,7 +358,7 @@ hello!
       本番環境でモジュールをリロードすることはあまりありませんが、
 サーバープロセスなどにおいて動的に実行するコードを更新するといった目的にも使えるかもしれません。
      </p>
-     <h3>
+     <h3 id="header-3">
       モジュールの読み込みと実行
      </h3>
      <p>
@@ -482,7 +512,7 @@ if(__name__ == '__main__'):
 モジュールとして使われるプログラムを起点と呼び出した場合にだけテストをするというのは理にかなっています。
 この書き方は様々なところで使われているので、ぜひ覚えておいて下さい。
      </p>
-     <h3>
+     <h3 id="header-4">
       モジュール紹介
      </h3>
      <p>

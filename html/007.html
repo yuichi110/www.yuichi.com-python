@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,6 +71,43 @@
      <h2>
       Python で最重要な型
      </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         数値型
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         文字列型
+        </a>
+       </li>
+       <li>
+        <a href="header-3">
+         Bool型
+        </a>
+       </li>
+       <li>
+        <a href="header-4">
+         リスト
+        </a>
+       </li>
+       <li>
+        <a href="header-5">
+         型の確認 (type)
+        </a>
+       </li>
+       <li>
+        <a href="header-6">
+         型の変換 (キャスト)
+        </a>
+       </li>
+      </ul>
+     </div>
      <p>
       型と変数の基本的な使い方がわかったので、最初に知るべき重要な型とその利用法をいくつか紹介したいと思います。
 今回紹介するのは以下の4つとなります。
@@ -90,7 +130,7 @@
       この4つの型を使わずにプログラムを書くことは不可能と言ってもよいほどです。
 これ以外にも重要な型はいくつかありますが、まずはこれら4つの型をしっかりと使いこなせるようになることが大事です。
      </p>
-     <h3>
+     <h3 id="header-1">
       数値型
      </h3>
      <p>
@@ -242,7 +282,7 @@ i += 1
 可能であれば実装の労力と実効速度およびバグの少なさを考慮して「標準ライブラリ」や「外部のライブラリ」を使うべきです。
 ライブラリ(モジュール)の使いかたは本書で扱いますが、個別ライブラリに関しては主に下編で扱います。
      </p>
-     <h3>
+     <h3 id="header-2">
       文字列型
      </h3>
      <p>
@@ -431,7 +471,7 @@ TypeError: cannot concatenate 'str' and 'int' objects
 'hello5'
 </pre>
      </div>
-     <h3>
+     <h3 id="header-3">
       Bool型
      </h3>
      <p>
@@ -530,7 +570,7 @@ False
 条件分岐のif文では、たとえば変数aがTrueなら処理Aを実行し、Falseなら処理Bをするといった使い方をします。
 具体的にBoolをどのように使うかは制御文を学ぶ際に理解できると思いますので、今回はここで解説を切り上げます。
      </p>
-     <h3>
+     <h3 id="header-4">
       リスト
      </h3>
      <p>
@@ -718,7 +758,7 @@ True
 上記の python2 のサンプルとほぼおなじ感覚で利用することができます。
 リストは奥が深いので、もう少しプログラミングの基礎を学習したあとで一章を割いて詳細を扱います。
      </p>
-     <h3>
+     <h3 id="header-5">
       型の確認 (type)
      </h3>
      <p>
@@ -736,7 +776,7 @@ True
 C や Java といった言語であれば常に型を気にしてコードを書く必要があるため問題になりませんが、
 Python はどの型を使っているか分からなくなることがあるため、その際は type 関数で調べて下さい。
      </p>
-     <h3>
+     <h3 id="header-6">
       型の変換 (キャスト)
      </h3>
      <p>

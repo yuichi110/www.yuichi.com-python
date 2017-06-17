@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,6 +71,28 @@
      <h2>
       日本語の扱い
      </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         プログラムファイル内での文字コードの宣言
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         文字コードの変換
+        </a>
+       </li>
+       <li>
+        <a href="header-3">
+         日本語ファイルの読み書き
+        </a>
+       </li>
+      </ul>
+     </div>
      <p>
       そもそもPythonのプログラムファイルもプログラムが書かれたテキストファイルです。
 そのため、それがどの文字コードを利用しているかということを
@@ -75,6 +100,9 @@
 ブラウザやテキストエディタが文字化けしてしまうのと同じように、
 Python も文字コードが分からないと内部に書かれているプログラムを解釈できずに実行できません。
      </p>
+     <h3 id="header-1">
+      プログラムファイル内での文字コードの宣言
+     </h3>
      <p>
       Python3 はUTF-8 をデフォルトの文字コードとしているため、
 UTF-8以外を使う場合は「この文字コードを使います」とファイルの先頭で宣言します。
@@ -146,7 +174,7 @@ utf-8と宣言しているので、utf-8以外で書かれているとトラブ�
 日本語などのマルチバイト文字をほとんど意識せずにアルファベットと同じ感覚で使えます。
 Python 2では文字列型の亜種である「Unicode文字列型」を使うことで日本語を扱っていたのに比べると随分と簡単になりました。
      </p>
-     <h3>
+     <h3 id="header-2">
       文字コードの変換
      </h3>
      <p>
@@ -196,7 +224,7 @@ Shift-JIS から EUC-JP への変換も、Shift-JIS を引数 shift-jis で deco
 それらをエンコードの指定をして読み込むことでPython のユニコード文字列に変換することができる。
 この流れは日本語以外にもあてはまりますので覚えておいて下さい。
      </p>
-     <h3>
+     <h3 id="header-3">
       日本語ファイルの読み書き
      </h3>
      <p>

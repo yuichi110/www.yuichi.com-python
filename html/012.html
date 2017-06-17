@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,6 +71,28 @@
      <h2>
       テキスト処理
      </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         文字列型のメソッド
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         文字列の生成
+        </a>
+       </li>
+       <li>
+        <a href="header-3">
+         エスケープ記号
+        </a>
+       </li>
+      </ul>
+     </div>
      <p>
       テキスト処理は要するに、文字列型の処理です。
 前の章で扱ったように文字列型もオブジェクトであるため、様々なメソッドが利用できます。
@@ -174,7 +199,7 @@
 あまり使いどころはありませんが、両方とも省略すると、文字列のすべてが取得されます。
 このスライシングはリストから複数の要素を取り出す際にも使えます。
      </p>
-     <h3>
+     <h3 id="header-1">
       文字列型のメソッド
      </h3>
      <p>
@@ -390,7 +415,7 @@ splitlines() という専用のメソッドもあります。
 'HELLO PYTHON'
 </pre>
      </div>
-     <h3>
+     <h3 id="header-2">
       文字列の生成
      </h3>
      <p>
@@ -556,7 +581,7 @@ C言語などの printf に慣れているかたは書式化演算子のほう�
 <span class="c1"># 1taro35male</span>
 </pre>
      </div>
-     <h3>
+     <h3 id="header-3">
       エスケープ記号
      </h3>
      <p>

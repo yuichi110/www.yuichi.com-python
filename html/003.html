@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,6 +71,40 @@
      <h2>
       プログラミングとはそもそもなにか
      </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         なぜ Python を学ぶのか
+        </a>
+        <ul>
+         <li>
+          <a href="#header-2">
+           Pythonの例
+          </a>
+         </li>
+         <li>
+          <a href="#header-3">
+           Javaの例
+          </a>
+         </li>
+         <li>
+          <a href="#header-4">
+           C言語の例
+          </a>
+         </li>
+         <li>
+          <a href="#header-5">
+           言語の比較
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </div>
      <p>
       機械は人間の言葉をそのまま理解することはできません。
 0,1のバイナリで書かれた命令をメモリに読み込み、CPUがそれを実行することで機械は人間の命令を実現します。
@@ -94,7 +131,7 @@ PCのディスプレイに"Hello"と表示させるという命令も、つき�
      <p>
       ※広義では0、1で命令を羅列することもプログラミングといえます。ただ、今ではあまり一般的ではないと考えています。
      </p>
-     <h3>
+     <h3 id="header-1">
       なぜ Python を学ぶのか
      </h3>
      <p>
@@ -191,7 +228,7 @@ PCのディスプレイに"Hello"と表示させるという命令も、つき�
      <p>
       では、実際にこれを実現するプログラムの例を、いくつかの有名な言語で記載していきます。各言語について知らない方も多いと思うので、プログラムが実際に何をしているかということよりも、ぼーっと眺めることで、各プログラミング言語の違いについていろいろと思いを馳せていただけたらよいと思います。なお、比較を簡単にするために、必ずしも教科書的な書き方をしていないので注意して下さい。
      </p>
-     <h4>
+     <h4 id="header-2">
       Pythonの例
      </h4>
      <p>
@@ -221,7 +258,7 @@ PCのディスプレイに"Hello"と表示させるという命令も、つき�
      <p>
       コード中にある「#」以降がプログラムのコメントであり、どのような処理をしているかメモしています。
      </p>
-     <h4>
+     <h4 id="header-3">
       Javaの例
      </h4>
      <p>
@@ -277,7 +314,7 @@ PCのディスプレイに"Hello"と表示させるという命令も、つき�
      <p>
       プログラムの実行方法に関しても、Pythonのほうが Java よりも簡単です。Python であればこのプログラムファイルを「python プログラム名」というコマンドで呼び出すだけですが、Javaは「コンパイル」と呼ばれる作業で上記のテキストで書かれたプログラムを0、1のバイナリにしてあげて、それをコマンドで指定して実行するという方式になります。
      </p>
-     <h4>
+     <h4 id="header-4">
       C言語の例
      </h4>
      <p>
@@ -344,7 +381,7 @@ PCのディスプレイに"Hello"と表示させるという命令も、つき�
       "void listFile(char dirPath[], int indentLevel){" の下にあるプログラムがディレクトリを走査するプログラムです。
 先に提示したPythonやJavaと同じアルゴリズムですが、ずいぶんと長くなっています。
      </p>
-     <h4>
+     <h4 id="header-5">
       言語の比較
      </h4>
      <p>

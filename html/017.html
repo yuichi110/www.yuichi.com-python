@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,6 +71,26 @@
      <h2>
       None 型
      </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         None型とは
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         None型の判定
+        </a>
+       </li>
+      </ul>
+     </div>
+     <h3 id="header-1">
+      None型とは
+     </h3>
      <p>
       None 型は「値がない」ということを表明する特別な型です。
 たとえば返り値がない関数の結果を取得しようとしたら、以下のように None 型が取得できます。
@@ -84,7 +107,12 @@
 たまに関数やメソッドから期待されるオブジェクトの代わりに返されることがあります。
 少し高度になるのですが、たとえばある関数内の複雑な処理(例えばネットワークやデータベースへの接続など)に失敗した際に、
 「Noneを返す」もしくは「例外を発生させる」とことで処理が失敗したことを示すことができます。
-None を返す実装の場合、返り値がNone であれば失敗したことがわかり、そうでなければ成功したということが分かります。
+     </p>
+     <h3 id="header-2">
+      None型の判定
+     </h3>
+     <p>
+      None を返す実装の場合、返り値がNone であれば失敗したことがわかり、そうでなければ成功したということが分かります。
 None か否かの判定には is 演算子を使うことが推奨されています。
 理由が高度になるため説明は割愛しますが、== 演算子での判定は推奨されません。
      </p>

@@ -19,12 +19,15 @@
   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
   <!-- Custom -->
   <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet"/>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  </link>
  </head>
  <body>
   <div class="blog-masthead">
@@ -68,6 +71,36 @@
      <h2>
       プログラムへの入力
      </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         なぜ入力が必要化
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         コマンドライン引数
+        </a>
+       </li>
+       <li>
+        <a href="header-3">
+         標準入力
+        </a>
+       </li>
+       <li>
+        <a href="header-4">
+         インタラクティブなプログラムの作成
+        </a>
+       </li>
+      </ul>
+     </div>
+     <h3 id="header-1">
+      なぜ入力が必要化
+     </h3>
      <p>
       WindowsやMacのGUIアプリケーションを使うときに、さまざまな入力を求められることはありませんか。
 書き出すファイル名の入力や、利用するサーバを一覧から選択するといった場合などです。
@@ -107,7 +140,7 @@
 それにそもそも「プログラムを開いてそれを修正する」などということは、そのプログラムの開発者でなければできません。
 要するにプログラムファイルをいちいち書き変えるという対応での解決策はなしということです。
      </p>
-     <h3>
+     <h3 id="header-2">
       コマンドライン引数
      </h3>
      <p>
@@ -205,7 +238,7 @@ sys.argvの何番目という表現を延々とプログラム中で使い続け
       なお、UnixやLinuxコマンドの「オプション(-v や --help など)」相当のことを実装したいのであれば、
 sys.argvを使って根性で作りこむよりも専用のパッケージ「argparse」などを利用したほうがよいかと思います。
      </p>
-     <h3>
+     <h3 id="header-3">
       標準入力
      </h3>
      <p>
@@ -346,7 +379,7 @@ Unixの思想にはいろいろあるのですが、「入力」に関しては�
 なお、パスワード入力に関してはgetpassというモジュールもありますので、
 パスワード入力を求める場合は、それを使ってもよいでしょう。
      </p>
-     <h3>
+     <h3 id="header-4">
       インタラクティブなプログラムの作成
      </h3>
      <p>

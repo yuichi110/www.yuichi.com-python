@@ -419,6 +419,19 @@ class Md2Html_v0_1:
                     fname = config.get(markdown_section, 'replace')
                     d['replace'] = path.join(self.dir_template, fname)
 
+                # table of contents
+                if config.has_option(markdown_section, 'toc'):
+                    str_value = config.get(markdown_section, 'toc').upper().strip()
+                    if str_value == 'TRUE':
+                        d['toc'] = True
+                    elif str_value == 'FALSE':
+                        d['toc'] = False
+                    else:
+                        logging.warning('   toc value must be True or False')
+                        raise
+                else:
+                    d['toc'] = False
+
                 dict_markdown[markdown_section] = d
 
                 for (key, value) in d.items():
@@ -622,6 +635,8 @@ class Md2Html_v0_1:
                         continue
                     if key == 'pdf':
                         continue
+                    if key == 'toc':
+                        continue
 
                     if not path.isfile(value):
                         logging.warning('        {} : not exist.'.format(key))
@@ -705,6 +720,10 @@ class Md2Html_v0_1:
                 # markdown html
                 text_markdown = self.read_file(path_markdown)
                 html_markdown = self.convert_markdown_to_html(text_markdown)
+                if d['toc']:
+                    print("TABLE OF CONTENTS!!")
+                    html_markdown = self.modify_html_add_table_of_contents(html_markdown)
+
                 if self.bootstrap_html:
                     html_markdown = self.modify_html_bootstrap(html_markdown)
                 logging.debug(('        convert markdown to content html : success'))
@@ -781,6 +800,9 @@ class Md2Html_v0_1:
                 # replace keywords
                 for replace in path_replaces:
                     html = self.modify_html_keyword(html, replace)
+
+                html = self.remove_special_sequences(html)
+
                 all_changed = self.check_all_keywords_changed(html)
                 if not all_changed:
                     raise
@@ -844,6 +866,9 @@ class Md2Html_v0_1:
                 # replace keywords
                 for replace in path_replaces:
                     html = self.modify_html_keyword(html, replace)
+
+                html = self.remove_special_sequences(html)
+
                 all_changed = self.check_all_keywords_changed(html)
                 if not all_changed:
                     raise
@@ -888,6 +913,9 @@ class Md2Html_v0_1:
                 # replace
                 for replace in path_replaces:
                     html = self.modify_html_keyword(html, replace)
+
+                html = self.remove_special_sequences(html)
+
                 all_changed = self.check_all_keywords_changed(html)
                 if not all_changed:
                     raise
@@ -983,19 +1011,68 @@ class Md2Html_v0_1:
 
     def modify_html_add_table_of_contents(self, html):
 
-        class Tag:
-            def __init__(self, tag_name, title):
-                self.tag_name = tag_name
-                self.title = title
-                self.children = []
+        if '{{ TOC }}' not in html:
+            logging.warning('    no replacement sequence "{{ TOC }}" in this page')
+            return html
 
-            def add_child(self, tag):
-                self.children.append(tag)
+        # BODY
+        body_soup = bs4.BeautifulSoup(html, 'html.parser')
+        tags = body_soup.find_all(['h3', 'h4'])
+        headers = []
+        for i, tag in enumerate(tags):
+            tag_id = 'header-{}'.format(i + 1)
+            tag['id'] = tag_id
+            t = (tag.name, tag.text.strip(), tag_id)
+            headers.append(t)
+        if len(headers) == 0:
+            logging.warning('    no h3, h4 headers in this page')
+            return html
 
-        def make_table_of_contents(top_level_tags):
-            return ''
+        # Table of contents
+        previous = 'h3'
+        is_first = True
+        toc_html = '<div id="toc_container" class="no_bullets"><p class="toc_title">本記事の内容</p><ul class="toc_list">'
+        for tag_name, tag_text, tag_id in headers:
+            if tag_name == 'h3':
+                if is_first:
+                    toc_html += '<li><a href="#{}">{}'.format(tag_id, tag_text)
+                    is_first = False
+                else:
+                    if previous == 'h3':
+                        toc_html += '</a></li><li><a href="{}">{}'.format(tag_id, tag_text)
+                    else:
+                        toc_html += '</a></li></ul></li><li><a href="#{}">{}'.format(tag_id, tag_text)
 
-        
+                previous = 'h3'
+
+            else:
+                if is_first:
+                    raise
+
+                if previous == 'h3':
+                    toc_html += '</a><ul><li><a href="#{}">{}'.format(tag_id, tag_text)
+                else:
+                    toc_html += '</a></li><li><a href="#{}">{}'.format(tag_id, tag_text)
+
+                previous = 'h4'
+
+        if previous == 'h3':
+            toc_html += '</li></ul></div>'
+        else:
+            toc_html += '</li></ul></li></ul></div>'
+
+        # Merge
+        body_html = body_soup.prettify(body_soup.original_encoding)
+        toc_soup = bs4.BeautifulSoup(toc_html, 'html.parser')
+        toc_html = toc_soup.prettify(toc_soup.original_encoding)
+        new_html = re.sub(r'<p>\s*\{\{ TOC \}\}\s*</p>', toc_html, body_html)
+        new_html = new_html.replace('{{ TOC }}', toc_html)
+        return new_html
+
+    def remove_special_sequences(self, html):
+        html = re.sub(r'<p>\s*\{\{ TOC \}\}\s*</p>', '', html)
+        html = html.replace('{{ TOC }}', '')
+        return html
 
     def modify_html_bootstrap(self, html):
         soup = bs4.BeautifulSoup(html, 'html.parser')
