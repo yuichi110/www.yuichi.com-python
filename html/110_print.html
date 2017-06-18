@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="Sample Description" name="description"/>
+  <link href="./assets/favicon.ico" rel="icon"/>
+  <title>
+   Python入門
+  </title>
+  <link href="./assets/css/bootstrap.css" rel="stylesheet">
+   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body>
+  <!-- GENERATED HTML START -->
+  <h2>
+   オブジェクトは何をすべきか
+  </h2>
+  <p>
+   オブジェクト指向において「オブジェクト」と「インスタンス」は非常に近い存在です。
+ただ、インスタンスは「クラスから生成される」という意味合いが強く、
+以前お話した、たい焼きの型枠とたい焼きといったような文脈で使われます。
+それに対して、オブジェクトは「ある特定の領域をカバーする実体」という意味合いが強いかもしれません。
+また、クラスとクラスの連携を意識する際も「オブジェクト」という言葉が良く使われます。
+  </p>
+  <p>
+   「ある特定の領域をカバーする実体」や「連携」と言われても少しわかりにくいと思うので例をあげて説明しましょう。
+以下の図を見てください。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1050_image/01.jpg"/>
+  </p>
+  <p>
+   これは簡単なWebサービスを作る際に必要な人物と、
+それぞれの仕事および関係を示しています。
+開発論についての話題ではないので、
+もっとこうしたほうがよいというようなことは置いておいてください)。
+  </p>
+  <p>
+   上図を見てわかるように、以下の登場人物がいます。
+  </p>
+  <ul>
+   <li>
+    Customer
+   </li>
+   <li>
+    Project Leader
+   </li>
+   <li>
+    Programmer
+   </li>
+   <li>
+    Designer
+   </li>
+  </ul>
+  <p>
+   それぞれの登場人物が果たすべき仕事は明確に分けられており、各人物の間の関係も明確です。
+この図におけるそれぞれの登場人物がオブジェクト指向のオブジェクトにあたります。
+  </p>
+  <p>
+   つまり、オブジェクト指向におけるオブジェクトは単にクラスから生成された実体(インスタンス)であるという意味合いだけでなく、
+以下の特徴があります。
+  </p>
+  <ul>
+   <li>
+    それぞれが果たす役割が明確に決まっている
+   </li>
+   <li>
+    オブジェクト同士を連携させて全体像を作る
+   </li>
+  </ul>
+  <p>
+   この「役割が明確」「連携させて全体となる」といったことは手続き型言語でも実現可能です。
+実際に優秀なエンジニアはこれらを意識して設計を行います。
+ただ、オブジェクト指向言語は設計さえ正しければこれらを容易に実現できるのに対して、
+手続き型言語は各プログラマの技量に強く依存します。
+そしてチーム全体で情報の共有をより多く必要とします。
+要は、手続き型言語では開発のリーダーや各プログラマの腕が悪いと簡単にプログラムのアーキテクチャが崩壊するということです。
+  </p>
+  <h3>
+   コンポジション
+  </h3>
+  <p>
+   オブジェクトとオブジェクトは連携するということがわかっていただけたかと思います。
+問題はこれをどう実現するかです。
+  </p>
+  <p>
+   実はこれはすごい単純な話で、オブジェクトがオブジェクトを持てば解決します。
+たとえば自動車という複雑な製品をイメージしてください。車は数万以上のパーツから構成されているものの、
+それらのパーツはある単位にまとめられています。
+たとえば、構成要素として、エンジン、4つのタイヤ、ハンドルがあげられます。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1050_image/02.jpg"/>
+  </p>
+  <p>
+   車というオブジェクトが金属パーツ数千個、ネジを数千個持つと考えるのではなく、
+車というオブジェクトが、エンジンオブジェクト、4つのタイヤオブジェクト、ハンドルオブジェクトを持つと考えるのです。
+こうすることで、車というオブジェクトを人が理解しやすくなり、設計も簡単になります。
+  </p>
+  <p>
+   このように、オブジェクトがオブジェクトを持つということを「コンポジション」と呼びます。
+コンポジションは当然ながら一階層ではなく、複数の階層になる場合があります。
+たとえば、車オブジェクトはタイヤオブジェクトを持ち、タイヤオブジェクトはブレーキオブジェクトを持つという構成も考えられます。
+車にそれほど詳しくないので間違っているかもしれませんが。
+  </p>
+  <p>
+   情報を隠蔽するメリットは、何も修正や改良だけではありません。話を車の開発に戻しましょう。
+  </p>
+  <p>
+   車が登場しはじめた当時は、おそらく車のすべてのパーツに対して開発者が熟知している必要があったはずです。
+ただ、そのようなことはどんどん複雑になってきている現在の車ではできないはずです。
+各自動車メーカーにはエンジンの専門家やフレーム開発の専門家、
+ブレーキの専門家といったようにある特定のパーツに特化した専門家を多数そろえていて、
+それぞれの専門家は、自分の範囲外の分野について、深い知識はそれほど必要としません。
+たとえばブレーキの専門家は、エンジンの省エネ化方式については、知る必要はありません。
+一方、車の全体設計をするエンジニアは、各パーツを組み合わせて車を作ったり、
+新しい車を作るために必要な要件を専門家に伝えればよいだけです。
+  </p>
+  <p>
+   オブジェクト指向もこれと同じことが言えます。
+各オブジェクトを作っている人たちは「自分が作るオブジェクト(クラス)」については深く理解する必要があるものの、
+「自分が利用するオブジェクト」についてはどう使えばよいかだけ知っておけばよいのです。
+  </p>
+  <p>
+   ある複雑なモノやシステムも、それを分解していけば小さな単位に分けることができるはずです。
+複雑なものをどのように自然な実現しやすいコンポーネント単位にまとめるか。
+プログラマのスキルは「細かい処理をいかにして実現するか」ということだけではなく、
+「全体像を描き、いかに最適な論理的な構造を作るか」という場面でも必要とされます。
+  </p>
+  <p>
+   正しい設計がシステムやサービスの構築には必須です。
+たくさんコードを書いて、設計に失敗して、修正して、そういったことを繰り返していると、
+自然と正しい設計ができるようになるのではないでしょうか。
+デザインパターンという設計の教科書を読むのもてっとり早いのですが、ある程度の経験がないと自分の血肉にはならないです。
+  </p>
+  <h3>
+   コンポジションの実現
+  </h3>
+  <p>
+   実際にどのようにしてコンポジションを実現するかについて話します。
+先ほどのWebサービスの開発の仕組みを簡単にして、以下の図のようなものを構築してみたいと思います。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1050_image/03.jpg"/>
+  </p>
+  <p>
+   見てわかるようにManagerオブジェクトのBobが、EngineerオブジェクトのTomに作業を依頼するというものです。
+実際にはありえない話でしょうが、上司のBobは算数ができないため、Tomに計算処理を依頼するというシナリオでコードを書いてみます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">tom</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">work_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tom</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">work_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tom</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Engineer</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+  <span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="n">bob</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">()</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">work_a</span><span class="p">()</span>
+<span class="c1"># 8</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">work_b</span><span class="p">()</span>
+<span class="c1"># 12</span>
+</pre>
+  </div>
+  <p>
+   上記コードを見ると ManagerクラスがEngineerのインスタンスであるtomを持っているということがわかります。
+そしてManagerのメソッドを見ると、tomに仕事を依頼して、その結果を得ていることがわかります。
+今回の例は非常に簡単な処理(計算)をコンポジションで実現していますが、実際はこの処理が複雑なものに置き換えられます。
+そうするとコンポジションを使う側のManager クラスに相当する側の処理がシンプルに保たれます。
+  </p>
+  <p>
+   もう少しプログラムを複雑にしてオブジェクト指向のメリットを得てみたいと思います。
+この無能なマネージャーBobは仕事が管理できておらず、
+どのようなことを会議で話していたかまったく覚えられないとしましょう。
+そこで優秀な秘書Saraに時刻付きでログを取ってもらうことにしました。
+これをプログラムで実現してみます。
+  </p>
+  <p>
+   この秘書は算数をするエンジニアより優秀で複雑なので、
+今回は Manager クラス(インスタンスはBob)と新しく作る Secretary クラス(インスタンスは sara) をモジュールに分けてコードを整理します。
+サンプルコードで時間関連のライブラリを使うため、その機能を簡単に紹介しておきます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="c1"># time モジュールをインポート</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># 現在時刻を得る</span>
+<span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">())</span>
+<span class="s1">'Wed Aug 24 08:37:28 2016'</span>
+
+<span class="c1"># x 秒間スリープする</span>
+<span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">());</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">())</span>
+<span class="s1">'Wed Aug 24 08:37:50 2016'</span>
+<span class="s1">'Wed Aug 24 08:37:55 2016'</span>
+</pre>
+  </div>
+  <p>
+   まず、秘書のSecretaryクラスを実装します。
+コードを見てもらうとわかりますが、write_log メソッドを呼ばれるリスト型のインスタンス変数のlog に与えられたログを時間付きで追加します。
+そして get_log メソッドが呼ばれると、追加されてきたログ全てを改行コードで結合して文字列として返します。
+このクラスはsecretary.pyに書かれています。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">Secretary</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="k">def</span> <span class="nf">write_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'{}: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="n">text</span><span class="p">))</span>
+
+  <span class="k">def</span> <span class="nf">get_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">)</span>
+</pre>
+  </div>
+  <p>
+   次に上司のManagerクラスを以下のように定義します。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">secretary</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">Manager</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sara</span> <span class="o">=</span> <span class="n">Secretary</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">work_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sara</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sara</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span><span class="s1">'hey'</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">work_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sara</span><span class="o">.</span><span class="n">get_log</span><span class="p">())</span>
+</pre>
+  </div>
+  <p>
+   コンストラクタで秘書をインスタンス化してインスタンス変数に持っています。
+今回は説明と話を合わせるために sara という名前にしていますが、本来であればもっと一般的な名前をつけるべきです。
+work_a メソッドでその秘書の更にログを取ってもらい、sleep関数で5秒ほど昼寝をして、
+もういちど発言のログをとってもらいます。
+そして work_b メソッドでは秘書にとってもらったログを確認しています。
+  </p>
+  <p>
+   Manager クラスをインスタンス化し、そのメソッドを呼び出すと以下のようになります。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">bob</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">()</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">work_a</span><span class="p">()</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">work_b</span><span class="p">()</span>
+<span class="c1"># Wed Oct 14 21:33:01 2015: hello</span>
+<span class="c1"># Wed Oct 14 21:33:06 2015: hey</span>
+</pre>
+  </div>
+  <p>
+   上司の発言ログが時間付きで得られています。それほど難しくないと思います。
+先に扱ったEngineerとSecretaryの例なのですが、非常に簡単なものの実はかなり一般的な使い方となります。
+  </p>
+  <p>
+   まずEngineerの例は、特定の複雑な処理をAPIのようにして提供していることがわかります。
+ただ、処理の主導権自体はManagerにあり、Engineerは100%、Managerが思うままに動きます。
+正直なところ、このような使い方の場合はモジュールとして独立させて、
+必要な処理を単なる関数として定義したほうがよいかもしれませんね。
+そもそもインスタンスを作るメリットがあまりありません。
+次にSecretaryですが、これは非常にオブジェクト指向の思想にあった良い使い方です。
+先ほどのEngineerの例と違って、こちらは内部に「今までのログ」という「状態」を持っていることがわかります。
+本来はManagerクラスが何を何時に言ったか覚えていなければいけないものを、
+その作業をすべてSecretaryに肩代わりしてもらっています。
+Secretaryが状態を持つということは、100%マネージャーの思いどおりになるとは限らないということですが、
+少なくともあれもこれもとすべてマネージャーにやらせるよりは、専任の人(クラス)にそれをやらせたほうが間違いは少ないです。
+  </p>
+  <p>
+   つまりクラスを使うことで、特定の複雑な処理を簡単に呼び出すようにしたり、
+ある特定の処理の複雑な状態管理をシンプルに管理できるようになるといえます。
+クラスを使わない場合と使う場合の比較図を以下に記します。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1050_image/04.jpg"/>
+  </p>
+  <p>
+   プログラミングを学びたての人は複雑な機能を持つ大きなクラスを作りがちです。
+ただ、そのようなクラスは規模が大きくなるにつれてどこで何をやっているかどんどん分からなくなります。
+図でいうところの機能Aと機能Bのインスタンス変数やメソッドが入り混じってくるためです。
+一方、これらの機能を切り出して図の右のようなコンポジションを使った設計にすると機能Aと機能Bのコードが入り乱れにくくなります。
+なぜならそれらはクラスとして独立しているからです。
+  </p>
+  <p>
+   このとき注意して欲しいのは右のクラスAとクラスBが直接やりとりすることを極力少なくすることです。
+もしクラスAとクラスBが直接やりとりしてしまうと、
+それらを利用しているメインクラスの知らないところで「オブジェクトの状態が変わっている」可能性が高くなります。
+そのようなことだと「もしかしてこうなっているかも」と余計なことを考えてくる必要性が出てきます。
+例のような3者の関係ですら頭で追うのは難しいのに、これが4,5 と増えていくと追いきれなくなってきます。
+コンポジションを実現する場合はクラスの設計をシンプルにするだけでなく、オブジェクト間の連携の仕組みもシンプルに保つことを心がけて下さい。
+  </p>
+  <h3>
+   クラス分けによるコードの再利用
+  </h3>
+  <p>
+   クラス分けをすることにより実装がシンプルになるという話をしましたが、これはコードを再利用する際にも重要なことです。
+先ほどのSecretaryクラスのSaraですが、ManagerのBobの上司であるDirectorのJohnも「俺もログ機能を使いたい」と思ったとします。
+仮にログの機能をSecretaryに実装せずに、直接Managerクラスに実装してしまったとしたら、
+DirectorにManagerのログ機能を「コピー&amp;ペースト」で実装することになると思います。
+一方、きちんと Secretaryクラスとして機能が分けられていれば、DirectorクラスもManagerクラスと同様に、
+Secretaryクラスを内部に持つことで、ログ機能を簡単に使えるようになります。
+コピペに比べると随分とエレガントですし、仮にログ機能にバグが見つかったとしても修正は一箇所で済みます。
+  </p>
+  <p>
+   個人的な考えですが、一般的に自分で設計をするクラスは2種類あると考えています。
+  </p>
+  <ul>
+   <li>
+    アプリやサービスのアーキテクチャを作るクラス
+   </li>
+   <li>
+    上記クラスが利用する汎用処理のクラス
+   </li>
+  </ul>
+  <p>
+   はっきり言うと、すべて汎用クラスとすることはライブラリの開発以外は不可能です。
+独自の機能は一箇所でしか使われず、それはあなたが開発するアプリやサービスを 特徴付けるものです。
+ただ、すべてこのような独自機能のクラスに実装を定義してしまうとコードが複雑になり、メンテナンスも大変になります。
+そこで独自機能を実現するために「どのような汎用処理が必要か」をよく考えて、それを切り出してクラスとして定義してあげる。
+自分の独自機能は可能な限り、標準ライブラリや自分が作った汎用クラスを使いながらシンプルなコードで実現する。
+そうすることで独自性を持たせつつ、なおかつ理解しやすいコードが作れるのではないかと思っています。
+  </p>
+  <p>
+   コンポジションの利点を感じて欲しいので先ほどのクラスSecretaryクラスを改良して動作を変更させるサンプルをお見せします。
+先ほどの Secretary クラスにはひとつ問題があります。
+それはプログラムを終了するとデータをすべて失ってしまうことです。
+この問題を解決したいとしましょう。仮にこの機能をSecretaryクラスではなく、
+プログラムの主役であるManagerクラスに実装していたとすると、コードの修正はメインとなるクラスをいじらなければならなくなります。
+メインとなるクラスは一般的に複雑で、なおかついろいろなものを利用しているため、テストなどもしにくいものです。
+正直なところ、ログの方式の変更程度でメインとなるクラスをいじるのは面倒くさく、なおかつバグを生むというリスクも高まります。
+  </p>
+  <p>
+   ただ、きちんとSecretaryクラスとしてログ機能が実装されていると、メインとなるManagerクラスをいじらずに、
+Secretaryクラスのみを変更するだけで機能をアップデートすることができます。
+  </p>
+  <p>
+   試しにプログラム終了時にデータを失うという問題点を回避する修正を加えてみます。
+これには以前お話したPickleという機能を使ってみます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">Secretary</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">logfile</span> <span class="o">=</span> <span class="s1">'_log.txt'</span>
+
+  <span class="k">def</span> <span class="nf">write_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="s2">"{}: {}</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logfile</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">get_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logfile</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">log</span>
+</pre>
+  </div>
+  <p>
+   コードを読んでもらうとわかりますが、コンストラクタでログファイルのパスを設定し、
+write_log をすると新しいログを追記し、get_log をするとファイルを読み出して今までのログを返します。
+  </p>
+  <p>
+   これを利用するManagerクラスを以下に記載します。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">secretary</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">Manager</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sara</span> <span class="o">=</span> <span class="n">Secretary</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">work_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sara</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sara</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span><span class="s1">'hey'</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">work_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sara</span><span class="o">.</span><span class="n">get_log</span><span class="p">())</span>
+
+<span class="n">bob</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">()</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">work_a</span><span class="p">()</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">work_b</span><span class="p">()</span>
+</pre>
+  </div>
+  <p>
+   先に書いたManagerクラスと見比べてみてください。一行も変わっていません。これは手抜きではなく、あえてそうしています(笑)。
+プログラムのメインとなるManagerのコードを一切変更せずに、ログ機能のアップデートを行っています。
+  </p>
+  <p>
+   試しにコードを動かしてみます。一度目の実行は以下のようになりました。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="err">$</span> <span class="n">python3</span> <span class="n">test</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Wed</span> <span class="n">Aug</span> <span class="mi">24</span> <span class="mi">09</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">15</span> <span class="mi">2016</span><span class="p">:</span> <span class="n">hello</span>
+<span class="n">Wed</span> <span class="n">Aug</span> <span class="mi">24</span> <span class="mi">09</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span> <span class="mi">2016</span><span class="p">:</span> <span class="n">hey</span>
+
+<span class="err">そして二度目の実行は以下のようになりました。</span>
+
+<span class="err">$</span> <span class="n">python3</span> <span class="n">test</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Wed</span> <span class="n">Aug</span> <span class="mi">24</span> <span class="mi">09</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">15</span> <span class="mi">2016</span><span class="p">:</span> <span class="n">hello</span>
+<span class="n">Wed</span> <span class="n">Aug</span> <span class="mi">24</span> <span class="mi">09</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span> <span class="mi">2016</span><span class="p">:</span> <span class="n">hey</span>
+<span class="n">Wed</span> <span class="n">Aug</span> <span class="mi">24</span> <span class="mi">09</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">40</span> <span class="mi">2016</span><span class="p">:</span> <span class="n">hello</span>
+<span class="n">Wed</span> <span class="n">Aug</span> <span class="mi">24</span> <span class="mi">09</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">45</span> <span class="mi">2016</span><span class="p">:</span> <span class="n">hey</span>
+</pre>
+  </div>
+  <p>
+   プログラムを終了してもログを残すという目的を果たせていることがわかります。
+このように適切に機能がクラス分けされていると、コードの修正範囲が狭くなり、機能拡張や変更、そしてバグ潰しが楽になります。
+大切なことなので覚えておいてください。
+  </p>
+  <h3>
+   複雑なコンポジション
+  </h3>
+  <p>
+   今までのManager、Engineer、Secretaryの例を見てもらうとわかるのですが、
+常に「AがBを持つ」という形でプログラムが実現されています。
+そのため、Manager内でEngineerやSecretaryのインスタンスを作成して保持すればよいだけでした。
+  </p>
+  <p>
+   ただ、世の中(プログラム)はそんなに単純じゃありません。たとえば以下のシナリオを考えてください。
+秘書SecretaryクラスのSaraは昇進したので、ログ取りという業務ではなく、
+客からのアポイントメントの管理をするという仕事を新たにすることになりました。
+この業務は以下の図のようになります。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1050_image/05.png"/>
+  </p>
+  <p>
+   ManagerクラスのBobがSaraにアポイントを確認するのは簡単です。
+今までどおり、自分が持つSaraオブジェクトのメソッドを呼び出すだけです。
+ただ、問題となるのは「客がSaraにどうやってアポイントメントを取るか」です。
+なぜならSaraオブジェクトはBobが持っており、客はSaraオブジェクトを持っていないのですから。
+  </p>
+  <p>
+   この問題を実現する方法は色々ありますが、それらに共通して言えることは「Bobが持つSaraというインスタンスを客に渡す必要がある」ということです。
+自分で作るのではなく、渡すことでSaraというインスタンスをBobとクライアントのインスタンスが共有します。
+これをコードで実現してみます。
+  </p>
+  <p>
+   プログラムの全体像としては以下のようになります。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1050_image/06.png"/>
+  </p>
+  <p>
+   プログラムを構成する要素(コンポーネント)としてマネージャー、秘書、クライアントがいます。
+そしてそれらを使うシナリオを動かすコードです。
+マネージャーは秘書クラスを持ち、クライアントはマネージャーが持つ秘書クラスを利用します。
+実際にコードを書いていきます。
+  </p>
+  <p>
+   まず秘書のSecretaryクラスです。アポイントの管理は今回の本質ではないので、
+辞書型を使ってキーに時間(文字列)、バリューに誰という形でアポイントを管理しています。
+同じ時間を別の客に指定された(既に同じキーが存在する)ときだけFalse(アポイントを取れない)を返して、
+そうでなければTrue(アポイントを取れた)を返し、アポイント管理の辞書データを更新します。
+  </p>
+  <p>
+   これを request_appointment メソッドとして実装します。
+そしてマネージャーがアポイントを確認するための get_schedule メソッドを作成し、
+その辞書データを文字列として返しています。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">Secretary</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">appointment</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="k">def</span> <span class="nf">request_appointment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">when</span><span class="p">,</span> <span class="n">who</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">when</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">appointment</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">appointment</span><span class="p">[</span><span class="n">when</span><span class="p">]</span> <span class="o">=</span> <span class="n">who</span>
+      <span class="k">return</span> <span class="bp">True</span>
+
+  <span class="k">def</span> <span class="nf">get_schedule</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">appointment</span><span class="p">)</span>
+</pre>
+  </div>
+  <p>
+   次にManagerのコードです。Managerはアポイントの確認機能があります。
+また、クライアントにたいして秘書を渡す機能もあります。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="kn">from</span> <span class="nn">secretary</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">Manager</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sara</span> <span class="o">=</span> <span class="n">Secretary</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">check_schedule</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">schedule</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sara</span><span class="o">.</span><span class="n">get_schedule</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">schedule</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">get_secretary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sara</span>
+</pre>
+  </div>
+  <p>
+   そして最後のコンポーネントであるクライアントです。
+クライアントは秘書を連絡先として登録する機能と、アポイントを取る機能が実装されています。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">Client</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">contact_point</span> <span class="o">=</span> <span class="bp">None</span>
+
+  <span class="k">def</span> <span class="nf">set_contact_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contact_point</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">contact_point</span> <span class="o">=</span> <span class="n">contact_point</span>
+
+  <span class="k">def</span> <span class="nf">make_appointment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">when</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contact_point</span><span class="p">):</span>
+      <span class="n">is_success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">contact_point</span><span class="o">.</span><span class="n">request_appointment</span><span class="p">(</span><span class="n">when</span><span class="p">,</span>
+                                                          <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">" could book? : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">is_success</span><span class="p">))</span>
+</pre>
+  </div>
+  <p>
+   これらのコンポーネントを使うシナリオを 実行させるプログラムは以下となります。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="kn">from</span> <span class="nn">manager</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">client</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">bob</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">()</span>
+
+<span class="n">adam</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="s1">'adam'</span><span class="p">)</span>
+<span class="n">adam</span><span class="o">.</span><span class="n">set_contact_point</span><span class="p">(</span><span class="n">bob</span><span class="o">.</span><span class="n">get_secretary</span><span class="p">())</span>
+<span class="n">adam</span><span class="o">.</span><span class="n">make_appointment</span><span class="p">(</span><span class="s1">'10:30'</span><span class="p">)</span>
+<span class="c1"># adam could book? : True</span>
+
+<span class="n">charles</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="s1">'charles'</span><span class="p">)</span>
+<span class="n">charles</span><span class="o">.</span><span class="n">set_contact_point</span><span class="p">(</span><span class="n">bob</span><span class="o">.</span><span class="n">get_secretary</span><span class="p">())</span>
+<span class="n">charles</span><span class="o">.</span><span class="n">make_appointment</span><span class="p">(</span><span class="s1">'11:30'</span><span class="p">)</span>
+<span class="c1"># charles could book? : True</span>
+
+<span class="n">dag</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="s1">'dag'</span><span class="p">)</span>
+<span class="n">dag</span><span class="o">.</span><span class="n">set_contact_point</span><span class="p">(</span><span class="n">bob</span><span class="o">.</span><span class="n">get_secretary</span><span class="p">())</span>
+<span class="n">dag</span><span class="o">.</span><span class="n">make_appointment</span><span class="p">(</span><span class="s1">'10:30'</span><span class="p">)</span>
+<span class="c1"># dag could book? : False</span>
+
+<span class="n">bob</span><span class="o">.</span><span class="n">check_schedule</span><span class="p">()</span>
+<span class="p">{</span><span class="s1">'11:30'</span><span class="p">:</span> <span class="s1">'charles'</span><span class="p">,</span> <span class="s1">'10:30'</span><span class="p">:</span> <span class="s1">'adam'</span><span class="p">}</span>
+</pre>
+  </div>
+  <p>
+   注目してほしいことは、先程も言ったようにClientのインスタンスがManagerの持つSecretaryのインスタンスを取得していることです。
+このようにすることで特定のインスタンスを複数の異なるインスタンス間で共有することができ、
+その共有されたインスタンスを介してやりとりすることが可能です。
+  </p>
+  <p>
+   今回はManagerにget_secretary、Clientにset_contact_pointというメソッドを実装してやりとりしています。
+ただ、インスタンスの受け渡しの方法はこれだけではなく、ぱっと思いつくだけでも以下の方法があります。
+  </p>
+  <ul>
+   <li>
+    コンストラクタでインスタンスを渡す
+   </li>
+   <li>
+    get、setで渡す(今回の例)
+   </li>
+   <li>
+    インスタンスの受け渡し専門のクラスを作る
+   </li>
+   <li>
+    グローバル空間で共有する
+   </li>
+  </ul>
+  <p>
+   やりかたはさまざまですが、それぞれにメリット・デメリットがあるので状況に応じて使い分ける必要があります。
+ベストプラクティスを知りたい場合は先程紹介した「デザインパターン」と呼ばれる設計方法について学ぶといいと思います。
+  </p>
+  <!-- GENERATED HTML END -->
+ </body>
+</html>

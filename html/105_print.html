@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="Sample Description" name="description"/>
+  <link href="./assets/favicon.ico" rel="icon"/>
+  <title>
+   Python入門
+  </title>
+  <link href="./assets/css/bootstrap.css" rel="stylesheet">
+   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body>
+  <!-- GENERATED HTML START -->
+  <h2>
+   クラスとインスタンス化
+  </h2>
+  <p>
+   構造体を使うには「型の定義」と「作った型のデータを作成」という2つの手順を踏むのでした。
+あいにくPythonには構造体はないのですが、代わりに構造体を発展させた「クラス」と呼ばれる機能を使うことができます。
+クラスは簡単にいってしまうとオブジェクトを作る「型」です。
+そしてオブジェクトは「構造体に特殊な関数であるメソッドをもたせたもの」だといえます。
+実際はもっと多くのことができるのですが、本章ではとりあえずクラスとオブジェクトの関係に注目したいので、
+難易度の低い「オブジェクトを構造体のように使う方法」についてお話します。
+  </p>
+  <p>
+   Python におけるクラスの定義も、構造体と同じように「クラスの名前」と「オブジェクトが持つデータ」を宣言します。
+それは、以下のようになります。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">UserInfo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Unknown'</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">birth</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="s1">'Unknown'</span>
+</pre>
+  </div>
+  <p>
+   クラスは構造体よりも高機能なため、少し複雑になっていますが、class UserInfoでクラス名を宣言し、
+そのなかの関数の定義のような箇所でname、birth、addressという変数を作成しています。
+それぞれの変数は’Unknown’, 0, ‘Unknow’ という値で初期化されています。
+   <code>
+    def __init__
+   </code>
+   や
+   <code>
+    self
+   </code>
+   は先述したメソッドに関わるものなので次章以降で改めて話します。
+今回はとりあえずそういうものなのだと捉えてください。
+  </p>
+  <p>
+   当然ながらクラスも構造体のようにデータを作ることもできます。ただ、その方法は異なってきます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">taro</span> <span class="o">=</span> <span class="n">UserInfo</span><span class="p">()</span>
+</pre>
+  </div>
+  <p>
+   上記のように「クラス名()」とすることで、そのクラスから実際のデータを作ることができます。
+このクラスから作成されたオブジェクトを「インスタンス」と呼びます。
+通常、インスタンスとオブジェクトは同じ意味で使われますが、オブジェクトのほうが広い概念です。
+インスタンスという呼び名はクラスから作成された場合以外にあまり用いられません。
+このあたりの詳しい話は現時点でしても難しいため、後半で扱います。
+クラス UserInfo とインスタンス taro は、リストで例えると UserInfo が list という型にあたり、
+taro は [1,2,3] といった具体的なリストのデータとなります。
+  </p>
+  <p>
+   構造体と同じように「オブジェクトが持つデータの名前」を使うことで、インスタンスの各データに対してアクセスできます。
+あえて書くほどでもありませんが、「オブジェクト.データ名」というかたちでアクセスします。
+なお、インスタンスが持つこれらのデータのことを「インスタンス変数」と呼びます。
+name、birth、addressはインスタンス変数です。
+Pythonではあまり聞きませんが、インスタンス変数は「フィールド」という呼ばれ方もします。
+  </p>
+  <p>
+   インスタンス変数の値を出力してみます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'{}, {}, {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">taro</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">taro</span><span class="o">.</span><span class="n">birth</span><span class="p">,</span> <span class="n">taro</span><span class="o">.</span><span class="n">address</span><span class="p">))</span>
+<span class="c1"># Unknown, 0, Unknown</span>
+</pre>
+  </div>
+  <p>
+   作られたデータを確認すると、クラス定義の中で書かれた初期値を出力していることがわかります。
+  </p>
+  <p>
+   taro オブジェクトが持つインスタンス変数は参照するだけでなく、値を書くこともできます。
+その方法は参照と同じように代入を行うだけです。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">taro</span> <span class="o">=</span> <span class="n">UserInfo</span><span class="p">()</span>
+<span class="n">taro</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'taro'</span>
+<span class="n">taro</span><span class="o">.</span><span class="n">birth</span> <span class="o">=</span> <span class="mi">1986</span>
+<span class="n">taro</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="s1">'tokyo'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'2: {}, {}, {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">taro</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">taro</span><span class="o">.</span><span class="n">birth</span><span class="p">,</span> <span class="n">taro</span><span class="o">.</span><span class="n">address</span><span class="p">))</span>
+<span class="c1"># taro, 1986, tokyo</span>
+</pre>
+  </div>
+  <p>
+   インスタンスを作成した後にインスタンス変数をセットしていくのではなく、
+構造体のように最初から 'taro'、1986、'tokyo'などという値をインスタンスに与えることもできます。
+ただ、それがどう実現されるか理解するにはもう少しクラスについて理解する必要があります。
+そのため次章以降の解説とさせてください。
+  </p>
+  <p>
+   構造体とクラスについて学んできましたが、今の段階で覚えておいてもらいたいことは以下の3点だけです。
+  </p>
+  <ul>
+   <li>
+    クラスは雛形で設計図のようなもの
+   </li>
+   <li>
+    インスタンスはクラスから作られる実体
+   </li>
+   <li>
+    インスタンスにどのようなデータを持たせるかはクラスで定義する
+   </li>
+   <li>
+    インスタンスとオブジェクトはほぼ同じ意味だが。オブジェクトのほうが広範囲の概念
+   </li>
+  </ul>
+  <p>
+   クラスとインスタンスはちょうど、たい焼きの型枠とたい焼きのような関係かもしれません。
+たい焼きはその枠型という設計図に従って量産されます。
+どういうたい焼きを焼きたいかによって、そのもとになる「たい焼きの型枠」が変わってきます。
+いったん型枠さえ作ってしまえば、何個でも実体としてのたい焼きが作れます。
+  </p>
+  <p>
+   クラスもこれと同じで、インスタンスがどういうようなデータ(インスタンス変数)や処理(メソッド)を持ちたいかによって、
+どういうクラスを作るかが変わってきます。
+そしていったんクラスを作ってしまえば、インスタンスは好きなタイミングで好きな数だけ作ることが可能です。
+  </p>
+  <p>
+   両者の関係のイメージ図を以下に記載します。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1025_image/01.jpg"/>
+  </p>
+  <p>
+   なお、作成されたインスタンスのクラス名を得る場合は今まで使っていた type 関数を使うことで実現できます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">unknown_instance</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">unknown_instance</span><span class="p">))</span>
+<span class="c1"># &lt;class 'list'&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">unknown_instance</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+<span class="c1"># &lt;class 'list'&gt;</span>
+</pre>
+  </div>
+  <p>
+   インスタンスの特殊な属性である
+   <code>
+    __class__
+   </code>
+   を呼んでもクラスが得られます。
+特殊属性については後述します。
+  </p>
+  <h3>
+   クラスの命名ルール
+  </h3>
+  <p>
+   そしてクラス名なのですが、一般的には複数の単語から構成され、
+キャメルケース(Camel case)とよばれる単語と単語を大文字で区切る方式が採用されます。
+例えば以下のようなものです。
+  </p>
+  <ul>
+   <li>
+    Apple
+   </li>
+   <li>
+    RedApple
+   </li>
+  </ul>
+  <p>
+   1単語だけで構成されていれば先頭が大文字になるだけですが、2単語以上の場合は区切りも大文字になっています。
+このでこぼこした感じがラクダ(Camel)に似ているのでキャメルケースと呼ばれています。
+一目でクラスと分かるようにするためにこの名前の付けルールは守って下さい。
+  </p>
+  <!-- GENERATED HTML END -->
+ </body>
+</html>

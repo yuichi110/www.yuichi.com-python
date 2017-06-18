@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="Sample Description" name="description"/>
+  <link href="./assets/favicon.ico" rel="icon"/>
+  <title>
+   Python入門
+  </title>
+  <link href="./assets/css/bootstrap.css" rel="stylesheet">
+   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body>
+  <!-- GENERATED HTML START -->
+  <h2>
+   インスタンスとメソッドの関係
+  </h2>
+  <p>
+   前の章にて構造体は内部にデータ(フィールド)だけを持ち、クラスはデータ(インスタンス変数)に加えて処理(メソッド)も内部に持っているとお伝えしました。
+そして構造体やクラスを使うには、 まず「定義」をしてからそれを「インスタンス化」するという流れでした。
+クラスはどのようなデータを持つかという定義に加えて、内部にそれらのデータを操作するための特殊な関数である「メソッド」を定義することができます。
+本章ではそのメソッドについてとりあつかいます。
+  </p>
+  <p>
+   一般的に構造体のデータを扱うにはその構造体を使う関数を定義します。その関数を使って構造体のデータを読んだり、変更したりします。
+一方、クラスを使う場合はインスタンスが持つデータへのアクセスにはメソッドを利用します。
+両者の違いを以下に記します。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1030_image/01.jpg"/>
+  </p>
+  <p>
+   クラスで定義されたメソッドは文法レベルではどのように使っても構いません。
+例えば会員情報を扱うクラスで円周率を求めるメソッドを書くこともできます。
+ただ、基本的にはそのインスタンスが持つデータを操作するような処理に使うという、
+オブジェクト指向プログラミングのルールがあるためそのようなことはしません。
+  </p>
+  <p>
+   メソッドの大枠を分かって頂けたかと思いますので、サンプルコードを使ってメソッドの使い方の説明をします。
+生徒の国数英の点数を扱うクラスを作成します。インスタンス変数として名前と各教科の点数をもたせています。
+そして 平均点を得るメソッドが実装されています。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">Score</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Unknown'</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">math</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">english</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">japanese</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">def</span> <span class="nf">get_average</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">math</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">english</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">japanese</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+</pre>
+  </div>
+  <p>
+   注目して欲しいのは、
+   <code>
+    def get_average(self)
+   </code>
+   という関数のようなものが「クラス内」に定義されていることです。
+インデントの数からこれがクラス内にあることがわかります。
+このクラスの中に定義された関数のようなものがメソッドとなります。
+メソッドの定義の中身をみると、
+   <code>
+    def __init__
+   </code>
+   の中で定義された
+   <code>
+    math
+   </code>
+   、
+   <code>
+    english
+   </code>
+   といったデータを利用して、
+その平均値を求めていることがわかります。
+  </p>
+  <p>
+   クラスの定義ができたので、実際にこのクラスをインスタンス化して利用してみます。
+まず クラスからインスタンスを作成し、そのインスタンスが持つインスタンス変数に値を設定しています。
+ここまでは前章と同じです。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">taro</span> <span class="o">=</span> <span class="n">Score</span><span class="p">()</span>
+<span class="n">taro</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'taro'</span>
+<span class="n">taro</span><span class="o">.</span><span class="n">math</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">taro</span><span class="o">.</span><span class="n">english</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">taro</span><span class="o">.</span><span class="n">japanese</span> <span class="o">=</span> <span class="mi">80</span>
+</pre>
+  </div>
+  <p>
+   そしてこのインスタンスtaroの
+   <code>
+    get_average
+   </code>
+   メソッドを呼び出します。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">ave</span> <span class="o">=</span> <span class="n">taro</span><span class="o">.</span><span class="n">get_average</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ave</span><span class="p">)</span>
+<span class="c1"># 70 &lt;- (60 + 70 + 80) / 3</span>
+</pre>
+  </div>
+  <p>
+   見てもらうとわかるように「インスタンス名.メソッド名()」としてメソッドを呼び出しています。
+メソッドの呼び出し方はインスタンス変数へのアクセスとほとんど同じです。
+なお、メソッドの定義は「def get_average(self):」というように引数をひとつ受け取るようにされていますが、
+呼び出す際には
+   <code>
+    taro.get_average()
+   </code>
+   というように定義された selfに相当する引数を与えていません。
+self については後ほど詳細を扱います。
+  </p>
+  <h3>
+   メソッドの引数と返り値
+  </h3>
+  <p>
+   メソッドの宣言と使い方ですが、実はほとんど通常の関数と同じです。
+違うところは以下あたりになります。
+  </p>
+  <ul>
+   <li>
+    呼び出しが インスタンス.メソッド名(引数)
+   </li>
+   <li>
+    定義された第一引数(self)は呼び出しに利用されない
+   </li>
+  </ul>
+  <p>
+   引数を複数持てることや、返り値を定義できる点においてメソッドは関数と同じです。
+引数や返り値を使ったサンプルコードを以下に記載します。
+インスタンス変数を今回は使わないので
+   <code>
+    __init__
+   </code>
+   を定義していません。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">TestClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">print0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'0:'</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">print1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'1: {} {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+
+  <span class="k">def</span> <span class="nf">get100</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">100</span>
+
+<span class="n">instance</span> <span class="o">=</span> <span class="n">TestClass</span><span class="p">()</span>
+<span class="n">instance</span><span class="o">.</span><span class="n">print0</span><span class="p">()</span>
+<span class="c1"># 0:</span>
+
+<span class="n">instance</span><span class="o">.</span><span class="n">print1</span><span class="p">(</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">)</span>
+<span class="c1"># 1: A B</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">get100</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># 100</span>
+</pre>
+  </div>
+  <p>
+   クラスで定義された第一引数のselfがちょうど無視されているような形で呼び出しと定義がマッチしていることがわかります。
+この self の存在を忘れることで、最初はメソッドの引数を間違えることが多いと思うので注意してください。
+  </p>
+  <!-- GENERATED HTML END -->
+ </body>
+</html>

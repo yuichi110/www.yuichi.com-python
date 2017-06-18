@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta content="Sample Description" name="description"/>
+  <meta content="Yuichi Ito" name="author"/>
+  <link href="./asset/favicon.ico" rel="icon"/>
+  <title>
+   Python入門
+  </title>
+  <!-- Bootstrap core CSS -->
+  <link href="./assets/css/bootstrap.css" rel="stylesheet"/>
+  <!-- Custom styles for this template -->
+  <link href="./assets/css/blog.css" rel="stylesheet"/>
+  <!-- Code Highlight -->
+  <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+  <!-- Custom -->
+  <link href="./assets/css/css001.css" rel="stylesheet"/>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </link>
+ </head>
+ <body>
+  <div class="blog-masthead">
+   <div class="container">
+    <nav class="blog-nav">
+     <a class="blog-nav-item active" href="./">
+      サイトトップ
+     </a>
+     <a class="blog-nav-item " href="./download.html">
+      ダウンロード
+     </a>
+     <a class="blog-nav-item " href="./qa.html">
+      質問と回答
+     </a>
+     <a class="blog-nav-item " href="./books.html">
+      おすすめ書籍
+     </a>
+     <a class="blog-nav-item " href="./about.html">
+      このページについて
+     </a>
+     <a class="blog-nav-item" href="http://www.yuichi.com/">
+      GRIT Computing
+     </a>
+    </nav>
+   </div>
+  </div>
+  <div class="container">
+   <div class="blog-header">
+    <a href="./" style=" text-decoration: none;">
+     <h1 class="blog-title">
+      Python入門
+     </h1>
+     <p class="lead blog-description">
+      プログラミング言語Pythonについて
+     </p>
+    </a>
+   </div>
+   <div class="row">
+    <div class="col-sm-8 blog-main">
+     <!-- GENERATED HTML START -->
+     <h2>
+      クラスの継承
+     </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         クラスの継承
+        </a>
+        <ul>
+         <li>
+          <a href="#header-2">
+           自分が作った既存クラスを継承
+          </a>
+         </li>
+         <li>
+          <a href="#header-3">
+           親子関係の確認
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </div>
+     <h3 id="header-1">
+      クラスの継承
+     </h3>
+     <p>
+      オブジェクト指向の後半は「継承」という概念が主なテーマとなります。
+継承は具体的にはクラスAがすでにあり、そのクラスAをベースにして機能拡張をしたクラスBを作るという手法になります。
+     </p>
+     <p>
+      手法について扱うだけであればさほど苦労はしないと思いますが、
+継承のメリットと正しい使い方を理解することは難しいかもしれません。
+そのため、前半戦と同じように「なぜそうするか」や「どうあるべきか」といった話に比重を置きます。
+かなり冗長になってしまうかもしれませんが、ご容赦願います。
+継承についてある程度学んだら、簡単にGUIの使い方を扱い、GUIを使って継承を実際に利用してみたいと思います。
+     </p>
+     <p>
+      最初に難しい話を繰り返しても眠くなってしまうでしょうし、
+とりあえずざっくりと継承のやりかたについてお話します。
+     </p>
+     <p>
+      まず以下の図を見てください。
+     </p>
+     <p class="blog-img">
+      <img alt="image" class="img-responsive" src="./1065_image/01.jpg"/>
+     </p>
+     <p>
+      左側にあるのがクラスAで右側にあるのがクラスBとなります。
+クラスBはクラスAを継承して作られており、内部にクラスAの要素を引き継いでいることがわかります。
+「クラスBがクラスAを持っている」のではなく、「クラスBはクラスAをベースに作られている」ことに注意してください。
+     </p>
+     <p>
+      これを実際にコードに書いてみます。まずはクラスAです。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">ClassA</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">var_a</span> <span class="o">=</span> <span class="s1">'class a'</span>
+
+  <span class="k">def</span> <span class="nf">print_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'this method is defined in '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_a</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">ClassA</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">print_a</span><span class="p">()</span>
+<span class="c1"># this method is defined in class a</span>
+</pre>
+     </div>
+     <p>
+      var_aというインスタンス変数とprint_aというメソッドを持っています。
+ここまでは今までに学んだことであり、特に新しいものではありません。
+     </p>
+     <p>
+      次にこれを継承するクラスBを実装します。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">ClassB</span><span class="p">(</span><span class="n">ClassA</span><span class="p">):</span>       <span class="c1"># &lt;--- 継承の宣言</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">var_b</span> <span class="o">=</span> <span class="s1">'class b'</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>   <span class="c1"># &lt;--- 親クラスの初期化</span>
+
+  <span class="k">def</span> <span class="nf">print_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'this method is defined in '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_b</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'parent of '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_b</span> <span class="o">+</span> <span class="s1">' is '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_a</span><span class="p">)</span>
+</pre>
+     </div>
+     <p>
+      注目して欲しい点はいくつかありますが、まず最初に知る必要があるのは文法です。
+一行目のクラスBの宣言の後ろに () で ClassA が記載されていることがわかります。
+これが継承の宣言です。
+これをすることで「クラスBはクラスAを継承する」ことができるようになります。
+そして次は、4行目の "super().
+      <strong>
+       init
+      </strong>
+      ()" です。これはクラスBの親クラスであるクラスAの初期化です。
+     </p>
+     <p>
+      思い出してください。コンストラクタである
+      <strong>
+       init
+      </strong>
+      メソッドは引数をとると、その引数を初期化に利用するのでした。
+今回は引数がselfだけなので、初期化時に特に値を渡さなくてよいのですが、
+引数が2つ以上ある場合は値を渡さないとエラーになります。
+クラスAを継承したクラスBのなかで、「クラスAをどのように初期化するか」を指定する必要があり、
+この4行目はそれを実行しています。
+今回は親クラスに引数がないのですが、親クラスに引数がある場合は、子クラスでの初期化時に親クラスに引数を渡す必要があります。
+これは後のサンプルで扱うため、ここでは割愛します。
+     </p>
+     <p>
+      最後にprint_bを見てもらいたいですが、なかでself.var_aを参照していることがわかります。
+Bの中でAのインスタンス変数を使っているということです。
+     </p>
+     <p>
+      とりあえず、このクラスBを使ってみます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">ClassB</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">print_b</span><span class="p">()</span>
+<span class="c1"># this method is defined in class b</span>
+<span class="c1"># parent of class b is class a</span>
+
+<span class="n">b</span><span class="o">.</span><span class="n">print_a</span><span class="p">()</span>
+<span class="c1"># this method is defined in class a</span>
+</pre>
+     </div>
+     <p>
+      まず、クラスBのインスタンスは当然ながらクラスBのメソッドを呼び出すことができます。
+出力を見てもらうとわかるように、クラスAのインスタンス変数を利用することができています。
+     </p>
+     <p>
+      親のインスタンス変数だけでなく、親のメソッドも利用することが可能です。
+クラスBのインスタンスからクラスAで定義されている print_a メソッドを呼び出していますが、
+特にエラーなく動作していることがわかります。
+     </p>
+     <p>
+      だいたいどういう使い方をするかわかっていただけたでしょうか。
+     </p>
+     <p>
+      継承を使うメリット
+継承の使い方はわかっていただけたかと思います。問題となるのはなぜそのようなことをするのかだと思います。
+     </p>
+     <p>
+      たとえば先程の例であれば、わざわざクラスAを作って、クラスBに継承させるなどという面倒なことをせず、いきなり定義してしまえばよいです。たとえば以下のようなコードを書くと、クラスAなしで新しいクラスBに先ほどの継承するクラスBとまったく同じことをさせることができます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">ClassB</span><span class="p">:</span>   
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">var_a</span> <span class="o">=</span> <span class="s1">'class a'</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">var_b</span> <span class="o">=</span> <span class="s1">'class b'</span>
+
+  <span class="k">def</span> <span class="nf">print_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'this method is defined in '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_a</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">print_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'this method is defined in '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_b</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'parent of {} is {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_a</span><span class="p">))</span>
+</pre>
+     </div>
+     <p>
+      どうみてもこっちのほうがシンプルです。
+実際、今回のようなクラスA、Bの継承の使い方はあくまでもサンプルであり、
+これが実コードであれば設計としてはナンセンスです。
+では、具体的にどのような場合に継承を使うメリットがあるのでしょうか。
+それは主に以下の場合となります。
+     </p>
+     <ul>
+      <li>
+       すでに利用している自分が作った既存のクラスを継承する場合
+      </li>
+      <li>
+       標準ライブラリやほかの人が作ったクラスを継承する場合
+      </li>
+      <li>
+       親に多数の子供がいる場合
+      </li>
+      <li>
+       GUIを利用する場合
+      </li>
+     </ul>
+     <p>
+      上記のいくつかについては細かい話が必要なため、この章ですべてをカバーすることはできません。
+そのため、いくつかは個々で紹介し、続く章で残りのものを扱います。
+     </p>
+     <p>
+      なお、これらの継承の使いかたは、ほかのメジャーなオブジェクト指向言語であるJavaやC++も意識したうえで記載しています。
+正直なところPythonの継承はこれらの言語より単純であり、実現できることもそれほど多くありません。
+「こんなことPythonではやらないよ」といった話も出てくるとは思いますが、ご了承ください。
+     </p>
+     <h4 id="header-2">
+      自分が作った既存クラスを継承
+     </h4>
+     <p>
+      これは自分たちが作った既存のクラスがすでに存在していて、それに変更は加えることはできないものの、
+似たクラスが必要な場合に利用します。
+     </p>
+     <p>
+      たとえば、以下の図を見てください。
+     </p>
+     <p class="blog-img">
+      <img alt="image" class="img-responsive" src="./1065_image/02.jpg"/>
+     </p>
+     <p>
+      ここではクラスAはクラスCから利用されています。
+このクラスAに機能を追加し、それを別の用途で利用したいとします。
+今回はクラスDからの利用としましょう。
+その際、クラスA自体のコードを変更してしまうのが手っ取り早いのですが、常にそれができるとは限りません。
+その際、クラスAはキープしたままにし、継承を利用して変更を加えるという利用方法があります。
+     </p>
+     <p>
+      個人的にこの使い方はあまり好きではないです。なぜなら継承ではなく、
+コンポジション(クラスBがクラスAを持つ)で実現できてしまう場合が多いからです。
+継承とコンポジションの使い分けの話をするにはまだ早いので、これは後ほど改めて扱います。
+     </p>
+     <h4 id="header-3">
+      親子関係の確認
+     </h4>
+     <p>
+      継承を使った場合、どのクラスがどのクラスを継承しているかを正しく認識している必要があります。
+ドキュメントなりコードをじっくり読めば分かるのでしょうが、それを助けてくれる機能が python にはあります。
+     </p>
+     <p>
+      以下のコードがあるとします。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">MyClassA</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">MyClassB</span><span class="p">(</span><span class="n">MyClassA</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">MyClassC</span><span class="p">(</span><span class="n">MyClassB</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">MyClassD</span><span class="p">(</span><span class="n">MyClassA</span><span class="p">):</span>
+  <span class="k">pass</span>
+</pre>
+     </div>
+     <p>
+      見て分かるようにクラスAがあり、B は A を継承し、C は B を継承しています。そして D は A を継承しています。
+これらのクラスはなにもしないので便宜的に pass を宣言しています。
+なにも書かないとエラーになります。
+     </p>
+     <p>
+      まずクラスの親子関係の確認ですが、これは組み込み関数の issubclass を使うことで実現できます。
+issubclass(A, B) とすることで A は B のサブクラスかを確認し、サブクラスであれば True を返します。
+試しに先ほどのクラス群で関数の挙動を確認します。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">MyClassB</span><span class="p">,</span> <span class="n">MyClassA</span><span class="p">))</span>
+<span class="c1"># True</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">MyClassC</span><span class="p">,</span> <span class="n">MyClassA</span><span class="p">))</span>
+<span class="c1"># True</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">MyClassD</span><span class="p">,</span> <span class="n">MyClassB</span><span class="p">))</span>
+<span class="c1"># False</span>
+</pre>
+     </div>
+     <p>
+      この結果を見ると親子関係が True となることは当然ながら、祖父母と子供の関係でも True となることがわかります。
+また、同じクラスから派生していても直接的な親子関係がなければ True となりません。
+たとえば、B と D はともに A から派生した兄弟関係ですが、issubclass では False となっています。
+D と C も当然ながら issubclass では False となります。
+インスタンスの親子関係の確認が必要な場合は type 関数と組み合わせることで実現できます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">MyClassA</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">MyClassB</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+<span class="c1"># True</span>
+</pre>
+     </div>
+     <p>
+      次にサブクラスから親クラスがなにかをチェックする場合はクラスの特殊な属性である
+      <code>
+       __base__
+      </code>
+      を使います。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">MyClassA</span><span class="o">.</span><span class="n">__base__</span><span class="p">)</span>
+<span class="c1"># &lt;class 'object'&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">MyClassB</span><span class="o">.</span><span class="n">__base__</span><span class="p">)</span>
+<span class="c1"># &lt;class '__main__.MyClassA'&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">MyClassC</span><span class="o">.</span><span class="n">__base__</span><span class="p">)</span>
+<span class="c1"># &lt;class '__main__.MyClassB'&gt;</span>
+</pre>
+     </div>
+     <p>
+      実は Python はクラス自体もオブジェクトです。クラスをインスタンス化すればオブジェクトが作られますが、
+クラス自体も実はオブジェクトです。あまり初心者向けの話題ではないため詳細は後編に譲りますが、
+クラスもオブジェクトであるため、属性(インスタンス変数やメソッド)を持っており、
+      <code>
+       __base__
+      </code>
+      もその一つです。
+サンプルの出力を見てもらうと親クラスを持たないクラスAは「object」を継承したクラスであり、
+B は A を継承し、C は B を継承していることが分かります。
+ちなみに
+      <code>
+       __main__
+      </code>
+      という出力もありますが、これはそのクラスが「エントリとなるモジュール」にあるということを意味しています。
+     </p>
+     <p>
+      インスタンスから親クラスを割り出すのも先ほどと同じように type 関数か
+「インスタンスの属性
+      <code>
+       __class__
+      </code>
+      」を使ってクラスを取得し、そこから親クラスを得ることができます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">MyClassB</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">__base__</span><span class="p">)</span>
+<span class="c1"># &lt;class '__main__.MyClassA'&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">__base__</span><span class="p">)</span>
+<span class="c1"># &lt;class '__main__.MyClassA'&gt;</span>
+</pre>
+     </div>
+     <p>
+      それほど難しくありませんね。
+     </p>
+     <p>
+      先ほどさらっと言った「親クラスを持たないクラスAはobject を継承している」ということですが、
+これは Python の継承のルールです。
+明示的に親クラスを宣言していないクラスは全て object と呼ばれているクラスを継承しています。
+     </p>
+     <p>
+      そのため、以下の2つのクラス MyClassA1, MyClassA2は実質的に全く同じだと言えます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">MyClassA1</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">MyClassA2</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">MyClassA1</span><span class="o">.</span><span class="n">__base__</span><span class="p">)</span>
+<span class="c1"># &lt;class 'object'&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">MyClassA2</span><span class="o">.</span><span class="n">__base__</span><span class="p">)</span>
+<span class="c1"># &lt;class 'object'&gt;</span>
+</pre>
+     </div>
+     <p>
+      明示的に object を継承している MyClassA2 も、何も継承していないと宣言している MyClassA1、
+もともに親クラスは object になっています。
+実は Python2 では宣言の仕方が異なる MyClassA1, MyClassA2は異なるものとなるのですが、
+Python3 は両者を区別していません。Python3 を使うのであればあえて object の継承を宣言する必要はありません。
+     </p>
+     <!-- GENERATED HTML END -->
+     <nav>
+      <ul class="pager">
+       <li id="previous-li">
+        <a href="./112.html" id="previous-a">
+         ← Previous
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         Page Top
+        </a>
+       </li>
+       <li class="pager-next" id="next-li">
+        <a href="./114.html" id="next-a">
+         Next →
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <!-- /.blog-main -->
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+     <!-- 広告エリア -->
+     <div class="sidebar-module">
+      <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+      </script>
+      <!-- 300 x 250 -->
+      <ins class="adsbygoogle" data-ad-client="ca-pub-9447655910606139" data-ad-slot="4820856978" style="display:inline-block;width:300px;height:250px">
+      </ins>
+      <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+     </div>
+     <!-- 広告エリア end-->
+     <!-- SNS start -->
+     <div class="sidebar-module">
+      <ul class="social-buttons">
+       <li>
+        <!-- hatena -->
+        <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
+         <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
+        </a>
+        <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
+        </script>
+       </li>
+       <li>
+        <!-- FB -->
+        <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
+        </div>
+        <div id="fb-root">
+        </div>
+        <script>
+         (function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+        </script>
+       </li>
+       <li>
+        <!-- twitter -->
+        <a class="twitter-share-button" href="https://twitter.com/share">
+         Tweet
+        </a>
+        <script>
+         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        </script>
+       </li>
+       <li>
+        <!-- G+ -->
+        <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
+        <script async="" defer="" src="https://apis.google.com/js/platform.js">
+         {lang: 'ja'}
+        </script>
+        <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+        <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
+        </div>
+       </li>
+       <li>
+        <!-- IN/Share -->
+        <script src="//platform.linkedin.com/in.js" type="text/javascript">
+         lang: ja_JP
+        </script>
+        <script data-counter="right" type="IN/Share">
+        </script>
+       </li>
+      </ul>
+     </div>
+     <div class="print">
+      <a href="./113_print.html">
+       <img src="./assets/images/print.png"/>
+       印刷する
+      </a>
+     </div>
+     <!-- SNS end -->
+     <div class="sidebar-module">
+      <h3>
+       Python入門
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="./">
+         トップページ
+        </a>
+       </li>
+       <li>
+        <a href="./download.html">
+         ダウンロード
+        </a>
+       </li>
+       <li>
+        <a href="./qa.html">
+         質問と回答
+        </a>
+       </li>
+       <li>
+        <a href="./books.html">
+         おすすめPython書籍
+        </a>
+       </li>
+       <li>
+        <a href="./about.html">
+         このページについて
+        </a>
+       </li>
+      </ol>
+     </div>
+     <div class="sidebar-module">
+      <h3>
+       初級編
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="./001.html">
+         前書き
+        </a>
+       </li>
+       <li>
+        <a href="./002.html">
+         目次
+        </a>
+       </li>
+       <li>
+        <a href="./003.html">
+         Pythonプログラミング
+        </a>
+       </li>
+       <li>
+        <a href="./004.html">
+         インストールと実行
+        </a>
+       </li>
+       <li>
+        <a href="./005.html">
+         概要
+        </a>
+       </li>
+       <li>
+        <a href="./006.html">
+         型と変数
+        </a>
+       </li>
+       <li>
+        <a href="./007.html">
+         最重要な型
+        </a>
+       </li>
+       <li>
+        <a href="./008.html">
+         制御構造
+        </a>
+       </li>
+       <li>
+        <a href="./009.html">
+         関数
+        </a>
+       </li>
+       <li>
+        <a href="./010.html">
+         モジュール
+        </a>
+       </li>
+       <li>
+        <a href="./011.html">
+         オブジェクトとメソッド
+        </a>
+       </li>
+       <li>
+        <a href="./012.html">
+         テキスト処理
+        </a>
+       </li>
+       <li>
+        <a href="./013.html">
+         リスト再入門
+        </a>
+       </li>
+       <li>
+        <a href="./014.html">
+         タプル
+        </a>
+       </li>
+       <li>
+        <a href="./015.html">
+         セット
+        </a>
+       </li>
+       <li>
+        <a href="./016.html">
+         辞書型
+        </a>
+       </li>
+       <li>
+        <a href="./017.html">
+         None型
+        </a>
+       </li>
+       <li>
+        <a href="./018.html">
+         ファイル処理
+        </a>
+       </li>
+       <li>
+        <a href="./019.html">
+         基数と文字コード
+        </a>
+       </li>
+       <li>
+        <a href="./020.html">
+         日本語の扱い
+        </a>
+       </li>
+       <li>
+        <a href="./021.html">
+         プログラムへの入力
+        </a>
+       </li>
+       <li>
+        <a href="./022.html">
+         関数の高度なトピック
+        </a>
+       </li>
+       <li>
+        <a href="./023.html">
+         おわりに
+        </a>
+       </li>
+      </ol>
+     </div>
+     <div class="sidebar-module">
+      <h3>
+       中級編
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="./101.html">
+         前書き
+        </a>
+       </li>
+       <li>
+        <a href="./102.html">
+         目次
+        </a>
+       </li>
+       <li>
+        <a href="./103.html">
+         オブジェクト指向を体験
+        </a>
+       </li>
+       <li>
+        <a href="./104.html">
+         データ構造
+        </a>
+       </li>
+       <li>
+        <a href="./105.html">
+         クラスとインスタンス化
+        </a>
+       </li>
+       <li>
+        <a href="./106.html">
+         インスタンスとメソッド
+        </a>
+       </li>
+       <li>
+        <a href="./107.html">
+         コンストラクタ
+        </a>
+       </li>
+       <li>
+        <a href="./108.html">
+         self
+        </a>
+       </li>
+       <li>
+        <a href="./109.html">
+         情報の隠蔽
+        </a>
+       </li>
+       <li>
+        <a href="./110.html">
+         オブジェクトの役割
+        </a>
+       </li>
+       <li>
+        <a href="./111.html">
+         関数型プログラミング
+        </a>
+       </li>
+       <li>
+        <a href="./112.html">
+         ゲーム作り
+        </a>
+       </li>
+       <li>
+        <a href="./113.html">
+         クラスの継承
+        </a>
+       </li>
+       <li>
+        <a href="./114.html">
+         メソッドのオーバーライド
+        </a>
+       </li>
+       <li>
+        <a href="./115.html">
+         GUIで継承を学ぶ
+        </a>
+       </li>
+       <li>
+        <a href="./116.html">
+         クラスの高度なトピック
+        </a>
+       </li>
+       <li>
+        <a href="./117.html">
+         ドキュメンテーション
+        </a>
+       </li>
+       <li>
+        <a href="./118.html">
+         例外処理の基礎
+        </a>
+       </li>
+       <li>
+        <a href="./119.html">
+         例外クラス
+        </a>
+       </li>
+       <li>
+        <a href="./120.html">
+         高度な例外処理
+        </a>
+       </li>
+       <li>
+        <a href="./121.html">
+         終わりに
+        </a>
+       </li>
+      </ol>
+     </div>
+     <!-- amazon -->
+     <div class="sidebar-module">
+      <!--
+     	 <img src="./assets/sample/amazon.png">
+       -->
+      <script type="text/javascript">
+       amazon_ad_tag ="grit-22"; amazon_ad_width ="300"; amazon_ad_height ="250"; amazon_ad_link_target ="new";
+      </script>
+      <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
+      </script>
+     </div>
+     <!-- amazon end-->
+     <div class="sidebar-module">
+      <h3>
+       その他
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="#">
+         <span class="icon-github">
+         </span>
+         GitHub
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         <i class="icon-twitter">
+         </i>
+         Twitter
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         <span class="icon-facebook">
+         </span>
+         Facebook
+        </a>
+       </li>
+       <li class="li-none">
+        <a href="#" id="rw_email_contact">
+         Mail
+        </a>
+        <script type="text/javascript">
+         var _rwObsfuscatedHref0 = "mai";var _rwObsfuscatedHref1 = "lto";var _rwObsfuscatedHref2 = ":yu";var _rwObsfuscatedHref3 = "ich";var _rwObsfuscatedHref4 = "i@y";var _rwObsfuscatedHref5 = "uic";var _rwObsfuscatedHref6 = "hi.";var _rwObsfuscatedHref7 = "com";var _rwObsfuscatedHref = _rwObsfuscatedHref0+_rwObsfuscatedHref1+_rwObsfuscatedHref2+_rwObsfuscatedHref3+_rwObsfuscatedHref4+_rwObsfuscatedHref5+_rwObsfuscatedHref6+_rwObsfuscatedHref7; document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
+        </script>
+       </li>
+      </ol>
+     </div>
+     <div class="sidebar-module">
+      <!-- padding for side bar -->
+      <div class="hidden-xs">
+       <p style="height:500px">
+       </p>
+      </div>
+     </div>
+    </div>
+    <!-- /.blog-sidebar -->
+   </div>
+   <!-- /.row -->
+  </div>
+  <!-- /.container -->
+  <footer>
+   <div class="blog-footer-top">
+   </div>
+   <div class="blog-footer">
+    <p>
+     Copyright © 2017 Yuichi Ito All Rights Reserved.
+    </p>
+    <p align="center">
+     修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
+     <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
+      Git Hub Issues
+      <span class="icon-github">
+      </span>
+     </a>
+    </p>
+   </div>
+  </footer>
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+  </script>
+  <script src="./assets/js/bootstrap.min.js">
+  </script>
+  <script src="./assets/js/delete_useless_dom.js">
+  </script>
+  <!-- GOOGLE ANALYTICS -->
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-4830860-7', 'auto');
+      ga('send', 'pageview');
+  </script>
+ </body>
+</html>

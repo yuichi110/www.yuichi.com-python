@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="Sample Description" name="description"/>
+  <link href="./assets/favicon.ico" rel="icon"/>
+  <title>
+   Python入門
+  </title>
+  <link href="./assets/css/bootstrap.css" rel="stylesheet">
+   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body>
+  <!-- GENERATED HTML START -->
+  <h2>
+   self
+  </h2>
+  <p>
+   Pythonのクラスのメソッドやコンストラクタでは第一引数をselfとします。
+そして、それらの定義されたメソッドを呼び出す際はselfに該当する引数を指定しないのでした。
+たとえば、以下のクラスのコンストラクタとメソッドmethod1の利用方法を見ればわかります。
+宣言にはselfがありますが、呼び出しにはselfに相当するものがありません。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'constructer'</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">instance</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="c1"># constructer</span>
+
+<span class="n">instance</span><span class="o">.</span><span class="n">method1</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+<span class="c1"># hello</span>
+</pre>
+  </div>
+  <p>
+   さて、本章ではこの self が何なのかということを確認してみます。
+先ほどのクラスにselfのタイプとそれ自身(参照)を表示するメソッドを追加します。
+そして、それとは別にインスタンスのタイプと参照を表示させます。
+まず最初にクラスから作られたインスタンスを確認してみます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">method2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'self type: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'self ref:  {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+<span class="n">instance</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'instance type: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">instance</span><span class="p">)))</span>
+<span class="c1"># instance type: &lt;class '__main__.MyClass'&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'instance ref: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instance</span><span class="p">))</span>
+<span class="c1"># instance ref: &lt;__main__.MyClass object at 0x1013d76d8&gt;</span>
+</pre>
+  </div>
+  <p>
+   作成されたインスタンスのタイプは「
+   <class '__main__.myclass'="">
+    」となっています。
+ようするに MyClass のインスタンスであるということです。
+そしてそれを直接プリントした出力は「&lt;
+    <strong>
+     main
+    </strong>
+    .MyClass object at 0x1013d76d8&gt;」となりました。
+後者は「このMyClass のオブジェクト(インスタンス)はメモリ空間上の 0x1013d76d8 にある」という表示です。
+   </class>
+  </p>
+  <p>
+   次に instanse.method2() を呼び出し、そのなかで self がなにものなのか出力させてみます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">instance</span><span class="o">.</span><span class="n">method2</span><span class="p">()</span>
+<span class="c1"># self type: &lt;class '__main__.MyClass'&gt;</span>
+<span class="c1"># self ref:  &lt;__main__.MyClass object at 0x1013d76d8&gt;</span>
+</pre>
+  </div>
+  <p>
+   タイプやインスタンスの所在地の出力結果を見ると、先ほどの instance にまったく同じものであることがわかります。
+つまりメソッドの第一引数のselfには「インスタンスとしての自分自身」が入ることがわかります。
+このことから、ちょうどインスタンスのデータを「インスタンス.データ」としてアクセスするように、
+メソッド内でも自分自身のデータを「self.データ」としてアクセスしていることがわかります。
+  </p>
+  <p>
+   例えば以前使った下記のコードですが、コンストラクタ内でインスタンスのデータを「self.インスタンス変数」として初期化しています。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">UserInfo</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">birth</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'initialize instance'</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">birth</span> <span class="o">=</span> <span class="n">birth</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+</pre>
+  </div>
+  <p>
+   コンストラクタ以外のメソッド内で「 self.インスタンス変数」 としていたのもこれと同じ理由です。
+self を使わず単に「name や birth」とすると、それはインスタンス変数ではなく、
+インスタンス変数と同じ名前の「ローカル変数(メソッド内だけで使える変数。関数のものと同じ)」を使っていることになります。
+そのため、上記のコードにおいてコンストラクタに渡されている引数はただのメソッド内の変数として扱われ、
+self.name はインスタンスが持つインスタンス変数として扱われます。
+両者ともnameという名前になっていますが別物です。
+  </p>
+  <p>
+   インスタンス変数と変数の違いを少し確認してみます。以下のコードはコンストラクタ及びメソッドで、
+a をインスタンス変数、b をメソッド内の変数として扱っています。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">def</span> <span class="nf">set_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span>  <span class="n">value</span>
+
+  <span class="k">def</span> <span class="nf">get_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span>
+
+  <span class="k">def</span> <span class="nf">set_b</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">value</span>
+
+  <span class="k">def</span> <span class="nf">get_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">b</span>
+</pre>
+  </div>
+  <p>
+   インスタンス変数 a にメソッド set_a で値をセットし、get_a でそれを取得してみます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">instance</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="n">instance</span><span class="o">.</span><span class="n">set_a</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">get_a</span><span class="p">())</span>
+<span class="c1"># 3</span>
+</pre>
+  </div>
+  <p>
+   想定通り、セットもゲットもできています。
+一方、変数 b に同じことをやるとエラーとなってしまいます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">instance</span><span class="o">.</span><span class="n">set_b</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">get_b</span><span class="p">())</span>
+<span class="c1"># Traceback (most recent call last):</span>
+<span class="c1">#   ...</span>
+<span class="c1"># NameError: name 'b' is not defined</span>
+</pre>
+  </div>
+  <p>
+   これはなぜかというと、コンストラクタやメソッドで使われている変数 b はそのメソッドでしか有効でないためです。
+コンストラクタやメソッドで変数 b に代入をしても、それとは異なるメソッドではその変数 b はまだ存在していません。
+そのため、get_b メソッド内で変数 b の値を取得しようとしたところ「変数 b は定義されていない」と怒られてしまっています。
+インスタンス変数とself について理解できていればこの間違いを意図的にやることはないと思います。
+ただ、うっかり self を書き忘れてしまうということはあると思いますので注意して下さい。
+  </p>
+  <h3>
+   動的なオブジェクト構造
+  </h3>
+  <p>
+   コンストラクタとself についてあらかた分かって頂けたと思います。
+そのため、Pythonのオブジェクト指向が「どのように実現されているか」を少し深掘りしてみます。
+このレベルまで気にしなくてもプログラムは組めるため、プログラミング初心者のかたは読み飛ばしていただいていいと思います。
+  </p>
+  <p>
+   今までPythonのインスタンスはクラスから作られるという話を何度もしました。
+そしてインスタンスで持つデータはクラスのコンストラクタで定義されたものを使うのでした。
+そのインスタンス変数の定義の仕方をよく思い出してください。
+以下のようにコンストラクタでselfに追加していっていました。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="s1">'a'</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="s1">'b'</span>
+</pre>
+  </div>
+  <p>
+   既にお話したようにselfはインスタンス自身でした。コードを見てみてください。
+self.a = 'a'としていることからわかるように、すでに存在する self.a というインスタンス変数に文字列 ‘a’ を代入しているように見えます。
+ただ厳密にはこの説明間違っています。
+実はこのself.a = 'a'が実施される直前までは、このインスタンスはaというデータを持っていません。
+そのため、self.a = 'a'はインスタンスがすでに持つ変数への値の代入というよりは、
+新しくデータを作っているようなイメージです。
+これは、JavaScriptなどで利用されているプロトタイプベースのオブジェクト指向に似ており、C++ や Java のオブジェクトとは全く異なっています。
+  </p>
+  <p>
+   少しコードを書き換えてテストします。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'1: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="s1">'a'</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="s1">'b'</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'2: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+
+<span class="n">instance</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'3: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">instance</span><span class="p">)))</span>
+</pre>
+  </div>
+  <p>
+   上記ではあるオブジェクトが持つ属性(インスタンス変数やメソッドなど)を確認するdir関数を使うことで、
+インスタンスが何を持っているか確認しています。
+具体的にはコンストラクタ
+   <strong>
+    init
+   </strong>
+   でインスタンス変数値をに代入する前後で、
+そのインスタンスがどのようなデータを持っているか表示しています。
+そして、作成し終わった後でインスタンスの中身を再度 dir で確認しています。
+  </p>
+  <p>
+   実行結果は以下のようになります。
+  </p>
+  <div class="codehilite">
+   <pre><span></span>1: ['__class__', ... , '__weakref__']
+2: ['__class__', ... , '__weakref__', 'a', 'b']
+3: ['__class__', ... , '__weakref__', 'a', 'b']
+</pre>
+  </div>
+  <p>
+   見てもらうとわかるようにすべて同じインスタンスであるにもかかわらず、持っている属性にa、bが途中で追加されています。
+Python のコンストラクタは「すでにあるインスタンス変数に値をいれる」というよりは「新しくインスタンス変数を作っている」といえます。
+Javaなどだとコンストラクタで属性の中身に変更を加えられますが、属性の有無そのものは変化していません。
+  </p>
+  <p>
+   実はこの属性の追加はコンストラクタ以外でも実行できます。
+たとえば、先ほど作ったMyClassのインスタンスにクラスで定義されていない属性cを追加してみます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">instance</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="s1">'c'</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'4: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">instance</span><span class="p">)))</span>
+<span class="c1"># 4: ['__class__', ... , '__weakref__', , 'a', 'b', 'c']</span>
+</pre>
+  </div>
+  <p>
+   dirで確認すると、今まで存在しなかった属性cが追加されていることがわかります。
+当然、同じ要領でコンストラクタ以外のメソッド内でも新しくインスタンス変数を作ることはできます。
+メソッドでさえ新しく作ることができます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">def</span> <span class="nf">new_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">return</span> <span class="s1">'hello new method'</span>
+
+<span class="n">MyClass</span><span class="o">.</span><span class="n">new_method</span> <span class="o">=</span> <span class="n">new_method</span>
+<span class="k">print</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">new_method</span><span class="p">())</span>
+<span class="c1"># hello new method</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'5: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">instance</span><span class="p">)))</span>
+<span class="c1"># 4: ['__class__', ... , '__weakref__', , 'a', 'b', 'c', 'new_method']</span>
+</pre>
+  </div>
+  <p>
+   クラスベースとプロトタイプベースのインスタンスの作られ方の違いについて、以下に概念図を記載します。
+Python は両者の中間にいます。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1040_image/01.jpg"/>
+  </p>
+  <p>
+   プロトタイプベースのほうが融通は効きます。
+ただ、規則性を持ってコードを書かないとカオスになるので注意してください。
+初心者のうちは厳格にルールを守ることに注力すべきだと思います。
+  </p>
+  <p>
+   Pythonで属性はオブジェクトに「後付けできる」ということは知っておくべきだと思います。
+なぜならこれらのテクニックは上級レベルのプログラミングで利用されることがあるためです。
+ただ、意図してそのようなことをしないのであれば、
+コンストラクタ以外でのオブジェクトへのデータの追加は可能な限り控えるべきだと思います。
+インスタンスの属性があったりなかったりするとトラブルのもとですし、
+なによりクラスのコードだけを読んでもインスタンスがどのようなデータを持っているのかわからなくなります。
+インスタンスを作った時点では使わないインスタンス変数があったとしても、
+それは必ずコンストラクタで初期化するようにしてください。
+特に初心者のかたは誰が読んでも分かるコードを書くことに注意を払ってください。
+  </p>
+  <!-- GENERATED HTML END -->
+ </body>
+</html>

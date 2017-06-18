@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="Sample Description" name="description"/>
+  <link href="./assets/favicon.ico" rel="icon"/>
+  <title>
+   Python入門
+  </title>
+  <link href="./assets/css/bootstrap.css" rel="stylesheet">
+   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body>
+  <!-- GENERATED HTML START -->
+  <h2>
+   ドキュメンテーション
+  </h2>
+  <h3>
+   ドキュメンテーション
+  </h3>
+  <p>
+   オブジェクト指向は外部に必要な部分だけ見せることが重要です。
+外部に対して適切に「このクラスやメソッドはどう使うか」を適切に提示できなければ、
+利用者はコードを読まないと何をどうすればそのクラスを使えるか分かりません。
+本章で「docstring」を使ってドキュメントを書く方法を学びます。
+ docstring に適切なコメントを書くことで利用者はソースコードを読まなくてクラスやメソッドの使い方が把握できます。
+ なお、docstring はクラス以外でも使えるテクニックですので、クラス以外についても扱います。
+  </p>
+  <p>
+   このドキュメンテーションですが、主に以下の箇所にて使われます。
+  </p>
+  <ul>
+   <li>
+    モジュール
+   </li>
+   <li>
+    クラス
+   </li>
+   <li>
+    関数、メソッド
+   </li>
+  </ul>
+  <p>
+   一番簡単な関数を使ってドキュメントの書き方を紹介します 。
+関数のdocstring は def 宣言の後にトリプルクオテーションで記載します。
+以下にサンプルを記載します。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="c1"># mymodule.py</span>
+
+<span class="k">def</span> <span class="nf">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">"""ドキュメントを試す関数</span>
+
+<span class="sd">    引数:</span>
+<span class="sd">        x (int): ひとつ目の引数</span>
+<span class="sd">        y (str): ふたつ目の引数</span>
+
+<span class="sd">    返り値:</span>
+<span class="sd">        str : 引数を結合した文字列</span>
+<span class="sd">    """</span>
+
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span>
+</pre>
+  </div>
+  <p>
+   上記は自作モジュール mymodule に定義した「整数型と文字列型の引数を受け取り、それを結合した文字列を返す関数」です。
+見てもらうと分かるように関数の定義の直後に「この関数が何をするか」という説明がトリプルクオテーションでされています。
+ドキュメントの書き方にはいくつかの流派がありますが、いずれにせよ以下のことは説明する必要があります。
+  </p>
+  <ul>
+   <li>
+    なにを目的とした関数か
+   </li>
+   <li>
+    引数の詳細
+   </li>
+   <li>
+    返り値の詳細
+   </li>
+   <li>
+    注意点(もしあれば)
+   </li>
+  </ul>
+  <p>
+   上記のサンプルコードを見てもこれらが書かれていることが分かります。
+  </p>
+  <p>
+   この関数の説明はコードを読んだ時にも明確にわかりますが、
+ツールを使うことでコードファイルを読まずに確認することもできます。
+例えばプロンプトにてこの関数を利用したいとしましょう。
+その際、以下のようにすればこの関数のドキュメントを確認できます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">mymodule</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">help</span><span class="p">(</span><span class="n">mymodule</span><span class="o">.</span><span class="n">test_function</span><span class="p">)</span>
+</pre>
+  </div>
+  <p>
+   これを実行すると以下のような画面が出力されるはずです。
+  </p>
+  <div class="codehilite">
+   <pre><span></span>Help on function test_function in module __main__:
+
+test_function(x, y)
+    ドキュメントを試す関数
+
+    引数:
+        x (int) : ひとつ目の引数
+        y (str) : ふたつ目の引数
+
+    返り値:
+        str : 引数を結合した文字列
+(END)
+</pre>
+  </div>
+  <p>
+   qボタンを押すことでこのヘルプは抜けられます。
+  </p>
+  <p>
+   実は関数に限らずドキュメントはオブジェクトの特殊属性
+   <code>
+    __doc__
+   </code>
+   に文字列として格納されており、
+help 関数はそれを読み取っています。
+  </p>
+  <div class="codehilite">
+   <pre><span></span>&gt;&gt;&gt; print(mymodule.test_function.__doc__)
+ドキュメントを試す関数
+
+  引数:
+      x (int): ひとつ目の引数
+      y (str): ふたつ目の引数
+
+  返り値:
+      str : 引数を結合した文字列
+&gt;&gt;&gt;
+</pre>
+  </div>
+  <p>
+   次にモジュールのドキュメントです。
+関数のドキュメントと同じくトリプルクオテーションで定義します。
+定義する位置は文字コードやシバンの後になり、実際のコード(例えば import 文など)の前となります。
+モジュールのドキュメントに記載すべき内容は以下のとおりです。
+  </p>
+  <ul>
+   <li>
+    コードの管理者の署名
+   </li>
+   <li>
+    変更履歴など
+   </li>
+   <li>
+    何を目的としたモジュールか
+   </li>
+   <li>
+    引数を受け取るのであればどう利用するか
+   </li>
+   <li>
+    注意点
+   </li>
+  </ul>
+  <p>
+   コードの管理者や変更履歴はモジュールが長くメンテされることを考えた場合に必要です。
+たとえばバグなどがあった場合は管理者に連絡をとることができます。
+その他は先程の関数とそれほど変わりません。
+スクリプトとして呼び出す際の引数に関してはコードを読まなくても分かるように記載することが必須です。
+  </p>
+  <p>
+   最後にクラスのドキュメントですが、これはそのクラスの目的などを記載します。
+関数とそれほど変わりません。
+  </p>
+  <p>
+   ドキュメントの書き方は様々なものがあります。
+共同作業をするのであればチームでフォーマットを統一することが望ましいため、
+事前に話し合っておくことをおすすめします。
+  </p>
+  <!-- GENERATED HTML END -->
+ </body>
+</html>

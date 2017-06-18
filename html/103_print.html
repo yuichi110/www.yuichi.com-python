@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="Sample Description" name="description"/>
+  <link href="./assets/favicon.ico" rel="icon"/>
+  <title>
+   Python入門
+  </title>
+  <link href="./assets/css/bootstrap.css" rel="stylesheet">
+   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body>
+  <!-- GENERATED HTML START -->
+  <h2>
+   オブジェクト指向を体験
+  </h2>
+  <p>
+   オブジェクト指向の難しい話をしたり、いきなり文法を教えたりしても頭にはすっと入ってこないと思います。
+そのため、まずは難しい話は抜きにしてリストという型を使って「オブジェクト」の扱いに慣れ親しんでもらいたいと思います。
+  </p>
+  <p>
+   既にご存知かと思いますが、リストは型の一つであり、内部に複数のデータをリスト形式で持ちます。
+例えば、以下は全てリスト型のデータです。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="p">[]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">'hello'</span><span class="p">,</span><span class="s1">'python'</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">'python'</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</pre>
+  </div>
+  <p>
+   リストは「型」であり、上記はその「データ」です。リストは「概念」で「1,2,3 という数字が格納されたリストのデータ」は具体的なモノです。
+オブジェクト指向におけるこの「概念のレベルでのデータ」がクラスであり、その具体的なモノがオブジェクトと呼ばれています。
+例えばクラスとオブジェクトの関係は以下のようなものとなります。
+  </p>
+  <ul>
+   <li>
+    整数型がクラスであり、1,2,3 はオブジェクト
+   </li>
+   <li>
+    文字列型がクラスであり、’hello’, ‘python’ はオブジェクト
+   </li>
+   <li>
+    リストがクラスであり、[],[1,2,3],[“hello”,”python”] はオブジェクト
+   </li>
+  </ul>
+  <p>
+   上記の例だけを見るとオブジェクトはつまり「具体的なデータ」のように思えますが、実はそうではありません。
+データに加えて「処理」も含んでいます。
+たとえば、「リスト末尾に要素を追加」することを思い浮かべて下さい。[1,2,3] に 4 を追加して [1,2,3,4] とするには、
+以下のように [1,2,3] というリストのオブジェクトに対して追加処理を「メソッド」として呼び出します。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># [1, 2, 3]</span>
+
+<span class="c1"># Listオブジェクト a のメソッド呼び出し</span>
+<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># オブジェクト自体が変更されている</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># [1, 2, 3, 4]</span>
+</pre>
+  </div>
+  <p>
+   上記のサンプルプログラムは [1,2,3] というリストのオブジェクトがデータだけでなく append という処理(メソッド)も持っていて、
+それを使うことで自分自身のデータを更新しています。
+[1,2,3] というオブジェクトが変数 a に代入された時点では [1,2,3] のままですが、
+append メソッドを呼び出した呼び出した後は[1,2,3,4]となっていることが分かります。
+オブジェクトが「データ」と「処理」の両方を持つということを理解できましたでしょうか。
+以下に上記の変化を示す図を記載します。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1015_image/01.png"/>
+  </p>
+  <p>
+   以上でリストを使った簡単なオブジェクト指向の体験は終了です。
+最後にオブジェクトの詳細を知るのに便利な関数である dir() を紹介します。
+例えばプログラムを書いていると「リスト型がどういう名前のメソッドを持っているか」ということを確認する必要がある場合が出てきます。
+dir 関数にオブジェクトを与えると、そのオブジェクトがどのような属性を持つかリスト形式で返してくれます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span>$ python3
+&gt;&gt;&gt; <span class="nv">a</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span>,2,3<span class="o">]</span>
+&gt;&gt;&gt; dir<span class="o">(</span>a<span class="o">)</span>
+<span class="o">[</span><span class="s1">'__add__'</span>, <span class="s1">'__class__'</span>, <span class="s1">'__contains__'</span>, <span class="s1">'__delattr__'</span>, <span class="s1">'__delitem__'</span>, <span class="s1">'__dir__'</span>, <span class="s1">'__doc__'</span>, <span class="s1">'__eq__'</span>, <span class="s1">'__format__'</span>, <span class="s1">'__ge__'</span>, <span class="s1">'__getattribute__'</span>, <span class="s1">'__getitem__'</span>, <span class="s1">'__gt__'</span>, <span class="s1">'__hash__'</span>, <span class="s1">'__iadd__'</span>, <span class="s1">'__imul__'</span>, <span class="s1">'__init__'</span>, <span class="s1">'__iter__'</span>, <span class="s1">'__le__'</span>, <span class="s1">'__len__'</span>, <span class="s1">'__lt__'</span>, <span class="s1">'__mul__'</span>, <span class="s1">'__ne__'</span>, <span class="s1">'__new__'</span>, <span class="s1">'__reduce__'</span>, <span class="s1">'__reduce_ex__'</span>, <span class="s1">'__repr__'</span>, <span class="s1">'__reversed__'</span>, <span class="s1">'__rmul__'</span>, <span class="s1">'__setattr__'</span>, <span class="s1">'__setitem__'</span>, <span class="s1">'__sizeof__'</span>, <span class="s1">'__str__'</span>, <span class="s1">'__subclasshook__'</span>, <span class="s1">'append'</span>, <span class="s1">'clear'</span>, <span class="s1">'copy'</span>, <span class="s1">'count'</span>, <span class="s1">'extend'</span>, <span class="s1">'index'</span>, <span class="s1">'insert'</span>, <span class="s1">'pop'</span>, <span class="s1">'remove'</span>, <span class="s1">'reverse'</span>, <span class="s1">'sort'</span><span class="o">]</span>
+</pre>
+  </div>
+  <p>
+   「あの処理をしたいのだけど、どういう名前だったかな」といった感じで忘れしまったメソッドを確認したり、
+「あの処理をしたいのだけど、なにかそれっぽいものはあるかな」といったこと調べたりするのに便利です。
+  </p>
+  <p>
+   dir に加えて help 関数を使うと、属性のより詳細を調べることもできます。
+たとえばリストの pop メソッドがどういうものか調べたければ以下のようにします。
+  </p>
+  <div class="codehilite">
+   <pre><span></span>&gt;&gt;&gt; help(a.pop)
+
+Help on built-in function pop:
+
+pop(...) method of builtins.list instance
+    L.pop([index]) -&gt; item -- remove and return item at index (default last).
+    Raises IndexError if list is empty or index is out of range.
+</pre>
+  </div>
+  <p>
+   上記のヘルプを使うことでメソッドの挙動がわかります。
+少し慣れが必要ですが、いちいち本で調べたりGoogle で検索したりするより、
+上記のようにインタプリタを使ってその場でどういう属性を持つか調べるほうがはやいので積極的に使ってみて下さい。
+  </p>
+  <h3>
+   本書の大まかな構成
+  </h3>
+  <p>
+   簡単に今後の流れについて説明します。
+本章の構成は大まかに3つに分かれており、以下のように進めます。
+  </p>
+  <ol>
+   <li>
+    オブジェクト指向の基礎
+   </li>
+   <li>
+    オブジェクト指向をどう使うか(設計)
+   </li>
+   <li>
+    継承やその他高度な話題
+   </li>
+   <li>
+    例外処理
+   </li>
+  </ol>
+  <p>
+   それぞれのトピックは単なる文法的な話だけではなく、「なぜそうなっているのか」「どう使うのがいいのか」といった一歩踏み込んだ解説をしています。
+読者のレベルによっては一部難しい箇所があるかもしれませんが、その場合はそれらの章を飛ばして後でまた読みなおしてみてください。
+また、オブジェクト指向を有効に使うためには「関数型」と呼ばれる別のパラダイムについても知ってもらう必要があるため、
+オブジェクト指向の中盤に1章を割いて Python の関数型について説明しています。
+  </p>
+  <h3>
+   サンプルプログラムについて
+  </h3>
+  <p>
+   本書のサンプルプログラムは出力をコメントとして記載しています。
+例えば以下のコードがあるとします。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre>
+  </div>
+  <p>
+   これを実行すると以下のような出力が得られます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span>$ python3 test.py
+<span class="m">10</span>
+<span class="m">3</span>
+</pre>
+  </div>
+  <p>
+   上記のプログラムは出力も加味して以下のように記載することになります。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># 10</span>
+
+<span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># 3</span>
+</pre>
+  </div>
+  <p>
+   また本書はPython速習シリーズの中編であるため、前編で扱った内容は知っていることを前提に書かかれています。
+前書は入門レベルの書籍であったため一部を除いて特に難しいことは扱っていませんが、本書では以下の文字列の format メソッドを多用するため挙動を紹介しておきます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">'{} {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">,</span> <span class="s1">'python'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># hello python</span>
+</pre>
+  </div>
+  <p>
+   上記のサンプルを見て分かるように文字列のformat メソッドはその内部にある中括弧{}に format メソッドの引数を埋め込んだ文字列を返します。
+本書では上記以上の高度な使い方はしませんが、前編では format メソッドの詳細を扱っています。ご興味があるかたはご一読願います。
+  </p>
+  <!-- GENERATED HTML END -->
+ </body>
+</html>

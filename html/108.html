@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta content="Sample Description" name="description"/>
+  <meta content="Yuichi Ito" name="author"/>
+  <link href="./asset/favicon.ico" rel="icon"/>
+  <title>
+   Python入門
+  </title>
+  <!-- Bootstrap core CSS -->
+  <link href="./assets/css/bootstrap.css" rel="stylesheet"/>
+  <!-- Custom styles for this template -->
+  <link href="./assets/css/blog.css" rel="stylesheet"/>
+  <!-- Code Highlight -->
+  <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+  <!-- Custom -->
+  <link href="./assets/css/css001.css" rel="stylesheet"/>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </link>
+ </head>
+ <body>
+  <div class="blog-masthead">
+   <div class="container">
+    <nav class="blog-nav">
+     <a class="blog-nav-item active" href="./">
+      サイトトップ
+     </a>
+     <a class="blog-nav-item " href="./download.html">
+      ダウンロード
+     </a>
+     <a class="blog-nav-item " href="./qa.html">
+      質問と回答
+     </a>
+     <a class="blog-nav-item " href="./books.html">
+      おすすめ書籍
+     </a>
+     <a class="blog-nav-item " href="./about.html">
+      このページについて
+     </a>
+     <a class="blog-nav-item" href="http://www.yuichi.com/">
+      GRIT Computing
+     </a>
+    </nav>
+   </div>
+  </div>
+  <div class="container">
+   <div class="blog-header">
+    <a href="./" style=" text-decoration: none;">
+     <h1 class="blog-title">
+      Python入門
+     </h1>
+     <p class="lead blog-description">
+      プログラミング言語Pythonについて
+     </p>
+    </a>
+   </div>
+   <div class="row">
+    <div class="col-sm-8 blog-main">
+     <!-- GENERATED HTML START -->
+     <h2>
+      self
+     </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         動的なオブジェクト構造
+        </a>
+       </li>
+      </ul>
+     </div>
+     <p>
+      Pythonのクラスのメソッドやコンストラクタでは第一引数をselfとします。
+そして、それらの定義されたメソッドを呼び出す際はselfに該当する引数を指定しないのでした。
+たとえば、以下のクラスのコンストラクタとメソッドmethod1の利用方法を見ればわかります。
+宣言にはselfがありますが、呼び出しにはselfに相当するものがありません。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'constructer'</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">instance</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="c1"># constructer</span>
+
+<span class="n">instance</span><span class="o">.</span><span class="n">method1</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+<span class="c1"># hello</span>
+</pre>
+     </div>
+     <p>
+      さて、本章ではこの self が何なのかということを確認してみます。
+先ほどのクラスにselfのタイプとそれ自身(参照)を表示するメソッドを追加します。
+そして、それとは別にインスタンスのタイプと参照を表示させます。
+まず最初にクラスから作られたインスタンスを確認してみます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">method2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'self type: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'self ref:  {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+<span class="n">instance</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'instance type: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">instance</span><span class="p">)))</span>
+<span class="c1"># instance type: &lt;class '__main__.MyClass'&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'instance ref: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instance</span><span class="p">))</span>
+<span class="c1"># instance ref: &lt;__main__.MyClass object at 0x1013d76d8&gt;</span>
+</pre>
+     </div>
+     <p>
+      作成されたインスタンスのタイプは「
+      <class '__main__.myclass'="">
+       」となっています。
+ようするに MyClass のインスタンスであるということです。
+そしてそれを直接プリントした出力は「&lt;
+       <strong>
+        main
+       </strong>
+       .MyClass object at 0x1013d76d8&gt;」となりました。
+後者は「このMyClass のオブジェクト(インスタンス)はメモリ空間上の 0x1013d76d8 にある」という表示です。
+      </class>
+     </p>
+     <p>
+      次に instanse.method2() を呼び出し、そのなかで self がなにものなのか出力させてみます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="n">instance</span><span class="o">.</span><span class="n">method2</span><span class="p">()</span>
+<span class="c1"># self type: &lt;class '__main__.MyClass'&gt;</span>
+<span class="c1"># self ref:  &lt;__main__.MyClass object at 0x1013d76d8&gt;</span>
+</pre>
+     </div>
+     <p>
+      タイプやインスタンスの所在地の出力結果を見ると、先ほどの instance にまったく同じものであることがわかります。
+つまりメソッドの第一引数のselfには「インスタンスとしての自分自身」が入ることがわかります。
+このことから、ちょうどインスタンスのデータを「インスタンス.データ」としてアクセスするように、
+メソッド内でも自分自身のデータを「self.データ」としてアクセスしていることがわかります。
+     </p>
+     <p>
+      例えば以前使った下記のコードですが、コンストラクタ内でインスタンスのデータを「self.インスタンス変数」として初期化しています。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">UserInfo</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">birth</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'initialize instance'</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">birth</span> <span class="o">=</span> <span class="n">birth</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+</pre>
+     </div>
+     <p>
+      コンストラクタ以外のメソッド内で「 self.インスタンス変数」 としていたのもこれと同じ理由です。
+self を使わず単に「name や birth」とすると、それはインスタンス変数ではなく、
+インスタンス変数と同じ名前の「ローカル変数(メソッド内だけで使える変数。関数のものと同じ)」を使っていることになります。
+そのため、上記のコードにおいてコンストラクタに渡されている引数はただのメソッド内の変数として扱われ、
+self.name はインスタンスが持つインスタンス変数として扱われます。
+両者ともnameという名前になっていますが別物です。
+     </p>
+     <p>
+      インスタンス変数と変数の違いを少し確認してみます。以下のコードはコンストラクタ及びメソッドで、
+a をインスタンス変数、b をメソッド内の変数として扱っています。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">def</span> <span class="nf">set_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span>  <span class="n">value</span>
+
+  <span class="k">def</span> <span class="nf">get_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span>
+
+  <span class="k">def</span> <span class="nf">set_b</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">value</span>
+
+  <span class="k">def</span> <span class="nf">get_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">b</span>
+</pre>
+     </div>
+     <p>
+      インスタンス変数 a にメソッド set_a で値をセットし、get_a でそれを取得してみます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="n">instance</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="n">instance</span><span class="o">.</span><span class="n">set_a</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">get_a</span><span class="p">())</span>
+<span class="c1"># 3</span>
+</pre>
+     </div>
+     <p>
+      想定通り、セットもゲットもできています。
+一方、変数 b に同じことをやるとエラーとなってしまいます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="n">instance</span><span class="o">.</span><span class="n">set_b</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">get_b</span><span class="p">())</span>
+<span class="c1"># Traceback (most recent call last):</span>
+<span class="c1">#   ...</span>
+<span class="c1"># NameError: name 'b' is not defined</span>
+</pre>
+     </div>
+     <p>
+      これはなぜかというと、コンストラクタやメソッドで使われている変数 b はそのメソッドでしか有効でないためです。
+コンストラクタやメソッドで変数 b に代入をしても、それとは異なるメソッドではその変数 b はまだ存在していません。
+そのため、get_b メソッド内で変数 b の値を取得しようとしたところ「変数 b は定義されていない」と怒られてしまっています。
+インスタンス変数とself について理解できていればこの間違いを意図的にやることはないと思います。
+ただ、うっかり self を書き忘れてしまうということはあると思いますので注意して下さい。
+     </p>
+     <h3 id="header-1">
+      動的なオブジェクト構造
+     </h3>
+     <p>
+      コンストラクタとself についてあらかた分かって頂けたと思います。
+そのため、Pythonのオブジェクト指向が「どのように実現されているか」を少し深掘りしてみます。
+このレベルまで気にしなくてもプログラムは組めるため、プログラミング初心者のかたは読み飛ばしていただいていいと思います。
+     </p>
+     <p>
+      今までPythonのインスタンスはクラスから作られるという話を何度もしました。
+そしてインスタンスで持つデータはクラスのコンストラクタで定義されたものを使うのでした。
+そのインスタンス変数の定義の仕方をよく思い出してください。
+以下のようにコンストラクタでselfに追加していっていました。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="s1">'a'</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="s1">'b'</span>
+</pre>
+     </div>
+     <p>
+      既にお話したようにselfはインスタンス自身でした。コードを見てみてください。
+self.a = 'a'としていることからわかるように、すでに存在する self.a というインスタンス変数に文字列 ‘a’ を代入しているように見えます。
+ただ厳密にはこの説明間違っています。
+実はこのself.a = 'a'が実施される直前までは、このインスタンスはaというデータを持っていません。
+そのため、self.a = 'a'はインスタンスがすでに持つ変数への値の代入というよりは、
+新しくデータを作っているようなイメージです。
+これは、JavaScriptなどで利用されているプロトタイプベースのオブジェクト指向に似ており、C++ や Java のオブジェクトとは全く異なっています。
+     </p>
+     <p>
+      少しコードを書き換えてテストします。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'1: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="s1">'a'</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="s1">'b'</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'2: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+
+<span class="n">instance</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'3: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">instance</span><span class="p">)))</span>
+</pre>
+     </div>
+     <p>
+      上記ではあるオブジェクトが持つ属性(インスタンス変数やメソッドなど)を確認するdir関数を使うことで、
+インスタンスが何を持っているか確認しています。
+具体的にはコンストラクタ
+      <strong>
+       init
+      </strong>
+      でインスタンス変数値をに代入する前後で、
+そのインスタンスがどのようなデータを持っているか表示しています。
+そして、作成し終わった後でインスタンスの中身を再度 dir で確認しています。
+     </p>
+     <p>
+      実行結果は以下のようになります。
+     </p>
+     <div class="codehilite">
+      <pre><span></span>1: ['__class__', ... , '__weakref__']
+2: ['__class__', ... , '__weakref__', 'a', 'b']
+3: ['__class__', ... , '__weakref__', 'a', 'b']
+</pre>
+     </div>
+     <p>
+      見てもらうとわかるようにすべて同じインスタンスであるにもかかわらず、持っている属性にa、bが途中で追加されています。
+Python のコンストラクタは「すでにあるインスタンス変数に値をいれる」というよりは「新しくインスタンス変数を作っている」といえます。
+Javaなどだとコンストラクタで属性の中身に変更を加えられますが、属性の有無そのものは変化していません。
+     </p>
+     <p>
+      実はこの属性の追加はコンストラクタ以外でも実行できます。
+たとえば、先ほど作ったMyClassのインスタンスにクラスで定義されていない属性cを追加してみます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="n">instance</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="s1">'c'</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'4: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">instance</span><span class="p">)))</span>
+<span class="c1"># 4: ['__class__', ... , '__weakref__', , 'a', 'b', 'c']</span>
+</pre>
+     </div>
+     <p>
+      dirで確認すると、今まで存在しなかった属性cが追加されていることがわかります。
+当然、同じ要領でコンストラクタ以外のメソッド内でも新しくインスタンス変数を作ることはできます。
+メソッドでさえ新しく作ることができます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">def</span> <span class="nf">new_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">return</span> <span class="s1">'hello new method'</span>
+
+<span class="n">MyClass</span><span class="o">.</span><span class="n">new_method</span> <span class="o">=</span> <span class="n">new_method</span>
+<span class="k">print</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">new_method</span><span class="p">())</span>
+<span class="c1"># hello new method</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'5: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">instance</span><span class="p">)))</span>
+<span class="c1"># 4: ['__class__', ... , '__weakref__', , 'a', 'b', 'c', 'new_method']</span>
+</pre>
+     </div>
+     <p>
+      クラスベースとプロトタイプベースのインスタンスの作られ方の違いについて、以下に概念図を記載します。
+Python は両者の中間にいます。
+     </p>
+     <p class="blog-img">
+      <img alt="image" class="img-responsive" src="./1040_image/01.jpg"/>
+     </p>
+     <p>
+      プロトタイプベースのほうが融通は効きます。
+ただ、規則性を持ってコードを書かないとカオスになるので注意してください。
+初心者のうちは厳格にルールを守ることに注力すべきだと思います。
+     </p>
+     <p>
+      Pythonで属性はオブジェクトに「後付けできる」ということは知っておくべきだと思います。
+なぜならこれらのテクニックは上級レベルのプログラミングで利用されることがあるためです。
+ただ、意図してそのようなことをしないのであれば、
+コンストラクタ以外でのオブジェクトへのデータの追加は可能な限り控えるべきだと思います。
+インスタンスの属性があったりなかったりするとトラブルのもとですし、
+なによりクラスのコードだけを読んでもインスタンスがどのようなデータを持っているのかわからなくなります。
+インスタンスを作った時点では使わないインスタンス変数があったとしても、
+それは必ずコンストラクタで初期化するようにしてください。
+特に初心者のかたは誰が読んでも分かるコードを書くことに注意を払ってください。
+     </p>
+     <!-- GENERATED HTML END -->
+     <nav>
+      <ul class="pager">
+       <li id="previous-li">
+        <a href="./107.html" id="previous-a">
+         ← Previous
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         Page Top
+        </a>
+       </li>
+       <li class="pager-next" id="next-li">
+        <a href="./109.html" id="next-a">
+         Next →
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <!-- /.blog-main -->
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+     <!-- 広告エリア -->
+     <div class="sidebar-module">
+      <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+      </script>
+      <!-- 300 x 250 -->
+      <ins class="adsbygoogle" data-ad-client="ca-pub-9447655910606139" data-ad-slot="4820856978" style="display:inline-block;width:300px;height:250px">
+      </ins>
+      <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+     </div>
+     <!-- 広告エリア end-->
+     <!-- SNS start -->
+     <div class="sidebar-module">
+      <ul class="social-buttons">
+       <li>
+        <!-- hatena -->
+        <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
+         <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
+        </a>
+        <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
+        </script>
+       </li>
+       <li>
+        <!-- FB -->
+        <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
+        </div>
+        <div id="fb-root">
+        </div>
+        <script>
+         (function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+        </script>
+       </li>
+       <li>
+        <!-- twitter -->
+        <a class="twitter-share-button" href="https://twitter.com/share">
+         Tweet
+        </a>
+        <script>
+         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        </script>
+       </li>
+       <li>
+        <!-- G+ -->
+        <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
+        <script async="" defer="" src="https://apis.google.com/js/platform.js">
+         {lang: 'ja'}
+        </script>
+        <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+        <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
+        </div>
+       </li>
+       <li>
+        <!-- IN/Share -->
+        <script src="//platform.linkedin.com/in.js" type="text/javascript">
+         lang: ja_JP
+        </script>
+        <script data-counter="right" type="IN/Share">
+        </script>
+       </li>
+      </ul>
+     </div>
+     <div class="print">
+      <a href="./108_print.html">
+       <img src="./assets/images/print.png"/>
+       印刷する
+      </a>
+     </div>
+     <!-- SNS end -->
+     <div class="sidebar-module">
+      <h3>
+       Python入門
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="./">
+         トップページ
+        </a>
+       </li>
+       <li>
+        <a href="./download.html">
+         ダウンロード
+        </a>
+       </li>
+       <li>
+        <a href="./qa.html">
+         質問と回答
+        </a>
+       </li>
+       <li>
+        <a href="./books.html">
+         おすすめPython書籍
+        </a>
+       </li>
+       <li>
+        <a href="./about.html">
+         このページについて
+        </a>
+       </li>
+      </ol>
+     </div>
+     <div class="sidebar-module">
+      <h3>
+       初級編
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="./001.html">
+         前書き
+        </a>
+       </li>
+       <li>
+        <a href="./002.html">
+         目次
+        </a>
+       </li>
+       <li>
+        <a href="./003.html">
+         Pythonプログラミング
+        </a>
+       </li>
+       <li>
+        <a href="./004.html">
+         インストールと実行
+        </a>
+       </li>
+       <li>
+        <a href="./005.html">
+         概要
+        </a>
+       </li>
+       <li>
+        <a href="./006.html">
+         型と変数
+        </a>
+       </li>
+       <li>
+        <a href="./007.html">
+         最重要な型
+        </a>
+       </li>
+       <li>
+        <a href="./008.html">
+         制御構造
+        </a>
+       </li>
+       <li>
+        <a href="./009.html">
+         関数
+        </a>
+       </li>
+       <li>
+        <a href="./010.html">
+         モジュール
+        </a>
+       </li>
+       <li>
+        <a href="./011.html">
+         オブジェクトとメソッド
+        </a>
+       </li>
+       <li>
+        <a href="./012.html">
+         テキスト処理
+        </a>
+       </li>
+       <li>
+        <a href="./013.html">
+         リスト再入門
+        </a>
+       </li>
+       <li>
+        <a href="./014.html">
+         タプル
+        </a>
+       </li>
+       <li>
+        <a href="./015.html">
+         セット
+        </a>
+       </li>
+       <li>
+        <a href="./016.html">
+         辞書型
+        </a>
+       </li>
+       <li>
+        <a href="./017.html">
+         None型
+        </a>
+       </li>
+       <li>
+        <a href="./018.html">
+         ファイル処理
+        </a>
+       </li>
+       <li>
+        <a href="./019.html">
+         基数と文字コード
+        </a>
+       </li>
+       <li>
+        <a href="./020.html">
+         日本語の扱い
+        </a>
+       </li>
+       <li>
+        <a href="./021.html">
+         プログラムへの入力
+        </a>
+       </li>
+       <li>
+        <a href="./022.html">
+         関数の高度なトピック
+        </a>
+       </li>
+       <li>
+        <a href="./023.html">
+         おわりに
+        </a>
+       </li>
+      </ol>
+     </div>
+     <div class="sidebar-module">
+      <h3>
+       中級編
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="./101.html">
+         前書き
+        </a>
+       </li>
+       <li>
+        <a href="./102.html">
+         目次
+        </a>
+       </li>
+       <li>
+        <a href="./103.html">
+         オブジェクト指向を体験
+        </a>
+       </li>
+       <li>
+        <a href="./104.html">
+         データ構造
+        </a>
+       </li>
+       <li>
+        <a href="./105.html">
+         クラスとインスタンス化
+        </a>
+       </li>
+       <li>
+        <a href="./106.html">
+         インスタンスとメソッド
+        </a>
+       </li>
+       <li>
+        <a href="./107.html">
+         コンストラクタ
+        </a>
+       </li>
+       <li>
+        <a href="./108.html">
+         self
+        </a>
+       </li>
+       <li>
+        <a href="./109.html">
+         情報の隠蔽
+        </a>
+       </li>
+       <li>
+        <a href="./110.html">
+         オブジェクトの役割
+        </a>
+       </li>
+       <li>
+        <a href="./111.html">
+         関数型プログラミング
+        </a>
+       </li>
+       <li>
+        <a href="./112.html">
+         ゲーム作り
+        </a>
+       </li>
+       <li>
+        <a href="./113.html">
+         クラスの継承
+        </a>
+       </li>
+       <li>
+        <a href="./114.html">
+         メソッドのオーバーライド
+        </a>
+       </li>
+       <li>
+        <a href="./115.html">
+         GUIで継承を学ぶ
+        </a>
+       </li>
+       <li>
+        <a href="./116.html">
+         クラスの高度なトピック
+        </a>
+       </li>
+       <li>
+        <a href="./117.html">
+         ドキュメンテーション
+        </a>
+       </li>
+       <li>
+        <a href="./118.html">
+         例外処理の基礎
+        </a>
+       </li>
+       <li>
+        <a href="./119.html">
+         例外クラス
+        </a>
+       </li>
+       <li>
+        <a href="./120.html">
+         高度な例外処理
+        </a>
+       </li>
+       <li>
+        <a href="./121.html">
+         終わりに
+        </a>
+       </li>
+      </ol>
+     </div>
+     <!-- amazon -->
+     <div class="sidebar-module">
+      <!--
+     	 <img src="./assets/sample/amazon.png">
+       -->
+      <script type="text/javascript">
+       amazon_ad_tag ="grit-22"; amazon_ad_width ="300"; amazon_ad_height ="250"; amazon_ad_link_target ="new";
+      </script>
+      <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
+      </script>
+     </div>
+     <!-- amazon end-->
+     <div class="sidebar-module">
+      <h3>
+       その他
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="#">
+         <span class="icon-github">
+         </span>
+         GitHub
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         <i class="icon-twitter">
+         </i>
+         Twitter
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         <span class="icon-facebook">
+         </span>
+         Facebook
+        </a>
+       </li>
+       <li class="li-none">
+        <a href="#" id="rw_email_contact">
+         Mail
+        </a>
+        <script type="text/javascript">
+         var _rwObsfuscatedHref0 = "mai";var _rwObsfuscatedHref1 = "lto";var _rwObsfuscatedHref2 = ":yu";var _rwObsfuscatedHref3 = "ich";var _rwObsfuscatedHref4 = "i@y";var _rwObsfuscatedHref5 = "uic";var _rwObsfuscatedHref6 = "hi.";var _rwObsfuscatedHref7 = "com";var _rwObsfuscatedHref = _rwObsfuscatedHref0+_rwObsfuscatedHref1+_rwObsfuscatedHref2+_rwObsfuscatedHref3+_rwObsfuscatedHref4+_rwObsfuscatedHref5+_rwObsfuscatedHref6+_rwObsfuscatedHref7; document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
+        </script>
+       </li>
+      </ol>
+     </div>
+     <div class="sidebar-module">
+      <!-- padding for side bar -->
+      <div class="hidden-xs">
+       <p style="height:500px">
+       </p>
+      </div>
+     </div>
+    </div>
+    <!-- /.blog-sidebar -->
+   </div>
+   <!-- /.row -->
+  </div>
+  <!-- /.container -->
+  <footer>
+   <div class="blog-footer-top">
+   </div>
+   <div class="blog-footer">
+    <p>
+     Copyright © 2017 Yuichi Ito All Rights Reserved.
+    </p>
+    <p align="center">
+     修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
+     <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
+      Git Hub Issues
+      <span class="icon-github">
+      </span>
+     </a>
+    </p>
+   </div>
+  </footer>
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+  </script>
+  <script src="./assets/js/bootstrap.min.js">
+  </script>
+  <script src="./assets/js/delete_useless_dom.js">
+  </script>
+  <!-- GOOGLE ANALYTICS -->
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-4830860-7', 'auto');
+      ga('send', 'pageview');
+  </script>
+ </body>
+</html>

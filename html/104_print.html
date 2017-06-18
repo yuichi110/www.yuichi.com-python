@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="Sample Description" name="description"/>
+  <link href="./assets/favicon.ico" rel="icon"/>
+  <title>
+   Python入門
+  </title>
+  <link href="./assets/css/bootstrap.css" rel="stylesheet">
+   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body>
+  <!-- GENERATED HTML START -->
+  <h2>
+   データ構造
+  </h2>
+  <p>
+   プログラムで扱うデータはグループでまとめられることが多いです。
+例えばお店の会員情報について考えた場合、そこに含まれるデータは名前、生年月日、住所など多岐にわたります。
+それらのデータはバラバラに管理するよりも「会員1の情報」「会員2の情報」といった形でまとめられて管理されているほうが扱いやすいです。
+  </p>
+  <h3>
+   タプル
+  </h3>
+  <p>
+   Python のタプルは複数のデータをひとまとめにする型ですので、そういったバラバラの情報をまとめて管理するのに便利です。
+まとめられたデータは「何番目の要素か」を指定して取り出すことも可能です。以下にタプルで会員情報を扱う例を記載します。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="c1"># 会員情報をまとめる</span>
+<span class="n">user_taro</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'taro'</span><span class="p">,</span> <span class="mi">1980</span><span class="p">,</span> <span class="s1">'tokyo'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">user_taro</span><span class="p">)</span>
+<span class="c1"># ('taro', 1980, 'tokyo')</span>
+
+<span class="c1"># アクセスする</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">user_taro</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="c1"># taro</span>
+</pre>
+  </div>
+  <p>
+   たとえば、会員として taro, jiro, saburo の3人がいるとした場合、
+タプルを使わずリストを使ってデータの種類ごとに情報を管理すると以下のようになります。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'taro'</span><span class="p">,</span> <span class="s1">'jiro'</span><span class="p">,</span> <span class="s1">'saburo'</span><span class="p">]</span>
+<span class="n">birth</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">1985</span><span class="p">,</span> <span class="mi">1990</span><span class="p">]</span>
+<span class="n">address</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'tokyo'</span><span class="p">,</span> <span class="s1">'osaka'</span><span class="p">,</span> <span class="s1">'kyoto'</span><span class="p">]</span>
+
+<span class="n">num_user</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_user</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'{} {} {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
+                          <span class="n">birth</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
+                          <span class="n">address</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
+
+<span class="c1"># taro 1980 tokyo</span>
+<span class="c1"># jiro 1985 osaka</span>
+<span class="c1"># saburo 1990 kyoto</span>
+</pre>
+  </div>
+  <p>
+   名前、誕生日、住所にそれぞれリストを作って、そこにユーザ情報を格納しています。
+その下にある for ループは以下の仕組みで動いています。
+  </p>
+  <ol>
+   <li>
+    name リストの長さを取得。これは会員数と同じ
+   </li>
+   <li>
+    その長さの分だけ range 関数を使って 0 から開始するインデックス番号のリストを作成する(今回は[0,1,2]となる)
+   </li>
+   <li>
+    for ループでインデックス番号のリストを回し、name, birth, address といったリストの要素をインデックス番号で取得する
+   </li>
+  </ol>
+  <p>
+   この流れを図にすると以下のようになります。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1020_image/01.png"/>
+  </p>
+  <p>
+   次に同じことをタプルで実装してみます。
+タプルを使うと会員という単位で情報をまとめられるため、データ構造がかなりシンプルになります。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">taro</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'taro'</span><span class="p">,</span> <span class="mi">1980</span><span class="p">,</span> <span class="s1">'tokyo'</span><span class="p">)</span>
+<span class="n">jiro</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'jiro'</span><span class="p">,</span> <span class="mi">1985</span><span class="p">,</span> <span class="s1">'osaka'</span><span class="p">)</span>
+<span class="n">saburo</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'saburo'</span><span class="p">,</span> <span class="mi">1990</span><span class="p">,</span> <span class="s1">'kyoto'</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="n">taro</span><span class="p">,</span> <span class="n">jiro</span><span class="p">,</span> <span class="n">saburo</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</pre>
+  </div>
+  <p>
+   会員情報にアクセスするfor 文のコードもシンプルになっています。
+図にするほどでもないと思いますが、先ほどの例と比較してみたいのでタプルの場合のループの実装も図にしてみます。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1020_image/02.png"/>
+  </p>
+  <p>
+   「どうユーザ情報を管理するか」ということだけで、プログラムの複雑さが大幅に変わったことを実感していただけましたでしょうか。
+適切にデータを管理する「データ構造」を作ることで「プログラムの処理部分」をシンプルにすることができます。
+今後解説していくオブジェクト指向もデータ構造を内部にもつので、
+誰がどのような情報をどのように持つかを常に意識してコードを書くようにするとプログラミングのスキルが向上します。
+  </p>
+  <p>
+   以上のようにタプルはデータの管理において非常に有用ですが、「まとめる」という意味以上の役割を持ちません。
+例えば先ほど会員情報のタプルはプログラマたちが「そういうふうに扱う」というルールを間違えずに使うことでなりたっています。
+そのため、たとえば名前と生年月日を逆に扱うといった、参照する順序を間違えるトラブルが発生したり、
+新しい入会年月日などの情報をタプルに追加した際に、関数呼び出しや戻り値の受け取りで不整合が発生したりすることがあります。
+  </p>
+  <h3>
+   C言語の構造体
+  </h3>
+  <p>
+   実は Python が開発されるはるか昔から、タプルと同じ「データをまとめる」という目的の仕組みがありました。
+「C言語の構造体」です。
+C言語の構造体には以下の3つの特徴があります。
+  </p>
+  <ul>
+   <li>
+    専用の型を作る
+   </li>
+   <li>
+    順番ではなく名前でデータを参照
+   </li>
+   <li>
+    中身のデータを更新可能
+   </li>
+  </ul>
+  <p>
+   まず専用の方を作るということですが、これはつまり以下の図のようなイメージとなります。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1020_image/03.jpg"/>
+  </p>
+  <p>
+   Python のタプルの例を見てもらうとわかりますが、データをたんにタプルでまとめているだけです。
+一方、C言語の構造体はまず型を作り、その型のデータを作るという流れになっています。
+  </p>
+  <p>
+   実際に両者のコードを比べてみます。
+まずPythonのタプルです。先程も扱いましたが、複数のデータを ()でくくってひとつのオブジェクトとし、それを会員情報taroとしています。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">taro</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'taro'</span><span class="p">,</span> <span class="mi">1986</span><span class="p">,</span><span class="s1">'tokyo'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'{} {} {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">taro</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">taro</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">taro</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<span class="c1"># taro 1986 tokyo</span>
+
+<span class="n">taro</span> <span class="o">=</span> <span class="p">(</span><span class="n">taro</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1990</span><span class="p">,</span> <span class="n">taro</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'{} {} {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">taro</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">taro</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">taro</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<span class="c1"># taro 1990 tokyo</span>
+</pre>
+  </div>
+  <p>
+   注目してほしいのは「独自の型」を使っていないことと、値の取り出しも順番を指定して参照していることです。
+タプルの要素へは再代入はできないため、新しくタプルを作りなおすことでタプルを更新しています。
+タプルで同じ構造を持つ taro と jiro を作成したとしても、両方のオブジェクトは完全に別物です。たまたま同じ構造となっているだけです。
+  </p>
+  <p>
+   次にC言語の構造体で会員情報を扱ってみます。
+まずは構造体の型宣言です。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="c1">// 専用の型を作る</span>
+<span class="k">struct</span> <span class="n">userInfo</span><span class="p">{</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">birth</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">address</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="p">};</span>
+</pre>
+  </div>
+  <p>
+   本書はC言語の書籍ではないので詳細は省きますが、注目して欲しいのはstruct userInfoとして構造体で「新しい型」を定義していることです。
+ここではuserInfoが型名で、nameやbirthはその構造体が持つデータです。
+次に作成した構造体の型を利用するコードです。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="c1">//userInfo 型の変数を作成し、そこに userInfo のデータを格納</span>
+    <span class="k">struct</span> <span class="n">userInfo</span> <span class="n">taro</span> <span class="o">=</span> <span class="p">{</span><span class="s">"taro"</span><span class="p">,</span> <span class="mi">1980</span><span class="p">,</span> <span class="s">"tokyo"</span><span class="p">};</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%s %d %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">taro</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">taro</span><span class="p">.</span><span class="n">birth</span><span class="p">,</span> <span class="n">taro</span><span class="p">.</span><span class="n">address</span><span class="p">);</span>
+    <span class="c1">// taro 1980 tokyo</span>
+
+    <span class="n">taro</span><span class="p">.</span><span class="n">birth</span> <span class="o">=</span> <span class="mi">1985</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%s %d %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">taro</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">taro</span><span class="p">.</span><span class="n">birth</span><span class="p">,</span> <span class="n">taro</span><span class="p">.</span><span class="n">address</span><span class="p">);</span>
+    <span class="c1">// taro 1985 tokyo</span>
+<span class="p">}</span>
+</pre>
+  </div>
+  <p>
+   <code>
+    struct userInfo taro
+   </code>
+   は
+   <code>
+    userInfo
+   </code>
+   型の変数であるtaroを作成しています。
+そしてそこにuserInfo型のデータである
+   <code>
+    {"taro", 1980, "tokyo"}
+   </code>
+   を格納しています。
+上記の型の定義の後は、普通のC言語のintなどの型と大きな違いはありません。両者を比べてみるとよくわかります。
+  </p>
+  <p class="blog-img">
+   <img alt="image" class="img-responsive" src="./1020_image/04.jpg"/>
+  </p>
+  <p>
+   定義したuserInfo型の初期化では、タプルとは初期化の記号が違うものの似たようにして{}に 構造体の要素を順に並べています。
+  </p>
+  <p>
+   ただ、タプルと構造体で大きく異なるのが参照と代入です。
+例を見てもらうとわかるように、変数に代入された構造体が持つ各データへの参照は「変数名.データ名」となっています。
+Pythonのタプルでは[0]や[1]といったようにタプルの何番目のデータか指定することでアクセスしていましたが、
+それに比べると名前でのアクセスはわかりやすいです。
+Python には「名前付きタプル」というものがあり、それを構造体に近いかたちで利用することは可能です。
+ただ、タプルと構造体はやはり別物です。
+Python には構造体はないものの、次の章で扱う「クラス」があります。
+そのクラスを使うことでオブジェクト内のデータに名前を使ってアクセスすることができます。
+  </p>
+  <!-- GENERATED HTML END -->
+ </body>
+</html>

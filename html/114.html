@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta content="Sample Description" name="description"/>
+  <meta content="Yuichi Ito" name="author"/>
+  <link href="./asset/favicon.ico" rel="icon"/>
+  <title>
+   Python入門
+  </title>
+  <!-- Bootstrap core CSS -->
+  <link href="./assets/css/bootstrap.css" rel="stylesheet"/>
+  <!-- Custom styles for this template -->
+  <link href="./assets/css/blog.css" rel="stylesheet"/>
+  <!-- Code Highlight -->
+  <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+  <!-- Custom -->
+  <link href="./assets/css/css001.css" rel="stylesheet"/>
+  <link href="./assets/css/toc.css" rel="stylesheet"/>
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="./assets/icomoon/style.css" rel="stylesheet">
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </link>
+ </head>
+ <body>
+  <div class="blog-masthead">
+   <div class="container">
+    <nav class="blog-nav">
+     <a class="blog-nav-item active" href="./">
+      サイトトップ
+     </a>
+     <a class="blog-nav-item " href="./download.html">
+      ダウンロード
+     </a>
+     <a class="blog-nav-item " href="./qa.html">
+      質問と回答
+     </a>
+     <a class="blog-nav-item " href="./books.html">
+      おすすめ書籍
+     </a>
+     <a class="blog-nav-item " href="./about.html">
+      このページについて
+     </a>
+     <a class="blog-nav-item" href="http://www.yuichi.com/">
+      GRIT Computing
+     </a>
+    </nav>
+   </div>
+  </div>
+  <div class="container">
+   <div class="blog-header">
+    <a href="./" style=" text-decoration: none;">
+     <h1 class="blog-title">
+      Python入門
+     </h1>
+     <p class="lead blog-description">
+      プログラミング言語Pythonについて
+     </p>
+    </a>
+   </div>
+   <div class="row">
+    <div class="col-sm-8 blog-main">
+     <!-- GENERATED HTML START -->
+     <h2>
+      メソッドのオーバーライド
+     </h2>
+     <div class="no_bullets" id="toc_container">
+      <p class="toc_title">
+       本記事の内容
+      </p>
+      <ul class="toc_list">
+       <li>
+        <a href="#header-1">
+         オーバーライドされた親メソッドの呼び出し
+        </a>
+       </li>
+       <li>
+        <a href="header-2">
+         ポリモーフィズム
+        </a>
+       </li>
+      </ul>
+     </div>
+     <p>
+      「オーバーライド」は継承したクラスで継承元のクラスのメソッドを「上書き」する手法です。
+前章にてコンストラクタであまり説明をせずにオーバーライドを使いましたが、もう少ししっかり解説したいと思います。
+     </p>
+     <p>
+      まず、そもそも何のためにオーバーライドを使うかということなのですが、
+一般的には後述する「ポリモーフィズム」を実現するためです。
+ポリモーフィズムについての解説で、オーバーライドのメリットやどういう場面で使うかといったことを扱うため、
+ここではとりあえずオーバーライドの文法的な話のみに留めます。
+     </p>
+     <p>
+      まず、以下のクラスParentがあるとしましょう。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">Parent</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Parent __init__()'</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">fun1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Parent fun1()'</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">fun2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Parent fun2()'</span><span class="p">)</span>
+</pre>
+     </div>
+     <p>
+      そしてこれを継承するChildというクラスを作ります。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Child __init__()'</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">fun1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Chilc fun1()'</span><span class="p">)</span>
+</pre>
+     </div>
+     <p>
+      見てわかるようにChildはParentを継承するという宣言を1行目で行い、
+コンストラクタ
+      <strong>
+       init
+      </strong>
+      と親が持つfun1()というメソッドと同じ名前のメソッドを再定義しています。
+一方fun2()については再定義していません。それぞれのメソッドでは何が呼ばれたかを分かるように print 文を使っています。
+     </p>
+     <p>
+      これを実行すると以下のような出力が得られます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="c1"># Child __init__()</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">fun1</span><span class="p">()</span>
+<span class="c1"># Chilc fun1()</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">fun2</span><span class="p">()</span>
+<span class="c1"># Parent fun2()</span>
+</pre>
+     </div>
+     <p>
+      見てもらうとわかりますが、Childで再定義したコンストラクタやメソッドはChildの処理が呼び出され、
+再定義していないメソッドは親のものがそのまま呼びだされていることがわかります。
+     </p>
+     <p>
+      ちなみに、Childのコンストラクタをなくすと親のコンストラクタを呼び出します。
+コンストラクタもメソッドなので、メソッドfun1()、fun2()の動きと全く同じ原理です。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+  <span class="sd">'''</span>
+<span class="sd">  def __init__(self):</span>
+<span class="sd">    print('Child __init__()')</span>
+<span class="sd">  '''</span>
+
+  <span class="k">def</span> <span class="nf">fun1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Chilc fun1()'</span><span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="c1"># Parent __init__()</span>
+</pre>
+     </div>
+     <p>
+      さて、このあたりでいったんオーバーライドの動きについてまとめてみましょうか。
+     </p>
+     <p class="blog-img">
+      <img alt="image" class="img-responsive" src="./1070_image/01.jpg"/>
+     </p>
+     <p>
+      見てもらうとわかりますが、子クラスで再定義したメソッドは子クラスのものを呼び出し、
+再定義していない場合は親クラスのメソッドを呼び出します。
+当然ながら、子クラスだけしか持たないメソッドを親クラスのインスタンスは呼び出せません。
+     </p>
+     <h3 id="header-1">
+      オーバーライドされた親メソッドの呼び出し
+     </h3>
+     <p>
+      先ほどのオーバーライドの例ですが、若干困ったところがあります。
+それは「オーバーライドしたいのだけれども、親の処理を呼び出す必要がある」という場合です。
+     </p>
+     <p>
+      少し難しくなるのですが、例をあげてみましょう。たとえば「あるテキスト情報をデータベース・サーバーに登録する」必要があるとします。
+ただ、その入力方法にはいくつかの選択肢があり、ひとつはコンソールを使ったもの、
+もうひとつはWebからの入力(HTTP REST)であるとします。
+     </p>
+     <p>
+      まず継承を使わない一番愚直な実装はそれぞれの入力方法ごとにクラスを作り、
+そのなかでデータベース・サーバーへの接続と書き込み処理を記述するというものです。
+ただ、よく考えてもらうとわかるようにデータベースへの登録処理は両方のクラスでほとんど同じになるため、
+あまり賢い実装方法だといえません。
+     </p>
+     <p>
+      これを解消するために今回は親クラスにデータベースの処理は任せ、
+子クラスは異なるinput方法にのみ対応するという設計をしたとしましょう。
+これは以下の図のようになります。
+     </p>
+     <p class="blog-img">
+      <img alt="image" class="img-responsive" src="./1070_image/02.jpg"/>
+     </p>
+     <p>
+      Console Registerクラスはコンソールへの入力をデータベースに登録し、
+Web RegisterはHTTPからの入力をデータベースに登録します。
+ただ、その登録自体は親クラスのメソッドを利用するという形式です。
+     </p>
+     <p>
+      また、データベース・サーバもIPアドレスを持ちますので、その登録もそれぞれ必要です。
+ただ、その管理は親にすべて任せることとしましょう。
+     </p>
+     <p>
+      図を見てもらうとわかると思いますが、子クラスの初期化にしろ、メソッドの呼び出しにしろ、
+いずれにしても「親クラスの同名のメソッド」を呼び出す必要があることがわかります。
+ただ、先ほどのParent、Childの例を見てもらうとわかるように、子クラスでメソッドをオーバーライドすると、
+親クラスのメソッドは呼びだされません。
+     </p>
+     <p>
+      この制約を解除する方法、つまり「オーバーライドした子クラスのメソッド」が
+「オーバーライドされた親クラスのメソッド」を呼び出す方法について扱います。
+     </p>
+     <p>
+      では実際にサンプルを使って説明してみましょう。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">Register</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dbip</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dbip</span> <span class="o">=</span> <span class="n">dbip</span>
+
+  <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'write "{}" to DB Server at {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbip</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">ConsoleRegister</span><span class="p">(</span><span class="n">Register</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dbip</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dbip</span><span class="p">)</span>  <span class="c1"># call parent method</span>
+
+  <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">'input from Console'</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># call parent method</span>
+
+<span class="k">class</span> <span class="nc">WebRegister</span><span class="p">(</span><span class="n">Register</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dbip</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dbip</span><span class="p">)</span>  <span class="c1"># call parent method</span>
+
+  <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">'input from REST'</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># call parent method</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ConsoleRegister</span><span class="p">(</span><span class="s1">'10.0.0.1'</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
+<span class="c1"># write "input from Console" to DB Server at 10.0.0.1</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">WebRegister</span><span class="p">(</span><span class="s1">'10.0.0.1'</span><span class="p">)</span>
+<span class="n">w</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
+<span class="c1"># write "input from REST" to DB Server at 10.0.0.1</span>
+</pre>
+     </div>
+     <p>
+      見てもらうとわかると思いますが、親クラスでデータベースへの処理を概念化した処理をさせています。
+     </p>
+     <p>
+      そして、子クラスはそれぞれ親クラスのメソッドをオーバーライドして独自の入力メソッドを作っていますが、
+そのなかで親クラスのメソッドを呼び出しています。
+”call parent method” とコメントしてある箇所です。
+このように書けばオーバーライドされて上書きされている親クラスのメソッドも呼び出せると覚えておいて下さい。
+     </p>
+     <p>
+      ちなみに子のメソッドfun1()からオーバーライドされている親のメソッドfun2()を呼び出すといった使い方もできます。
+ただ、あまりにそのような使い方をするとコードが読みにくくなるので、設計レベルで改めたほうがいいかもしれません。
+そもそもfun2をオーバーライドするのではなく、別のメソッド名のものにしたり、
+後述するデリゲーションを使うべき状況かもしれないです。
+     </p>
+     <p>
+      なお、親クラスのメソッドの呼び出しは関数 super() を使う以外の方法もあります。
+たとえば親クラスの名前に続いてメソッドを書くことでもオーバーライドされたメソッドを呼び出すことができます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">Register</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dbip</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dbip</span> <span class="o">=</span> <span class="n">dbip</span>
+
+  <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'write "{}" to DB Server at {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbip</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">ConsoleRegister</span><span class="p">(</span><span class="n">Register</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dbip</span><span class="p">):</span>
+    <span class="n">Register</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dbip</span><span class="p">)</span>  <span class="c1"># call parent method</span>
+
+  <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">'input from Console'</span>
+    <span class="n">Register</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># call parent method</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ConsoleRegister</span><span class="p">(</span><span class="s1">'10.0.0.1'</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
+<span class="c1"># write "input from Console" to DB Server at 10.0.0.1</span>
+</pre>
+     </div>
+     <p>
+      Python2 ではこの書き方はよく用いられていましたが、
+python3 の場合は親クラスの名前を指定しなくても親クラスのメソッドが呼び出せるため、
+先ほどの super() を使った呼び出しのほうが一般的です。
+     </p>
+     <h3 id="header-2">
+      ポリモーフィズム
+     </h3>
+     <p>
+      ポリモーフィズムは日本語で多態性と訳されます。
+その意味をWikipediaで調べてみると以下のようにありました。
+     </p>
+     <p>
+      ポリモーフィズムあるいはポリモルフィズム(Polymorphism)とは、プログラミング言語の型システムの性質を表すもので、
+プログラミング言語の各要素(定数、変数、式、オブジェクト、関数、メソッドなど)についてそれらが複数の型に属することを許すという性質を指す。
+多態性、多相性、多様性とも呼ばれる。
+     </p>
+     <p>
+      ポリモーフィズムの概念をある程度理解している私にも難しくてよくわからないです。
+難しい説明よりも、簡単な例をあげて説明しましょうか。たとえば以下のコードを見てください。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'hello '</span> <span class="o">+</span> <span class="s1">'python'</span><span class="p">)</span>
+</pre>
+     </div>
+     <p>
+      何を今更と思われるかと思いますが、注目して欲しいのは演算子の + です。
+この + の使われかたとして「数をたす」「文字列を結合する」という2通りの使い方をされているのがわかります。
+つまりこの + は与えられる値によって、同じ「くっつける」という動きであっても挙動が微妙に違います。
+この「書き方はひとつなのだが、動き方は複数ある」というのがポリモーフィズムだと思っていただければかまいません。
+     </p>
+     <p>
+      もう少し具体的な例でポリモーフィズムの動きを見てみます。
+以下の図を見てください。これは図形を描画する簡単なGUIアプリケーションの画面とします。
+左側のボタンで選択された図形が、右側の描画領域でドラック開始からドラッグ終了ポイントまでの大きさで描画されます。
+     </p>
+     <p class="blog-img">
+      <img alt="image" class="img-responsive" src="./1070_image/03.jpg"/>
+     </p>
+     <p>
+      今回は三角形が選択されているので、ドラッグ＆ドロップすると三角形が描画されます。
+パワーポイントなどと同じですので想像できるかと思います。
+そして以下の図のように丸が選択されていれば、丸が描画されます。四角形も同じです。
+     </p>
+     <p class="blog-img">
+      <img alt="image" class="img-responsive" src="./1070_image/04.jpg"/>
+     </p>
+     <p>
+      これを効率的に実装するにはどのようにすればいいでしょうか。
+答えは簡単でポリモーフィズムを利用すればいいのです。
+ポリモーフィズムの「書き方はひとつなのだが、どのような動きになるかはデータに依存して複数になる」という性質を使うことで
+「親クラスを使うかのようにプログラムを書き、実際には子クラスが利用されている」という状況を作ります。
+     </p>
+     <p>
+      実際にこれをコードで書いてみます。
+コードを書くにあたって重要なのは、ポリモーフィズムをどのように実現するかという方針を立てることです。
+     </p>
+     <p>
+      それは一般的には以下のようになります。
+     </p>
+     <ul>
+      <li>
+       呼び出されるメソッドは親クラスで実装する
+      </li>
+      <li>
+       共通した処理は親クラスに任せる
+      </li>
+      <li>
+       子クラスは親クラスとの差分のみ実装する
+      </li>
+     </ul>
+     <p>
+      このようにすることで、子クラスのメソッドをまるで親クラスのメソッドを使うかのように呼び出し、
+実際は子クラスとして振る舞うということが実現できます。
+     </p>
+     <p>
+      理屈をゴチャゴチャと説明しても頭が混乱しそうなので、コードで示したいと思います。
+まず最初の「呼び出されるメソッドは親クラスで実装」と「共通した処理は親クラスに任せる」を考慮した親クラスの設計をします。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">class</span> <span class="nc">Graphic</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">x2</span> <span class="o">=</span> <span class="n">x2</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span>
+
+  <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Error'</span><span class="p">)</span>
+</pre>
+     </div>
+     <p>
+      まず、x,y座標はすべての図形で持つため、それは親に持たせています。
+そしてすべての子クラスは共通して「描画」という機能を持つので、それも親に実装します。
+上記でいうと print(‘Error’) になります。
+次に子クラスを実装します。親クラスのx,y座標を使いつつ、独自のdraw処理をします。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="n">rectangle</span> <span class="o">=</span> <span class="s1">'''({},{})</span>
+<span class="s1">#######</span>
+<span class="s1">#     #</span>
+<span class="s1">#     #</span>
+<span class="s1">#######</span>
+<span class="s1">   ({},{})'''</span>
+
+<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="n">Graphic</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span><span class="p">))</span>
+
+
+<span class="n">triangle</span> <span class="o">=</span> <span class="s1">'''({},{})</span>
+<span class="s1">   #</span>
+<span class="s1">  # #</span>
+<span class="s1"> #   #</span>
+<span class="s1">#######</span>
+<span class="s1">   ({},{})'''</span>
+
+<span class="k">class</span> <span class="nc">Triangle</span><span class="p">(</span><span class="n">Graphic</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">triangle</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span><span class="p">))</span>
+</pre>
+     </div>
+     <p>
+      四角と三角をどういう数式で書くかは今回の話題ではないので、手抜きをさせてください。
+それぞれの子クラスではアスキーアートの四角、三角を座標付きで表示させています。
+実際は以下の図のように、各draw関数を実装することで、
+どの子クラスが利用されているかによって描画方式が変わっていると思っていただければかまいません。
+     </p>
+     <p class="blog-img">
+      <img alt="image" class="img-responsive" src="./1070_image/05.jpg"/>
+     </p>
+     <p>
+      作成したコードを実際に使ってみます。まず、先ほどのアプリケーション画面を前提とします。
+     </p>
+     <ul>
+      <li>
+       どの図形を描画するか選択されている
+      </li>
+      <li>
+       ドラッグ＆ドロップが完了し、x,yはすでに取れている
+      </li>
+     </ul>
+     <p>
+      上記前提をおいたコードは以下のようになります。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="c1"># (1) どの図形、座標とするか</span>
+<span class="n">graphic_type</span> <span class="o">=</span> <span class="s1">'rectangle'</span>
+<span class="c1">#graphic_type = 'triangle'</span>
+<span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
+
+<span class="c1"># (2) 入力された図形に応じて子クラスのインスタンスを作成</span>
+<span class="k">if</span><span class="p">(</span><span class="n">graphic_type</span> <span class="o">==</span> <span class="s1">'rectangle'</span><span class="p">):</span>
+  <span class="n">graphic</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">graphic_type</span> <span class="o">==</span> <span class="s1">'triangle'</span><span class="p">):</span>
+  <span class="n">graphic</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">graphic</span> <span class="o">=</span> <span class="n">Graphic</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span>
+
+<span class="c1"># (3) オーバーライドされた親クラスも持つメソッドの呼び出し</span>
+<span class="n">graphic</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+<span class="c1"># (1,2)</span>
+<span class="c1"># #######</span>
+<span class="c1"># #     #</span>
+<span class="c1"># #     #</span>
+<span class="c1"># #######</span>
+<span class="c1">#    (3,4)</span>
+</pre>
+     </div>
+     <p>
+      実際は上記のコードのgraphic_typeとx1,y1,x2,y2はマウス操作などで動的に決まります。
+重要なのはそのあとで、graphic_typeなどの値によって、「どの子クラスを使うか」は動的に決まるものの、
+最後の処理(3)に関してはどの子クラスであっても完全に同じ使い方をするということです。
+つまり子クラスに細かい描画の実装は任せるものの、それ以外のほぼすべては親クラスが持つ性質を使ってプログラムが実行されます。
+こうすることで、複数のクラスで似た処理を細かく大量に書くのではなく、同じ処理を複数のクラスで使い回すことができるのです。
+このあたりの話はかなり難しく、読んだだけではよくわからないと思っています。
+実際に私もそうだったのですが、ある程度自分でコードを書いてみて初めて腑に落ちることもあるので、
+勉強して、書いてを繰り返すのがいいのではないでしょうか。
+     </p>
+     <!-- GENERATED HTML END -->
+     <nav>
+      <ul class="pager">
+       <li id="previous-li">
+        <a href="./113.html" id="previous-a">
+         ← Previous
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         Page Top
+        </a>
+       </li>
+       <li class="pager-next" id="next-li">
+        <a href="./115.html" id="next-a">
+         Next →
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <!-- /.blog-main -->
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+     <!-- 広告エリア -->
+     <div class="sidebar-module">
+      <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+      </script>
+      <!-- 300 x 250 -->
+      <ins class="adsbygoogle" data-ad-client="ca-pub-9447655910606139" data-ad-slot="4820856978" style="display:inline-block;width:300px;height:250px">
+      </ins>
+      <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+     </div>
+     <!-- 広告エリア end-->
+     <!-- SNS start -->
+     <div class="sidebar-module">
+      <ul class="social-buttons">
+       <li>
+        <!-- hatena -->
+        <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
+         <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
+        </a>
+        <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
+        </script>
+       </li>
+       <li>
+        <!-- FB -->
+        <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
+        </div>
+        <div id="fb-root">
+        </div>
+        <script>
+         (function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+        </script>
+       </li>
+       <li>
+        <!-- twitter -->
+        <a class="twitter-share-button" href="https://twitter.com/share">
+         Tweet
+        </a>
+        <script>
+         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        </script>
+       </li>
+       <li>
+        <!-- G+ -->
+        <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
+        <script async="" defer="" src="https://apis.google.com/js/platform.js">
+         {lang: 'ja'}
+        </script>
+        <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+        <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
+        </div>
+       </li>
+       <li>
+        <!-- IN/Share -->
+        <script src="//platform.linkedin.com/in.js" type="text/javascript">
+         lang: ja_JP
+        </script>
+        <script data-counter="right" type="IN/Share">
+        </script>
+       </li>
+      </ul>
+     </div>
+     <div class="print">
+      <a href="./114_print.html">
+       <img src="./assets/images/print.png"/>
+       印刷する
+      </a>
+     </div>
+     <!-- SNS end -->
+     <div class="sidebar-module">
+      <h3>
+       Python入門
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="./">
+         トップページ
+        </a>
+       </li>
+       <li>
+        <a href="./download.html">
+         ダウンロード
+        </a>
+       </li>
+       <li>
+        <a href="./qa.html">
+         質問と回答
+        </a>
+       </li>
+       <li>
+        <a href="./books.html">
+         おすすめPython書籍
+        </a>
+       </li>
+       <li>
+        <a href="./about.html">
+         このページについて
+        </a>
+       </li>
+      </ol>
+     </div>
+     <div class="sidebar-module">
+      <h3>
+       初級編
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="./001.html">
+         前書き
+        </a>
+       </li>
+       <li>
+        <a href="./002.html">
+         目次
+        </a>
+       </li>
+       <li>
+        <a href="./003.html">
+         Pythonプログラミング
+        </a>
+       </li>
+       <li>
+        <a href="./004.html">
+         インストールと実行
+        </a>
+       </li>
+       <li>
+        <a href="./005.html">
+         概要
+        </a>
+       </li>
+       <li>
+        <a href="./006.html">
+         型と変数
+        </a>
+       </li>
+       <li>
+        <a href="./007.html">
+         最重要な型
+        </a>
+       </li>
+       <li>
+        <a href="./008.html">
+         制御構造
+        </a>
+       </li>
+       <li>
+        <a href="./009.html">
+         関数
+        </a>
+       </li>
+       <li>
+        <a href="./010.html">
+         モジュール
+        </a>
+       </li>
+       <li>
+        <a href="./011.html">
+         オブジェクトとメソッド
+        </a>
+       </li>
+       <li>
+        <a href="./012.html">
+         テキスト処理
+        </a>
+       </li>
+       <li>
+        <a href="./013.html">
+         リスト再入門
+        </a>
+       </li>
+       <li>
+        <a href="./014.html">
+         タプル
+        </a>
+       </li>
+       <li>
+        <a href="./015.html">
+         セット
+        </a>
+       </li>
+       <li>
+        <a href="./016.html">
+         辞書型
+        </a>
+       </li>
+       <li>
+        <a href="./017.html">
+         None型
+        </a>
+       </li>
+       <li>
+        <a href="./018.html">
+         ファイル処理
+        </a>
+       </li>
+       <li>
+        <a href="./019.html">
+         基数と文字コード
+        </a>
+       </li>
+       <li>
+        <a href="./020.html">
+         日本語の扱い
+        </a>
+       </li>
+       <li>
+        <a href="./021.html">
+         プログラムへの入力
+        </a>
+       </li>
+       <li>
+        <a href="./022.html">
+         関数の高度なトピック
+        </a>
+       </li>
+       <li>
+        <a href="./023.html">
+         おわりに
+        </a>
+       </li>
+      </ol>
+     </div>
+     <div class="sidebar-module">
+      <h3>
+       中級編
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="./101.html">
+         前書き
+        </a>
+       </li>
+       <li>
+        <a href="./102.html">
+         目次
+        </a>
+       </li>
+       <li>
+        <a href="./103.html">
+         オブジェクト指向を体験
+        </a>
+       </li>
+       <li>
+        <a href="./104.html">
+         データ構造
+        </a>
+       </li>
+       <li>
+        <a href="./105.html">
+         クラスとインスタンス化
+        </a>
+       </li>
+       <li>
+        <a href="./106.html">
+         インスタンスとメソッド
+        </a>
+       </li>
+       <li>
+        <a href="./107.html">
+         コンストラクタ
+        </a>
+       </li>
+       <li>
+        <a href="./108.html">
+         self
+        </a>
+       </li>
+       <li>
+        <a href="./109.html">
+         情報の隠蔽
+        </a>
+       </li>
+       <li>
+        <a href="./110.html">
+         オブジェクトの役割
+        </a>
+       </li>
+       <li>
+        <a href="./111.html">
+         関数型プログラミング
+        </a>
+       </li>
+       <li>
+        <a href="./112.html">
+         ゲーム作り
+        </a>
+       </li>
+       <li>
+        <a href="./113.html">
+         クラスの継承
+        </a>
+       </li>
+       <li>
+        <a href="./114.html">
+         メソッドのオーバーライド
+        </a>
+       </li>
+       <li>
+        <a href="./115.html">
+         GUIで継承を学ぶ
+        </a>
+       </li>
+       <li>
+        <a href="./116.html">
+         クラスの高度なトピック
+        </a>
+       </li>
+       <li>
+        <a href="./117.html">
+         ドキュメンテーション
+        </a>
+       </li>
+       <li>
+        <a href="./118.html">
+         例外処理の基礎
+        </a>
+       </li>
+       <li>
+        <a href="./119.html">
+         例外クラス
+        </a>
+       </li>
+       <li>
+        <a href="./120.html">
+         高度な例外処理
+        </a>
+       </li>
+       <li>
+        <a href="./121.html">
+         終わりに
+        </a>
+       </li>
+      </ol>
+     </div>
+     <!-- amazon -->
+     <div class="sidebar-module">
+      <!--
+     	 <img src="./assets/sample/amazon.png">
+       -->
+      <script type="text/javascript">
+       amazon_ad_tag ="grit-22"; amazon_ad_width ="300"; amazon_ad_height ="250"; amazon_ad_link_target ="new";
+      </script>
+      <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
+      </script>
+     </div>
+     <!-- amazon end-->
+     <div class="sidebar-module">
+      <h3>
+       その他
+      </h3>
+      <ol class="list-unstyled">
+       <li>
+        <a href="#">
+         <span class="icon-github">
+         </span>
+         GitHub
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         <i class="icon-twitter">
+         </i>
+         Twitter
+        </a>
+       </li>
+       <li>
+        <a href="#">
+         <span class="icon-facebook">
+         </span>
+         Facebook
+        </a>
+       </li>
+       <li class="li-none">
+        <a href="#" id="rw_email_contact">
+         Mail
+        </a>
+        <script type="text/javascript">
+         var _rwObsfuscatedHref0 = "mai";var _rwObsfuscatedHref1 = "lto";var _rwObsfuscatedHref2 = ":yu";var _rwObsfuscatedHref3 = "ich";var _rwObsfuscatedHref4 = "i@y";var _rwObsfuscatedHref5 = "uic";var _rwObsfuscatedHref6 = "hi.";var _rwObsfuscatedHref7 = "com";var _rwObsfuscatedHref = _rwObsfuscatedHref0+_rwObsfuscatedHref1+_rwObsfuscatedHref2+_rwObsfuscatedHref3+_rwObsfuscatedHref4+_rwObsfuscatedHref5+_rwObsfuscatedHref6+_rwObsfuscatedHref7; document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
+        </script>
+       </li>
+      </ol>
+     </div>
+     <div class="sidebar-module">
+      <!-- padding for side bar -->
+      <div class="hidden-xs">
+       <p style="height:500px">
+       </p>
+      </div>
+     </div>
+    </div>
+    <!-- /.blog-sidebar -->
+   </div>
+   <!-- /.row -->
+  </div>
+  <!-- /.container -->
+  <footer>
+   <div class="blog-footer-top">
+   </div>
+   <div class="blog-footer">
+    <p>
+     Copyright © 2017 Yuichi Ito All Rights Reserved.
+    </p>
+    <p align="center">
+     修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
+     <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
+      Git Hub Issues
+      <span class="icon-github">
+      </span>
+     </a>
+    </p>
+   </div>
+  </footer>
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+  </script>
+  <script src="./assets/js/bootstrap.min.js">
+  </script>
+  <script src="./assets/js/delete_useless_dom.js">
+  </script>
+  <!-- GOOGLE ANALYTICS -->
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-4830860-7', 'auto');
+      ga('send', 'pageview');
+  </script>
+ </body>
+</html>
