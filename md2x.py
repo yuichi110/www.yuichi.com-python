@@ -69,12 +69,11 @@ class Md2Html_v0_1:
         self.conv_template_pdf_all = None
         self.conv_markdown_dict = {}
 
-        # pdf
-        self.pdf_output = None
+        # pdf and pdf-all
+        self.pdf_output_list = []
         self.pdf_css = []
         self.pdf_dpi = None
         self.pdf_image_size_dict = {}
-        self.pdf_markdowns = []
 
         # VAL
         self.VERSION = '0.1'
@@ -457,12 +456,6 @@ class Md2Html_v0_1:
                 logging.info('load [pdf] section : output type does not have pdf and pdf_all. skip')
                 return
 
-            # output
-            output = config.get('pdf', 'output')
-            if not path.isabs(output):
-                output = path.join(self.dir_output, output)
-            self.pdf_output = output
-
             # css
             css_str = config.get('pdf', 'css')
             css_files = []
@@ -471,33 +464,53 @@ class Md2Html_v0_1:
                 css = path.join(self.dir_pdf, css)
                 css_files.append(css)
             self.pdf_css = css_files
+            logging.info('    css : success')
 
             # dpi
             dpi = config.get('pdf', 'dpi')
             self.pdf_dpi = int(dpi)
-
-            # markdowns
-            markdowns_str = config.get('pdf', 'markdowns')
-            markdowns = []
-            for markdown in markdowns_str.split(','):
-                markdown = markdown.strip()
-                markdown_path = path.join(self.dir_markdown, markdown)
-                markdowns.append((markdown, markdown_path))
-            self.pdf_markdowns = markdowns
+            logging.info('    dpi : success')
 
             # image
             image_size_file = config.get('pdf', 'image_size')
             image_size_path = path.join(self.dir_pdf, image_size_file)
             config_text = self.get_config_text(image_size_path)
-            config = self.get_config(config_text)
-            for section in config.sections():
+            pdf_image_config = self.get_config(config_text)
+            for section in pdf_image_config.sections():
                 d = {}
-                for option in config.options(section):
-                    value = config.get(section, option)
+                for option in pdf_image_config.options(section):
+                    value = pdf_image_config.get(section, option)
                     d[option] = value
                 self.pdf_image_size_dict[section] = d
+            logging.info('    image_size : success')
 
-            print(self.pdf_image_size_dict)
+            # output
+            options = config.options('pdf')
+            output_options = filter(lambda text : text.startswith('output-'), options)
+
+            r = re.compile(r'^output-(\d+)$')
+            for output in output_options:
+                print(output)
+                m = r.search(output)
+                if not m:
+                    continue
+
+                number = m.group(1)
+                markdown_option = 'markdowns-{}'.format(number)
+                if not config.has_option('pdf', markdown_option):
+                    continue
+
+                markdowns_str = config.get('pdf', markdown_option)
+                markdowns = []
+                for markdown in markdowns_str.split(','):
+                    markdown = markdown.strip()
+                    markdown_path = path.join(self.dir_markdown, markdown)
+                    markdowns.append((markdown, markdown_path))
+
+                fname = config.get('pdf', output)
+                output_path = path.join(self.dir_output, fname)
+
+                self.pdf_output_list.append((output_path, markdowns))
 
         except Exception as e:
             logging.critical('    {}'.format(e))
@@ -505,13 +518,15 @@ class Md2Html_v0_1:
             logging.critical('abort')
             exit(1)
 
-        logging.debug('    output : {}'.format(self.pdf_output))
+        #logging.debug('    output : {}'.format(self.pdf_output))
         logging.debug('    css : {}'.format(self.pdf_css))
         logging.debug('    dpi : {}'.format(self.pdf_dpi))
         logging.debug('    markdowns : [')
+        '''
         for markdown in self.pdf_markdowns:
             logging.debug('        {},'.format(markdown))
         logging.debug('    ]')
+        '''
         logging.info('load [pdf] section : success')
 
 
@@ -889,62 +904,64 @@ class Md2Html_v0_1:
         if self.TYPE_PDF_ALL not in output_types:
             return
 
-        logging.info('convert pdf : start')
-        try:
-            html_sum = ''
+        for (output, markdown_list) in self.pdf_output_list:
+            logging.info('convert pdf : start')
 
-            for (markdown, path_markdown) in self.pdf_markdowns:
-                logging.info('    markdown : {}'.format(markdown))
+            try:
+                html_sum = ''
 
-                path_replaces = [self.conv_replace]
-                if markdown in self.conv_markdown_dict:
-                    d = self.conv_markdown_dict[markdown]
-                    if 'replace' in d:
-                        path_replaces.insert(0, d['replace'])
-                logging.debug(('        load path info : success'))
+                for (markdown, path_markdown) in markdown_list:
+                    logging.info('    markdown : {}'.format(markdown))
 
-                # markdown html
-                text_markdown = self.read_file(path_markdown)
-                html = self.convert_markdown_to_html(text_markdown)
-                if self.bootstrap_pdf_all:
-                    html = self.modify_html_bootstrap(html)
-                logging.debug(('        convert markdown to content html : success'))
+                    path_replaces = [self.conv_replace]
+                    if markdown in self.conv_markdown_dict:
+                        d = self.conv_markdown_dict[markdown]
+                        if 'replace' in d:
+                            path_replaces.insert(0, d['replace'])
+                    logging.debug(('        load path info : success'))
 
-                # replace
-                for replace in path_replaces:
-                    html = self.modify_html_keyword(html, replace)
+                    # markdown html
+                    text_markdown = self.read_file(path_markdown)
+                    html = self.convert_markdown_to_html(text_markdown)
+                    if self.bootstrap_pdf_all:
+                        html = self.modify_html_bootstrap(html)
+                    logging.debug(('        convert markdown to content html : success'))
 
-                html = self.remove_special_sequences(html)
+                    # replace
+                    for replace in path_replaces:
+                        html = self.modify_html_keyword(html, replace)
 
-                all_changed = self.check_all_keywords_changed(html)
-                if not all_changed:
-                    raise
-                logging.debug(('        replayce keywords : success'))
+                    html = self.remove_special_sequences(html)
 
-                # change URL to local
-                basedir = path.dirname(path_markdown)
-                html = self.modify_pdf_html(html, basedir, markdown)
-                logging.debug(('        change image url to local : success'))
+                    all_changed = self.check_all_keywords_changed(html)
+                    if not all_changed:
+                        raise
+                    logging.debug(('        replayce keywords : success'))
 
-                html_sum = '{}\n\n<!-- page -->\n\n{}'.format(html_sum, html)
+                    # change URL to local
+                    basedir = path.dirname(path_markdown)
+                    html = self.modify_pdf_html(html, basedir, markdown)
+                    logging.debug(('        change image url to local : success'))
 
-            # include html_sum to template
-            path_template = self.conv_template_pdf_all
-            html_template = self.get_template_html(path_template)
-            html_pdf = self.modify_html_include_markdown_html(html_sum, html_template)
-            logging.debug(('        include content html to template html : success'))
+                    html_sum = '{}\n\n<!-- page -->\n\n{}'.format(html_sum, html)
 
-            #print(html_pdf)
-            self.convert_html_to_pdf(html_pdf, self.pdf_output)
-            logging.debug(('        convert html to pdf : success'))
+                # include html_sum to template
+                path_template = self.conv_template_pdf_all
+                html_template = self.get_template_html(path_template)
+                html_pdf = self.modify_html_include_markdown_html(html_sum, html_template)
+                logging.debug(('        include content html to template html : success'))
 
-        except Exception as e:
-            logging.critical('    {}'.format(e))
-            logging.critical('convert pdf : fail')
-            logging.critical('abort')
-            exit(1)
+                #print(html_pdf)
+                self.convert_html_to_pdf(html_pdf, output)
+                logging.debug(('        convert html to pdf : success'))
 
-        logging.info('convert pdf : success')
+            except Exception as e:
+                logging.critical('    {}'.format(e))
+                logging.critical('convert pdf : fail')
+                logging.critical('abort')
+                exit(1)
+
+            logging.info('convert pdf : success')
 
 
     def copy_other_files(self):
