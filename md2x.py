@@ -1092,6 +1092,7 @@ class Md2Html_v0_1:
         return html
 
     def modify_html_bootstrap(self, html):
+
         soup = bs4.BeautifulSoup(html, 'html.parser')
 
         # IMAGE
@@ -1106,9 +1107,19 @@ class Md2Html_v0_1:
             else:
                 tag['class'] = 'img-responsive'
 
-            # add blog-img
+            # parent <p>
             parent_tag = tag.parent
             if parent_tag.name == 'p':
+                # add align-center
+                if parent_tag.has_attr('align'):
+                    attr_list = parent_tag['align']
+                    if 'center' not in attr_list:
+                        attr_list.append('center')
+                        parent_tag['align'] = attr_list
+                else:
+                    parent_tag['align'] = 'center'
+
+                # add blog-img
                 if parent_tag.has_attr('class'):
                     attr_list = parent_tag['class']
                     if 'blog-img' not in attr_list:

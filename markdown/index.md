@@ -10,9 +10,9 @@
 徐々に内容をブラッシュアップしてPythonについて総合的に学習できるページにしていきたいと考えております。
 
 ### Python 初級編 (プログラミングの基礎)
-![image](./index_image/01.jpg)
+![image](./index_image/01.png)
 
 [初級編目次]({{ MD_0010 }})
 
 ### Python 中級編 (オブジェクト指向)
-![image](./index_image/02.jpg)
+![image](./index_image/02.png)
