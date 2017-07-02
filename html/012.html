@@ -78,27 +78,117 @@
       <ul class="toc_list">
        <li>
         <a href="#header-1">
-         文字列型のメソッド
+         概要
         </a>
        </li>
        <li>
         <a href="header-2">
-         文字列の生成
+         文字列の基本操作
+        </a>
+        <ul>
+         <li>
+          <a href="#header-3">
+           文字列の定義
+          </a>
+         </li>
+         <li>
+          <a href="#header-4">
+           文字列を作る演算子
+          </a>
+         </li>
+         <li>
+          <a href="#header-5">
+           in 演算子
+          </a>
+         </li>
+         <li>
+          <a href="#header-6">
+           文字列の部分取得
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#header-7">
+         文字列型のメソッド
+        </a>
+        <ul>
+         <li>
+          <a href="#header-8">
+           文字列のデータは決して変わらない
+          </a>
+         </li>
+         <li>
+          <a href="#header-9">
+           文字列の部分置き換えと削除 : replace メソッド
+          </a>
+         </li>
+         <li>
+          <a href="#header-10">
+           文字列の検索 : startswith, endswith, find
+          </a>
+         </li>
+         <li>
+          <a href="#header-11">
+           文字列の前後の削除 : strip, rstrip, lstrip
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#header-12">
+         メソッドの連続呼び出し
         </a>
        </li>
        <li>
-        <a href="header-3">
-         エスケープ記号
+        <a href="header-13">
+         文字列の生成
+        </a>
+        <ul>
+         <li>
+          <a href="#header-14">
+           文字列の結合
+          </a>
+         </li>
+         <li>
+          <a href="#header-15">
+           format メソッド
+          </a>
+         </li>
+         <li>
+          <a href="#header-16">
+           formatメソッドのフォーマット
+          </a>
+         </li>
+         <li>
+          <a href="#header-17">
+           書式化演算子 %
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#header-18">
+         文字列のエスケープ
         </a>
        </li>
       </ul>
      </div>
+     <h3 id="header-1">
+      概要
+     </h3>
      <p>
       テキスト処理は要するに、文字列型の処理です。
 前の章で扱ったように文字列型もオブジェクトであるため、様々なメソッドが利用できます。
 テキストファイルの処理では文字列型の基本知識が必要なので、
 以前学んだことを少し発展させて復習します。
      </p>
+     <h3 id="header-2">
+      文字列の基本操作
+     </h3>
+     <h4 id="header-3">
+      文字列の定義
+     </h4>
      <p>
       まず、文字列は以下のように定義するのでした。
      </p>
@@ -115,6 +205,9 @@
 2つめに関しては複数行でテキストをプログラム中で定義する方法でした。
 記号「'」の代わりに記号「"」を使うことも可能ですが、文字列の前後で統一されている必要があります。
      </p>
+     <h4 id="header-4">
+      文字列を作る演算子
+     </h4>
      <p>
       文字列の結合に関しては「+」記号でできますが、
 数字などを結合するときは「文字列に変換」してから結合するのでした。
@@ -136,6 +229,28 @@
 <span class="c1"># 11</span>
 </pre>
      </div>
+     <h4 id="header-5">
+      in 演算子
+     </h4>
+     <p>
+      検索には「存在の確認」と「位置の確認」の2つの使い方があり、それぞれ次のようになります。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello world python'</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'wor'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
+<span class="c1"># True</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'w0r'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
+<span class="c1"># False</span>
+</pre>
+     </div>
+     <p>
+      inについてはlistでの使い方と同じで、「A in B」の場合は「AがBに含まれていれば Trueを返す」という動きをします。
+’hello world python’ というテキストに ‘wor’ は含まれているので True となっています。
+     </p>
+     <h4 id="header-6">
+      文字列の部分取得
+     </h4>
      <p>
       文字列中の「文字」の取得は以下のように [X] で位置を指定して行います。
      </p>
@@ -199,9 +314,12 @@
 あまり使いどころはありませんが、両方とも省略すると、文字列のすべてが取得されます。
 このスライシングはリストから複数の要素を取り出す際にも使えます。
      </p>
-     <h3 id="header-1">
+     <h3 id="header-7">
       文字列型のメソッド
      </h3>
+     <h4 id="header-8">
+      文字列のデータは決して変わらない
+     </h4>
      <p>
       先にお伝えしたように文字列型もオブジェクトであるためメソッドが利用できます。
 ただ、文字列型に対してメソッドを呼び出した場合は
@@ -210,6 +328,9 @@
 メソッドの返り値として変更された文字列オブジェクトがかえってくるという動きをします。
 これは全ての文字列型のメソッドに共通した特徴なので必ず覚えておいて下さい。
      </p>
+     <h4 id="header-9">
+      文字列の部分置き換えと削除 : replace メソッド
+     </h4>
      <p>
       文字列型のメソッドを使ってテキストの置き換え処理をしてみます。
 テキストエディタなどである特定のキーワードを別のキーワードに置き換えることがあるかと思いますが、それと同じ要領です。
@@ -244,18 +365,33 @@
 元のデータ(オブジェクトが持つ’hello world python’ というテキストデータ自体)は変更を加えません。
      </p>
      <p>
-      文字列の検索もそれほど難しくはありません。
-検索には「存在の確認」と「位置の確認」の2つの使い方があり、それぞれ次のようになります。
+      文字列中の特定の文字列を消したい場合は、replaceメソッドの置き換え対象の文字列を空文字(
+      <code>
+       ''
+      </code>
+      )にします。
+そうすることで、置き換え対象の文字列が空文字になるため、実質的に削除されます。
      </p>
      <div class="codehilite">
       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello world python'</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'wor'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
-<span class="c1"># True</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'w0r'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
-<span class="c1"># False</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'wor'</span><span class="p">))</span>
+<span class="n">text1</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'o'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
+<span class="c1"># hell wrld pythn</span>
+</pre>
+     </div>
+     <h4 id="header-10">
+      文字列の検索 : startswith, endswith, find
+     </h4>
+     <p>
+      文字列の検索もそれほど難しくはありません。
+     </p>
+     <p>
+      find メソッドについては最も左側にあるマッチした位置を返します。
+そのため、'o'は何個もありますが、一番左の位置となっています。
+マッチしない場合は-1が返ってきます。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'wor'</span><span class="p">))</span>
 <span class="c1"># 6</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'w0r'</span><span class="p">))</span>
@@ -265,13 +401,6 @@
 <span class="c1"># 4</span>
 </pre>
      </div>
-     <p>
-      inについてはlistでの使い方と同じで、「A in B」の場合は「AがBに含まれていれば Trueを返す」という動きをします。
-’hello world python’ というテキストに ‘wor’ は含まれているので True となっています。
-find メソッドについては最も左側にあるマッチした位置を返します。
-そのため、'o'は何個もありますが、一番左の位置となっています。
-マッチしない場合は-1が返ってきます。
-     </p>
      <p>
       find メソッドに似たメソッドで startswith と endswith があります。
 名前から分かるかもしれませんが、前者は「この文字列から始まっていればTrue」、
@@ -306,6 +435,9 @@ find メソッドのオプションである第二引数を指定することで
 <span class="c1"># 16</span>
 </pre>
      </div>
+     <h4 id="header-11">
+      文字列の前後の削除 : strip, rstrip, lstrip
+     </h4>
      <p>
       次に文字列の前後からの特定の文字の削除メソッド stripです。
 よく利用するのは、前後の空白や改行コード、タブなどを取り除く場合などでしょう。
@@ -379,6 +511,9 @@ splitlines() という専用のメソッドもあります。
       この例のように CSV の要素に空白が含まれているのであれば、
 先ほどの strip 関数と組み合わせて前後の空白を取り除いて整形してあげてもいいかもしれません。
      </p>
+     <h3 id="header-12">
+      メソッドの連続呼び出し
+     </h3>
      <p>
       「オブジェクトを返す関数やメソッド」に対してメソッドを呼び出しているようなコードはよくありますが、
 それは上記と同じように「作成されたばかりのオブジェクトのメソッドを呼ぶ」ということをしています。
@@ -415,9 +550,12 @@ splitlines() という専用のメソッドもあります。
 'HELLO PYTHON'
 </pre>
      </div>
-     <h3 id="header-2">
+     <h3 id="header-13">
       文字列の生成
      </h3>
+     <h4 id="header-14">
+      文字列の結合
+     </h4>
      <p>
       テキストを整形して文字列を作ることはよくあります。
 たとえば、文字列型の名前と数値型の年齢を合わせて「名前 : 年齢」とするには以下のようにすればできます。
@@ -435,7 +573,12 @@ splitlines() という専用のメソッドもあります。
      <p>
       3つの文字列ぐらいであれば結合を使うことで文字列を作れますが、
 あまりに長くなってくると結合で文字列を作るのは非常に見苦しくなってきます。
-結合の代わりに、文字列にテキストや数字を埋め込むという手法で文字列を生成することができます。
+     </p>
+     <h4 id="header-15">
+      format メソッド
+     </h4>
+     <p>
+      結合の代わりに、文字列にテキストや数字を埋め込むという手法で文字列を生成することができます。
 これを実現する format メソッドを使うと非常にシンプルに文字列を作ることができます。
      </p>
      <div class="codehilite">
@@ -462,6 +605,9 @@ splitlines() という専用のメソッドもあります。
      <p>
       上記のように同じ引数を何度も埋め込むこともできます。キーワード引数を使うこともできます。
      </p>
+     <h4 id="header-16">
+      formatメソッドのフォーマット
+     </h4>
      <p>
       さらに format メソッドは文字列に埋め込む「フォーマット(形式)」も調整できます。
 フォーマットを指定するには「:」のあとにフォーマットを指定する書式を書きます。
@@ -521,6 +667,9 @@ splitlines() という専用のメソッドもあります。
 <span class="c1"># '1100100, 144, 100, 64'</span>
 </pre>
      </div>
+     <h4 id="header-17">
+      書式化演算子 %
+     </h4>
      <p>
       format メソッドに似た書式化演算子(%)も Python3 では利用できます。
 書式化演算子は format メソッドより気軽に使えますが、そのぶん単純なことしかできません。
@@ -581,8 +730,8 @@ C言語などの printf に慣れているかたは書式化演算子のほう�
 <span class="c1"># 1taro35male</span>
 </pre>
      </div>
-     <h3 id="header-3">
-      エスケープ記号
+     <h3 id="header-18">
+      文字列のエスケープ
      </h3>
      <p>
       最後に文字列で使われる特殊記号についてお話します。
