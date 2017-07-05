@@ -78,29 +78,38 @@
       <ul class="toc_list">
        <li>
         <a href="#header-1">
-         例外処理の場合分け
+         概要
         </a>
-        <ul>
-         <li>
-          <a href="#header-2">
-           スタックトレース
-          </a>
-         </li>
-        </ul>
        </li>
        <li>
-        <a href="#header-3">
-         traceback モジュール
+        <a href="header-2">
+         例外処理の場合分け
+        </a>
+       </li>
+       <li>
+        <a href="header-3">
+         スタックトレース
         </a>
        </li>
        <li>
         <a href="header-4">
+         traceback モジュール
+        </a>
+       </li>
+       <li>
+        <a href="header-5">
          キャッチした例外の丸投げ
         </a>
        </li>
       </ul>
      </div>
      <h3 id="header-1">
+      概要
+     </h3>
+     <p>
+      あとで書く
+     </p>
+     <h3 id="header-2">
       例外処理の場合分け
      </h3>
      <p>
@@ -192,9 +201,9 @@ try/catchを抜けた箇所でのクローズでもだいたいカバーでき�
       今度はexceptが呼ばれなくなり、代わりにelseが呼ばれています。
 一方、finallyはまたもや呼ばれています。それほど複雑な動きではないと思うので、elseとfinallyの話はこのあたりで終わりとします 。
      </p>
-     <h4 id="header-2">
+     <h3 id="header-3">
       スタックトレース
-     </h4>
+     </h3>
      <p>
       try/exceptで例外をキャッチできることはわかりました。
 ただ、やみくもに例外をキャッチするのは正直なところあまり行儀はよくないので、
@@ -292,7 +301,7 @@ ZeroDivisionError: division by zero
       このエラーを上から読むと 11 行目で “value = a.test(b)” を実行し、3行目で” return b.div(0)” を実行し、
 7 行目で “return 5/value” を実行し、そこで ZeroDivisionError となったことが分かります。
      </p>
-     <h3 id="header-3">
+     <h3 id="header-4">
       traceback モジュール
      </h3>
      <p>
@@ -343,7 +352,7 @@ ZeroDivisionError: division by zero
 プログラムの標準出力ではなくログファイルに出力する際にはこの機能を使うか、
 もしくは logging モジュールを使ってエラーの文字列をファイルに書くのがよいと思います。
      </p>
-     <h3 id="header-4">
+     <h3 id="header-5">
       キャッチした例外の丸投げ
      </h3>
      <p>

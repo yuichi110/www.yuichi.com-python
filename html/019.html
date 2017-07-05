@@ -78,27 +78,81 @@
       <ul class="toc_list">
        <li>
         <a href="#header-1">
-         基数
+         概要
         </a>
        </li>
        <li>
         <a href="header-2">
-         文字コード
+         基数
         </a>
+        <ul>
+         <li>
+          <a href="#header-3">
+           2進数と16進数
+          </a>
+         </li>
+         <li>
+          <a href="#header-4">
+           基数の変換
+          </a>
+         </li>
+         <li>
+          <a href="#header-5">
+           基数の変換のプログラム
+          </a>
+         </li>
+        </ul>
        </li>
        <li>
-        <a href="header-3">
-         バイト配列
+        <a href="#header-6">
+         文字コード
         </a>
+        <ul>
+         <li>
+          <a href="#header-7">
+           文字コードの仕組み
+          </a>
+         </li>
+         <li>
+          <a href="#header-8">
+           Pythonを使わない文字コードの変換方法
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#header-9">
+         バイト型
+        </a>
+        <ul>
+         <li>
+          <a href="#header-10">
+           宣言
+          </a>
+         </li>
+         <li>
+          <a href="#header-11">
+           encode/decodeメソッド
+          </a>
+         </li>
+         <li>
+          <a href="#header-12">
+           16進数との変換
+          </a>
+         </li>
+        </ul>
        </li>
       </ul>
      </div>
+     <h3 id="header-1">
+      概要
+     </h3>
      <p>
       日本でプログラミングをする以上、プログラミングにおける「日本語の処理」は必須の知識です。
 ただ、日本語について扱うには「文字コード」と文字データがどのように表現されているかを知るための「基数の知識」が必要です。
 そのため、順を追って基数と文字コード、そして次の章にて日本語の処理を扱うという手順で説明します。
      </p>
-     <h3 id="header-1">
+     <h3 id="header-2">
       基数
      </h3>
      <p>
@@ -107,6 +161,9 @@
 そしてその基数Nで表現される数え方を「N進数」と呼びます。
 たとえば、0～9の10個であれば10進数、0～7の8個であれば8進数になります。
      </p>
+     <h4 id="header-3">
+      2進数と16進数
+     </h4>
      <p>
       では、0～1で表現されるのは、基数が何で何進数と呼ばれているでしょうか。
 基数が2なので、2進数です。コンピュータが理解可能なのは01だけという話を何度もしていますが、
@@ -170,6 +227,9 @@
 0000～1111は10進数でいうと0～15なので、ちょうど16進数の0～Fにピッタリあてはまるのです。
 1バイト(0から255)は8ビット、つまり2進数が8桁なので、ちょうど16進数2桁で表現できます。
      </p>
+     <h4 id="header-4">
+      基数の変換
+     </h4>
      <p>
       基数変換に便利なPythonの関数を紹介します。10進数から2進数、8進数、16進数への変換は専用の関数を使います。
      </p>
@@ -215,9 +275,18 @@
       intの第一引数に数字のもとになる文字列を入れ、第二引数に基数を指定します。
 第二引数を省略すると10進数として扱われます。基数とN進数に関しては以上です。
      </p>
-     <h3 id="header-2">
+     <h4 id="header-5">
+      基数の変換のプログラム
+     </h4>
+     <p>
+      コメント: アルゴリズムの説明とサンプルコードを書くこと
+     </p>
+     <h3 id="header-6">
       文字コード
      </h3>
+     <h4 id="header-7">
+      文字コードの仕組み
+     </h4>
      <p>
       コンピュータは、突き詰めると01しか理解できないので、文字も最終的には01に対応付けられます。
 その「文字と01の対応関係」を決めるのが文字コードと呼ばれているものです。
@@ -281,7 +350,12 @@ Hello Python.
 たとえば、SJISのファイルをUTF-8として読み込もうとすればコードを解釈できずに文字化けが発生したりエラーとなったりします。
 当然、ひとつのファイルのなかでさまざまな文字コードを織り交ぜるということはできません。
 ファイルのなかで利用する文字コードは必ず統一して下さい。
-文字コードがどのようなものか、正しく文字コードを認識できることがいかに大切かということを理解してもらえたら幸いです。
+     </p>
+     <h4 id="header-8">
+      Pythonを使わない文字コードの変換方法
+     </h4>
+     <p>
+      文字コードがどのようなものか、正しく文字コードを認識できることがいかに大切かということを理解してもらえたら幸いです。
 なお、自分で文字コードの変更を試されたい場合は文字コードを変更できるエディタやnkfコマンドなどを利用すればよいと思います。
      </p>
      <p>
@@ -291,9 +365,15 @@ Hello Python.
 実際、次の章でも説明しますが python3 はUTF-8 をデフォルトの文字コードにしています。
 可能であれば UTF-8 でコードを書くようにして下さい。
      </p>
-     <h3 id="header-3">
-      バイト配列
+     <p>
+      コメント: WindowsとMacの代表的なフリーなエディタと、変換方法を書くこと
+     </p>
+     <h3 id="header-9">
+      バイト型
      </h3>
+     <h4 id="header-10">
+      宣言
+     </h4>
      <p>
       文字コードだけでなく様々なデータは全て「0,1 の羅列」で表現されています。
 この0,1 の羅列のことをバイト列といい、Python はそれを bytes という型で扱います。
@@ -309,6 +389,27 @@ C 言語などと違ってPython でバイト配列を直接扱う機会は多�
 <span class="c1"># &lt;class 'bytes'&gt;</span>
 </pre>
      </div>
+     <h4 id="header-11">
+      encode/decodeメソッド
+     </h4>
+     <p>
+      文字列とバイト列の変換は encode と decode メソッドを使います。
+     </p>
+     <div class="codehilite">
+      <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'hello world'</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="c1"># b'hello world'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">'hello world'</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+<span class="c1"># hello world</span>
+</pre>
+     </div>
+     <p>
+      文字列に対してメソッド encode() を呼び出すとバイト列を返し、
+バイト列に対して decode メソッドを呼び出すと文字列を返します。
+     </p>
+     <h4 id="header-12">
+      16進数との変換
+     </h4>
      <p>
       上記例では ‘hello world’ を文字列としてではなく、バイト列として扱います。
 そのため、変数 b は文字列型ではなくバイト型のオブジェクトを持っています。
@@ -327,20 +428,8 @@ C 言語などと違ってPython でバイト配列を直接扱う機会は多�
      <div class="codehilite">
       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">'68656c6c6f20776f726c64'</span><span class="p">))</span>
 <span class="c1"># b'hello world'</span>
-
-<span class="err">文字列とバイト列の変換は</span> <span class="n">encode</span> <span class="err">と</span> <span class="n">decode</span> <span class="err">メソッドを使います。</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'hello world'</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-<span class="c1"># b'hello world'</span>
-
-<span class="k">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">'hello world'</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-<span class="c1"># hello world</span>
 </pre>
      </div>
-     <p>
-      文字列に対してメソッド encode() を呼び出すとバイト列を返し、
-バイト列に対して decode メソッドを呼び出すと文字列を返します。
-     </p>
      <!-- GENERATED HTML END -->
      <nav>
       <ul class="pager">

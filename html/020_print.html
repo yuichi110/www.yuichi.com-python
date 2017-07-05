@@ -16,6 +16,9 @@
   <h2>
    日本語の扱い
   </h2>
+  <h3>
+   概要
+  </h3>
   <p>
    そもそもPythonのプログラムファイルもプログラムが書かれたテキストファイルです。
 そのため、それがどの文字コードを利用しているかということを
@@ -96,56 +99,6 @@ utf-8と宣言しているので、utf-8以外で書かれているとトラブ�
    実は Python3はプログラムファイルの文字コードとその宣言の指定さえ間違えなければ、
 日本語などのマルチバイト文字をほとんど意識せずにアルファベットと同じ感覚で使えます。
 Python 2では文字列型の亜種である「Unicode文字列型」を使うことで日本語を扱っていたのに比べると随分と簡単になりました。
-  </p>
-  <h3>
-   文字コードの変換
-  </h3>
-  <p>
-   先ほど見たように文字コードもバイト列で作られています。
-例えば UTF-8の文字列を Shift-Jis に変換するといった場合、このバイト列の処理が必要になります。
-実際は Python のライブラリ任せになるのでそれほど難しくありませんが、
-おおまかに以下の図のような文字列とバイト列の関係の認識を持ってもらうと分かりやすいです。
-  </p>
-  <p align="center" class="blog-img">
-   <img alt="image" class="img-responsive" src="./0100_image/01.png"/>
-  </p>
-  <p>
-   まず Python は文字列としてユニコード(UTF-8)を持ちます。
-一方、バイト列は単なる 0,1 の組み合わせですのでどのような文字コードでも持つことができます。
-先程説明した文字列の encode 及びバイト列の decode メソッドを、
-文字コードを引数として与えて呼び出して変換ができます。
-文字列から Shift-Jis の変換は簡単で、
-単に encode する際に引数に Shift-JIS を指定して Shift-JIS のバイト列に変換するだけです。
-Shift-JIS から EUC-JP への変換も、Shift-JIS を引数 shift-jis で decode し、
-ユニコードの文字列にし、それから引数 euc-jp で encode してあげれば EUC-JP のバイト列が得られます。
-上記変換のサンプルを以下に記載します。
-  </p>
-  <div class="codehilite">
-   <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'こんにちは'</span>
-
-<span class="n">unicode_bytes</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">unicode_bytes</span><span class="p">)</span>
-<span class="c1"># b'\xe3\x81\x93\xe3\x82\x93\xe3\x81\xab\xe3\x81\xa1\xe3\x81\xaf'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">unicode_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-<span class="c1"># こんにちは</span>
-
-<span class="n">sjis_bytes</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'sjis'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">sjis_bytes</span><span class="p">)</span>
-<span class="c1"># b'\x82\xb1\x82\xf1\x82\xc9\x82\xbf\x82\xcd'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">sjis_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'sjis'</span><span class="p">))</span>
-<span class="c1"># こんにちは</span>
-
-<span class="n">eucjp_bytes</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'euc-jp'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">eucjp_bytes</span><span class="p">)</span>
-<span class="c1"># b'\xa4\xb3\xa4\xf3\xa4\xcb\xa4\xc1\xa4\xcf'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">eucjp_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'euc-jp'</span><span class="p">))</span>
-<span class="c1"># こんにちは</span>
-</pre>
-  </div>
-  <p>
-   文字列はユニコードであり、エンコードを指定してバイト列を書き出すことで様々な文字コードを表現できる。
-それらをエンコードの指定をして読み込むことでPython のユニコード文字列に変換することができる。
-この流れは日本語以外にもあてはまりますので覚えておいて下さい。
   </p>
   <h3>
    日本語ファイルの読み書き
@@ -237,6 +190,56 @@ Shift_JIS <span class="o">(</span>LF<span class="o">)</span>
    書き込みファイルsjis.txtの文字コードがShift-Jisと判定されています。
 UTF8のファイルを読み取り、それを解釈、Shift-Jisとして書き込むという動作がうまく動いています。
 なお上記の nkf コマンドはインストールをしないと使えないので注意してください。
+  </p>
+  <h3>
+   文字コードの変換
+  </h3>
+  <p>
+   先ほど見たように文字コードもバイト列で作られています。
+例えば UTF-8の文字列を Shift-Jis に変換するといった場合、このバイト列の処理が必要になります。
+実際は Python のライブラリ任せになるのでそれほど難しくありませんが、
+おおまかに以下の図のような文字列とバイト列の関係の認識を持ってもらうと分かりやすいです。
+  </p>
+  <p align="center" class="blog-img">
+   <img alt="image" class="img-responsive" src="./0100_image/01.png"/>
+  </p>
+  <p>
+   まず Python は文字列としてユニコード(UTF-8)を持ちます。
+一方、バイト列は単なる 0,1 の組み合わせですのでどのような文字コードでも持つことができます。
+先程説明した文字列の encode 及びバイト列の decode メソッドを、
+文字コードを引数として与えて呼び出して変換ができます。
+文字列から Shift-Jis の変換は簡単で、
+単に encode する際に引数に Shift-JIS を指定して Shift-JIS のバイト列に変換するだけです。
+Shift-JIS から EUC-JP への変換も、Shift-JIS を引数 shift-jis で decode し、
+ユニコードの文字列にし、それから引数 euc-jp で encode してあげれば EUC-JP のバイト列が得られます。
+上記変換のサンプルを以下に記載します。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'こんにちは'</span>
+
+<span class="n">unicode_bytes</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">unicode_bytes</span><span class="p">)</span>
+<span class="c1"># b'\xe3\x81\x93\xe3\x82\x93\xe3\x81\xab\xe3\x81\xa1\xe3\x81\xaf'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">unicode_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+<span class="c1"># こんにちは</span>
+
+<span class="n">sjis_bytes</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'sjis'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sjis_bytes</span><span class="p">)</span>
+<span class="c1"># b'\x82\xb1\x82\xf1\x82\xc9\x82\xbf\x82\xcd'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sjis_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'sjis'</span><span class="p">))</span>
+<span class="c1"># こんにちは</span>
+
+<span class="n">eucjp_bytes</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'euc-jp'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">eucjp_bytes</span><span class="p">)</span>
+<span class="c1"># b'\xa4\xb3\xa4\xf3\xa4\xcb\xa4\xc1\xa4\xcf'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">eucjp_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'euc-jp'</span><span class="p">))</span>
+<span class="c1"># こんにちは</span>
+</pre>
+  </div>
+  <p>
+   文字列はユニコードであり、エンコードを指定してバイト列を書き出すことで様々な文字コードを表現できる。
+それらをエンコードの指定をして読み込むことでPython のユニコード文字列に変換することができる。
+この流れは日本語以外にもあてはまりますので覚えておいて下さい。
   </p>
   <!-- GENERATED HTML END -->
  </body>
