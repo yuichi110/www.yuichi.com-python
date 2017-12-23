@@ -11,17 +11,18 @@
   <title>
    Python入門
   </title>
-  <!-- Bootstrap core CSS -->
+  <!-- Bootstrap -->
   <link href="./assets/css/bootstrap.css" rel="stylesheet"/>
-  <!-- Custom styles for this template -->
-  <link href="./assets/css/blog.css" rel="stylesheet"/>
-  <!-- Code Highlight -->
-  <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
-  <!-- Custom -->
-  <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/css/toc.css" rel="stylesheet"/>
-  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet">
+  <link href="./assets/css/bootstrap-theme.css" rel="stylesheet"/>
+  <link href="./assets/css/bootstrap_u1.css" rel="stylesheet"/>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+   <!-- Code Highlight -->
+   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+   <!-- Custom -->
+   <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+   <link href="./assets/icomoon/style.css" rel="stylesheet"/>
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -30,255 +31,263 @@
   </link>
  </head>
  <body>
-  <div class="blog-masthead">
-   <div class="container">
-    <nav class="blog-nav">
-     <a class="blog-nav-item active" href="./">
-      サイトトップ
-     </a>
-     <a class="blog-nav-item " href="./download.html">
-      ダウンロード
-     </a>
-     <a class="blog-nav-item " href="./qa.html">
-      質問と回答
-     </a>
-     <a class="blog-nav-item " href="./books.html">
-      おすすめ書籍
-     </a>
-     <a class="blog-nav-item " href="./about.html">
-      このページについて
-     </a>
-     <a class="blog-nav-item" href="http://www.yuichi.com/">
-      GRIT Computing
-     </a>
-    </nav>
-   </div>
-  </div>
-  <div class="container">
-   <div class="blog-header">
-    <a href="./" style=" text-decoration: none;">
-     <h1 class="blog-title">
-      Python入門
-     </h1>
-     <p class="lead blog-description">
-      プログラミング言語Pythonについて
-     </p>
-    </a>
-   </div>
-   <div class="row">
-    <div class="col-sm-8 blog-main">
-     <!-- GENERATED HTML START -->
-     <h2>
-      GUI で継承を学ぶ
-     </h2>
-     <div class="no_bullets" id="toc_container">
-      <p class="toc_title">
-       本記事の内容
-      </p>
-      <ul class="toc_list">
-       <li>
-        <a href="#header-1">
-         概要
+  <div class="backgroundLayer">
+   <!-- Fixed navbar -->
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+     <div class="navbar-header">
+      <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+       <span class="sr-only">
+        Toggle navigation
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+      </button>
+      <a class="navbar-brand " href="#">
+       Python
+      </a>
+     </div>
+     <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav">
+       <li class="">
+        <a href="">
+         Navi
         </a>
        </li>
-       <li>
-        <a href="header-2">
-         GUIプログラミングの特徴
+       <li class="">
+        <a href="">
+         QA
         </a>
        </li>
-       <li>
-        <a href="header-3">
-         Tkinterの紹介と本記事で作るサンプル
+       <li class="">
+        <a href="">
+         Books
         </a>
-       </li>
-       <li>
-        <a href="header-4">
-         GUIの基本的な考え方
-        </a>
-       </li>
-       <li>
-        <a href="header-5">
-         Tkinterの使いかた
-        </a>
-        <ul>
-         <li>
-          <a href="#header-6">
-           フレームを使った複数のウィジェットの利用
-          </a>
-         </li>
-         <li>
-          <a href="#header-7">
-           ウィジェットの継承
-          </a>
-         </li>
-         <li>
-          <a href="#header-8">
-           継承 vs コンポジション
-          </a>
-         </li>
-        </ul>
        </li>
       </ul>
      </div>
-     <h3 id="header-1">
-      概要
-     </h3>
-     <p>
-      あとで書く
-     </p>
-     <h3 id="header-2">
-      GUIプログラミングの特徴
-     </h3>
-     <p>
-      継承についておおまかに学んだため、この章ではTkinterというPythonのGUIのライブラリを使って、
+    </div>
+   </nav>
+   <div class="container">
+    <div class="u1-header">
+     <a href="./" style=" text-decoration: none;">
+      <div class="u1-title">
+       Python Boot Camp
+      </div>
+      <p class="lead u1-description">
+       プログラミング言語Python訓練プログラム
+      </p>
+     </a>
+    </div>
+    <div class="row">
+     <div class="col-sm-8 u1-main">
+      <!-- GENERATED HTML START -->
+      <!-- GENERATED HTML START -->
+      <h2 id="header-1">
+       GUI で継承を学ぶ
+      </h2>
+      <div class="no_bullets" id="toc_container">
+       <p class="toc_title">
+        本記事の内容
+       </p>
+       <ul class="toc_list">
+        <li>
+         <a href="#header-1">
+          GUI で継承を学ぶ
+         </a>
+         <ul>
+          <li>
+           <a href="#header-2">
+            概要
+           </a>
+          </li>
+          <li>
+           <a href="#header-3">
+            GUIプログラミングの特徴
+           </a>
+          </li>
+          <li>
+           <a href="#header-4">
+            Tkinterの紹介と本記事で作るサンプル
+           </a>
+          </li>
+          <li>
+           <a href="#header-5">
+            GUIの基本的な考え方
+           </a>
+          </li>
+          <li>
+           <a href="#header-6">
+            Tkinterの使いかた
+           </a>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </div>
+      <h3 id="header-2">
+       概要
+      </h3>
+      <p>
+       あとで書く
+      </p>
+      <h3 id="header-3">
+       GUIプログラミングの特徴
+      </h3>
+      <p>
+       継承についておおまかに学んだため、この章ではTkinterというPythonのGUIのライブラリを使って、
 GUIアプリケーションの作り方について学んでみたいと思います。
 GUIプログラムの作成は初心者向けとは言いづらいところがありますが、
 以下のような特徴があるためプログラミングの学習に向いています 。
-     </p>
-     <ul>
-      <li>
-       自分が作りたいものを想像しやすい
-      </li>
-      <li>
-       オブジェクト指向に慣れ親しむのに向いている
-      </li>
-      <li>
-       継承を利用する
-      </li>
-     </ul>
-     <p>
-      PythonでGUIを使うといってもさまざまなライブラリがあり、
+      </p>
+      <ul>
+       <li>
+        自分が作りたいものを想像しやすい
+       </li>
+       <li>
+        オブジェクト指向に慣れ親しむのに向いている
+       </li>
+       <li>
+        継承を利用する
+       </li>
+      </ul>
+      <p>
+       PythonでGUIを使うといってもさまざまなライブラリがあり、
 GUIアプリの作成は Tkinter がベストではない場合もあります。
 また、そもそもPythonではなくほかの言語を用いて作るべきである可能性すらあります。
 今回はあくまでも学習目的メインなので、そのあたりのことはご容赦ください。
 また、本書はGUIをメインとしているわけではないので、当然ながらTkinterのすべてはカバーしきれません。
 簡単な使い方紹介や実例をとおして、GUIの仕組みやオブジェクト指向について理解してもらうことを目標にしているので、
 興味があるかたはほかのWebページや本などを活用してください。
-     </p>
-     <h3 id="header-3">
-      Tkinterの紹介と本記事で作るサンプル
-     </h3>
-     <p>
-      WindowsやMac上のアプリケーションも当然ながらプログラムで作られています。
+      </p>
+      <h3 id="header-4">
+       Tkinterの紹介と本記事で作るサンプル
+      </h3>
+      <p>
+       WindowsやMac上のアプリケーションも当然ながらプログラムで作られています。
 それらを思い浮かべると、ある共通点があることがわかりませんか。
 まず一般的にアプリケーションはウィンドウという形で提供され、そのなかにボタンやテキストを書く領域、それにメニューなどが存在しています。
 GUI のライブラリはこれらの「見た目」を作ることに特化したライブラリです。
 ライブラリの特定の関数を呼び出したり、GUI のクラスをインスタンス化することでウィンドウやメニューを作成したり、
 場合によっては提供されるクラスを継承することで細かい挙動や見た目を作ったりします。
-     </p>
-     <p>
-      TkinterもこういったGUIのライブラリであり、Pythonで利用されます。
+      </p>
+      <p>
+       TkinterもこういったGUIのライブラリであり、Pythonで利用されます。
 ただ、TkinterはPythonで一から作られたものというよりは、
 Tkという汎用のGUIのツールキットをPythonで利用できるようにしたものです。
 この仕組みを以下の図に記します。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1075_image/01.jpg"/>
-     </p>
-     <p>
-      上記図にあるように、まずTkと呼ばれているGUIのツールキットがあり、Pythonがそれを「ラップ」しているようなイメージです。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1075_image/01.jpg"/>
+      </p>
+      <p>
+       上記図にあるように、まずTkと呼ばれているGUIのツールキットがあり、Pythonがそれを「ラップ」しているようなイメージです。
 そのラップされたPythonのライブラリをTkinterと呼んでいます。
 Tkはほかの言語でも利用されていて、たとえば図にあるように、Rubyでも利用されています。
-     </p>
-     <p>
-      本章はこのTkinterとPythonを使って、以下のようなカウンターを実装することを目標にします。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1075_image/02.jpg"/>
-     </p>
-     <p>
-      見てもらうとわかりますが、clickと書かれているボタンを押すと表示されているカウンターの数が増えます。
-     </p>
-     <h3 id="header-4">
-      GUIの基本的な考え方
-     </h3>
-     <p>
-      GUIのアプリケーションといってもブラウザ上で動くものやデスクトップアプリとして動くものなどいろいろあります。
+      </p>
+      <p>
+       本章はこのTkinterとPythonを使って、以下のようなカウンターを実装することを目標にします。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1075_image/02.jpg"/>
+      </p>
+      <p>
+       見てもらうとわかりますが、clickと書かれているボタンを押すと表示されているカウンターの数が増えます。
+      </p>
+      <h3 id="header-5">
+       GUIの基本的な考え方
+      </h3>
+      <p>
+       GUIのアプリケーションといってもブラウザ上で動くものやデスクトップアプリとして動くものなどいろいろあります。
 ただ、ある一定の規模のGUIのアプリを構築する場合、
 基本的にGUIのウィンドウは「フレーム(ウィジェットをいれる)」と
 「ウィジェット(ボタンやテキスト欄といったパーツ)」で構成された入れ子構造となっている場合が多いです。
 たとえば以下の図のようになります。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1075_image/03.jpg"/>
-     </p>
-     <p>
-      左側にアプリの画面の概念図、右側に GUIのパーツの階層構造が書かれています。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1075_image/03.jpg"/>
+      </p>
+      <p>
+       左側にアプリの画面の概念図、右側に GUIのパーツの階層構造が書かれています。
 みてわかるようにフレーム1はフレーム2,3を内部に持っていて、それらを縦に並べて表示させています。
 そしてフレーム2も中にウィジェット1,2,3,4を持っており、それを横に表示。
 フレーム3はウィジェット5,6を持ち、縦に表示といった具合です。
 このとき大切なのは、フレーム1,2,3 やWidgetは必要に応じて適切なものが選ばれ、
 場合によっては「継承」でカスタマイズされているということです。
 このあたりの話は本章の後半で扱います。
-     </p>
-     <h3 id="header-5">
-      Tkinterの使いかた
-     </h3>
-     <p>
-      詳しいGUIの使い方を理解するためには、まず基礎となる作法を学ぶ必要があります。
+      </p>
+      <h3 id="header-6">
+       Tkinterの使いかた
+      </h3>
+      <p>
+       詳しいGUIの使い方を理解するためには、まず基礎となる作法を学ぶ必要があります。
 そのため、簡単なものから順を追って説明していきたいと思います。おおまかな流れとしては以下のようになります。
-     </p>
-     <ul>
-      <li>
-       ウィンドウの表示方法
-      </li>
-      <li>
-       フレームの使い方
-      </li>
-      <li>
-       継承を使った新しいウィジェットの作成
-      </li>
-     </ul>
-     <p>
-      まず以下の図のものを作ります。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1075_image/04.jpg"/>
-     </p>
-     <p>
-      これを実現するコードは以下となります。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
+      </p>
+      <ul>
+       <li>
+        ウィンドウの表示方法
+       </li>
+       <li>
+        フレームの使い方
+       </li>
+       <li>
+        継承を使った新しいウィジェットの作成
+       </li>
+      </ul>
+      <p>
+       まず以下の図のものを作ります。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1075_image/04.jpg"/>
+      </p>
+      <p>
+       これを実現するコードは以下となります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
 
 <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">'Helevetica'</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">'bold'</span><span class="p">)</span>
 <span class="n">label</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">'Hello Tkinter'</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
 <span class="n">label</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 <span class="n">label</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </pre>
-     </div>
-     <p>
-      コードの解説をすると、まず最初にTkinterを使うためにライブラリをインポートしています。
+      </div>
+      <p>
+       コードの解説をすると、まず最初にTkinterを使うためにライブラリをインポートしています。
 そして前書で扱ったように import X as Yとすると、XというライブラリをYという名前で使うことができます。
 Tkinterという名前が長いのでtkとしています。
 次にfontの定義ですが、これは単にタプルで表示するテキスト情報をまとめています。
 フォント、文字サイズ、大文字と指定しているだけです。
-     </p>
-     <p>
-      tk.Label()関数でGUIのパーツである「ラベル」と呼ばれているWidgetを作成します。
+      </p>
+      <p>
+       tk.Label()関数でGUIのパーツである「ラベル」と呼ばれているWidgetを作成します。
 名前付き引数を使って作るパーツの詳細をオプションとして指定しています。
 今回は表示する文字列を "Hello Tkinter" とし、フォントは定義したもの、背景色(BackGround)を赤としています。
 そして、作成されたラベルのpack()と呼ばれているメソッドで label を配置し、
 mainloop()メソッドでGUIを表示するという流れでGUIアプリケーションが起動します。
-     </p>
-     <h4 id="header-6">
-      フレームを使った複数のウィジェットの利用
-     </h4>
-     <p>
-      先程はラベルひとつだけの単純なパーツ構成だったので、もう少し複雑なものを作ってみます。
+      </p>
+      <h4>
+       フレームを使った複数のウィジェットの利用
+      </h4>
+      <p>
+       先程はラベルひとつだけの単純なパーツ構成だったので、もう少し複雑なものを作ってみます。
 とはいっても単純で、以下のような2つのラベルを表示するだけのアプリケーションです。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1075_image/05.jpg"/>
-     </p>
-     <p>
-      これを実現するためにはフレームを使うのが簡単です。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1075_image/05.jpg"/>
+      </p>
+      <p>
+       これを実現するためにはフレームを使うのが簡単です。
 フレームオブジェクトはその中にウィジェットを複数持つことができ、
 それらをどのように表示するかを管理してくれます。
 まぁ、まずは簡単なのでコードを見てみましょうか。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
 
 <span class="n">frame</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">()</span>
 <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">'Helevetica'</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">'bold'</span><span class="p">)</span>
@@ -289,48 +298,48 @@ mainloop()メソッドでGUIを表示するという流れでGUIアプリケー�
 <span class="n">frame</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 <span class="n">frame</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </pre>
-     </div>
-     <p>
-      まずtk.Frame()関数によりFrameのインスタンスを作っているところです。
-     </p>
-     <p>
-      そして次に、先ほどと同じようにtk.Label()関数でラベルを作っているのですが、
+      </div>
+      <p>
+       まずtk.Frame()関数によりFrameのインスタンスを作っているところです。
+      </p>
+      <p>
+       そして次に、先ほどと同じようにtk.Label()関数でラベルを作っているのですが、
 その第一引数に親となるフレームを与えています。
 このようにすることで新しく作られたラベルは先程のフレームの中に格納されます。
 要するにラベルがフレームの子要素となったということです。
-     </p>
-     <p>
-      そして、ラベル、フレームというように内側から順にpackメソッドを呼び出していき、
+      </p>
+      <p>
+       そして、ラベル、フレームというように内側から順にpackメソッドを呼び出していき、
 最後に一番外側のフレームに対してmainloop を呼び出します。
-     </p>
-     <p>
-      GUIのフレームワークにより、このパーツの親子関係の指定方法は変わってきます。
+      </p>
+      <p>
+       GUIのフレームワークにより、このパーツの親子関係の指定方法は変わってきます。
 今回は子に親を指定していますが、どちらかというと親に対して「親のパーツ.addChild(中のパーツ)」というような形で、
 指定するほうが他のGUIフレームワークでは一般的かもしれません。
 基本となる思想はそれほど変わらないので、フレームワークの流儀に合わせてください。
-     </p>
-     <p>
-      先ほどのフレームでの表示は少し雑だったので、オプションを付けてもう少し丁寧に表示してみます。
+      </p>
+      <p>
+       先ほどのフレームでの表示は少し雑だったので、オプションを付けてもう少し丁寧に表示してみます。
 オプションはpackメソッドの中で「どのように表示するか」を指定できます。たとえば以下のようなものがあります。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1075_image/06.jpg"/>
-     </p>
-     <p>
-      左側の例では左右の隙間をうめて、右側の例はウィジェットを横並びで格納をしています。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1075_image/06.jpg"/>
+      </p>
+      <p>
+       左側の例では左右の隙間をうめて、右側の例はウィジェットを横並びで格納をしています。
 基本的にフレームの中に「縦に並べるか」「横に並べるか」を指定し、あとは細かい調整をするという考え方でいいと思います。
 今回は割愛していますが、中に格納するWidget間のスペースといったことも調整できます。
 複雑なWidgetの配置をしたい場合は、フレームの中にフレームを入れるという入れ子構造にします。
 たとえば以下のような配置にしたいとしましょう。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1075_image/07.jpg"/>
-     </p>
-     <p>
-      コードは以下のようになります。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1075_image/07.jpg"/>
+      </p>
+      <p>
+       コードは以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
 
 <span class="n">frame1</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">()</span>
 
@@ -350,48 +359,48 @@ mainloop()メソッドでGUIを表示するという流れでGUIアプリケー�
 <span class="n">frame1</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 <span class="n">frame1</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </pre>
-     </div>
-     <p>
-      注目して欲しいのはframe2の親にframe1が指定されていることです。
+      </div>
+      <p>
+       注目して欲しいのはframe2の親にframe1が指定されていることです。
 frame2の中には2つのラベルが入っていますが、これはframe1から見るとframe2というひとつの要素に過ぎません。
 そしてlabel3は、frame1にとってframe2と同じく自分の子供となります。
 つまりframe1にとってはlabel1,2は孫で、label3は子供になります。
-     </p>
-     <p>
-      誰が誰の親で、中から外に順にpackしていくということに注意を払えばそれほど難しくありません。
-     </p>
-     <h4 id="header-7">
-      ウィジェットの継承
-     </h4>
-     <p>
-      今まで利用してきたGUIのパーツはフレームとラベルだけでしたが、
+      </p>
+      <p>
+       誰が誰の親で、中から外に順にpackしていくということに注意を払えばそれほど難しくありません。
+      </p>
+      <h4>
+       ウィジェットの継承
+      </h4>
+      <p>
+       今まで利用してきたGUIのパーツはフレームとラベルだけでしたが、
 実際にはボタンやテキストボックスなど、さまざまなものが存在しています。
 ただ、よく考えてください。
 ボタンやラベルにはそれぞれ共通した役割である「フレームに格納可能」「画面に表示される」
 「クリックなどのイベント処理が可能」といった共通した特性があります。
 これらの共通した特性を複数のクラスで実現する必要がある場合は、前回お話ししたように「継承」が便利です。
 GUIはコンポジションより継承をするべき場面です。
-     </p>
-     <p>
-      たとえばTkinterというよりも、一般的なGUIのライブラリでは、
+      </p>
+      <p>
+       たとえばTkinterというよりも、一般的なGUIのライブラリでは、
 以下のようにラベルやボタンといったパーツは基本となるWidgetクラスから継承される場合が多いです。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1075_image/08.jpg"/>
-     </p>
-     <p>
-      こうすることで基本機能はWidgetに搭載し、その差分のみ子クラスであるボタンやラベルで実装すれば機能を実現できます。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1075_image/08.jpg"/>
+      </p>
+      <p>
+       こうすることで基本機能はWidgetに搭載し、その差分のみ子クラスであるボタンやラベルで実装すれば機能を実現できます。
 この基本ルールは自分でGUIのパーツを新しく作る際もあてはまります。
 確認のために簡単なGUIのパーツを作ってみます。冒頭でお話したカウンタを作ります。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1075_image/09.png"/>
-     </p>
-     <p>
-      これを実装する場合、別に継承を使わないでも実現可能です。たとえば以下のようなものもそうです。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1075_image/09.png"/>
+      </p>
+      <p>
+       これを実装する場合、別に継承を使わないでも実現可能です。たとえば以下のようなものもそうです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
 
 <span class="k">class</span> <span class="nc">Counter</span><span class="p">:</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
@@ -417,17 +426,17 @@ GUIはコンポジションより継承をするべき場面です。
 
 <span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre>
-     </div>
-     <p>
-      コードを読んでみるとわかりますが、クラスCounterは、特にTkinterのパーツを継承しておらず、
+      </div>
+      <p>
+       コードを読んでみるとわかりますが、クラスCounterは、特にTkinterのパーツを継承しておらず、
 その初期化の際にFrameを作り、その中にラベルとボタンを格納して表示するという仕組みになっています。
 なお、ボタンが押されたときのアクションは、登録されたメソッドが呼び出されるというものになっています。
-     </p>
-     <p>
-      一方、同じことを継承で実現することもできます。こちらのほうが一般的な GUIの実装方法といえます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
+      </p>
+      <p>
+       一方、同じことを継承で実現することもできます。こちらのほうが一般的な GUIの実装方法といえます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
 
 <span class="k">class</span> <span class="nc">Counter</span><span class="p">(</span><span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -458,531 +467,547 @@ GUIはコンポジションより継承をするべき場面です。
 <span class="n">f</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </pre>
-     </div>
-     <p>
-      先程に比べてコードが少し複雑になっていますが、Counterはtk.Frameを継承して作り、
+      </div>
+      <p>
+       先程に比べてコードが少し複雑になっていますが、Counterはtk.Frameを継承して作り、
 自分自身の中にラベルとボタンを配置するという構成になっています。
-     </p>
-     <p>
-      また、継承を使わないコードと使うコードの最後の部分を見比べてもらうとわかりますが、
+      </p>
+      <p>
+       また、継承を使わないコードと使うコードの最後の部分を見比べてもらうとわかりますが、
 継承をしない場合はあくまでも「俺ルール」で表示をさせているのに対して、
 継承を使う場合はほかのtkのウィジェットのGUIパーツとほとんど違いなく利用できています。
 ほかのGUIパーツのように使えるので、今回はFrameの中に入れて2つ利用するということをやっています。
 これは継承を使わないコードでは「俺ルール」で仕組みを作らないと実現できませんし、
 そんなコードは汎用性が低くて使いにくいです。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1075_image/10.jpg"/>
-     </p>
-     <p>
-      GUIのアプリケーションはパーツとパーツが複雑に絡み合うため、大規模なものを作るとなると難易度が一気に増えます。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1075_image/10.jpg"/>
+      </p>
+      <p>
+       GUIのアプリケーションはパーツとパーツが複雑に絡み合うため、大規模なものを作るとなると難易度が一気に増えます。
 ただ、そのような問題をいかに乗り越えるかということに四苦八苦し、
 自分でいろいろ考えたアイディアを試したり先人の知恵を借りたりして解決していくということを繰り返すことで、
 プログラマとしてのレベルが上がってくれるのではないかと思います。
-     </p>
-     <h4 id="header-8">
-      継承 vs コンポジション
-     </h4>
-     <p>
-      さて、今回まで継承についていろいろと説明してきましたが、継承を覚えたときに陥りがちなのは「継承中毒」というやつです。
+      </p>
+      <h4>
+       継承 vs コンポジション
+      </h4>
+      <p>
+       さて、今回まで継承についていろいろと説明してきましたが、継承を覚えたときに陥りがちなのは「継承中毒」というやつです。
 要するに、なんでもかんでも継承してしまうということです。
 なお、継承は「絶対継承すべき」という場面以外では使わないというのが私の持論です。
 詳しくは『Effective Java(第2版 丸善出版 1994年)』あたりの本を読んで欲しいのですが、
 「継承よりもコンポジションを使うべき」というテーマの話題があります。
-     </p>
-     <p>
-      コンポジションは本書の前半で学んだので覚えているかと思いますが、要するに、あるクラスに別のクラスを持たせることです。
+      </p>
+      <p>
+       コンポジションは本書の前半で学んだので覚えているかと思いますが、要するに、あるクラスに別のクラスを持たせることです。
 継承で実現できる「親クラスの関数やパラメータを使う」という機能はコンポジションでも実現可能です。
 例えば先ほどの Register の実装などを想像してもらうと分かりやすいかもしれません。
-     </p>
-     <p>
-      一方、たとえばGUIのパーツやスレッド関係のクラスは、多くの場合は継承が必須です。
+      </p>
+      <p>
+       一方、たとえばGUIのパーツやスレッド関係のクラスは、多くの場合は継承が必須です。
 また、先に説明したポリモーフィズムを実現するのにも、継承を使うべきかもしれません。
 型システムがJavaなどより厳格でないPythonでは、必ずしも継承を使わなくてもポリモーフィズムは実現できます。
 継承を使わなくても、同じメソッド名でそろえれば問題ありません。
 ただ、ポリモーフィズムを使いたいのであれば「俺はポリモーフィズムを使っているぞ」という表明のためにも継承を使うべきかもしれません。
-     </p>
-     <p>
-      継承にすべきかコンポジションにすべきか悩んだ場合は、それが以下のいずれであるべきか考える必要があります。
-     </p>
-     <ul>
-      <li>
-       IS-A 関係
-      </li>
-      <li>
-       HAS-A 関係
-      </li>
-     </ul>
-     <p>
-      A is B(例:トラックは車)のときは継承を使い、A has B(車はタイヤを持つ)のときはコンポジションを使うというのが一般的な決め方です。
+      </p>
+      <p>
+       継承にすべきかコンポジションにすべきか悩んだ場合は、それが以下のいずれであるべきか考える必要があります。
+      </p>
+      <ul>
+       <li>
+        IS-A 関係
+       </li>
+       <li>
+        HAS-A 関係
+       </li>
+      </ul>
+      <p>
+       A is B(例:トラックは車)のときは継承を使い、A has B(車はタイヤを持つ)のときはコンポジションを使うというのが一般的な決め方です。
 時と場合により例外はあるでしょうが、まずは基本に忠実に実装してみるのがよいかと思います。
 車の機能を実装するときにタイヤを継承して作ることも可能ですが、それはやらないべきです。
-     </p>
-     <p>
-      なお、Python ではポリモーフィズムの代わりに「ダックタイピング」と呼ばれるテクニックを使うこともできます。
+      </p>
+      <p>
+       なお、Python ではポリモーフィズムの代わりに「ダックタイピング」と呼ばれるテクニックを使うこともできます。
 こちらは後編にて紹介します。
-     </p>
-     <!-- GENERATED HTML END -->
-     <nav>
-      <ul class="pager">
-       <li id="previous-li">
-        <a href="./114.html" id="previous-a">
-         ← Previous
-        </a>
-       </li>
-       <li>
-        <a href="#">
-         Page Top
-        </a>
-       </li>
-       <li class="pager-next" id="next-li">
-        <a href="./116.html" id="next-a">
-         Next →
-        </a>
-       </li>
-      </ul>
-     </nav>
-    </div>
-    <!-- /.blog-main -->
-    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-     <!-- 広告エリア -->
-     <div class="sidebar-module">
-      <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-      </script>
-      <!-- 300 x 250 -->
-      <ins class="adsbygoogle" data-ad-client="ca-pub-9447655910606139" data-ad-slot="4820856978" style="display:inline-block;width:300px;height:250px">
-      </ins>
-      <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      </p>
+      <!-- GENERATED HTML END -->
+      <!-- GENERATED HTML END -->
+      <nav>
+       <ul class="pager">
+        <li id="previous-li">
+         <a href="./114.html" id="previous-a">
+          ← Previous
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          Page Top
+         </a>
+        </li>
+        <li class="pager-next" id="next-li">
+         <a href="./114.html" id="next-a">
+          Next →
+         </a>
+        </li>
+       </ul>
+      </nav>
      </div>
-     <!-- 広告エリア end-->
-     <!-- SNS start -->
-     <div class="sidebar-module">
-      <ul class="social-buttons">
-       <li>
-        <!-- hatena -->
-        <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
-         <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
-        </a>
-        <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
-        </script>
-       </li>
-       <li>
-        <!-- FB -->
-        <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
-        </div>
-        <div id="fb-root">
-        </div>
-        <script>
-         (function(d, s, id) {
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) return;
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-        </script>
-       </li>
-       <li>
-        <!-- twitter -->
-        <a class="twitter-share-button" href="https://twitter.com/share">
-         Tweet
-        </a>
-        <script>
-         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-        </script>
-       </li>
-       <li>
-        <!-- G+ -->
-        <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
-        <script async="" defer="" src="https://apis.google.com/js/platform.js">
-         {lang: 'ja'}
-        </script>
-        <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
-        <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
-        </div>
-       </li>
-       <li>
-        <!-- IN/Share -->
-        <script src="//platform.linkedin.com/in.js" type="text/javascript">
-         lang: ja_JP
-        </script>
-        <script data-counter="right" type="IN/Share">
-        </script>
-       </li>
-      </ul>
-     </div>
-     <div class="print">
-      <a href="./115_print.html">
-       <img src="./assets/images/print.png"/>
-       印刷する
-      </a>
-     </div>
-     <!-- SNS end -->
-     <div class="sidebar-module">
-      <h3>
-       Python入門
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="./">
-         トップページ
-        </a>
-       </li>
-       <li>
-        <a href="./download.html">
-         ダウンロード
-        </a>
-       </li>
-       <li>
-        <a href="./qa.html">
-         質問と回答
-        </a>
-       </li>
-       <li>
-        <a href="./books.html">
-         おすすめPython書籍
-        </a>
-       </li>
-       <li>
-        <a href="./about.html">
-         このページについて
-        </a>
-       </li>
-      </ol>
-     </div>
-     <div class="sidebar-module">
-      <h3>
-       初級編
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="./001.html">
-         前書き
-        </a>
-       </li>
-       <li>
-        <a href="./002.html">
-         目次
-        </a>
-       </li>
-       <li>
-        <a href="./003.html">
-         Pythonプログラミング
-        </a>
-       </li>
-       <li>
-        <a href="./004.html">
-         インストールと実行
-        </a>
-       </li>
-       <li>
-        <a href="./005.html">
-         概要
-        </a>
-       </li>
-       <li>
-        <a href="./006.html">
-         型と変数
-        </a>
-       </li>
-       <li>
-        <a href="./007.html">
-         最重要な型
-        </a>
-       </li>
-       <li>
-        <a href="./008.html">
-         制御構造
-        </a>
-       </li>
-       <li>
-        <a href="./009.html">
-         関数
-        </a>
-       </li>
-       <li>
-        <a href="./010.html">
-         モジュール
-        </a>
-       </li>
-       <li>
-        <a href="./011.html">
-         オブジェクトとメソッド
-        </a>
-       </li>
-       <li>
-        <a href="./012.html">
-         テキスト処理
-        </a>
-       </li>
-       <li>
-        <a href="./013.html">
-         リスト再入門
-        </a>
-       </li>
-       <li>
-        <a href="./014.html">
-         タプル
-        </a>
-       </li>
-       <li>
-        <a href="./015.html">
-         セット
-        </a>
-       </li>
-       <li>
-        <a href="./016.html">
-         辞書型
-        </a>
-       </li>
-       <li>
-        <a href="./017.html">
-         None型
-        </a>
-       </li>
-       <li>
-        <a href="./018.html">
-         ファイル処理
-        </a>
-       </li>
-       <li>
-        <a href="./019.html">
-         基数と文字コード
-        </a>
-       </li>
-       <li>
-        <a href="./020.html">
-         日本語の扱い
-        </a>
-       </li>
-       <li>
-        <a href="./021.html">
-         プログラムへの入力
-        </a>
-       </li>
-       <li>
-        <a href="./022.html">
-         関数の高度なトピック
-        </a>
-       </li>
-       <li>
-        <a href="./023.html">
-         おわりに
-        </a>
-       </li>
-      </ol>
-     </div>
-     <div class="sidebar-module">
-      <h3>
-       中級編
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="./101.html">
-         前書き
-        </a>
-       </li>
-       <li>
-        <a href="./102.html">
-         目次
-        </a>
-       </li>
-       <li>
-        <a href="./103.html">
-         オブジェクト指向を体験
-        </a>
-       </li>
-       <li>
-        <a href="./104.html">
-         データ構造
-        </a>
-       </li>
-       <li>
-        <a href="./105.html">
-         クラスとインスタンス化
-        </a>
-       </li>
-       <li>
-        <a href="./106.html">
-         インスタンスとメソッド
-        </a>
-       </li>
-       <li>
-        <a href="./107.html">
-         コンストラクタ
-        </a>
-       </li>
-       <li>
-        <a href="./108.html">
-         self
-        </a>
-       </li>
-       <li>
-        <a href="./109.html">
-         情報の隠蔽
-        </a>
-       </li>
-       <li>
-        <a href="./110.html">
-         オブジェクトの役割
-        </a>
-       </li>
-       <li>
-        <a href="./111.html">
-         関数型プログラミング
-        </a>
-       </li>
-       <li>
-        <a href="./112.html">
-         ゲーム作り
-        </a>
-       </li>
-       <li>
-        <a href="./113.html">
-         クラスの継承
-        </a>
-       </li>
-       <li>
-        <a href="./114.html">
-         メソッドのオーバーライド
-        </a>
-       </li>
-       <li>
-        <a href="./115.html">
-         GUIで継承を学ぶ
-        </a>
-       </li>
-       <li>
-        <a href="./116.html">
-         クラスの高度なトピック
-        </a>
-       </li>
-       <li>
-        <a href="./117.html">
-         ドキュメンテーション
-        </a>
-       </li>
-       <li>
-        <a href="./118.html">
-         例外処理の基礎
-        </a>
-       </li>
-       <li>
-        <a href="./119.html">
-         例外クラス
-        </a>
-       </li>
-       <li>
-        <a href="./120.html">
-         高度な例外処理
-        </a>
-       </li>
-       <li>
-        <a href="./121.html">
-         終わりに
-        </a>
-       </li>
-      </ol>
-     </div>
-     <!-- amazon -->
-     <div class="sidebar-module">
-      <script type="text/javascript">
-       amazon_ad_tag ="grit-22"; amazon_ad_width ="300"; amazon_ad_height ="250"; amazon_ad_link_target ="new";
-      </script>
-      <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
-      </script>
-     </div>
-     <!-- amazon end-->
-     <div class="sidebar-module">
-      <h3>
-       その他
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="https://github.com/yuichi110/www.yuichi.com-python" target="_blank">
-         <span class="fa fa-github">
-         </span>
-         GitHub Repository
-        </a>
-       </li>
-       <li>
-        <a href="https://twitter.com/yuichi110" target="_blank">
-         <i class="fa fa-twitter">
-         </i>
-         Twitter
-        </a>
-       </li>
-       <li>
-        <a href="https://www.linkedin.com/in/yuichiito/" target="_blank">
-         <span class="fa fa-linkedin">
-         </span>
-         Linkedin (英語)
-        </a>
-       </li>
-       <li class="li-none">
-        <a href="#" id="rw_email_contact">
-         <span class="fa fa-envelope">
-          Mail
-         </span>
-        </a>
-        <script type="text/javascript">
-         var _rwObsfuscatedHref0 = "mai";var _rwObsfuscatedHref1 = "lto";var _rwObsfuscatedHref2 = ":yu";
-              var _rwObsfuscatedHref3 = "ich";var _rwObsfuscatedHref4 = "i@y";var _rwObsfuscatedHref5 = "uic";
-              var _rwObsfuscatedHref6 = "hi.";var _rwObsfuscatedHref7 = "com";
-              var _rwObsfuscatedHref = _rwObsfuscatedHref0+_rwObsfuscatedHref1+_rwObsfuscatedHref2+_rwObsfuscatedHref3+_rwObsfuscatedHref4+_rwObsfuscatedHref5+_rwObsfuscatedHref6+_rwObsfuscatedHref7; document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
-        </script>
-       </li>
-      </ol>
-     </div>
-     <div class="sidebar-module">
-      <!-- padding for side bar -->
-      <div class="hidden-xs">
-       <p style="height:500px">
+     <!-- /.blog-main -->
+     <div class="col-sm-3 col-sm-offset-1 u1-sidebar">
+      <!-- SNS start -->
+      <div class="sidebar-module">
+       <ul class="social-buttons">
+        <li>
+         <!-- hatena -->
+         <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
+          <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
+         </a>
+         <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
+         </script>
+        </li>
+        <li>
+         <!-- FB -->
+         <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
+         </div>
+         <div id="fb-root">
+         </div>
+         <script>
+          (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }(document, 'script', 'facebook-jssdk'));
+         </script>
+        </li>
+        <li>
+         <!-- twitter -->
+         <a class="twitter-share-button" href="https://twitter.com/share">
+          Tweet
+         </a>
+         <script>
+          ! function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                      p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = p + '://platform.twitter.com/widgets.js';
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }
+                  }(document, 'script', 'twitter-wjs');
+         </script>
+        </li>
+        <li>
+         <!-- G+ -->
+         <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
+         <script async="" defer="" src="https://apis.google.com/js/platform.js">
+          {
+                    lang: 'ja'
+                  }
+         </script>
+         <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+         <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
+         </div>
+        </li>
+        <li>
+         <!-- IN/Share -->
+         <script src="//platform.linkedin.com/in.js" type="text/javascript">
+          lang: ja_JP
+         </script>
+         <script data-counter="right" type="IN/Share">
+         </script>
+        </li>
+       </ul>
+      </div>
+      <div class="print">
+       <a href="./003_print.html">
+        <img src="./assets/images/print.png"/>
+        印刷する
+       </a>
+      </div>
+      <!-- SNS end -->
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Python入門
        </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./">
+          トップページ
+         </a>
+        </li>
+        <li>
+         <a href="./download.html">
+          ダウンロード
+         </a>
+        </li>
+        <li>
+         <a href="./qa.html">
+          質問と回答
+         </a>
+        </li>
+        <li>
+         <a href="./books.html">
+          おすすめPython書籍
+         </a>
+        </li>
+        <li>
+         <a href="./about.html">
+          このページについて
+         </a>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        初級編
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./001.html">
+          前書き
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          目次
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Pythonプログラミング
+         </a>
+        </li>
+        <li>
+         <a href="./004.html">
+          インストールと実行
+         </a>
+        </li>
+        <li>
+         <a href="./005.html">
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="./006.html">
+          型と変数
+         </a>
+        </li>
+        <li>
+         <a href="./007.html">
+          最重要な型
+         </a>
+        </li>
+        <li>
+         <a href="./008.html">
+          制御構造
+         </a>
+        </li>
+        <li>
+         <a href="./009.html">
+          関数
+         </a>
+        </li>
+        <li>
+         <a href="./010.html">
+          モジュール
+         </a>
+        </li>
+        <li>
+         <a href="./011.html">
+          オブジェクトとメソッド
+         </a>
+        </li>
+        <li>
+         <a href="./012.html">
+          テキスト処理
+         </a>
+        </li>
+        <li>
+         <a href="./013.html">
+          リスト再入門
+         </a>
+        </li>
+        <li>
+         <a href="./014.html">
+          タプル
+         </a>
+        </li>
+        <li>
+         <a href="./015.html">
+          セット
+         </a>
+        </li>
+        <li>
+         <a href="./016.html">
+          辞書型
+         </a>
+        </li>
+        <li>
+         <a href="./017.html">
+          None型
+         </a>
+        </li>
+        <li>
+         <a href="./018.html">
+          ファイル処理
+         </a>
+        </li>
+        <li>
+         <a href="./019.html">
+          基数と文字コード
+         </a>
+        </li>
+        <li>
+         <a href="./020.html">
+          日本語の扱い
+         </a>
+        </li>
+        <li>
+         <a href="./021.html">
+          プログラムへの入力
+         </a>
+        </li>
+        <li>
+         <a href="./022.html">
+          関数の高度なトピック
+         </a>
+        </li>
+        <li>
+         <a href="./023.html">
+          おわりに
+         </a>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        中級編
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./101.html">
+          前書き
+         </a>
+        </li>
+        <li>
+         <a href="./102.html">
+          目次
+         </a>
+        </li>
+        <li>
+         <a href="./103.html">
+          オブジェクト指向を体験
+         </a>
+        </li>
+        <li>
+         <a href="./104.html">
+          データ構造
+         </a>
+        </li>
+        <li>
+         <a href="./105.html">
+          クラスとインスタンス化
+         </a>
+        </li>
+        <li>
+         <a href="./106.html">
+          インスタンスとメソッド
+         </a>
+        </li>
+        <li>
+         <a href="./107.html">
+          コンストラクタ
+         </a>
+        </li>
+        <li>
+         <a href="./108.html">
+          self
+         </a>
+        </li>
+        <li>
+         <a href="./109.html">
+          情報の隠蔽
+         </a>
+        </li>
+        <li>
+         <a href="./110.html">
+          オブジェクトの役割
+         </a>
+        </li>
+        <li>
+         <a href="./111.html">
+          関数型プログラミング
+         </a>
+        </li>
+        <li>
+         <a href="./112.html">
+          ゲーム作り
+         </a>
+        </li>
+        <li>
+         <a href="./113.html">
+          クラスの継承
+         </a>
+        </li>
+        <li>
+         <a href="./114.html">
+          メソッドのオーバーライド
+         </a>
+        </li>
+        <li>
+         <a href="./115.html">
+          GUIで継承を学ぶ
+         </a>
+        </li>
+        <li>
+         <a href="./116.html">
+          クラスの高度なトピック
+         </a>
+        </li>
+        <li>
+         <a href="./117.html">
+          ドキュメンテーション
+         </a>
+        </li>
+        <li>
+         <a href="./118.html">
+          例外処理の基礎
+         </a>
+        </li>
+        <li>
+         <a href="./119.html">
+          例外クラス
+         </a>
+        </li>
+        <li>
+         <a href="./120.html">
+          高度な例外処理
+         </a>
+        </li>
+        <li>
+         <a href="./121.html">
+          終わりに
+         </a>
+        </li>
+       </ol>
+      </div>
+      <!-- amazon -->
+      <div class="sidebar-module">
+       <script type="text/javascript">
+        amazon_ad_tag = "grit-22";
+              amazon_ad_width = "300";
+              amazon_ad_height = "250";
+              amazon_ad_link_target = "new";
+       </script>
+       <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
+       </script>
+      </div>
+      <!-- amazon end-->
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Python入門
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="https://github.com/yuichi110/www.yuichi.com-python" target="_blank">
+          <span class="fa fa-github">
+          </span>
+          GitHub Repository
+         </a>
+        </li>
+        <li>
+         <a href="https://twitter.com/yuichi110" target="_blank">
+          <i class="fa fa-twitter">
+          </i>
+          Twitter
+         </a>
+        </li>
+        <li>
+         <a href="https://www.linkedin.com/in/yuichiito/" target="_blank">
+          <span class="fa fa-linkedin">
+          </span>
+          Linkedin (英語)
+         </a>
+        </li>
+        <li class="li-none">
+         <a href="#" id="rw_email_contact">
+          <span class="fa fa-envelope">
+           Mail
+          </span>
+         </a>
+         <script type="text/javascript">
+          var _rwObsfuscatedHref0 = "mai";
+                  var _rwObsfuscatedHref1 = "lto";
+                  var _rwObsfuscatedHref2 = ":yu";
+                  var _rwObsfuscatedHref3 = "ich";
+                  var _rwObsfuscatedHref4 = "i@y";
+                  var _rwObsfuscatedHref5 = "uic";
+                  var _rwObsfuscatedHref6 = "hi.";
+                  var _rwObsfuscatedHref7 = "com";
+                  var _rwObsfuscatedHref = _rwObsfuscatedHref0 + _rwObsfuscatedHref1 + _rwObsfuscatedHref2 + _rwObsfuscatedHref3 + _rwObsfuscatedHref4 + _rwObsfuscatedHref5 + _rwObsfuscatedHref6 + _rwObsfuscatedHref7;
+                  document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
+         </script>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <!-- padding for side bar -->
+       <div class="hidden-xs">
+        <p style="height:500px">
+        </p>
+       </div>
       </div>
      </div>
+     <!-- /.blog-sidebar -->
     </div>
-    <!-- /.blog-sidebar -->
+    <!-- /.row -->
    </div>
-   <!-- /.row -->
-  </div>
-  <!-- /.container -->
-  <footer>
-   <div class="blog-footer-top">
-   </div>
-   <div class="blog-footer">
-    <p>
-     Copyright © 2017 Yuichi Ito All Rights Reserved.
-    </p>
-    <p align="center">
-     修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
-     <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
-      <span class="fa fa-github">
-      </span>
-      Git Hub Issues
-     </a>
-    </p>
-   </div>
-  </footer>
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-  </script>
-  <script src="./assets/js/bootstrap.min.js">
-  </script>
-  <script src="./assets/js/delete_useless_dom.js">
-  </script>
-  <!-- GOOGLE ANALYTICS -->
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+   <!-- /.container -->
+   <footer>
+    <div class="u1-footer-top">
+    </div>
+    <div class="u1-footer">
+     <p>
+      Copyright © 2017 Yuichi Ito All Rights Reserved.
+     </p>
+     <p align="center">
+      修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
+      <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
+       <span class="fa fa-github">
+       </span>
+       Git Hub Issues
+      </a>
+     </p>
+    </div>
+   </footer>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+   </script>
+   <script src="./assets/js/bootstrap.min.js">
+   </script>
+   <script src="./assets/js/delete_useless_dom.js">
+   </script>
+   <!-- GOOGLE ANALYTICS -->
+   <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
       ga('create', 'UA-4830860-7', 'auto');
       ga('send', 'pageview');
-  </script>
+   </script>
+  </div>
+  <!-- end of background -->
  </body>
 </html>

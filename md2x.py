@@ -1034,7 +1034,7 @@ class Md2Html_v0_1:
 
         # BODY
         body_soup = bs4.BeautifulSoup(html, 'html.parser')
-        tags = body_soup.find_all(['h3', 'h4'])
+        tags = body_soup.find_all(['h2', 'h3'])
         headers = []
         for i, tag in enumerate(tags):
             tag_id = 'header-{}'.format(i + 1)
@@ -1042,38 +1042,38 @@ class Md2Html_v0_1:
             t = (tag.name, tag.text.strip(), tag_id)
             headers.append(t)
         if len(headers) == 0:
-            logging.warning('    no h3, h4 headers in this page')
+            logging.warning('    no h2, h3 headers in this page')
             return html
 
         # Table of contents
-        previous = 'h3'
+        previous = 'h2'
         is_first = True
         toc_html = '<div id="toc_container" class="no_bullets"><p class="toc_title">本記事の内容</p><ul class="toc_list">'
         for tag_name, tag_text, tag_id in headers:
-            if tag_name == 'h3':
+            if tag_name == 'h2':
                 if is_first:
                     toc_html += '<li><a href="#{}">{}'.format(tag_id, tag_text)
                     is_first = False
                 else:
-                    if previous == 'h3':
+                    if previous == 'h2':
                         toc_html += '</a></li><li><a href="{}">{}'.format(tag_id, tag_text)
                     else:
                         toc_html += '</a></li></ul></li><li><a href="#{}">{}'.format(tag_id, tag_text)
 
-                previous = 'h3'
+                previous = 'h2'
 
             else:
                 if is_first:
                     raise
 
-                if previous == 'h3':
+                if previous == 'h2':
                     toc_html += '</a><ul><li><a href="#{}">{}'.format(tag_id, tag_text)
                 else:
                     toc_html += '</a></li><li><a href="#{}">{}'.format(tag_id, tag_text)
 
-                previous = 'h4'
+                previous = 'h3'
 
-        if previous == 'h3':
+        if previous == 'h2':
             toc_html += '</li></ul></div>'
         else:
             toc_html += '</li></ul></li></ul></div>'
@@ -1092,7 +1092,6 @@ class Md2Html_v0_1:
         return html
 
     def modify_html_bootstrap(self, html):
-
         soup = bs4.BeautifulSoup(html, 'html.parser')
 
         # IMAGE
@@ -1107,19 +1106,9 @@ class Md2Html_v0_1:
             else:
                 tag['class'] = 'img-responsive'
 
-            # parent <p>
+            # add blog-img
             parent_tag = tag.parent
             if parent_tag.name == 'p':
-                # add align-center
-                if parent_tag.has_attr('align'):
-                    attr_list = parent_tag['align']
-                    if 'center' not in attr_list:
-                        attr_list.append('center')
-                        parent_tag['align'] = attr_list
-                else:
-                    parent_tag['align'] = 'center'
-
-                # add blog-img
                 if parent_tag.has_attr('class'):
                     attr_list = parent_tag['class']
                     if 'blog-img' not in attr_list:

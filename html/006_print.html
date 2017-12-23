@@ -111,7 +111,7 @@ Python のプロンプトを立ち上げて以下を実行してみてくださ�
   <p>
    以下に型と処理の関係を示す図を記載します。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0030_image/01.jpg"/>
   </p>
   <p>
@@ -160,7 +160,7 @@ Python のプロンプトを立ち上げて以下を実行してみてくださ�
   <p>
    変数を利用するイメージは、以下の図のようなものとなります。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0030_image/02.jpg"/>
   </p>
   <h4>
@@ -298,8 +298,15 @@ hellopython
    なお、日本語も一応変数名として使えます。
 ただ、プログラミング一般として日本語の変数名は使いませんので、利用は避けることが無難です。
   </p>
+  <div class="codehilite">
+   <pre><span></span><span class="c1"># 日本語の変数名は非推奨</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="err">あいうえお</span> <span class="o">=</span> <span class="s1">'hello python'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="err">あいうえお</span><span class="p">)</span>
+<span class="n">hello</span> <span class="n">python</span>
+</pre>
+  </div>
   <p>
-   先ほどのサンプルでは、変数名に「a」というアルファベットを使いました。
+   また、先ほどのサンプルでは、変数名に「a」というアルファベットを使いました。
 これは文法という意味では間違っていませんが、推奨されない変数名です。
   </p>
   <p>
@@ -308,7 +315,10 @@ hellopython
   </p>
   <ul>
    <li>
-    分かりやすい変数名
+    名詞を使う
+   </li>
+   <li>
+    分かりやすい変数名にする
    </li>
    <li>
     大文字は使わずに、アンダーバーで単語を区切る
@@ -318,7 +328,7 @@ hellopython
    </li>
   </ul>
   <p>
-   以下に良い例と悪い例を示します。
+   以下に変数名の良い例と悪い例を示します。
   </p>
   <div class="codehilite">
    <pre><span></span># 1単語の場合
@@ -332,20 +342,89 @@ studentName = 'taro'  # NG : 単語の区切りを大文字に
                       #      するのは Python 流でない
 
 # 先頭が _ から始まる
+# 特別な意味があるため、初心者向けではない
 _student = 'taro'   # 他の人に「これを使わないで下さい」と示す
 __student = 'taro'  # 文法として外から使えなくする
 </pre>
   </div>
   <p>
    プログラミング言語によって変数名の名前の付け方は異なります。
-難しいことを考えなければ小文字の単語とアンダーバーのみで構成すると覚えておいて下さい。
+難しいことを考えなければ、「Pythonでは小文字の単語とアンダーバーと数字のみ」で構成すると覚えておいて下さい。
+  </p>
+  <h4>
+   名前の上書きに注意
+  </h4>
+  <p>
+   Pythonは関数名などを、値を代入して変数名として使えてしまいます。
+たとえば今まで利用してきたprint関数ですと、以下のように上書きされます。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="c1"># オリジナルのprint関数</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+<span class="n">hello</span>
+
+<span class="c1"># print関数を変数名として上書き</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="o">=</span> <span class="mi">123</span>
+
+<span class="c1"># print関数が使えなくなる</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">'int'</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">callable</span>
+</pre>
+  </div>
+  <p>
+   print関数に「123」という数値を代入すると、それはprintは変数名として使われるようになります。
+(これは必ずしも厳密に正しい解説ではありません。
+ただ、より正確な動きは難しいため、中級編の関数型までは控えておきます。)
   </p>
   <p>
-   また使いたい名前が予約後(Pythonの文法として特別な意味をもつワード)や、
-既に定義されている名前と重複する場合は名前の後ろにアンダーバーをつけるという慣習があります。
-たとえば後ほど説明する list という型がありますが、
-リストのデータを list という変数に代入することは名前が分かりやすいためついついやりたくなりがちですが避けなければいけません。
-list という変数名の代わりに list_ という変数名を使います。
+   print関数を変数名としてしまうと、本来のprint関数として使えなくなります。
+そのため、コンソール出力をしようとするとエラーが発生します。
+  </p>
+  <p>
+   単純な名前の変数名をつける場合は、それが「既に定義されているものでないか」を、
+確認するようにしてください。
+Pythonシェルを立ち上げて、使いたい変数名を入力した際に「
+   <code>
+    name 'XX' is not defined
+   </code>
+   」と表示されれば、
+それは使われていないということです。
+  </p>
+  <p>
+   ただし、importしていないモジュール名も、同じエラーを返します。
+より慎重にやるのであれば、importをして失敗することも確認してください。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">test</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'test'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'math'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span>
+<span class="o">&lt;</span><span class="n">module</span> <span class="s1">'math'</span> <span class="kn">from</span> <span class="s1">'/Library/Frameworks/.../math.cpython-36m-darwin.so'</span><span class="o">&gt;</span>
+</pre>
+  </div>
+  <h4>
+   定義済みの名前を使いたい場合の回避方法
+  </h4>
+  <p>
+   使いたい名前が予約後(Pythonの文法として特別な意味をもつワード)や、
+既に定義されている名前と重複している場合があります。
+その際は、付けたい名前の後ろにアンダーバーをつけるという慣習があります。
+  </p>
+  <p>
+   たとえば後ほど説明する「list」という型がありますが、
+リストのデータを「listという変数名」に代入することは、先のprint関数の例と同じ理由で避けなければいけません。
+  </p>
+  <p>
+   そのため、listという変数名の代わりにlist_という変数名を使います。
   </p>
   <div class="codehilite">
    <pre><span></span># NG
@@ -358,20 +437,30 @@ print(list_)
 </pre>
   </div>
   <p>
-   ただ、本書で使われるようなサンプルのプログラムならともかく、
+   他には、型名の後ろに番号をつけることもあります。
+  </p>
+  <div class="codehilite">
+   <pre><span></span>list1 = [1,2,3,4]
+</pre>
+  </div>
+  <p>
+   ただ、本サイトのような学習目的のサンプルプログラムならともかく、
 現実のアプリケーションで用いられるコードの変数は何らかの役割があるはずです。
-そのため、list_ といったような名前は本来現れないことが望ましいです。
   </p>
   <p>
-   Pythonの変数の概念は非常に簡単です。
-「変数はどのような型の値でも格納する入れ物のようなもの」ということを理解していれば、
-何も問題ありません。
+   そのため、list_やlist1といったような名前は本来現れないことが望ましいです。
+使うにしても、ごく狭い範囲でのみ使うことが推奨されます。
+  </p>
+  <p>
+   英語ネイティブでない日本人の私たちにとっては、英語でよい変数名をつけることは難しいかもしれません。
+ただ、他の人がどのような変数名を使っているかなどを参考にして、
+色々と自分なりのルールを模索してみてください。
   </p>
   <h3>
    定数とマジックナンバー
   </h3>
   <p>
-   プログラムの中にはたまに「マジックナンバー」と呼ばれる正体不明の数字が現れることがあります。
+   プログラムの中にはたまに「マジックナンバー」と呼ばれる「正体不明の数字」が現れることがあります。
 たとえば以下のコードを見て下さい。
   </p>
   <div class="codehilite">
@@ -382,14 +471,21 @@ print(list_)
   <p>
    このコードが何をやっているか分かりません。
 結論を言ってしまうと、1.08 は税率にあたり、税抜き100円が税込みいくらになるか確認しています。
-1.08 という数字を見て勘のいいかたであれば「税率のようだ」と気づくかもしれませんが、
-プログラミングはそのような気づきには頼ってほしくないです。
+  </p>
+  <p>
+   1.08という数字を見て勘のいいかたであれば、「税率のようだ」と気づくかもしれませんが、
+プログラミングはそのような「気づき」には頼ってほしくありません。
+誰が見ても理解できるコードであるべきです。
   </p>
   <p>
    このような場合、1.08 というよくわからない「マジックナンバー」ではなく「定数」を使うことが望ましいです。
-定数は一回設定されたら変更されることがない特殊な変数であり、
+  </p>
+  <p>
+   定数は一回設定されたら変更されることがない特殊な変数であり、
 その名前は大文字とアンダーバーで宣言されます。
-例えば先程の税込み額の計算プログラムであれば以下のようになります。
+  </p>
+  <p>
+   例えば先程の税込み額の計算プログラムを、定数を使って書き直すと以下のようになります。
   </p>
   <div class="codehilite">
    <pre><span></span><span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.08</span>
@@ -400,15 +496,18 @@ print(list_)
 </pre>
   </div>
   <p>
-   上記の TAX_RATE が定数にあたります。
+   上記のTAX_RATEが定数にあたります。
+このサンプルのように、定数は一般的にプログラムのファイルの先頭で宣言されます。
   </p>
   <p>
-   この定数は一般的にプログラムのファイルの先頭で宣言されます。そしてパラメータとして使われることも多く、
+   定数はプログラムのパラメータとして使われることも多く、
 ファイルを開いて定数の値を変更することでプログラムの挙動を変えることがよくあります。
-例えば税率が10% に変更されたら、プログラム本体ではなく定数を書き換えることで対応します。
+  </p>
+  <p>
+   例えば税率が10%に変更されたら、プログラム本体ではなく定数を書き換えることで対応します。
   </p>
   <div class="codehilite">
-   <pre><span></span><span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.1</span>
+   <pre><span></span><span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.10</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">TAX_RATE</span>
 <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -416,14 +515,55 @@ print(list_)
 </pre>
   </div>
   <p>
-   1.08 という税率がプログラムの各所に散っていたら、それを全て 1.1 に書き換えていく作業が必要になります。
-定数を使っていればそのような作業は不要になり、なおかつプログラムが分かりやすくなります。
+   もし仮に定数を使わずにプログラムを書いていたとしましょう。
+つまり、1.08という税率の数字がプログラムの各所に散っているということです。
   </p>
   <p>
-   ちなみに、Python の定数は厳密な意味では定数ではなく、実は文法としては単なる変数と変わりがありません。
-大文字で定数を作るというのは Python のプログラマたちが決めたルールであり、文法的な拘束はありません。
-そのため再代入をしてもエラーとはなりません。ただ、定数が変わることは誰も想定していないので、
-再代入は絶対にしないでください。
+   その場合、税率を8%から10%に変更するには、プログラム中に存在する1.08という値を、
+全て1.10に書き換えていく作業が必要になります。
+もちろん、税率以外にも1.08という数字が使われている可能性があるので、
+プログラムを確認しながらの修正が必要です。
+プログラムが巨大であれば、これはかなり面倒な作業になります。
+  </p>
+  <p>
+   一方、定数を使っていればそのような作業は不要になります。
+定数の定義のみを書き直せば、それが定数を使う全部の場所で有効になるからです。
+  </p>
+  <p>
+   なお、「Pythonの定数」は厳密な意味では定数ではありません。
+  </p>
+  <p>
+   他のプログラミングを学んだことがある人であれば知っているかと思いますが、
+一般的に「定数は上書きできない」という性質があります。
+  </p>
+  <p>
+   例えばC言語では以下のようなプログラムは実行(コンパイル)できません。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.08</span>
+<span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.10</span>
+</pre>
+  </div>
+  <p>
+   定数が更新されていることを、C言語のコンパイラが見つけると、
+それをエラーとするためです。
+  </p>
+  <p>
+   ただ、Pythonの定数は大文字を使った「単なる変数」と変わりがありませんので、
+同様のプログラムは問題なく動作します。
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.08</span>
+<span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.10</span>
+</pre>
+  </div>
+  <p>
+   大文字で定数を作るというのは Python のプログラマたちが決めたルールです。
+これには文法的な拘束はありませんので、再代入をしてもエラーとはなりません。
+  </p>
+  <p>
+   ただ、定数が変わることは誰も想定していないので、
+定数への再代入は絶対にしないでください。
   </p>
   <h3>
    コラム: 型と変数
@@ -483,7 +623,7 @@ Javaの変数には必ず型があるので、変数を宣言する(作る)際�
   <p>
    Python と Java の変数の使い方の違いを図にまとめます。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0030_image/03.jpg"/>
   </p>
   <p>

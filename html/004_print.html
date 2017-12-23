@@ -13,12 +13,12 @@
  </head>
  <body>
   <!-- GENERATED HTML START -->
-  <h2>
+  <h1>
    Python 3 のインストールと実行
-  </h2>
-  <h3>
+  </h1>
+  <h2>
    概要
-  </h3>
+  </h2>
   <p>
    Pythonを使うには、そのコンピュータにPythonがインストールされている必要があります。
 Pythonには「Python2」と「Python3」があり、2017年現在はPython2からPython3に主流が移る過渡期にいます。
@@ -38,12 +38,12 @@ Pythonを使うにはコンソール(Windowsではパワーシェル、Macでは
 そうすることでPythonのプログラムを実行したり、対話式のシェルを使うことができます。
   </p>
   <!-- 図を貼ること -->
-  <h3>
+  <h2>
    Pythonのインストール
-  </h3>
-  <h4>
+  </h2>
+  <h3>
    Windows10へのインストール
-  </h4>
+  </h3>
   <p>
    WindowsにはデフォルトでPythonがインストールされていません。
 Pythonを使うためにはインストールが必須です。
@@ -52,7 +52,7 @@ Pythonを使うためにはインストールが必須です。
    インストールにはPythonの公式サイト(https://www.python.org/)から、
 実行環境にあったPythonのインストールイメージをダウンロードしてきます。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/01.png"/>
   </p>
   <p>
@@ -76,7 +76,7 @@ Python3で廃止される古いPython2の書き方に固執するのはよくあ
   <p>
    上記ページから落としてきたイメージからインストーラーを立ち上げると以下のような画面が現れると思います。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/02.png"/>
   </p>
   <p>
@@ -116,7 +116,7 @@ Googleなどで検索してもらえればパスの通しかたは分かるは�
    パワーシェル及びコマンドプロンプトは場所がわからなくてもWindows の検索機能を使うことで見つけられるかと思います。
 参考のために以下に画像を記載します。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/03.png"/>
   </p>
   <p>
@@ -127,7 +127,7 @@ Googleなどで検索してもらえればパスの通しかたは分かるは�
    プロンプトから以下のように「python --version」と打ってPythonを起動してみてください。
 先ほどのインストール作業時にパスが登録されていれば、以下のような出力が得られると思います。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/04.png"/>
   </p>
   <p>
@@ -141,9 +141,9 @@ Googleなどで検索してもらえればパスの通しかたは分かるは�
   <p>
    また、「ターミナル」と言った場合はパワーシェルやコマンドプロンプトのことを指します。
   </p>
-  <h4>
+  <h3>
    Macへのインストールと動作確認
-  </h4>
+  </h3>
   <p>
    Windowsと異なり、MacにはデフォルトでPythonがインストールされています。
 ただ、インストールされているものはPython2のため、Python3はインストールが必要です。
@@ -162,7 +162,7 @@ Macのコンソールアプリケーションはターミナル(コマンドラ�
   <p>
    ターミナルは今後頻繁に使うことになるので、ドラッグ&amp;ドロップでDockに登録しておいたほうがよいと思います。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/05.png"/>
   </p>
   <p>
@@ -172,7 +172,7 @@ Macのコンソールアプリケーションはターミナル(コマンドラ�
   <p>
    Python3のバージョンを確認するには「python3 --version」と打つ必要があります。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/06.png"/>
   </p>
   <p>
@@ -184,9 +184,9 @@ python3を使うためには、「python3」と明示的にバージョンを指
    ちなみに、ターミナルにて「python」に続いてtabボタンを打つと、
 MacにインストールされているPythonのバージョン一覧が確認できます。
   </p>
-  <h5>
-   コンソール: Macで使えるPython
-  </h5>
+  <h4>
+   MAC: pythonのバージョン一覧を確認
+  </h4>
   <div class="codehilite">
    <pre><span></span>$ python
 python             python2.7-config   python3.5-32       pythonw2.6
@@ -204,12 +204,12 @@ Python3としてpython3.5がインストールされています。
    Python3 を使うつもりで間違えてPython2を使ったり、
 その逆が発生したりしないように注意をしてください。
   </p>
-  <h3>
+  <h2>
    Pythonの実行
-  </h3>
-  <h4>
+  </h2>
+  <h3>
    Pythonインタプリタ
-  </h4>
+  </h3>
   <p>
    インストールが完了したので、さっそくPythonを使ってみましょう。
    <code>
@@ -221,9 +221,9 @@ Python3としてpython3.5がインストールされています。
    </code>
    と打つと、Pythonのシェルを利用できます。
   </p>
-  <h5>
+  <h4>
    コンソール: Pythonシェルを起動
-  </h5>
+  </h4>
   <div class="codehilite">
    <pre><span></span><span class="err">$</span> <span class="n">python3</span>
 <span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">2</span> <span class="p">(</span><span class="n">v3</span><span class="o">.</span><span class="mf">5.2</span><span class="p">:</span><span class="mi">4</span><span class="n">def2a2901a5</span><span class="p">,</span> <span class="n">Jun</span> <span class="mi">26</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">25</span><span class="p">)</span>
@@ -236,9 +236,9 @@ Python3としてpython3.5がインストールされています。
    画面に以下の「プロンプト」が表示されます。
 これはPythonがユーザにプログラムの入力を求めている状態です。
   </p>
-  <h5>
+  <h4>
    コンソール: Pythonシェルのプロンプト
-  </h5>
+  </h4>
   <div class="codehilite">
    <pre><span></span><span class="o">&gt;&gt;&gt;</span>
 </pre>
@@ -247,9 +247,9 @@ Python3としてpython3.5がインストールされています。
    それに続けてPythonのプログラムを書いて実行させます。
 今回は簡単な計算をさせます。
   </p>
-  <h5>
+  <h4>
    コンソール: Pythonシェルで足し算を実行
-  </h5>
+  </h4>
   <div class="codehilite">
    <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="mi">2</span>
@@ -272,9 +272,9 @@ Python3としてpython3.5がインストールされています。
   <p>
    詳細は後ほど扱いますが、文字を画面に表示させることもできます。
   </p>
-  <h5>
+  <h4>
    コンソール: Pythonシェルで文字列を出力
-  </h5>
+  </h4>
   <div class="codehilite">
    <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="s1">'hello'</span> <span class="o">+</span> <span class="s1">' python'</span>
 <span class="n">hello</span> <span class="n">python</span>
@@ -290,9 +290,9 @@ Pythonシェルは「インタプリタ」とも呼ばれます。
    Pythonシェルはプログラムのちょっとした挙動確認には便利なのですが、
 プログラムの「ソースコード(コード)」を書くためのものではありません。
   </p>
-  <h4>
+  <h3>
    プログラムをファイルに書いて実行する
-  </h4>
+  </h3>
   <p>
    プロンプトの次は「IDLE」と呼ばれるPythonの開発環境を使ってコードを書いてみます。
 IDLEは先ほどのようなプロンプト画面も使えますし、Pythonを書くのに適したエディタの機能も持っています。
@@ -302,7 +302,7 @@ IDLEは先ほどのようなプロンプト画面も使えますし、Pythonを�
    起動すると以下のような画面が立ち上がってきます。
 プロンプトと同じなので、計算をさせたり、文字を表示させたりすることもできます。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/07.png"/>
   </p>
   <p>
@@ -342,25 +342,25 @@ IDLEのメニューから［File］ -&gt; ［New File］とすることでエデ
    以下にIDLEのエディタに書く、サンプルプログラムを記載します。
 プログラムの内容は1、2、3と順番に画面に出力させるだけの簡単なものです。
   </p>
-  <h5>
+  <h4>
    プログラム: 1,2,3と出力
-  </h5>
+  </h4>
   <div class="codehilite">
    <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'1'</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">'2'</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">'3'</span><span class="p">)</span>
 </pre>
   </div>
-  <h5>
+  <h4>
    コンソール出力
-  </h5>
+  </h4>
   <div class="codehilite">
    <pre><span></span>1
 2
 3
 </pre>
   </div>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/08.png"/>
   </p>
   <p>
@@ -371,7 +371,7 @@ IDLEのメニューから［File］ -&gt; ［New File］とすることでエデ
   <p>
    F5を押すとプロンプトのウィンドウが前面に来て、プログラムの実行結果が出力されます。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/09.png"/>
   </p>
   <p>
@@ -390,7 +390,7 @@ Windowsのパワーシェルや、Macのターミナルで「pythonコマンド�
    試しに、先ほどIDLEで作成した「test.py」をターミナルから起動してみます。
 IDLEと同じ出力があることからプログラムがきちんと動いていることが分かります。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/10.png"/>
   </p>
   <p>
@@ -409,12 +409,12 @@ IDLEは最初から使えるので便利なのですが、開発に必要な機�
    ある程度コードが書けるようになったら、
 自分にあった開発環境を模索してみてもいいかもしれません。
   </p>
-  <p align="center" class="blog-img">
+  <p class="blog-img">
    <img alt="image" class="img-responsive" src="./0020_image/11.png"/>
   </p>
-  <h4>
+  <h3>
    Pythonのプログラムの中で日本語を使う方法
-  </h4>
+  </h3>
   <p>
    日本人である私達がプログラムを書く場合、日本語を利用する状況は多いはずです。
   </p>
@@ -429,9 +429,9 @@ Python3では日本語を使えると覚えておいて下さい。
 特別な宣言なしにShift-Jisを使うと、プログラムが実行できないので注意をしてください。
 逆に言えば、宣言をすればShift-Jisの日本語も使えます。
   </p>
-  <h4>
+  <h3>
    Pythonコマンドで直接プログラムを実行
-  </h4>
+  </h3>
   <p>
    この項目はそれほど一般的でないため、初心者のかたは読み飛ばして頂いて構いません。
   </p>
@@ -443,9 +443,9 @@ Python3では日本語を使えると覚えておいて下さい。
    ただ、これらに加えて「Pythonコマンドに続けてプログラムを書き、それを実行する」という方法があります。
 例えば以下のようなものです。
   </p>
-  <h5>
+  <h4>
    コンソール: Pythonプログラムをコマンドに書いて実行
-  </h5>
+  </h4>
   <div class="codehilite">
    <pre><span></span>$ python3 -c "print(1+1)"
 2
@@ -482,9 +482,9 @@ Python3では日本語を使えると覚えておいて下さい。
 そのうえ、開発もめんどうなうえに、書かれているプログラムを呼んでも分かりにくいです。
 可能であれば、プログラムファイルにプログラムを書き、それを実行するようにしてください。
   </p>
-  <h4>
+  <h3>
    Pythonコマンドのオプション
-  </h4>
+  </h3>
   <p>
    先ほどの「-c」オプションと同じように、pythonコマンドに続けてオプションを付けることで、
 特別な動作をさせることができます。
@@ -494,9 +494,9 @@ Python3では日本語を使えると覚えておいて下さい。
 どのようなオプションが存在するか現時点で覚える必要はありませんが、
 「-h」で「ヘルプ」を確認できることは覚えておいて下さい。
   </p>
-  <h5>
+  <h4>
    コンソール: pythonコマンドのオプション確認
-  </h5>
+  </h4>
   <div class="codehilite">
    <pre><span></span>$ python3 -h
 usage: /Library/Frameworks/Python.framework/Versions/3.6/Resources/Python.app/Contents/MacOS/Python [option] ... [-c cmd | -m mod | file | -] [arg] ...
@@ -550,9 +550,9 @@ PYTHONMALLOC: set the Python memory allocators and/or install debug hooks
    hooks.
 </pre>
   </div>
-  <h3>
+  <h2>
    コメント
-  </h3>
+  </h2>
   <p>
    pythonのプログラムファイルに書かれている内容は、プログラムとして解釈されます。
 ただ、プログラムの中にも「プログラムでない文章」を書きたいことがあります。
@@ -567,9 +567,9 @@ PYTHONMALLOC: set the Python memory allocators and/or install debug hooks
    Pythonに限らず、プログラミング言語はこのような「プログラムとして解釈されないテキスト」を書くことができ、
 それを「コメント」と呼んでいます。
   </p>
-  <h4>
+  <h3>
    1行のコメント
-  </h4>
+  </h3>
   <p>
    以下にPythonのコメントの利用例を記載します。
   </p>
@@ -596,9 +596,9 @@ PYTHONMALLOC: set the Python memory allocators and/or install debug hooks
   <p>
    これらの#から始まるコメントは、それが書かれた1行のみ有効です。
   </p>
-  <h4>
+  <h3>
    複数行のコメント
-  </h4>
+  </h3>
   <p>
    まとめて複数の行をコメントとして扱うには、以下のようにします。
   </p>
@@ -683,9 +683,9 @@ PYTHONMALLOC: set the Python memory allocators and/or install debug hooks
 自分でコードを書く際も積極的にコメントを書くようにして下さい。
 ただ、コメントでわざわざ書かなくてもいい自明のことは書かないようにして下さい。
   </p>
-  <h4>
+  <h3>
    使えないコメント記法
-  </h4>
+  </h3>
   <p>
    Python以外のプログラミング言語を学ばれてきたかたは、
 おそらく以下のようなコメントを利用したのではないでしょうか。
@@ -701,9 +701,9 @@ PYTHONMALLOC: set the Python memory allocators and/or install debug hooks
   <p>
    これらはPythonでは使えません。
   </p>
-  <h3>
+  <h2>
    エラー(例外)の読み方
-  </h3>
+  </h2>
   <p>
    今後プログラムを書くにあたり、必ず間違いが発生します。
 プログラムに間違いがあった場合に、Pythonは「どこが、どういう理由で間違っている」ということを、
@@ -713,9 +713,9 @@ PYTHONMALLOC: set the Python memory allocators and/or install debug hooks
    例えば以下のようなプログラムがあるとしましょう。
 プログラムは「test.py」というプログラムファイルに書かれています。
   </p>
-  <h5>
+  <h4>
    プログラム: 2行目に間違いがある
-  </h5>
+  </h4>
   <div class="codehilite">
    <pre><span></span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span>
 <span class="mi">5</span> <span class="o">~</span> <span class="mi">5</span>
@@ -729,9 +729,9 @@ PYTHONMALLOC: set the Python memory allocators and/or install debug hooks
   <p>
    このプログラムを実行すると、以下のようなエラー出力が得られます。
   </p>
-  <h5>
+  <h4>
    コンソール: 実行するとエラーが発生
-  </h5>
+  </h4>
   <div class="codehilite">
    <pre><span></span>$ python3 test.py
   File "test.py", line 2
@@ -773,9 +773,9 @@ SyntaxError: invalid syntax
   <p>
    なお、エラーのことを「例外」と呼ぶ場合もあります。
   </p>
-  <h3>
+  <h2>
    用語
-  </h3>
+  </h2>
   <ul>
    <li>
     Python2 : 古いPythonの種類。2.X として様々なバージョンがあるが、2.7が最後

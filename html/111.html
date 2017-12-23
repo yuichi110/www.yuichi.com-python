@@ -11,17 +11,18 @@
   <title>
    Python入門
   </title>
-  <!-- Bootstrap core CSS -->
+  <!-- Bootstrap -->
   <link href="./assets/css/bootstrap.css" rel="stylesheet"/>
-  <!-- Custom styles for this template -->
-  <link href="./assets/css/blog.css" rel="stylesheet"/>
-  <!-- Code Highlight -->
-  <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
-  <!-- Custom -->
-  <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/css/toc.css" rel="stylesheet"/>
-  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet">
+  <link href="./assets/css/bootstrap-theme.css" rel="stylesheet"/>
+  <link href="./assets/css/bootstrap_u1.css" rel="stylesheet"/>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+   <!-- Code Highlight -->
+   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+   <!-- Custom -->
+   <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+   <link href="./assets/icomoon/style.css" rel="stylesheet"/>
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -30,186 +31,177 @@
   </link>
  </head>
  <body>
-  <div class="blog-masthead">
-   <div class="container">
-    <nav class="blog-nav">
-     <a class="blog-nav-item active" href="./">
-      サイトトップ
-     </a>
-     <a class="blog-nav-item " href="./download.html">
-      ダウンロード
-     </a>
-     <a class="blog-nav-item " href="./qa.html">
-      質問と回答
-     </a>
-     <a class="blog-nav-item " href="./books.html">
-      おすすめ書籍
-     </a>
-     <a class="blog-nav-item " href="./about.html">
-      このページについて
-     </a>
-     <a class="blog-nav-item" href="http://www.yuichi.com/">
-      GRIT Computing
-     </a>
-    </nav>
-   </div>
-  </div>
-  <div class="container">
-   <div class="blog-header">
-    <a href="./" style=" text-decoration: none;">
-     <h1 class="blog-title">
-      Python入門
-     </h1>
-     <p class="lead blog-description">
-      プログラミング言語Pythonについて
-     </p>
-    </a>
-   </div>
-   <div class="row">
-    <div class="col-sm-8 blog-main">
-     <!-- GENERATED HTML START -->
-     <h2>
-      関数型プログラミング
-     </h2>
-     <div class="no_bullets" id="toc_container">
-      <p class="toc_title">
-       本記事の内容
-      </p>
-      <ul class="toc_list">
-       <li>
-        <a href="#header-1">
-         概要
+  <div class="backgroundLayer">
+   <!-- Fixed navbar -->
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+     <div class="navbar-header">
+      <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+       <span class="sr-only">
+        Toggle navigation
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+      </button>
+      <a class="navbar-brand " href="#">
+       Python
+      </a>
+     </div>
+     <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav">
+       <li class="">
+        <a href="">
+         Navi
         </a>
        </li>
-       <li>
-        <a href="header-2">
-         副作用を減らす
+       <li class="">
+        <a href="">
+         QA
         </a>
        </li>
-       <li>
-        <a href="header-3">
-         関数になんでもやらせる
-        </a>
-       </li>
-       <li>
-        <a href="header-4">
-         Pythonの関数型
-        </a>
-        <ul>
-         <li>
-          <a href="#header-5">
-           関数渡し
-          </a>
-         </li>
-         <li>
-          <a href="#header-6">
-           クロージャ
-          </a>
-         </li>
-         <li>
-          <a href="#header-7">
-           ラムダ式
-          </a>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#header-8">
-         関数を使ったデータの操作
-        </a>
-        <ul>
-         <li>
-          <a href="#header-9">
-           filter
-          </a>
-         </li>
-         <li>
-          <a href="#header-10">
-           map
-          </a>
-         </li>
-         <li>
-          <a href="#header-11">
-           reduce
-          </a>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#header-12">
-         リスト内包表記
+       <li class="">
+        <a href="">
+         Books
         </a>
        </li>
       </ul>
      </div>
-     <h3 id="header-1">
-      概要
-     </h3>
-     <p>
-      本章では今までのオブジェクト指向から若干趣旨を変え、
+    </div>
+   </nav>
+   <div class="container">
+    <div class="u1-header">
+     <a href="./" style=" text-decoration: none;">
+      <div class="u1-title">
+       Python Boot Camp
+      </div>
+      <p class="lead u1-description">
+       プログラミング言語Python訓練プログラム
+      </p>
+     </a>
+    </div>
+    <div class="row">
+     <div class="col-sm-8 u1-main">
+      <!-- GENERATED HTML START -->
+      <!-- GENERATED HTML START -->
+      <h2 id="header-1">
+       関数型プログラミング
+      </h2>
+      <div class="no_bullets" id="toc_container">
+       <p class="toc_title">
+        本記事の内容
+       </p>
+       <ul class="toc_list">
+        <li>
+         <a href="#header-1">
+          関数型プログラミング
+         </a>
+         <ul>
+          <li>
+           <a href="#header-2">
+            概要
+           </a>
+          </li>
+          <li>
+           <a href="#header-3">
+            副作用を減らす
+           </a>
+          </li>
+          <li>
+           <a href="#header-4">
+            関数になんでもやらせる
+           </a>
+          </li>
+          <li>
+           <a href="#header-5">
+            Pythonの関数型
+           </a>
+          </li>
+          <li>
+           <a href="#header-6">
+            関数を使ったデータの操作
+           </a>
+          </li>
+          <li>
+           <a href="#header-7">
+            リスト内包表記
+           </a>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </div>
+      <h3 id="header-2">
+       概要
+      </h3>
+      <p>
+       本章では今までのオブジェクト指向から若干趣旨を変え、
 関数型と呼ばれるプログラミングの概念について扱いたいと思います。
 関数型言語にもいくつか種類があり、最古の最も有名なものはLispです。
 それ以外にもHaskelやOcaml、そのほかさまざまな言語があります。
-     </p>
-     <p>
-      Python は関数型言語ではないもののこれらの関数型言語が持つ独特なテクニックが使えます。
+      </p>
+      <p>
+       Python は関数型言語ではないもののこれらの関数型言語が持つ独特なテクニックが使えます。
 例えば後ほど説明する「関数渡し」と「高階関数」、そして map や filter と言った処理、さらには「リスト内包表記」といったものです。
 後の章でも扱いますが、この関数型言語のテクニックをオブジェクト指向に取り入れることで、
 より綺麗なオブジェクト指向のコードを書くことができるようになります。
 オブジェクト指向についての話題はまだ終わっていませんが、ちょうどいい区切りにいるためここで説明いたします。
-     </p>
-     <p>
-      本章ではまず関数型言語のErlang を使って関数型言語の特徴を説明したあとで、
+      </p>
+      <p>
+       本章ではまず関数型言語のErlang を使って関数型言語の特徴を説明したあとで、
 実際にPythonを使って関数型言語のようなコードを書く方法について説明します。E
 rlangは関数型言語であるものの、比較的手続き型言語の文法に似ている言語です。
 関数型言語としての側面よりも、並列性や頑健性に優れている言語として有名かもしれません。
 関数型の特徴を一言でいってしまうと以下のようなものになります。
-     </p>
-     <ul>
-      <li>
-       副作用が発生しにくいコード
-      </li>
-      <li>
-       関数になんでもやらせる
-      </li>
-     </ul>
-     <p>
-      それぞれ簡単に解説してみます。
-     </p>
-     <h3 id="header-2">
-      副作用を減らす
-     </h3>
-     <p>
-      言語によって変わってくるかと思いますが、副作用を減らすための関数型の特徴で一番有名なのは
+      </p>
+      <ul>
+       <li>
+        副作用が発生しにくいコード
+       </li>
+       <li>
+        関数になんでもやらせる
+       </li>
+      </ul>
+      <p>
+       それぞれ簡単に解説してみます。
+      </p>
+      <h3 id="header-3">
+       副作用を減らす
+      </h3>
+      <p>
+       言語によって変わってくるかと思いますが、副作用を減らすための関数型の特徴で一番有名なのは
 「変数に再代入できない」というものではないかと思います。
 たとえばPythonだと以下のコードは問題ありません。
-     </p>
-     <div class="codehilite">
-      <pre><span></span>&gt;&gt;&gt; num = 5
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; num = 5
 &gt;&gt;&gt; num = 10
 </pre>
-     </div>
-     <p>
-      一方、Erlangだとこれと同等のことをするコードは以下のような結果となります。(Erlang のシェルを使っています)
-     </p>
-     <div class="codehilite">
-      <pre><span></span>Eshell V6.3  (abort with ^G)
+      </div>
+      <p>
+       一方、Erlangだとこれと同等のことをするコードは以下のような結果となります。(Erlang のシェルを使っています)
+      </p>
+      <div class="codehilite">
+       <pre><span></span>Eshell V6.3  (abort with ^G)
 1&gt; Num = 5.
 5
 2&gt; Num = 10.
 ** exception error: no match of right hand side value 10
 </pre>
-     </div>
-     <p>
-      Erlangの補足
-      <em>
-       変数は大文字から始まる
-      </em>
-      文末の . は式の終わりを示す(最初はCやJavaの;と同じという認識でOK)
+      </div>
+      <p>
+       Erlangの補足
+       <em>
+        変数は大文字から始まる
+       </em>
+       文末の . は式の終わりを示す(最初はCやJavaの;と同じという認識でOK)
 * 変数の型はPythonと同じく動的に決まる
-     </p>
-     <p>
-      変数 Num への1度目の代入は問題ありませんが、2度目の代入(再代入)をしようとしてエラーが出ています。
+      </p>
+      <p>
+       変数 Num への1度目の代入は問題ありませんが、2度目の代入(再代入)をしようとしてエラーが出ています。
 これは正確には代入というよりもパターンマッチの機構に起因してエラーが発生しているのですが、
 「Erlangの変数には値を1度しか代入できない」と思っていただければいいと思います。
 変数Aの中身を変更したい場合は変数Bを新しく用意してあげる必要があります。
@@ -217,20 +209,20 @@ rlangは関数型言語であるものの、比較的手続き型言語の文法
 たとえば「意図しない箇所から内容を書き換えられる(バグ)」は発生しないので、
 自分が一度設定した値は最後まで残り続けます。
 そのため、デバッグなどもしやすい場合が多いかと思います。
-     </p>
-     <h3 id="header-3">
-      関数になんでもやらせる
-     </h3>
-     <p>
-      「関数型」という名前からわかるように、関数型言語ではとにかく関数になんでもやらせます。
+      </p>
+      <h3 id="header-4">
+       関数になんでもやらせる
+      </h3>
+      <p>
+       「関数型」という名前からわかるように、関数型言語ではとにかく関数になんでもやらせます。
 たとえば関数を変数に代入したり、高階関数やクロージャといった概念を多用したりします。
-     </p>
-     <p>
-      たとえば、数列から偶数を見つけるプログラムを書くとしましょう。
+      </p>
+      <p>
+       たとえば、数列から偶数を見つけるプログラムを書くとしましょう。
 今まで学んできたPythonのプログラムだと次のようになると思います。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="n">even_list</span> <span class="o">=</span> <span class="p">[]</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">even_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
   <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
     <span class="n">even_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -238,56 +230,56 @@ rlangは関数型言語であるものの、比較的手続き型言語の文法
 <span class="k">print</span><span class="p">(</span><span class="n">even_list</span><span class="p">)</span>
 <span class="c1"># [0, 2, 4, 6, 8]</span>
 </pre>
-     </div>
-     <p>
-      整数のリストを走査していき、それが偶数の場合は偶数のリストにどんどん追加していっています。
+      </div>
+      <p>
+       整数のリストを走査していき、それが偶数の場合は偶数のリストにどんどん追加していっています。
 for 文と if 文の組み合わせで実現されています。
-     </p>
-     <p>
-      これがErlangだと、たとえば以下のように書けます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span>1&gt; Is_even = fun(X) -&gt; X rem 2 =:= 0 end.
+      </p>
+      <p>
+       これがErlangだと、たとえば以下のように書けます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>1&gt; Is_even = fun(X) -&gt; X rem 2 =:= 0 end.
 #Fun&lt;erl_eval.6.90072148&gt;
 
 2&gt; Even_list = lists:filter(Is_even, lists:seq(0, 9)).
 [0,2,4,6,8]
 </pre>
-     </div>
-     <p>
-      たった2行で python と同じことが実現できています。
+      </div>
+      <p>
+       たった2行で python と同じことが実現できています。
 このErlangのコードがなにをやっているか説明しましょう。
 まず1行目で引数Xが偶数か奇数かを判定する関数を作り、それを変数 Is_even に代入しています。
 そして2行目でその変数に代入された関数を[0,1,2..,8,9]というリストに適用して判定がTrueとなった要素だけを取り出しています。
 ひと目見ただけでもPythonの手続き型のコードと全然違うことが分かると思います。
 関数でリストをフィルタ(条件にマッチしたものだけ取り出す)してあげています。
-     </p>
-     <p>
-      CやJava(最近のものは別ですが)では、そもそもこういった概念は使えないか、非常に使いにくいものとなっています。
+      </p>
+      <p>
+       CやJava(最近のものは別ですが)では、そもそもこういった概念は使えないか、非常に使いにくいものとなっています。
 PythonやJavaScriptといった「スクリプト系」の言語はこれらの概念も利用できますが、
 あくまでもオマケ的な側面が強いです。一方、関数型はこれらの機能を前面に押し出しています。
-     </p>
-     <p>
-      長々とErlangの説明をするのも連載の趣旨から外れるのでこのあたりで切り上げたいと思いますが、
+      </p>
+      <p>
+       長々とErlangの説明をするのも連載の趣旨から外れるのでこのあたりで切り上げたいと思いますが、
 要するにfor文などでデータを制御するのではなく、データ構造に対して制御を適用するような処理をします。
 個人的な見解ですが、手続き型言語は「制御ありき。データは二の次」というような思想があり、
 関数型は「まずデータがあり、それに処理を適用」というような思想があるように思えます。
-     </p>
-     <h3 id="header-4">
-      Pythonの関数型
-     </h3>
-     <p>
-      Pythonなどのスクリプト系言語は、関数型に近いことがある程度できます。
+      </p>
+      <h3 id="header-5">
+       Pythonの関数型
+      </h3>
+      <p>
+       Pythonなどのスクリプト系言語は、関数型に近いことがある程度できます。
 利用方法は様々ありますが、おおまかには「関数渡しを関数やメソッドのカスタマイズに使う」こと、
 それから「リストなどのデータ構造を関数で制御する」ものに分けられます。
-     </p>
-     <p>
-      Python のデータは全てオブジェクトであるといいましたが、実は関数も「関数型」というオブジェクトです。
+      </p>
+      <p>
+       Python のデータは全てオブジェクトであるといいましたが、実は関数も「関数型」というオブジェクトです。
 他の言語を学ばれたことがある人であれば「え、関数は関数であって型じゃないでしょ?」と思われたかたもしれません。
 論より証拠で、さっそく例を示しましょう。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="c1"># 関数の定義</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="c1"># 関数の定義</span>
 <span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
   <span class="k">return</span> <span class="mi">1</span>
 
@@ -304,22 +296,22 @@ PythonやJavaScriptといった「スクリプト系」の言語はこれらの�
 <span class="k">print</span><span class="p">(</span><span class="s1">'type test2: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">test2</span><span class="p">)))</span>
 <span class="c1"># type test2: &lt;class 'function'&gt;</span>
 </pre>
-     </div>
-     <p>
-      型が'function'とでていて、関数型であることがわかります。
+      </div>
+      <p>
+       型が'function'とでていて、関数型であることがわかります。
 そしてオブジェクトであるため変数への代入もできており、なおかつそれを呼び出すこともできます。
 しかし、関数も型だとわかったところで、実際にどのように使うか想像がつかないかもしれません。
-     </p>
-     <h4 id="header-5">
-      関数渡し
-     </h4>
-     <p>
-      一番簡単な利用例として関数渡しと呼ばれる使い方を紹介します。
+      </p>
+      <h4>
+       関数渡し
+      </h4>
+      <p>
+       一番簡単な利用例として関数渡しと呼ばれる使い方を紹介します。
 これは Python の「関数もオブジェクトである」という性質を使ったものです。
 以下のコードを見て下さい。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="c1"># 関数を呼び出す関数 (高階関数)</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="c1"># 関数を呼び出す関数 (高階関数)</span>
 <span class="k">def</span> <span class="nf">fun1</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
   <span class="n">fun</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
@@ -331,28 +323,28 @@ PythonやJavaScriptといった「スクリプト系」の言語はこれらの�
 <span class="n">fun1</span><span class="p">(</span><span class="n">fun2</span><span class="p">,</span> <span class="s1">'hello'</span><span class="p">)</span>  
 <span class="c1"># fun2: 5</span>
 </pre>
-     </div>
-     <p>
-      関数fun1は第一引数で関数、第二引数で文字列を受け取ります。
+      </div>
+      <p>
+       関数fun1は第一引数で関数、第二引数で文字列を受け取ります。
 その受け取った関数を自らの関数内で呼び出しており、その引数に第二引数の文字列を渡しています。
 上記の例で呼び出される側の関数 fun2 は普通の関数ですが、呼び出す側の関数は「高階関数」と呼ばれています。
 高階(こうかい)というと分かりにくいですが、ようするに関数が2階建てのように使われているとイメージしてもらえれば分かりやすいかもしれません。
 高い階層ということなので3階建て以上もできますが、一般的にはやりません。
 サンプルでは高階関数を呼び出していますが、
 出力を見ると実際に処理をしているのは高階関数内部で呼び出された引数の関数であることがわかります。
-     </p>
-     <p>
-      このような単純な例だと関数渡しのメリットはあまりないのですが、
+      </p>
+      <p>
+       このような単純な例だと関数渡しのメリットはあまりないのですが、
 自作や一般的なフレームワークの処理の「一部をカスタマイズ」するような場合に利用すると便利です。
 たとえばHttpサーバの実装をする際に、「要求を受け取って処理」というのをフレームワークにし、具体的に何の要求か、
 その要求に対応するアクションは何かをカスタマイズするという用途などが考えられます。
-     </p>
-     <p>
-      HTTP サーバを書くと難しすぎるのでカスタマイズ可能な電卓を作ることで「フレームワークの拡張」を体験してみたいと思います。
+      </p>
+      <p>
+       HTTP サーバを書くと難しすぎるのでカスタマイズ可能な電卓を作ることで「フレームワークの拡張」を体験してみたいと思います。
 まず以下の整数用の電卓のクラスがあります。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="c1"># フレームワーク (手を加えない)</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="c1"># フレームワーク (手を加えない)</span>
 <span class="k">class</span> <span class="nc">Calc</span><span class="p">:</span>
   <span class="c1"># 初期化でカスタマイズ用の関数定義を受取り登録</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operation_list</span><span class="p">):</span>
@@ -378,9 +370,9 @@ PythonやJavaScriptといった「スクリプト系」の言語はこれらの�
       <span class="n">fun</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">operation_dict</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
       <span class="k">print</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>
 </pre>
-     </div>
-     <p>
-      このクラスは非常にシンプルですがフレームワークとしてカスタマイズできるようになっています。
+      </div>
+      <p>
+       このクラスは非常にシンプルですがフレームワークとしてカスタマイズできるようになっています。
 まずコンストラクタでタプルの計算処理の定義 (計算の種類, その計算をする関数) をリストで並べたものを渡します。
 コンストラクタは辞書データにそれを登録しています。
 そしてrun メソッドでは標準入力を読み取り、与えられた計算の種類に応じてその計算をします。
@@ -389,14 +381,14 @@ PythonやJavaScriptといった「スクリプト系」の言語はこれらの�
 while True で無限ループになっているため、exit と入力されるまでは永遠に計算が続きます。
 ここで注意してほしいのは plus 処理というのはこのクラスの内部には定義されていないことです。
 それはこのフレームワークを使う人によりカスタマイズされて初めて使えるようになります。
-     </p>
-     <p>
-      次にこのフレームワークを利用するために拡張する処理を自分で定義し、
+      </p>
+      <p>
+       次にこのフレームワークを利用するために拡張する処理を自分で定義し、
 それをコンストラクタで登録します。
 今回はコンストラクタで定義しましたが、「メソッドで定義を追加」ということもよくします。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="k">def</span> <span class="nf">decrease</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -404,14 +396,14 @@ while True で無限ループになっているため、exit と入力される�
 
 <span class="n">calc</span> <span class="o">=</span> <span class="n">Calc</span><span class="p">([(</span><span class="s2">"plus"</span><span class="p">,</span> <span class="n">add</span><span class="p">),</span> <span class="p">(</span><span class="s2">"minus"</span><span class="p">,</span> <span class="n">decrease</span><span class="p">)])</span>
 </pre>
-     </div>
-     <p>
-      関数として add, decrease を定義していて、その処理は足し算引き算となります。
+      </div>
+      <p>
+       関数として add, decrease を定義していて、その処理は足し算引き算となります。
 そして先程のフレームワーク Calc を初期化する際にそれらを定義にしたがってリスト上のタプルで登録しています。
 今回であれば add を plus という名前で登録しています。
-     </p>
-     <div class="codehilite">
-      <pre><span></span>calc.run()
+      </p>
+      <div class="codehilite">
+       <pre><span></span>calc.run()
 
 please input your calculation
 plus 2 3
@@ -422,24 +414,24 @@ minus 5 2
 please input your calculation
 exit
 </pre>
-     </div>
-     <p>
-      作成したインスタンスの run メソッドを呼び出すと自分で定義した処理が呼び出せていることが分かります。
+      </div>
+      <p>
+       作成したインスタンスの run メソッドを呼び出すと自分で定義した処理が呼び出せていることが分かります。
 同じ要領で掛け算や割り算、もっと複雑な計算も定義できます。
-     </p>
-     <p>
-      前書の最初のほうで Python プログラムの体験として以下のような
+      </p>
+      <p>
+       前書の最初のほうで Python プログラムの体験として以下のような
  GUI のプログラムの紹介をしており、それは以下のようなものでした。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1055_image/01.png"/>
-     </p>
-     <p>
-      真ん中にあるボタンを押すと、数字がどんどん増えていくという簡単なカウンターアプリケーションです。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1055_image/01.png"/>
+      </p>
+      <p>
+       真ん中にあるボタンを押すと、数字がどんどん増えていくという簡単なカウンターアプリケーションです。
 このアプリケーションのプログラムは以下のようなものとなっています。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span>
 
 <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">font</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"Helevetica"</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">"bold"</span><span class="p">)</span>
@@ -456,29 +448,29 @@ exit
 <span class="n">button</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 <span class="n">button</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </pre>
-     </div>
-     <p>
-      この GUI のライブラリはクリックされた時の処理を登録できるようになっており、
+      </div>
+      <p>
+       この GUI のライブラリはクリックされた時の処理を登録できるようになっており、
 自分でその処理をする関数を定義し、それをボタンが押された時のアクションとして登録しています。
 こうすることで GUI のアプリケーションの動きを自分でカスタマイズしているのです。
 GUI 自体の実装は先程の電卓プログラムよりはるかに複雑なのですが、
 カスタマイズをするだけであれば先ほどの電卓の例とそれほど違いはありません。
 このようなことができるのが「関数渡し」や「高階関数」の強さだと言えます。
-     </p>
-     <h4 id="header-6">
-      クロージャ
-     </h4>
-     <p>
-      高階関数の高度な使い方として「関数をカスタマイズして返す関数」を作るということもできます。
+      </p>
+      <h4>
+       クロージャ
+      </h4>
+      <p>
+       高階関数の高度な使い方として「関数をカスタマイズして返す関数」を作るということもできます。
 これは先程まで行っていたことと逆のようなもので、このようなテクニックはクロージャと呼ばれています。
 クロージャの概念はプログラミング初級者には難しいのですが、
 そのイメージとしては「テンプレートとなる関数からカスタム関数を生成する」ようなものとなります。
-     </p>
-     <p>
-      クロージャも例を使って説明しましょう。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="c1"># 関数を作る関数　クロージャ</span>
+      </p>
+      <p>
+       クロージャも例を使って説明しましょう。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="c1"># 関数を作る関数　クロージャ</span>
 <span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 
   <span class="c1"># クロージャが返す関数</span>
@@ -497,114 +489,114 @@ GUI 自体の実装は先程の電卓プログラムよりはるかに複雑な�
 <span class="k">print</span><span class="p">(</span><span class="n">adder7</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="c1"># 17</span>
 </pre>
-     </div>
-     <p>
-      関数adderは内部で関数funを作成し、それをreturn文で返しています。
+      </div>
+      <p>
+       関数adderは内部で関数funを作成し、それをreturn文で返しています。
 この adder がクロージャの関数で、内部の fun はクロージャが作成する関数となります。
 注目して欲しいのは外側の関数であるadderの引数xを、
 内部で作成しているfunの中で利用しているということです。
 このxにはadderが呼び出された際に渡された値が入っています。
 具体的には"adder(5)"とした場合は5です。
 その際、内部の関数生成のコードは実質的に次のようなものとなっています。
-     </p>
-     <div class="codehilite">
-      <pre><span></span>  <span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span>  <span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">y</span>
 </pre>
-     </div>
-     <p>
-      クロージャの x は 内部の関数にとっては 5 と同じで、このとき x は 5 として「束縛」されていると言われます。
+      </div>
+      <p>
+       クロージャの x は 内部の関数にとっては 5 と同じで、このとき x は 5 として「束縛」されていると言われます。
 この内部の変数が5に束縛された関数がreturn文で返され、変数adder5に格納されます。
 当然ながらadder5は関数として利用可能で、
 その実行結果は関数生成の行の次に示されたとおり「 5 + 渡された引数10 」で15 となっています。
 adderのなかの関数がテンプレートで、adder5がそれをベースにして作られた関数だと思ってもらえれば構いません。
 ただ、クロージャのコードを Python で見かけることはほとんどありません。
 関数渡しに比べるとその使いどころが難しいかもしれません。
-     </p>
-     <h4 id="header-7">
-      ラムダ式
-     </h4>
-     <p>
-      今までの関数はdefを使って宣言してきました。
+      </p>
+      <h4>
+       ラムダ式
+      </h4>
+      <p>
+       今までの関数はdefを使って宣言してきました。
 ただ、関数渡しを利用する場合は「使い捨ての関数」を渡すだけで十分な場合があります。
 そのような場合、ラムダ式(lambda)を使って無名関数を作ると簡単です。
-     </p>
-     <p>
-      lambda式は「lambda 引数: 式」という形で関数を書くと、
+      </p>
+      <p>
+       lambda式は「lambda 引数: 式」という形で関数を書くと、
 その関数をオブジェクトとして返します。
 defによる関数の宣言と異なり、関数名がないことがわかります。
 そのため「無名関数」と呼ばれているのです。
 実際に利用してみます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span>my_print = lambda x : print('my_print : {}'.format(x))
+      </p>
+      <div class="codehilite">
+       <pre><span></span>my_print = lambda x : print('my_print : {}'.format(x))
 my_print('hello')
 # my_print : hello
 </pre>
-     </div>
-     <p>
-      上記は引数 x を受け取り、それに “my_print : “ という文字列をつけて print する無名関数を作成し、
+      </div>
+      <p>
+       上記は引数 x を受け取り、それに “my_print : “ という文字列をつけて print する無名関数を作成し、
 それを変数 my_print に格納して使っています。
 このラムダ式は変数に代入されて関数として使われていますが、変数にいれなくても使うことができます。
 試しにこのラムダで作られたものが何者なのか見てみます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="n">my_print</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s1">'my_print : {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">my_print</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s1">'my_print : {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">my_print</span><span class="p">)</span>
 <span class="c1"># &lt;function &lt;lambda&gt; at 0x1013dad90&gt;</span>
 </pre>
-     </div>
-     <p>
-      インタプリタでラムダが返したもの(実際はオブジェクト)を評価してみるとラムダの関数だと評価されています。
+      </div>
+      <p>
+       インタプリタでラムダが返したもの(実際はオブジェクト)を評価してみるとラムダの関数だと評価されています。
 変数に代入しなくても関数なので、いきなりこれを実行することもできます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s1">'my_print : {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)))(</span><span class="s1">'hello'</span><span class="p">)</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s1">'my_print : {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)))(</span><span class="s1">'hello'</span><span class="p">)</span>
 <span class="c1"># my_print</span>
 </pre>
-     </div>
-     <p>
-      上記のコードは「(ラムダで作られた関数)(引数)」としています。
+      </div>
+      <p>
+       上記のコードは「(ラムダで作られた関数)(引数)」としています。
 結果を見てもらうときちんと動作をしていることが分かります。
-     </p>
-     <p>
-      上記のラムダ式ですが、今までの関数の書き方であれば以下と同じです。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+      </p>
+      <p>
+       上記のラムダ式ですが、今までの関数の書き方であれば以下と同じです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
   <span class="k">print</span><span class="p">(</span><span class="s1">'my_print : {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="n">my_print</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
 <span class="c1"># my_print : hello</span>
 </pre>
-     </div>
-     <p>
-      ラムダと一般的な関数のどちらがプログラムとして分かりやすいかというと、
+      </div>
+      <p>
+       ラムダと一般的な関数のどちらがプログラムとして分かりやすいかというと、
 一般的には通常の関数の作り方だと思われます。
 ただ、使いどころによってはラムダのほうが適する場所が存在します。
 それが先ほどの「関数渡し」、それも簡単な処理の場合です。
 具体例に関しては後ほど多く扱うのでラムダの利用場面については話を切り上げて、
 ここではラムダの書き方をもういくつかご紹介したいと思います。
-     </p>
-     <p>
-      まず引数や返り値ですが、これも関数と同じでいくつか定義をすることができます。たとえば 2 つの引数をたして返す関数は以下のようになります。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="n">adder</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+      </p>
+      <p>
+       まず引数や返り値ですが、これも関数と同じでいくつか定義をすることができます。たとえば 2 つの引数をたして返す関数は以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">adder</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 <span class="k">print</span><span class="p">(</span><span class="n">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="mi">5</span>
 </pre>
-     </div>
-     <p>
-      引数を複数とる場合はコンマでつなげ、
+      </div>
+      <p>
+       引数を複数とる場合はコンマでつなげ、
 最後の式(この場合は x + y)が return 文なしに結果として返されていることがわかります。
-     </p>
-     <p>
-      lamdaが生成する関数もオブジェクトですので、リストなどに格納することもできます。
+      </p>
+      <p>
+       lamdaが生成する関数もオブジェクトですので、リストなどに格納することもできます。
 それほど使い道はないかもしれませんが、以下のように複数処理を連続で実施したい場合にときどき使います。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="n">funcs</span> <span class="o">=</span> <span class="p">[(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">),(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="p">)]</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">funcs</span> <span class="o">=</span> <span class="p">[(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">),(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="p">)]</span>
 
 <span class="k">for</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">funcs</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
@@ -614,17 +606,17 @@ my_print('hello')
 <span class="c1"># 50</span>
 <span class="c1"># 9765625</span>
 </pre>
-     </div>
-     <p>
-      個人的にはPythonではlambda式は後ほど述べる filter といった関数以外ではそれほど多く使いません。
+      </div>
+      <p>
+       個人的にはPythonではlambda式は後ほど述べる filter といった関数以外ではそれほど多く使いません。
 上記のような簡単な関数をその場限りで使うのにおいては便利ですが、
 そうでない限りはdefで宣言し、それを必要に応じて呼び出すことのほうがコードとして分かりやすいです。
-     </p>
-     <p>
-      たとえば上記のコードは以下のように書き直せます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">def</span> <span class="nf">fun1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+      </p>
+      <p>
+       たとえば上記のコードは以下のように書き直せます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">fun1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 <span class="k">def</span> <span class="nf">fun2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
@@ -635,114 +627,114 @@ my_print('hello')
 <span class="k">for</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">funcs</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 </pre>
-     </div>
-     <p>
-      defを使うと不必要に宣言数を増やしてしまいますし、lambdaで複雑な処理を書くと非常に見づらいです。
+      </div>
+      <p>
+       defを使うと不必要に宣言数を増やしてしまいますし、lambdaで複雑な処理を書くと非常に見づらいです。
 それぞれのメリット、デメリットを考えて適切に利用する必要があります。
 一般的には処理の内容が複雑であればdefで宣言し、簡単でかつ使いまわさない場合はlambdaを使うことになるかと思います。
-     </p>
-     <h3 id="header-8">
-      関数を使ったデータの操作
-     </h3>
-     <h4 id="header-9">
-      filter
-     </h4>
-     <p>
-      Python は関数渡しで使うことを前提とした関数や、リスト内包表記とよばれる特殊なリストを生成する書式を持っています。
+      </p>
+      <h3 id="header-6">
+       関数を使ったデータの操作
+      </h3>
+      <h4>
+       filter
+      </h4>
+      <p>
+       Python は関数渡しで使うことを前提とした関数や、リスト内包表記とよばれる特殊なリストを生成する書式を持っています。
 これらはかなり関数型の言語に近い使われかたをします。
 必ずしもこれから学ぶ関数やリスト内包表記を使わなくても同じことを「手続き型(今まで学んだ Python プログラムのような書き方)」でも実現できます。
 ただ、これから学ぶテクニックを使うことで、シンプルで高速なプログラムを作れることが多いです。
-     </p>
-     <p>
-      最初にフィルタと呼ばれる処理を紹介します。
+      </p>
+      <p>
+       最初にフィルタと呼ばれる処理を紹介します。
 Erlangでリストに対してfilter関数を使って偶数だけ取り出す処理をしました。
 同じことをPythonで実行することもできます。
 Python の filter 関数は第一引数に関数を受け取り、第二引数にリストを受け取ります。
 渡された関数をリストの各要素に適用し、True となった要素だけから構成されたフィルターオブジェクトを返します。
 必要であればリスト型にキャストをします。filter という名前が示す通り、リストをフィルタ処理しています。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
 
 <span class="n">filter_object</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">is_even</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">filter_object</span><span class="p">))</span>
 <span class="c1"># [0, 2, 4, 6, 8]</span>
 </pre>
-     </div>
-     <p>
-      上記の例ではまず関数 is_even を宣言しています。%は剰余(あまり)をもとめる演算子なので、
+      </div>
+      <p>
+       上記の例ではまず関数 is_even を宣言しています。%は剰余(あまり)をもとめる演算子なので、
 「引数 x を2で割った余りが0か」ということを返しています。
 filter 関数にこの is_even を第一引数として私、range(10) で 0 から9 までのリスト(正確にはrange型)を与えると、
 与えられたリストに対して順番に関数を適用していき True となったものだけから構成されるリストを返します。
 この filter の利用例を図に示します。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1055_image/02.png"/>
-     </p>
-     <p>
-      先ほど学んだラムダはこれらの関数を受け取る関数と相性がいいです。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1055_image/02.png"/>
+      </p>
+      <p>
+       先ほど学んだラムダはこれらの関数を受け取る関数と相性がいいです。
 先ほどの例ではわざわざ偶数判定の関数を定義していましたが、
 それをラムダに置き換えると以下のようにコードが簡潔になります。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="n">filter_object</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">filter_object</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">filter_object</span><span class="p">))</span>
 <span class="c1"># [0, 2, 4, 6, 8]</span>
 </pre>
-     </div>
-     <p>
-      ラムダについて知らなければわからないコードですが、ラムダを知っている人にとっては簡潔です。
+      </div>
+      <p>
+       ラムダについて知らなければわからないコードですが、ラムダを知っている人にとっては簡潔です。
 自分のコードで使うか使わないかは自分の判断で選べばいいでしょうが、
 ラムダを使う人は多くいますので少なくとも読めるようにはなっておく必要があります。
-     </p>
-     <h4 id="header-10">
-      map
-     </h4>
-     <p>
-      次にmap関数です。こちらはリストの各要素に関数を適用していき、
+      </p>
+      <h4>
+       map
+      </h4>
+      <p>
+       次にmap関数です。こちらはリストの各要素に関数を適用していき、
 適用された値をリストにするというものです。
 filter オブジェクトと同様に返される値はマップオブジェクトであるため、
 それをリストにキャストして上げる必要があります。
 やっていること自体は難しくないので、こちらも例を示します。
 以下では range 関数で作成した [0,1,2,..8,9] というリストの要素を2倍にしています。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="n">map_object</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">map_object</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">map_object</span><span class="p">))</span>
 <span class="c1"># [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
 </pre>
-     </div>
-     <p>
-      適用する関数を map の第一引数に与え、関数が適用されるリストは第二引数に与えられています。
+      </div>
+      <p>
+       適用する関数を map の第一引数に与え、関数が適用されるリストは第二引数に与えられています。
 filter 関数と同じです。
 map の図を以下に記載します。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1055_image/03.png"/>
-     </p>
-     <p>
-      先の filter や map では比較的単純な例でしたが、四則演算だけでなくメソッドで処理を加える事もできます。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1055_image/03.png"/>
+      </p>
+      <p>
+       先の filter や map では比較的単純な例でしたが、四則演算だけでなくメソッドで処理を加える事もできます。
 ラムダの引数に対してメソッドを呼び出し、テキストデータを大文字にしています。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="n">text_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'ab'</span><span class="p">,</span> <span class="s1">'cd'</span><span class="p">,</span> <span class="s1">'ef'</span><span class="p">]</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">text_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'ab'</span><span class="p">,</span> <span class="s1">'cd'</span><span class="p">,</span> <span class="s1">'ef'</span><span class="p">]</span>
 <span class="n">map_object</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">text_list</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">map_object</span><span class="p">))</span>
 <span class="p">[</span><span class="s1">'AB'</span><span class="p">,</span> <span class="s1">'CD'</span><span class="p">,</span> <span class="s1">'EF'</span><span class="p">]</span>
 </pre>
-     </div>
-     <p>
-      テキストを大文字にすることもそれほど難しくない処理ですが、たとえば自分で作ったクラスについてこれを適用することもできます。
+      </div>
+      <p>
+       テキストを大文字にすることもそれほど難しくない処理ですが、たとえば自分で作ったクラスについてこれを適用することもできます。
 便利といえば便利なのですが、自分以外にその処理がなにをやっているか分からなくなるため、
 適切なコメント等を残すか、使わないという選択をする必要があると思います。
 返り値のリストが不要で単にオブジェクトのメソッドをまとめて呼びたい場合は for 文を使うことが無難です。
-     </p>
-     <p>
-      なお、map や後ほど扱うリスト内包表記といったリストを生成する処理は必ずしも元のリストの値を使う必要はありません。たんに「ある長さのリストを生成する」ためにも使えます。たとえばランダムな数値を持つリストを生成する場合、以下のようなコードとなります。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+      </p>
+      <p>
+       なお、map や後ほど扱うリスト内包表記といったリストを生成する処理は必ずしも元のリストの値を使う必要はありません。たんに「ある長さのリストを生成する」ためにも使えます。たとえばランダムな数値を持つリストを生成する場合、以下のようなコードとなります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
 <span class="c1"># 普通の関数</span>
 <span class="k">def</span> <span class="nf">get_random_list1</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
@@ -761,59 +753,59 @@ map の図を以下に記載します。
 <span class="k">print</span><span class="p">(</span><span class="n">get_random_list2</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="c1"># [83, 26, 37, 95, 52, 36, 28, 12, 89, 71]</span>
 </pre>
-     </div>
-     <p>
-      get_random_list1 関数は for 文を使って与えられた長さのぶんだけループを回し、
+      </div>
+      <p>
+       get_random_list1 関数は for 文を使って与えられた長さのぶんだけループを回し、
 それでランダムに生成された数値をリストに詰めて返しています。
 一方、get_random_list2 は同じことを map で実現しています。
 for 文で要素の i を使わなくていいように、map に渡された関数もその引数を使わなくて構いません。
 こういうことをできると知っておくべきかと思いますが、
 コードを読む人にとって分かりにくいため積極的に使うようなテクニックではないかもしれません。
-     </p>
-     <h4 id="header-11">
-      reduce
-     </h4>
-     <p>
-      最後にreduceです。これは「たたみ込み」と呼ばれる処理で、別言語だとfoldなどという呼び方をしているかもしれません。
+      </p>
+      <h4>
+       reduce
+      </h4>
+      <p>
+       最後にreduceです。これは「たたみ込み」と呼ばれる処理で、別言語だとfoldなどという呼び方をしているかもしれません。
 mapやfilterに比べるとちょっと複雑で、利用場面はそれほど多くないと思います。
-     </p>
-     <p>
-      reduce(fold)の処理概念を以下の図に記します。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1055_image/04.jpg"/>
-     </p>
-     <p>
-      図を見てもらうとわかるように、リストの「要素N番目の処理結果をN + 1番目で利用」ということをリストの先頭から末尾まで繰り返していき、最後の処理結果を返すというものです。
-     </p>
-     <p>
-      書き下すと、
-     </p>
-     <ol>
-      <li>
-       1番目と2番目の要素を使いAを得る
-      </li>
-      <li>
-       3番目とAを使いBを得る
-      </li>
-      <li>
-       4番目とBを使いCを得る
-      </li>
-      <li>
-       最後の要素である5番目とCを使いDを得る
-      </li>
-      <li>
-       Dを返す
-      </li>
-     </ol>
-     <p>
-      というような動きになります。
-     </p>
-     <p>
-      上記の図を実現するコードを以下に示します。なお、python2 は reduce をグローバル関数として利用できましたが、python3 では functools というモジュールに属するようになっています。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
+      </p>
+      <p>
+       reduce(fold)の処理概念を以下の図に記します。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1055_image/04.jpg"/>
+      </p>
+      <p>
+       図を見てもらうとわかるように、リストの「要素N番目の処理結果をN + 1番目で利用」ということをリストの先頭から末尾まで繰り返していき、最後の処理結果を返すというものです。
+      </p>
+      <p>
+       書き下すと、
+      </p>
+      <ol>
+       <li>
+        1番目と2番目の要素を使いAを得る
+       </li>
+       <li>
+        3番目とAを使いBを得る
+       </li>
+       <li>
+        4番目とBを使いCを得る
+       </li>
+       <li>
+        最後の要素である5番目とCを使いDを得る
+       </li>
+       <li>
+        Dを返す
+       </li>
+      </ol>
+      <p>
+       というような動きになります。
+      </p>
+      <p>
+       上記の図を実現するコードを以下に示します。なお、python2 は reduce をグローバル関数として利用できましたが、python3 では functools というモジュールに属するようになっています。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
 
 <span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -822,24 +814,24 @@ mapやfilterに比べるとちょっと複雑で、利用場面はそれほど�
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="c1"># 21</span>
 </pre>
-     </div>
-     <p>
-      プログラムもfilterやmapと同じように、関数の定義をリストに適用します。
+      </div>
+      <p>
+       プログラムもfilterやmapと同じように、関数の定義をリストに適用します。
 ただ、引数に与える関数の引数が2つになっているのが今までと異なる点です。
 今回は分かりやすいように関数を定義しましたが、簡単なものであればラムダが使われることが多いです。
-     </p>
-     <p>
-      この reduce なのですが、先ほどのような「リストの全ての要素を使って値を得る」というものよりも
+      </p>
+      <p>
+       この reduce なのですが、先ほどのような「リストの全ての要素を使って値を得る」というものよりも
 「リストの中から何かひとつの要素を選ぶ」といった使い方のほうが多いかもしれません。
-     </p>
-     <p>
-      そのようなときは「引数で与えられた2つの関数を比較し、条件に合致するほうを返す関数」を定義し、
+      </p>
+      <p>
+       そのようなときは「引数で与えられた2つの関数を比較し、条件に合致するほうを返す関数」を定義し、
 それをリストに対して reduce で適用するということをします。そうするとリストの全要素に対してその関数が適用され、
 最も条件にあうリストの要素が取得できます。
 以下のサンプルでは「2値を比較して大きい方を返す処理」を繰り返してランダムに生成された数値のリストから最大値を選ぶという処理をしています。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="kn">import</span> <span class="nn">functools</span><span class="o">,</span> <span class="nn">random</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="kn">import</span> <span class="nn">functools</span><span class="o">,</span> <span class="nn">random</span>
 
 <span class="c1"># 2値を比較して条件に合致したほうの値を返す(今回は大きいほうを返す)</span>
 <span class="k">def</span> <span class="nf">get_bigger</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -861,71 +853,71 @@ mapやfilterに比べるとちょっと複雑で、利用場面はそれほど�
 <span class="k">print</span><span class="p">(</span><span class="s1">'biggest: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">biggest</span><span class="p">))</span>
 <span class="c1"># biggest: 67</span>
 </pre>
-     </div>
-     <p>
-      今回は数値のような簡単な例でしたが、2値の比較は複雑なオブジェクトに対しても実現できます。
+      </div>
+      <p>
+       今回は数値のような簡単な例でしたが、2値の比較は複雑なオブジェクトに対しても実現できます。
 for 文でリストから要素を取得するのが王道なのでしょうが、reduce でも同様のことができるというのは覚えておいて下さい。
 関数型を使えるプログラマがよく使うテクニックです。
-     </p>
-     <h3 id="header-12">
-      リスト内包表記
-     </h3>
-     <p>
-      本章の最後にリスト内包表記を扱います。
+      </p>
+      <h3 id="header-7">
+       リスト内包表記
+      </h3>
+      <p>
+       本章の最後にリスト内包表記を扱います。
 リスト内包表記はリストを生成するための特別な書式で、そのイメージとしてはラムダとmap とfilterを同時に使うというものになります。
 ただ、見た目が難しいので簡単な実例から紹介していきたいとおもいます。
-     </p>
-     <p>
-      まずmapに近い使い方です。
+      </p>
+      <p>
+       まずmapに近い使い方です。
 先ほどの要素2倍にするmap処理をリスト内包表記で書くと、以下のようになります。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="n">list_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">list_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">list_</span><span class="p">)</span>
 <span class="c1"># [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
 </pre>
-     </div>
-     <p>
-      1行目にある [ ] 内の式がリスト内包表記です。よく見るとfor文の使い方に似ています。
+      </div>
+      <p>
+       1行目にある [ ] 内の式がリスト内包表記です。よく見るとfor文の使い方に似ています。
 "for x in リスト"とすると、xにリストの要素が入ってループを回します。
 その各要素xに対して"x * 2"という処理をしてリストを作成します。
 通常の for 文によるループと違い、要素に対する処理が先頭にきています。
 そしてこの処理が適用されたリストが返されます。
-     </p>
-     <p>
-      リスト内包表記が優れているところは先程のmap処理に加えて、同時にfilter処理もできることです。
+      </p>
+      <p>
+       リスト内包表記が優れているところは先程のmap処理に加えて、同時にfilter処理もできることです。
 たとえば偶数だけ抜き出し、それを2倍にするということもできます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="n">list_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">list_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">list_</span><span class="p">)</span>
 <span class="c1"># [0, 4, 8, 12, 16]</span>
 </pre>
-     </div>
-     <p>
-      先ほどの map の使い方と同様の例とほとんど同じですが、"for x in リスト"の後にif文が追加されているのがわかります。
+      </div>
+      <p>
+       先ほどの map の使い方と同様の例とほとんど同じですが、"for x in リスト"の後にif文が追加されているのがわかります。
 このif文がTrueとなった要素だけ、リスト作成の対象となります。処理(今回は x*2)が適用された後に対してではなく、
 適用される前(今回はx)に対してフィルタ処理がされていることに注意してください。
-     </p>
-     <p>
-      書式が複雑なためリスト内包表記は難しく見えるかもしれませんが、
+      </p>
+      <p>
+       書式が複雑なためリスト内包表記は難しく見えるかもしれませんが、
 以下のような構造になっていると思えば、理解しやすいかもしれません。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1055_image/05.jpg"/>
-     </p>
-     <p>
-      ちなみにリスト内包表記は、通常のループ文よりも高速に動作する場合が多いといわれています。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1055_image/05.jpg"/>
+      </p>
+      <p>
+       ちなみにリスト内包表記は、通常のループ文よりも高速に動作する場合が多いといわれています。
 これはfor文のようにScriptとして一行一行処理されるのではなく、
 Python内にあるバイナリでリストに対して処理を施すためです。
 興味があればベンチマークを取ってみてもいいかもしれません。
-     </p>
-     <p>
-      一般的にはあまり知られていませんが、リスト内包表記以外にも「内包表記」があります。
+      </p>
+      <p>
+       一般的にはあまり知られていませんが、リスト内包表記以外にも「内包表記」があります。
 以下にセット内包表記と辞書内法表記の例を示します。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="c1"># セット内包表記</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="c1"># セット内包表記</span>
 <span class="n">set_</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">set_</span><span class="p">)</span>
@@ -950,472 +942,488 @@ Python内にあるバイナリでリストに対して処理を施すためで�
 <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dict2</span><span class="p">))</span>
 <span class="c1"># &lt;class 'dict'&gt;</span>
 </pre>
-     </div>
-     <p>
-      書式はリスト内包表記と大きな違いがありませんが、囲むカッコだけ変わっています。
+      </div>
+      <p>
+       書式はリスト内包表記と大きな違いがありませんが、囲むカッコだけ変わっています。
 リスト内包表記に比べてこれらの利用場面はそれほど多くなく、積極的に利用すべきものではありません。
-     </p>
-     <!-- GENERATED HTML END -->
-     <nav>
-      <ul class="pager">
-       <li id="previous-li">
-        <a href="./110.html" id="previous-a">
-         ← Previous
-        </a>
-       </li>
-       <li>
-        <a href="#">
-         Page Top
-        </a>
-       </li>
-       <li class="pager-next" id="next-li">
-        <a href="./112.html" id="next-a">
-         Next →
-        </a>
-       </li>
-      </ul>
-     </nav>
-    </div>
-    <!-- /.blog-main -->
-    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-     <!-- 広告エリア -->
-     <div class="sidebar-module">
-      <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-      </script>
-      <!-- 300 x 250 -->
-      <ins class="adsbygoogle" data-ad-client="ca-pub-9447655910606139" data-ad-slot="4820856978" style="display:inline-block;width:300px;height:250px">
-      </ins>
-      <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      </p>
+      <!-- GENERATED HTML END -->
+      <!-- GENERATED HTML END -->
+      <nav>
+       <ul class="pager">
+        <li id="previous-li">
+         <a href="./110.html" id="previous-a">
+          ← Previous
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          Page Top
+         </a>
+        </li>
+        <li class="pager-next" id="next-li">
+         <a href="./110.html" id="next-a">
+          Next →
+         </a>
+        </li>
+       </ul>
+      </nav>
      </div>
-     <!-- 広告エリア end-->
-     <!-- SNS start -->
-     <div class="sidebar-module">
-      <ul class="social-buttons">
-       <li>
-        <!-- hatena -->
-        <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
-         <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
-        </a>
-        <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
-        </script>
-       </li>
-       <li>
-        <!-- FB -->
-        <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
-        </div>
-        <div id="fb-root">
-        </div>
-        <script>
-         (function(d, s, id) {
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) return;
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-        </script>
-       </li>
-       <li>
-        <!-- twitter -->
-        <a class="twitter-share-button" href="https://twitter.com/share">
-         Tweet
-        </a>
-        <script>
-         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-        </script>
-       </li>
-       <li>
-        <!-- G+ -->
-        <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
-        <script async="" defer="" src="https://apis.google.com/js/platform.js">
-         {lang: 'ja'}
-        </script>
-        <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
-        <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
-        </div>
-       </li>
-       <li>
-        <!-- IN/Share -->
-        <script src="//platform.linkedin.com/in.js" type="text/javascript">
-         lang: ja_JP
-        </script>
-        <script data-counter="right" type="IN/Share">
-        </script>
-       </li>
-      </ul>
-     </div>
-     <div class="print">
-      <a href="./111_print.html">
-       <img src="./assets/images/print.png"/>
-       印刷する
-      </a>
-     </div>
-     <!-- SNS end -->
-     <div class="sidebar-module">
-      <h3>
-       Python入門
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="./">
-         トップページ
-        </a>
-       </li>
-       <li>
-        <a href="./download.html">
-         ダウンロード
-        </a>
-       </li>
-       <li>
-        <a href="./qa.html">
-         質問と回答
-        </a>
-       </li>
-       <li>
-        <a href="./books.html">
-         おすすめPython書籍
-        </a>
-       </li>
-       <li>
-        <a href="./about.html">
-         このページについて
-        </a>
-       </li>
-      </ol>
-     </div>
-     <div class="sidebar-module">
-      <h3>
-       初級編
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="./001.html">
-         前書き
-        </a>
-       </li>
-       <li>
-        <a href="./002.html">
-         目次
-        </a>
-       </li>
-       <li>
-        <a href="./003.html">
-         Pythonプログラミング
-        </a>
-       </li>
-       <li>
-        <a href="./004.html">
-         インストールと実行
-        </a>
-       </li>
-       <li>
-        <a href="./005.html">
-         概要
-        </a>
-       </li>
-       <li>
-        <a href="./006.html">
-         型と変数
-        </a>
-       </li>
-       <li>
-        <a href="./007.html">
-         最重要な型
-        </a>
-       </li>
-       <li>
-        <a href="./008.html">
-         制御構造
-        </a>
-       </li>
-       <li>
-        <a href="./009.html">
-         関数
-        </a>
-       </li>
-       <li>
-        <a href="./010.html">
-         モジュール
-        </a>
-       </li>
-       <li>
-        <a href="./011.html">
-         オブジェクトとメソッド
-        </a>
-       </li>
-       <li>
-        <a href="./012.html">
-         テキスト処理
-        </a>
-       </li>
-       <li>
-        <a href="./013.html">
-         リスト再入門
-        </a>
-       </li>
-       <li>
-        <a href="./014.html">
-         タプル
-        </a>
-       </li>
-       <li>
-        <a href="./015.html">
-         セット
-        </a>
-       </li>
-       <li>
-        <a href="./016.html">
-         辞書型
-        </a>
-       </li>
-       <li>
-        <a href="./017.html">
-         None型
-        </a>
-       </li>
-       <li>
-        <a href="./018.html">
-         ファイル処理
-        </a>
-       </li>
-       <li>
-        <a href="./019.html">
-         基数と文字コード
-        </a>
-       </li>
-       <li>
-        <a href="./020.html">
-         日本語の扱い
-        </a>
-       </li>
-       <li>
-        <a href="./021.html">
-         プログラムへの入力
-        </a>
-       </li>
-       <li>
-        <a href="./022.html">
-         関数の高度なトピック
-        </a>
-       </li>
-       <li>
-        <a href="./023.html">
-         おわりに
-        </a>
-       </li>
-      </ol>
-     </div>
-     <div class="sidebar-module">
-      <h3>
-       中級編
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="./101.html">
-         前書き
-        </a>
-       </li>
-       <li>
-        <a href="./102.html">
-         目次
-        </a>
-       </li>
-       <li>
-        <a href="./103.html">
-         オブジェクト指向を体験
-        </a>
-       </li>
-       <li>
-        <a href="./104.html">
-         データ構造
-        </a>
-       </li>
-       <li>
-        <a href="./105.html">
-         クラスとインスタンス化
-        </a>
-       </li>
-       <li>
-        <a href="./106.html">
-         インスタンスとメソッド
-        </a>
-       </li>
-       <li>
-        <a href="./107.html">
-         コンストラクタ
-        </a>
-       </li>
-       <li>
-        <a href="./108.html">
-         self
-        </a>
-       </li>
-       <li>
-        <a href="./109.html">
-         情報の隠蔽
-        </a>
-       </li>
-       <li>
-        <a href="./110.html">
-         オブジェクトの役割
-        </a>
-       </li>
-       <li>
-        <a href="./111.html">
-         関数型プログラミング
-        </a>
-       </li>
-       <li>
-        <a href="./112.html">
-         ゲーム作り
-        </a>
-       </li>
-       <li>
-        <a href="./113.html">
-         クラスの継承
-        </a>
-       </li>
-       <li>
-        <a href="./114.html">
-         メソッドのオーバーライド
-        </a>
-       </li>
-       <li>
-        <a href="./115.html">
-         GUIで継承を学ぶ
-        </a>
-       </li>
-       <li>
-        <a href="./116.html">
-         クラスの高度なトピック
-        </a>
-       </li>
-       <li>
-        <a href="./117.html">
-         ドキュメンテーション
-        </a>
-       </li>
-       <li>
-        <a href="./118.html">
-         例外処理の基礎
-        </a>
-       </li>
-       <li>
-        <a href="./119.html">
-         例外クラス
-        </a>
-       </li>
-       <li>
-        <a href="./120.html">
-         高度な例外処理
-        </a>
-       </li>
-       <li>
-        <a href="./121.html">
-         終わりに
-        </a>
-       </li>
-      </ol>
-     </div>
-     <!-- amazon -->
-     <div class="sidebar-module">
-      <script type="text/javascript">
-       amazon_ad_tag ="grit-22"; amazon_ad_width ="300"; amazon_ad_height ="250"; amazon_ad_link_target ="new";
-      </script>
-      <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
-      </script>
-     </div>
-     <!-- amazon end-->
-     <div class="sidebar-module">
-      <h3>
-       その他
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="https://github.com/yuichi110/www.yuichi.com-python" target="_blank">
-         <span class="fa fa-github">
-         </span>
-         GitHub Repository
-        </a>
-       </li>
-       <li>
-        <a href="https://twitter.com/yuichi110" target="_blank">
-         <i class="fa fa-twitter">
-         </i>
-         Twitter
-        </a>
-       </li>
-       <li>
-        <a href="https://www.linkedin.com/in/yuichiito/" target="_blank">
-         <span class="fa fa-linkedin">
-         </span>
-         Linkedin (英語)
-        </a>
-       </li>
-       <li class="li-none">
-        <a href="#" id="rw_email_contact">
-         <span class="fa fa-envelope">
-          Mail
-         </span>
-        </a>
-        <script type="text/javascript">
-         var _rwObsfuscatedHref0 = "mai";var _rwObsfuscatedHref1 = "lto";var _rwObsfuscatedHref2 = ":yu";
-              var _rwObsfuscatedHref3 = "ich";var _rwObsfuscatedHref4 = "i@y";var _rwObsfuscatedHref5 = "uic";
-              var _rwObsfuscatedHref6 = "hi.";var _rwObsfuscatedHref7 = "com";
-              var _rwObsfuscatedHref = _rwObsfuscatedHref0+_rwObsfuscatedHref1+_rwObsfuscatedHref2+_rwObsfuscatedHref3+_rwObsfuscatedHref4+_rwObsfuscatedHref5+_rwObsfuscatedHref6+_rwObsfuscatedHref7; document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
-        </script>
-       </li>
-      </ol>
-     </div>
-     <div class="sidebar-module">
-      <!-- padding for side bar -->
-      <div class="hidden-xs">
-       <p style="height:500px">
+     <!-- /.blog-main -->
+     <div class="col-sm-3 col-sm-offset-1 u1-sidebar">
+      <!-- SNS start -->
+      <div class="sidebar-module">
+       <ul class="social-buttons">
+        <li>
+         <!-- hatena -->
+         <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
+          <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
+         </a>
+         <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
+         </script>
+        </li>
+        <li>
+         <!-- FB -->
+         <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
+         </div>
+         <div id="fb-root">
+         </div>
+         <script>
+          (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }(document, 'script', 'facebook-jssdk'));
+         </script>
+        </li>
+        <li>
+         <!-- twitter -->
+         <a class="twitter-share-button" href="https://twitter.com/share">
+          Tweet
+         </a>
+         <script>
+          ! function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                      p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = p + '://platform.twitter.com/widgets.js';
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }
+                  }(document, 'script', 'twitter-wjs');
+         </script>
+        </li>
+        <li>
+         <!-- G+ -->
+         <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
+         <script async="" defer="" src="https://apis.google.com/js/platform.js">
+          {
+                    lang: 'ja'
+                  }
+         </script>
+         <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+         <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
+         </div>
+        </li>
+        <li>
+         <!-- IN/Share -->
+         <script src="//platform.linkedin.com/in.js" type="text/javascript">
+          lang: ja_JP
+         </script>
+         <script data-counter="right" type="IN/Share">
+         </script>
+        </li>
+       </ul>
+      </div>
+      <div class="print">
+       <a href="./003_print.html">
+        <img src="./assets/images/print.png"/>
+        印刷する
+       </a>
+      </div>
+      <!-- SNS end -->
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Python入門
        </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./">
+          トップページ
+         </a>
+        </li>
+        <li>
+         <a href="./download.html">
+          ダウンロード
+         </a>
+        </li>
+        <li>
+         <a href="./qa.html">
+          質問と回答
+         </a>
+        </li>
+        <li>
+         <a href="./books.html">
+          おすすめPython書籍
+         </a>
+        </li>
+        <li>
+         <a href="./about.html">
+          このページについて
+         </a>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        初級編
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./001.html">
+          前書き
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          目次
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Pythonプログラミング
+         </a>
+        </li>
+        <li>
+         <a href="./004.html">
+          インストールと実行
+         </a>
+        </li>
+        <li>
+         <a href="./005.html">
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="./006.html">
+          型と変数
+         </a>
+        </li>
+        <li>
+         <a href="./007.html">
+          最重要な型
+         </a>
+        </li>
+        <li>
+         <a href="./008.html">
+          制御構造
+         </a>
+        </li>
+        <li>
+         <a href="./009.html">
+          関数
+         </a>
+        </li>
+        <li>
+         <a href="./010.html">
+          モジュール
+         </a>
+        </li>
+        <li>
+         <a href="./011.html">
+          オブジェクトとメソッド
+         </a>
+        </li>
+        <li>
+         <a href="./012.html">
+          テキスト処理
+         </a>
+        </li>
+        <li>
+         <a href="./013.html">
+          リスト再入門
+         </a>
+        </li>
+        <li>
+         <a href="./014.html">
+          タプル
+         </a>
+        </li>
+        <li>
+         <a href="./015.html">
+          セット
+         </a>
+        </li>
+        <li>
+         <a href="./016.html">
+          辞書型
+         </a>
+        </li>
+        <li>
+         <a href="./017.html">
+          None型
+         </a>
+        </li>
+        <li>
+         <a href="./018.html">
+          ファイル処理
+         </a>
+        </li>
+        <li>
+         <a href="./019.html">
+          基数と文字コード
+         </a>
+        </li>
+        <li>
+         <a href="./020.html">
+          日本語の扱い
+         </a>
+        </li>
+        <li>
+         <a href="./021.html">
+          プログラムへの入力
+         </a>
+        </li>
+        <li>
+         <a href="./022.html">
+          関数の高度なトピック
+         </a>
+        </li>
+        <li>
+         <a href="./023.html">
+          おわりに
+         </a>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        中級編
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./101.html">
+          前書き
+         </a>
+        </li>
+        <li>
+         <a href="./102.html">
+          目次
+         </a>
+        </li>
+        <li>
+         <a href="./103.html">
+          オブジェクト指向を体験
+         </a>
+        </li>
+        <li>
+         <a href="./104.html">
+          データ構造
+         </a>
+        </li>
+        <li>
+         <a href="./105.html">
+          クラスとインスタンス化
+         </a>
+        </li>
+        <li>
+         <a href="./106.html">
+          インスタンスとメソッド
+         </a>
+        </li>
+        <li>
+         <a href="./107.html">
+          コンストラクタ
+         </a>
+        </li>
+        <li>
+         <a href="./108.html">
+          self
+         </a>
+        </li>
+        <li>
+         <a href="./109.html">
+          情報の隠蔽
+         </a>
+        </li>
+        <li>
+         <a href="./110.html">
+          オブジェクトの役割
+         </a>
+        </li>
+        <li>
+         <a href="./111.html">
+          関数型プログラミング
+         </a>
+        </li>
+        <li>
+         <a href="./112.html">
+          ゲーム作り
+         </a>
+        </li>
+        <li>
+         <a href="./113.html">
+          クラスの継承
+         </a>
+        </li>
+        <li>
+         <a href="./114.html">
+          メソッドのオーバーライド
+         </a>
+        </li>
+        <li>
+         <a href="./115.html">
+          GUIで継承を学ぶ
+         </a>
+        </li>
+        <li>
+         <a href="./116.html">
+          クラスの高度なトピック
+         </a>
+        </li>
+        <li>
+         <a href="./117.html">
+          ドキュメンテーション
+         </a>
+        </li>
+        <li>
+         <a href="./118.html">
+          例外処理の基礎
+         </a>
+        </li>
+        <li>
+         <a href="./119.html">
+          例外クラス
+         </a>
+        </li>
+        <li>
+         <a href="./120.html">
+          高度な例外処理
+         </a>
+        </li>
+        <li>
+         <a href="./121.html">
+          終わりに
+         </a>
+        </li>
+       </ol>
+      </div>
+      <!-- amazon -->
+      <div class="sidebar-module">
+       <script type="text/javascript">
+        amazon_ad_tag = "grit-22";
+              amazon_ad_width = "300";
+              amazon_ad_height = "250";
+              amazon_ad_link_target = "new";
+       </script>
+       <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
+       </script>
+      </div>
+      <!-- amazon end-->
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Python入門
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="https://github.com/yuichi110/www.yuichi.com-python" target="_blank">
+          <span class="fa fa-github">
+          </span>
+          GitHub Repository
+         </a>
+        </li>
+        <li>
+         <a href="https://twitter.com/yuichi110" target="_blank">
+          <i class="fa fa-twitter">
+          </i>
+          Twitter
+         </a>
+        </li>
+        <li>
+         <a href="https://www.linkedin.com/in/yuichiito/" target="_blank">
+          <span class="fa fa-linkedin">
+          </span>
+          Linkedin (英語)
+         </a>
+        </li>
+        <li class="li-none">
+         <a href="#" id="rw_email_contact">
+          <span class="fa fa-envelope">
+           Mail
+          </span>
+         </a>
+         <script type="text/javascript">
+          var _rwObsfuscatedHref0 = "mai";
+                  var _rwObsfuscatedHref1 = "lto";
+                  var _rwObsfuscatedHref2 = ":yu";
+                  var _rwObsfuscatedHref3 = "ich";
+                  var _rwObsfuscatedHref4 = "i@y";
+                  var _rwObsfuscatedHref5 = "uic";
+                  var _rwObsfuscatedHref6 = "hi.";
+                  var _rwObsfuscatedHref7 = "com";
+                  var _rwObsfuscatedHref = _rwObsfuscatedHref0 + _rwObsfuscatedHref1 + _rwObsfuscatedHref2 + _rwObsfuscatedHref3 + _rwObsfuscatedHref4 + _rwObsfuscatedHref5 + _rwObsfuscatedHref6 + _rwObsfuscatedHref7;
+                  document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
+         </script>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <!-- padding for side bar -->
+       <div class="hidden-xs">
+        <p style="height:500px">
+        </p>
+       </div>
       </div>
      </div>
+     <!-- /.blog-sidebar -->
     </div>
-    <!-- /.blog-sidebar -->
+    <!-- /.row -->
    </div>
-   <!-- /.row -->
-  </div>
-  <!-- /.container -->
-  <footer>
-   <div class="blog-footer-top">
-   </div>
-   <div class="blog-footer">
-    <p>
-     Copyright © 2017 Yuichi Ito All Rights Reserved.
-    </p>
-    <p align="center">
-     修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
-     <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
-      <span class="fa fa-github">
-      </span>
-      Git Hub Issues
-     </a>
-    </p>
-   </div>
-  </footer>
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-  </script>
-  <script src="./assets/js/bootstrap.min.js">
-  </script>
-  <script src="./assets/js/delete_useless_dom.js">
-  </script>
-  <!-- GOOGLE ANALYTICS -->
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+   <!-- /.container -->
+   <footer>
+    <div class="u1-footer-top">
+    </div>
+    <div class="u1-footer">
+     <p>
+      Copyright © 2017 Yuichi Ito All Rights Reserved.
+     </p>
+     <p align="center">
+      修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
+      <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
+       <span class="fa fa-github">
+       </span>
+       Git Hub Issues
+      </a>
+     </p>
+    </div>
+   </footer>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+   </script>
+   <script src="./assets/js/bootstrap.min.js">
+   </script>
+   <script src="./assets/js/delete_useless_dom.js">
+   </script>
+   <!-- GOOGLE ANALYTICS -->
+   <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
       ga('create', 'UA-4830860-7', 'auto');
       ga('send', 'pageview');
-  </script>
+   </script>
+  </div>
+  <!-- end of background -->
  </body>
 </html>

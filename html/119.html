@@ -11,17 +11,18 @@
   <title>
    Python入門
   </title>
-  <!-- Bootstrap core CSS -->
+  <!-- Bootstrap -->
   <link href="./assets/css/bootstrap.css" rel="stylesheet"/>
-  <!-- Custom styles for this template -->
-  <link href="./assets/css/blog.css" rel="stylesheet"/>
-  <!-- Code Highlight -->
-  <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
-  <!-- Custom -->
-  <link href="./assets/css/css001.css" rel="stylesheet"/>
-  <link href="./assets/css/toc.css" rel="stylesheet"/>
-  <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
-  <link href="./assets/icomoon/style.css" rel="stylesheet">
+  <link href="./assets/css/bootstrap-theme.css" rel="stylesheet"/>
+  <link href="./assets/css/bootstrap_u1.css" rel="stylesheet"/>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+   <!-- Code Highlight -->
+   <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+   <!-- Custom -->
+   <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+   <link href="./assets/icomoon/style.css" rel="stylesheet"/>
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -30,107 +31,132 @@
   </link>
  </head>
  <body>
-  <div class="blog-masthead">
-   <div class="container">
-    <nav class="blog-nav">
-     <a class="blog-nav-item active" href="./">
-      サイトトップ
-     </a>
-     <a class="blog-nav-item " href="./download.html">
-      ダウンロード
-     </a>
-     <a class="blog-nav-item " href="./qa.html">
-      質問と回答
-     </a>
-     <a class="blog-nav-item " href="./books.html">
-      おすすめ書籍
-     </a>
-     <a class="blog-nav-item " href="./about.html">
-      このページについて
-     </a>
-     <a class="blog-nav-item" href="http://www.yuichi.com/">
-      GRIT Computing
-     </a>
-    </nav>
-   </div>
-  </div>
-  <div class="container">
-   <div class="blog-header">
-    <a href="./" style=" text-decoration: none;">
-     <h1 class="blog-title">
-      Python入門
-     </h1>
-     <p class="lead blog-description">
-      プログラミング言語Pythonについて
-     </p>
-    </a>
-   </div>
-   <div class="row">
-    <div class="col-sm-8 blog-main">
-     <!-- GENERATED HTML START -->
-     <h2>
-      例外クラス
-     </h2>
-     <div class="no_bullets" id="toc_container">
-      <p class="toc_title">
-       本記事の内容
-      </p>
-      <ul class="toc_list">
-       <li>
-        <a href="#header-1">
-         概要
+  <div class="backgroundLayer">
+   <!-- Fixed navbar -->
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+     <div class="navbar-header">
+      <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+       <span class="sr-only">
+        Toggle navigation
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+      </button>
+      <a class="navbar-brand " href="#">
+       Python
+      </a>
+     </div>
+     <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav">
+       <li class="">
+        <a href="">
+         Navi
         </a>
        </li>
-       <li>
-        <a href="header-2">
-         例外処理のためのクラス
+       <li class="">
+        <a href="">
+         QA
         </a>
        </li>
-       <li>
-        <a href="header-3">
-         カスタム例外クラスの作成
-        </a>
-       </li>
-       <li>
-        <a href="header-4">
-         例外クラスの体系
+       <li class="">
+        <a href="">
+         Books
         </a>
        </li>
       </ul>
      </div>
-     <h3 id="header-1">
-      概要
-     </h3>
-     <h3 id="header-2">
-      例外処理のためのクラス
-     </h3>
-     <p>
-      以前お話したPythonの継承について思い出してください。
+    </div>
+   </nav>
+   <div class="container">
+    <div class="u1-header">
+     <a href="./" style=" text-decoration: none;">
+      <div class="u1-title">
+       Python Boot Camp
+      </div>
+      <p class="lead u1-description">
+       プログラミング言語Python訓練プログラム
+      </p>
+     </a>
+    </div>
+    <div class="row">
+     <div class="col-sm-8 u1-main">
+      <!-- GENERATED HTML START -->
+      <!-- GENERATED HTML START -->
+      <h2 id="header-1">
+       例外クラス
+      </h2>
+      <div class="no_bullets" id="toc_container">
+       <p class="toc_title">
+        本記事の内容
+       </p>
+       <ul class="toc_list">
+        <li>
+         <a href="#header-1">
+          例外クラス
+         </a>
+         <ul>
+          <li>
+           <a href="#header-2">
+            概要
+           </a>
+          </li>
+          <li>
+           <a href="#header-3">
+            例外処理のためのクラス
+           </a>
+          </li>
+          <li>
+           <a href="#header-4">
+            カスタム例外クラスの作成
+           </a>
+          </li>
+          <li>
+           <a href="#header-5">
+            例外クラスの体系
+           </a>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </div>
+      <h3 id="header-2">
+       概要
+      </h3>
+      <h3 id="header-3">
+       例外処理のためのクラス
+      </h3>
+      <p>
+       以前お話したPythonの継承について思い出してください。
 継承では、親クラスに大まかな実装を行い、子クラスにより詳細な実装をするのでした。
 たとえば親クラスが「車クラス」だとすると、子クラスは「乗用車クラス」「トラッククラス」「スポーツカークラス」といったかたちで差分を実装します。
 この継承は例外処理にも関わってきます。先ほど深い説明なしにexceptを以下のように使いました。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">'4: inside of except(catch) scope'</span><span class="p">)</span>
 </pre>
-     </div>
-     <p>
-      exceptの後にあるExceptionは例外処理のためのクラスです。
+      </div>
+      <p>
+       exceptの後にあるExceptionは例外処理のためのクラスです。
 実はこのException を継承したクラスはさまざまあり、
 たとえばIO(入出力)のエラーを扱うためのOSError (Python2 では IOError)や、
 リストの範囲外にアクセスした場合に発生する IndexErrorなどとなります。
 これはちょうどExceptionが先ほどの説明の車クラスにあたり、OSErrorが乗用車クラス、
 IndexErrorがトラッククラスにあたります。
-     </p>
-     <p>
-      このエラークラスとその使い方について覚えておいてもらいたいことは3つあります。
+      </p>
+      <p>
+       このエラークラスとその使い方について覚えておいてもらいたいことは3つあります。
 ひとつめは「発生したエラーの種類に応じて呼び出されるエラーのクラスが異なる」ということです。
 たとえば、上記のIOError は当然ながらIO系の処理が失敗した際に利用されますが、
 まったく関係ないエラーである0による除算では利用されません。
-     </p>
-     <p>
-      ふたつめは「exceptに親クラスを指定した場合は子クラスのエラーも対応できる」ということです。
+      </p>
+      <p>
+       ふたつめは「exceptに親クラスを指定した場合は子クラスのエラーも対応できる」ということです。
 たとえばOSErrorの例外は親クラスであるExceptionでも対応可能です。
 これは先程のサンプルの 「except Exception as e 」の e にException クラスではなく、
 ZeroDivisionError のクラスのインスタンスが入っていたことでも分かります。
@@ -138,14 +164,14 @@ ZeroDivisionError のクラスのインスタンスが入っていたことで�
 複数書いた場合は先頭から順にチェックしていき、最初にマッチした処理が実行されます。
 どのexceptもマッチしなければ例外処理が実行できずにエラーでプログラムそのものが停止してしまいます。
 これは後ほど実例を示します。
-     </p>
-     <p>
-      さっそくコードを書きながら確かめてみましょう。
+      </p>
+      <p>
+       さっそくコードを書きながら確かめてみましょう。
 まず、以下のコードがあります。exceptが2つあり、それぞれOSErrorとExceptionと記載されています。
 2つだけでなく、好きなだけexceptを書くことができます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">try</span><span class="p">:</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">try</span><span class="p">:</span>
   <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'helloworld.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
 
 <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
@@ -154,26 +180,26 @@ ZeroDivisionError のクラスのインスタンスが入っていたことで�
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s1">'exception'</span><span class="p">)</span>
 </pre>
-     </div>
-     <p>
-      今回は存在しないファイルhelloworld.txtを読み込もうとしてエラーを発生させます。
+      </div>
+      <p>
+       今回は存在しないファイルhelloworld.txtを読み込もうとしてエラーを発生させます。
 これはOSErrorが発生します。さっそく実行してみます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span>$ python3 test.py
+      </p>
+      <div class="codehilite">
+       <pre><span></span>$ python3 test.py
 os error
 </pre>
-     </div>
-     <p>
-      表示された'os error'を見てわかるように、1番目のexceptが呼び出されています。
+      </div>
+      <p>
+       表示された'os error'を見てわかるように、1番目のexceptが呼び出されています。
 'exception'という表示がないことから、2番目のexceptは呼び出されていないことがわかります。
 これは「最初にマッチした処理が実行」されるという仕組みがあるからです。
-     </p>
-     <p>
-      次に発生させるエラーを0除算に変えてみます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">try</span><span class="p">:</span>
+      </p>
+      <p>
+       次に発生させるエラーを0除算に変えてみます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">try</span><span class="p">:</span>
   <span class="mi">5</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
@@ -182,30 +208,30 @@ os error
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s1">'exception'</span><span class="p">)</span>
 </pre>
-     </div>
-     <p>
-      これを実行すると以下のようになります。
-     </p>
-     <div class="codehilite">
-      <pre><span></span># python3 test.py
+      </div>
+      <p>
+       これを実行すると以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span># python3 test.py
 exception
 </pre>
-     </div>
-     <p>
-      先ほどと異なり、2番目のexceptが呼び出されています。
+      </div>
+      <p>
+       先ほどと異なり、2番目のexceptが呼び出されています。
 これは1番目のexceptが、発生したエラーにマッチしておらず、無視されたためです。
 今回はOSErrorが1番目に指定されていますが、5/0で発生したエラーはOSErrorではなくZeroDivisionErrorなので、マッチしません。
 ただ、2番目のExceptionはZeroDivisionErrorの親クラスなのでマッチし、2番目のexceptが呼び出されています。
-     </p>
-     <p>
-      エラークラスの親子関係は継承でお話した特殊属性の
-      <code>
-       __base__
-      </code>
-      を使うことで簡単に調べることができます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span>&gt;&gt;&gt; 5/0
+      </p>
+      <p>
+       エラークラスの親子関係は継承でお話した特殊属性の
+       <code>
+        __base__
+       </code>
+       を使うことで簡単に調べることができます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; 5/0
 Traceback (most recent call last):
   File "&lt;stdin&gt;", line 1, in &lt;module&gt;
 ZeroDivisionError: division by zero
@@ -218,14 +244,14 @@ ZeroDivisionError: division by zero
 &gt;&gt;&gt; ZeroDivisionError.__base__.__base__
 &lt;class 'Exception'&gt;
 </pre>
-     </div>
-     <p>
-      上記のようにZeroDivisionError が Exception の子クラスであることがわかります。
+      </div>
+      <p>
+       上記のようにZeroDivisionError が Exception の子クラスであることがわかります。
 また、先ほど言ったように、どのexceptの例外クラスもマッチしないとエラーになります。
 試しに2番目のexceptを削ってみます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">try</span><span class="p">:</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">try</span><span class="p">:</span>
   <span class="mi">5</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
@@ -233,64 +259,64 @@ ZeroDivisionError: division by zero
 
 <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre>
-     </div>
-     <p>
-      これを実行すると以下のようになります。
-     </p>
-     <div class="codehilite">
-      <pre><span></span>$ python3 test.py
+      </div>
+      <p>
+       これを実行すると以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>$ python3 test.py
 Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
   File <span class="s2">"test.py"</span>, line <span class="m">2</span>, in &lt;module&gt;
     <span class="m">5</span> / <span class="m">0</span>
 ZeroDivisionError: division by zero
 </pre>
-     </div>
-     <p>
-      最後の'print(1)'に対応する出力がないことから、グローバルレベルでプログラムの処理が打ち切られていることがわかります。
+      </div>
+      <p>
+       最後の'print(1)'に対応する出力がないことから、グローバルレベルでプログラムの処理が打ち切られていることがわかります。
 発生するエラーの種類によってさまざまな例外処理を切り替える必要がある場合は、
 このように複数のexceptを使って例外処理を実装すると簡単です。
-     </p>
-     <p>
-      なお、先ほど言ったように前のexceptにマッチしたら、後のexceptはチェックされません。
+      </p>
+      <p>
+       なお、先ほど言ったように前のexceptにマッチしたら、後のexceptはチェックされません。
 そのため、以下のコードで2番目のexcept IOErrorが呼び出されることは絶対にありません。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s1">'exception'</span><span class="p">)</span>
 
 <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s1">'io error'</span><span class="p">)</span>
 </pre>
-     </div>
-     <p>
-      前のexceptになんにでもマッチするものを書いてしまうと、例外はすべてそこで処理されてしまいます。
+      </div>
+      <p>
+       前のexceptになんにでもマッチするものを書いてしまうと、例外はすべてそこで処理されてしまいます。
 つまり、前のexceptほどキャッチできる対象が小さい子クラスの例外クラスを書き、
 後半ほど大きな範囲をカバーできる親クラスの例外クラスを書く必要があるということです。
-     </p>
-     <p>
-      Python のプログラムは簡潔であるべき場合が多いため、
+      </p>
+      <p>
+       Python のプログラムは簡潔であるべき場合が多いため、
 このような複数の except を書くテクニックは必ず必要という場面でなければ使う必要はありません。
 ただ、例外処理で対応すべきでない「バグ」を例外で拾ってしまって埋もれることを防ぐ必要があるため、
 全てを Exception や BaseException(一番広範囲の例外) で拾うのではなく、
 適切な例外クラスを指定するようにしてください。
 例外はバグに対応するためにあるものではありません。
-     </p>
-     <h3 id="header-3">
-      カスタム例外クラスの作成
-     </h3>
-     <p>
-      今までは既存の例外クラスのみを利用していましたが、自分で例外クラスを作りそれを使うことも可能です。
-     </p>
-     <p>
-      自分で作った例外クラスはraiseとともに使うのですが、
+      </p>
+      <h3 id="header-4">
+       カスタム例外クラスの作成
+      </h3>
+      <p>
+       今までは既存の例外クラスのみを利用していましたが、自分で例外クラスを作りそれを使うことも可能です。
+      </p>
+      <p>
+       自分で作った例外クラスはraiseとともに使うのですが、
 既存の例外クラスよりも「自分がわざと発生させた例外」を扱うには行儀がいいです。
 なぜなら既存の例外クラスは本来の利用用途があり、それは自分が意図的に発生させた例外とは目的が異なるからです。
-     </p>
-     <p>
-      さっそく例外クラスを作って、使ってみます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">class</span> <span class="nc">MyError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+      </p>
+      <p>
+       さっそく例外クラスを作って、使ってみます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">class</span> <span class="nc">MyError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
   <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -302,533 +328,549 @@ ZeroDivisionError: division by zero
   <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
   <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </pre>
-     </div>
-     <p>
-      Exceptionクラスを継承してMyErrorクラスを作っています。
+      </div>
+      <p>
+       Exceptionクラスを継承してMyErrorクラスを作っています。
 名前は基本的には「なんとかError」とするのが通例です。
 継承の詳細は割愛しますが、正直なところ名前以外のコードは完全にコピペするか、
 もしくはコンストラクタの引数あたりを少しいじる程度になると思います。
-     </p>
-     <p>
-      そして raise で発生されたこのクラスの例外はexceptで同じ例外クラス(もしくは親クラス)を指定してエラーをキャッチしています。
+      </p>
+      <p>
+       そして raise で発生されたこのクラスの例外はexceptで同じ例外クラス(もしくは親クラス)を指定してエラーをキャッチしています。
 エラーの名前が適切であれば、かなり行儀がいいコードだと思います。
-     </p>
-     <p>
-      これを実行すると以下のような出力が得られます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span>&lt;class '__main__.MyError'&gt;
+      </p>
+      <p>
+       これを実行すると以下のような出力が得られます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&lt;class '__main__.MyError'&gt;
 'my error happens'
 </pre>
-     </div>
-     <p>
-      基本的には既存の例外クラスとほぼ同じ使い方です。自分で例外クラスを作る場合でも、
+      </div>
+      <p>
+       基本的には既存の例外クラスとほぼ同じ使い方です。自分で例外クラスを作る場合でも、
 あまり複雑な実装をせずに名前だけで区別するのが通例のようです。
 ただ、どの例外クラスを継承して自分の例外クラスを作るかには気を配る必要があります。
 例えば計算エラー関係の例外クラスを自分で作るのであれば、それを IOError から作るのは間違った判断です。
 難しいことを考えたくないのであれば、とりあえず Exception を継承することにしてください。
-     </p>
-     <h3 id="header-4">
-      例外クラスの体系
-     </h3>
-     <p>
-      例外クラスは
-      <code>
-       BaseException
-      </code>
-      を起源として様々なものが存在しています。
+      </p>
+      <h3 id="header-5">
+       例外クラスの体系
+      </h3>
+      <p>
+       例外クラスは
+       <code>
+        BaseException
+       </code>
+       を起源として様々なものが存在しています。
 数が多いので全てを覚える必要はないのですが、おおまかな体系だけは把握することが望ましいです。
 以下に Python3 の例外クラスの継承関係の図を示します。
 オレンジ色のクラスが覚えておいて頂きたい例外クラスです。
-     </p>
-     <p align="center" class="blog-img">
-      <img alt="image" class="img-responsive" src="./1095_image/01.png"/>
-     </p>
-     <p>
-      図を見ていただくと分かりますが BaseException から派生した例外クラスは Exception 以外にもいくつかあります。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./1095_image/01.png"/>
+      </p>
+      <p>
+       図を見ていただくと分かりますが BaseException から派生した例外クラスは Exception 以外にもいくつかあります。
 ただ、それらの名前は Error で終わっていないことがわかります。
 これらの例外は基本的に例外処理の対象とはしません。
 例外処理のメインとなるのは Exception クラスの子クラスとなり、
 一部の例外はあるもののそれらには共通して「なんとかError」という名前がついています。
 例外処理をする際は、このクラスの継承関係を意識しながら「処理したい例外もしくはその親クラス」で例外を処理するようにしてください。
-     </p>
-     <p>
-      実は例外クラスを省略して try/catch を使うことができます。
+      </p>
+      <p>
+       実は例外クラスを省略して try/catch を使うことができます。
 ただ、その場合は暗黙的に BaseException を対象として例外処理がされるため、
 可能な限り利用は避けて下さい。
 例えば以下のコードですとpython のプログラムを終了する exit 関数ですら例外として処理されてしまいます。
-     </p>
-     <div class="codehilite">
-      <pre><span></span><span class="k">try</span><span class="p">:</span>
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">try</span><span class="p">:</span>
   <span class="nb">exit</span><span class="p">()</span>
 <span class="k">except</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s1">'error'</span><span class="p">)</span>
 </pre>
+      </div>
+      <p>
+       自分が意図していない例外処理が働いてしまわないように注意をしてください。
+      </p>
+      <!-- GENERATED HTML END -->
+      <!-- GENERATED HTML END -->
+      <nav>
+       <ul class="pager">
+        <li id="previous-li">
+         <a href="./118.html" id="previous-a">
+          ← Previous
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          Page Top
+         </a>
+        </li>
+        <li class="pager-next" id="next-li">
+         <a href="./118.html" id="next-a">
+          Next →
+         </a>
+        </li>
+       </ul>
+      </nav>
      </div>
-     <p>
-      自分が意図していない例外処理が働いてしまわないように注意をしてください。
-     </p>
-     <!-- GENERATED HTML END -->
-     <nav>
-      <ul class="pager">
-       <li id="previous-li">
-        <a href="./118.html" id="previous-a">
-         ← Previous
-        </a>
-       </li>
-       <li>
-        <a href="#">
-         Page Top
-        </a>
-       </li>
-       <li class="pager-next" id="next-li">
-        <a href="./120.html" id="next-a">
-         Next →
-        </a>
-       </li>
-      </ul>
-     </nav>
-    </div>
-    <!-- /.blog-main -->
-    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-     <!-- 広告エリア -->
-     <div class="sidebar-module">
-      <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-      </script>
-      <!-- 300 x 250 -->
-      <ins class="adsbygoogle" data-ad-client="ca-pub-9447655910606139" data-ad-slot="4820856978" style="display:inline-block;width:300px;height:250px">
-      </ins>
-      <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-     </div>
-     <!-- 広告エリア end-->
-     <!-- SNS start -->
-     <div class="sidebar-module">
-      <ul class="social-buttons">
-       <li>
-        <!-- hatena -->
-        <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
-         <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
-        </a>
-        <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
-        </script>
-       </li>
-       <li>
-        <!-- FB -->
-        <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
-        </div>
-        <div id="fb-root">
-        </div>
-        <script>
-         (function(d, s, id) {
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) return;
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-        </script>
-       </li>
-       <li>
-        <!-- twitter -->
-        <a class="twitter-share-button" href="https://twitter.com/share">
-         Tweet
-        </a>
-        <script>
-         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-        </script>
-       </li>
-       <li>
-        <!-- G+ -->
-        <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
-        <script async="" defer="" src="https://apis.google.com/js/platform.js">
-         {lang: 'ja'}
-        </script>
-        <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
-        <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
-        </div>
-       </li>
-       <li>
-        <!-- IN/Share -->
-        <script src="//platform.linkedin.com/in.js" type="text/javascript">
-         lang: ja_JP
-        </script>
-        <script data-counter="right" type="IN/Share">
-        </script>
-       </li>
-      </ul>
-     </div>
-     <div class="print">
-      <a href="./119_print.html">
-       <img src="./assets/images/print.png"/>
-       印刷する
-      </a>
-     </div>
-     <!-- SNS end -->
-     <div class="sidebar-module">
-      <h3>
-       Python入門
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="./">
-         トップページ
-        </a>
-       </li>
-       <li>
-        <a href="./download.html">
-         ダウンロード
-        </a>
-       </li>
-       <li>
-        <a href="./qa.html">
-         質問と回答
-        </a>
-       </li>
-       <li>
-        <a href="./books.html">
-         おすすめPython書籍
-        </a>
-       </li>
-       <li>
-        <a href="./about.html">
-         このページについて
-        </a>
-       </li>
-      </ol>
-     </div>
-     <div class="sidebar-module">
-      <h3>
-       初級編
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="./001.html">
-         前書き
-        </a>
-       </li>
-       <li>
-        <a href="./002.html">
-         目次
-        </a>
-       </li>
-       <li>
-        <a href="./003.html">
-         Pythonプログラミング
-        </a>
-       </li>
-       <li>
-        <a href="./004.html">
-         インストールと実行
-        </a>
-       </li>
-       <li>
-        <a href="./005.html">
-         概要
-        </a>
-       </li>
-       <li>
-        <a href="./006.html">
-         型と変数
-        </a>
-       </li>
-       <li>
-        <a href="./007.html">
-         最重要な型
-        </a>
-       </li>
-       <li>
-        <a href="./008.html">
-         制御構造
-        </a>
-       </li>
-       <li>
-        <a href="./009.html">
-         関数
-        </a>
-       </li>
-       <li>
-        <a href="./010.html">
-         モジュール
-        </a>
-       </li>
-       <li>
-        <a href="./011.html">
-         オブジェクトとメソッド
-        </a>
-       </li>
-       <li>
-        <a href="./012.html">
-         テキスト処理
-        </a>
-       </li>
-       <li>
-        <a href="./013.html">
-         リスト再入門
-        </a>
-       </li>
-       <li>
-        <a href="./014.html">
-         タプル
-        </a>
-       </li>
-       <li>
-        <a href="./015.html">
-         セット
-        </a>
-       </li>
-       <li>
-        <a href="./016.html">
-         辞書型
-        </a>
-       </li>
-       <li>
-        <a href="./017.html">
-         None型
-        </a>
-       </li>
-       <li>
-        <a href="./018.html">
-         ファイル処理
-        </a>
-       </li>
-       <li>
-        <a href="./019.html">
-         基数と文字コード
-        </a>
-       </li>
-       <li>
-        <a href="./020.html">
-         日本語の扱い
-        </a>
-       </li>
-       <li>
-        <a href="./021.html">
-         プログラムへの入力
-        </a>
-       </li>
-       <li>
-        <a href="./022.html">
-         関数の高度なトピック
-        </a>
-       </li>
-       <li>
-        <a href="./023.html">
-         おわりに
-        </a>
-       </li>
-      </ol>
-     </div>
-     <div class="sidebar-module">
-      <h3>
-       中級編
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="./101.html">
-         前書き
-        </a>
-       </li>
-       <li>
-        <a href="./102.html">
-         目次
-        </a>
-       </li>
-       <li>
-        <a href="./103.html">
-         オブジェクト指向を体験
-        </a>
-       </li>
-       <li>
-        <a href="./104.html">
-         データ構造
-        </a>
-       </li>
-       <li>
-        <a href="./105.html">
-         クラスとインスタンス化
-        </a>
-       </li>
-       <li>
-        <a href="./106.html">
-         インスタンスとメソッド
-        </a>
-       </li>
-       <li>
-        <a href="./107.html">
-         コンストラクタ
-        </a>
-       </li>
-       <li>
-        <a href="./108.html">
-         self
-        </a>
-       </li>
-       <li>
-        <a href="./109.html">
-         情報の隠蔽
-        </a>
-       </li>
-       <li>
-        <a href="./110.html">
-         オブジェクトの役割
-        </a>
-       </li>
-       <li>
-        <a href="./111.html">
-         関数型プログラミング
-        </a>
-       </li>
-       <li>
-        <a href="./112.html">
-         ゲーム作り
-        </a>
-       </li>
-       <li>
-        <a href="./113.html">
-         クラスの継承
-        </a>
-       </li>
-       <li>
-        <a href="./114.html">
-         メソッドのオーバーライド
-        </a>
-       </li>
-       <li>
-        <a href="./115.html">
-         GUIで継承を学ぶ
-        </a>
-       </li>
-       <li>
-        <a href="./116.html">
-         クラスの高度なトピック
-        </a>
-       </li>
-       <li>
-        <a href="./117.html">
-         ドキュメンテーション
-        </a>
-       </li>
-       <li>
-        <a href="./118.html">
-         例外処理の基礎
-        </a>
-       </li>
-       <li>
-        <a href="./119.html">
-         例外クラス
-        </a>
-       </li>
-       <li>
-        <a href="./120.html">
-         高度な例外処理
-        </a>
-       </li>
-       <li>
-        <a href="./121.html">
-         終わりに
-        </a>
-       </li>
-      </ol>
-     </div>
-     <!-- amazon -->
-     <div class="sidebar-module">
-      <script type="text/javascript">
-       amazon_ad_tag ="grit-22"; amazon_ad_width ="300"; amazon_ad_height ="250"; amazon_ad_link_target ="new";
-      </script>
-      <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
-      </script>
-     </div>
-     <!-- amazon end-->
-     <div class="sidebar-module">
-      <h3>
-       その他
-      </h3>
-      <ol class="list-unstyled">
-       <li>
-        <a href="https://github.com/yuichi110/www.yuichi.com-python" target="_blank">
-         <span class="fa fa-github">
-         </span>
-         GitHub Repository
-        </a>
-       </li>
-       <li>
-        <a href="https://twitter.com/yuichi110" target="_blank">
-         <i class="fa fa-twitter">
-         </i>
-         Twitter
-        </a>
-       </li>
-       <li>
-        <a href="https://www.linkedin.com/in/yuichiito/" target="_blank">
-         <span class="fa fa-linkedin">
-         </span>
-         Linkedin (英語)
-        </a>
-       </li>
-       <li class="li-none">
-        <a href="#" id="rw_email_contact">
-         <span class="fa fa-envelope">
-          Mail
-         </span>
-        </a>
-        <script type="text/javascript">
-         var _rwObsfuscatedHref0 = "mai";var _rwObsfuscatedHref1 = "lto";var _rwObsfuscatedHref2 = ":yu";
-              var _rwObsfuscatedHref3 = "ich";var _rwObsfuscatedHref4 = "i@y";var _rwObsfuscatedHref5 = "uic";
-              var _rwObsfuscatedHref6 = "hi.";var _rwObsfuscatedHref7 = "com";
-              var _rwObsfuscatedHref = _rwObsfuscatedHref0+_rwObsfuscatedHref1+_rwObsfuscatedHref2+_rwObsfuscatedHref3+_rwObsfuscatedHref4+_rwObsfuscatedHref5+_rwObsfuscatedHref6+_rwObsfuscatedHref7; document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
-        </script>
-       </li>
-      </ol>
-     </div>
-     <div class="sidebar-module">
-      <!-- padding for side bar -->
-      <div class="hidden-xs">
-       <p style="height:500px">
+     <!-- /.blog-main -->
+     <div class="col-sm-3 col-sm-offset-1 u1-sidebar">
+      <!-- SNS start -->
+      <div class="sidebar-module">
+       <ul class="social-buttons">
+        <li>
+         <!-- hatena -->
+         <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
+          <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
+         </a>
+         <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
+         </script>
+        </li>
+        <li>
+         <!-- FB -->
+         <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
+         </div>
+         <div id="fb-root">
+         </div>
+         <script>
+          (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }(document, 'script', 'facebook-jssdk'));
+         </script>
+        </li>
+        <li>
+         <!-- twitter -->
+         <a class="twitter-share-button" href="https://twitter.com/share">
+          Tweet
+         </a>
+         <script>
+          ! function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                      p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = p + '://platform.twitter.com/widgets.js';
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }
+                  }(document, 'script', 'twitter-wjs');
+         </script>
+        </li>
+        <li>
+         <!-- G+ -->
+         <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
+         <script async="" defer="" src="https://apis.google.com/js/platform.js">
+          {
+                    lang: 'ja'
+                  }
+         </script>
+         <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+         <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
+         </div>
+        </li>
+        <li>
+         <!-- IN/Share -->
+         <script src="//platform.linkedin.com/in.js" type="text/javascript">
+          lang: ja_JP
+         </script>
+         <script data-counter="right" type="IN/Share">
+         </script>
+        </li>
+       </ul>
+      </div>
+      <div class="print">
+       <a href="./003_print.html">
+        <img src="./assets/images/print.png"/>
+        印刷する
+       </a>
+      </div>
+      <!-- SNS end -->
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Python入門
        </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./">
+          トップページ
+         </a>
+        </li>
+        <li>
+         <a href="./download.html">
+          ダウンロード
+         </a>
+        </li>
+        <li>
+         <a href="./qa.html">
+          質問と回答
+         </a>
+        </li>
+        <li>
+         <a href="./books.html">
+          おすすめPython書籍
+         </a>
+        </li>
+        <li>
+         <a href="./about.html">
+          このページについて
+         </a>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        初級編
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./001.html">
+          前書き
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          目次
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Pythonプログラミング
+         </a>
+        </li>
+        <li>
+         <a href="./004.html">
+          インストールと実行
+         </a>
+        </li>
+        <li>
+         <a href="./005.html">
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="./006.html">
+          型と変数
+         </a>
+        </li>
+        <li>
+         <a href="./007.html">
+          最重要な型
+         </a>
+        </li>
+        <li>
+         <a href="./008.html">
+          制御構造
+         </a>
+        </li>
+        <li>
+         <a href="./009.html">
+          関数
+         </a>
+        </li>
+        <li>
+         <a href="./010.html">
+          モジュール
+         </a>
+        </li>
+        <li>
+         <a href="./011.html">
+          オブジェクトとメソッド
+         </a>
+        </li>
+        <li>
+         <a href="./012.html">
+          テキスト処理
+         </a>
+        </li>
+        <li>
+         <a href="./013.html">
+          リスト再入門
+         </a>
+        </li>
+        <li>
+         <a href="./014.html">
+          タプル
+         </a>
+        </li>
+        <li>
+         <a href="./015.html">
+          セット
+         </a>
+        </li>
+        <li>
+         <a href="./016.html">
+          辞書型
+         </a>
+        </li>
+        <li>
+         <a href="./017.html">
+          None型
+         </a>
+        </li>
+        <li>
+         <a href="./018.html">
+          ファイル処理
+         </a>
+        </li>
+        <li>
+         <a href="./019.html">
+          基数と文字コード
+         </a>
+        </li>
+        <li>
+         <a href="./020.html">
+          日本語の扱い
+         </a>
+        </li>
+        <li>
+         <a href="./021.html">
+          プログラムへの入力
+         </a>
+        </li>
+        <li>
+         <a href="./022.html">
+          関数の高度なトピック
+         </a>
+        </li>
+        <li>
+         <a href="./023.html">
+          おわりに
+         </a>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        中級編
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./101.html">
+          前書き
+         </a>
+        </li>
+        <li>
+         <a href="./102.html">
+          目次
+         </a>
+        </li>
+        <li>
+         <a href="./103.html">
+          オブジェクト指向を体験
+         </a>
+        </li>
+        <li>
+         <a href="./104.html">
+          データ構造
+         </a>
+        </li>
+        <li>
+         <a href="./105.html">
+          クラスとインスタンス化
+         </a>
+        </li>
+        <li>
+         <a href="./106.html">
+          インスタンスとメソッド
+         </a>
+        </li>
+        <li>
+         <a href="./107.html">
+          コンストラクタ
+         </a>
+        </li>
+        <li>
+         <a href="./108.html">
+          self
+         </a>
+        </li>
+        <li>
+         <a href="./109.html">
+          情報の隠蔽
+         </a>
+        </li>
+        <li>
+         <a href="./110.html">
+          オブジェクトの役割
+         </a>
+        </li>
+        <li>
+         <a href="./111.html">
+          関数型プログラミング
+         </a>
+        </li>
+        <li>
+         <a href="./112.html">
+          ゲーム作り
+         </a>
+        </li>
+        <li>
+         <a href="./113.html">
+          クラスの継承
+         </a>
+        </li>
+        <li>
+         <a href="./114.html">
+          メソッドのオーバーライド
+         </a>
+        </li>
+        <li>
+         <a href="./115.html">
+          GUIで継承を学ぶ
+         </a>
+        </li>
+        <li>
+         <a href="./116.html">
+          クラスの高度なトピック
+         </a>
+        </li>
+        <li>
+         <a href="./117.html">
+          ドキュメンテーション
+         </a>
+        </li>
+        <li>
+         <a href="./118.html">
+          例外処理の基礎
+         </a>
+        </li>
+        <li>
+         <a href="./119.html">
+          例外クラス
+         </a>
+        </li>
+        <li>
+         <a href="./120.html">
+          高度な例外処理
+         </a>
+        </li>
+        <li>
+         <a href="./121.html">
+          終わりに
+         </a>
+        </li>
+       </ol>
+      </div>
+      <!-- amazon -->
+      <div class="sidebar-module">
+       <script type="text/javascript">
+        amazon_ad_tag = "grit-22";
+              amazon_ad_width = "300";
+              amazon_ad_height = "250";
+              amazon_ad_link_target = "new";
+       </script>
+       <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
+       </script>
+      </div>
+      <!-- amazon end-->
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Python入門
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="https://github.com/yuichi110/www.yuichi.com-python" target="_blank">
+          <span class="fa fa-github">
+          </span>
+          GitHub Repository
+         </a>
+        </li>
+        <li>
+         <a href="https://twitter.com/yuichi110" target="_blank">
+          <i class="fa fa-twitter">
+          </i>
+          Twitter
+         </a>
+        </li>
+        <li>
+         <a href="https://www.linkedin.com/in/yuichiito/" target="_blank">
+          <span class="fa fa-linkedin">
+          </span>
+          Linkedin (英語)
+         </a>
+        </li>
+        <li class="li-none">
+         <a href="#" id="rw_email_contact">
+          <span class="fa fa-envelope">
+           Mail
+          </span>
+         </a>
+         <script type="text/javascript">
+          var _rwObsfuscatedHref0 = "mai";
+                  var _rwObsfuscatedHref1 = "lto";
+                  var _rwObsfuscatedHref2 = ":yu";
+                  var _rwObsfuscatedHref3 = "ich";
+                  var _rwObsfuscatedHref4 = "i@y";
+                  var _rwObsfuscatedHref5 = "uic";
+                  var _rwObsfuscatedHref6 = "hi.";
+                  var _rwObsfuscatedHref7 = "com";
+                  var _rwObsfuscatedHref = _rwObsfuscatedHref0 + _rwObsfuscatedHref1 + _rwObsfuscatedHref2 + _rwObsfuscatedHref3 + _rwObsfuscatedHref4 + _rwObsfuscatedHref5 + _rwObsfuscatedHref6 + _rwObsfuscatedHref7;
+                  document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
+         </script>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <!-- padding for side bar -->
+       <div class="hidden-xs">
+        <p style="height:500px">
+        </p>
+       </div>
       </div>
      </div>
+     <!-- /.blog-sidebar -->
     </div>
-    <!-- /.blog-sidebar -->
+    <!-- /.row -->
    </div>
-   <!-- /.row -->
-  </div>
-  <!-- /.container -->
-  <footer>
-   <div class="blog-footer-top">
-   </div>
-   <div class="blog-footer">
-    <p>
-     Copyright © 2017 Yuichi Ito All Rights Reserved.
-    </p>
-    <p align="center">
-     修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
-     <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
-      <span class="fa fa-github">
-      </span>
-      Git Hub Issues
-     </a>
-    </p>
-   </div>
-  </footer>
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-  </script>
-  <script src="./assets/js/bootstrap.min.js">
-  </script>
-  <script src="./assets/js/delete_useless_dom.js">
-  </script>
-  <!-- GOOGLE ANALYTICS -->
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+   <!-- /.container -->
+   <footer>
+    <div class="u1-footer-top">
+    </div>
+    <div class="u1-footer">
+     <p>
+      Copyright © 2017 Yuichi Ito All Rights Reserved.
+     </p>
+     <p align="center">
+      修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
+      <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
+       <span class="fa fa-github">
+       </span>
+       Git Hub Issues
+      </a>
+     </p>
+    </div>
+   </footer>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+   </script>
+   <script src="./assets/js/bootstrap.min.js">
+   </script>
+   <script src="./assets/js/delete_useless_dom.js">
+   </script>
+   <!-- GOOGLE ANALYTICS -->
+   <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
       ga('create', 'UA-4830860-7', 'auto');
       ga('send', 'pageview');
-  </script>
+   </script>
+  </div>
+  <!-- end of background -->
  </body>
 </html>
