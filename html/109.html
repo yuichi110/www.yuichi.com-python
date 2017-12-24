@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        情報の隠蔽
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,31 +96,24 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          情報の隠蔽
+          概要
          </a>
-         <ul>
-          <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
-           <a href="#header-3">
-            データや処理を隠す
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            プライベートなインスタンス変数とメソッド
-           </a>
-          </li>
-         </ul>
+        </li>
+        <li>
+         <a href="header-2">
+          データや処理を隠す
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          プライベートなインスタンス変数とメソッド
+         </a>
         </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        クラスを使ったプログラミングではデータ(インスタンス変数)と処理(メソッド)が強く結びついています。
 そのため、決められた使い方以外をされるリスクが「構造体と関数の組み合わせ」より大幅に減ります。
@@ -131,9 +123,9 @@
 具体的には「オブジェクトの詳細情報を隠す」ことにより、どのようなメリットがあるかという話題について取り扱い、
 後半で Python でそれをどう実現するか説明します。
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        データや処理を隠す
-      </h3>
+      </h2>
       <p>
        今まで扱ってきた 例では仕組みが簡単すぎて情報の隠蔽のメリットがわかりにくいので、
 もう少し複雑なハードディスクへの読み書き処理を例にしてみます。
@@ -226,9 +218,9 @@ Cのような手続き型でもモジュール化やネーミングの規則な�
 実際は ファイルシステムが絡んだりしてもっと複雑です。
 そもそもハードディスクのコントローラのプログラムはC言語や アセンブリで作られているはずです。
       </p>
-      <h3 id="header-4">
+      <h2 id="header-3">
        プライベートなインスタンス変数とメソッド
-      </h3>
+      </h2>
       <p>
        先ほど説明したようにオブジェクトは外部からアクセスされるべき箇所以外は隠すべきです。
 Python はクラスのインスタンス変数とメソッドを「外に公開するもの」と「内部だけで利用するもの(外に公開しない)」のどちらかに設定することでこれを実現できます。
@@ -691,8 +683,8 @@ Python のプライベートな属性は単に内部的に名前を変更して�
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -703,11 +695,6 @@ Python のプライベートな属性は単に内部的に名前を変更して�
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        関数型プログラミング
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,46 +96,73 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          関数型プログラミング
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="header-2">
+          副作用を減らす
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          関数になんでもやらせる
+         </a>
+        </li>
+        <li>
+         <a href="header-4">
+          Pythonの関数型
          </a>
          <ul>
           <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
-           <a href="#header-3">
-            副作用を減らす
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            関数になんでもやらせる
-           </a>
-          </li>
-          <li>
            <a href="#header-5">
-            Pythonの関数型
+            関数渡し
            </a>
           </li>
           <li>
            <a href="#header-6">
-            関数を使ったデータの操作
+            クロージャ
            </a>
           </li>
           <li>
            <a href="#header-7">
-            リスト内包表記
+            ラムダ式
            </a>
           </li>
          </ul>
         </li>
+        <li>
+         <a href="#header-8">
+          関数を使ったデータの操作
+         </a>
+         <ul>
+          <li>
+           <a href="#header-9">
+            filter
+           </a>
+          </li>
+          <li>
+           <a href="#header-10">
+            map
+           </a>
+          </li>
+          <li>
+           <a href="#header-11">
+            reduce
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-12">
+          リスト内包表記
+         </a>
+        </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        本章では今までのオブジェクト指向から若干趣旨を変え、
 関数型と呼ばれるプログラミングの概念について扱いたいと思います。
@@ -168,9 +194,9 @@ rlangは関数型言語であるものの、比較的手続き型言語の文法
       <p>
        それぞれ簡単に解説してみます。
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        副作用を減らす
-      </h3>
+      </h2>
       <p>
        言語によって変わってくるかと思いますが、副作用を減らすための関数型の特徴で一番有名なのは
 「変数に再代入できない」というものではないかと思います。
@@ -210,9 +236,9 @@ rlangは関数型言語であるものの、比較的手続き型言語の文法
 自分が一度設定した値は最後まで残り続けます。
 そのため、デバッグなどもしやすい場合が多いかと思います。
       </p>
-      <h3 id="header-4">
+      <h2 id="header-3">
        関数になんでもやらせる
-      </h3>
+      </h2>
       <p>
        「関数型」という名前からわかるように、関数型言語ではとにかく関数になんでもやらせます。
 たとえば関数を変数に代入したり、高階関数やクロージャといった概念を多用したりします。
@@ -265,9 +291,9 @@ PythonやJavaScriptといった「スクリプト系」の言語はこれらの�
 個人的な見解ですが、手続き型言語は「制御ありき。データは二の次」というような思想があり、
 関数型は「まずデータがあり、それに処理を適用」というような思想があるように思えます。
       </p>
-      <h3 id="header-5">
+      <h2 id="header-4">
        Pythonの関数型
-      </h3>
+      </h2>
       <p>
        Pythonなどのスクリプト系言語は、関数型に近いことがある程度できます。
 利用方法は様々ありますが、おおまかには「関数渡しを関数やメソッドのカスタマイズに使う」こと、
@@ -302,9 +328,9 @@ PythonやJavaScriptといった「スクリプト系」の言語はこれらの�
 そしてオブジェクトであるため変数への代入もできており、なおかつそれを呼び出すこともできます。
 しかし、関数も型だとわかったところで、実際にどのように使うか想像がつかないかもしれません。
       </p>
-      <h4>
+      <h3 id="header-5">
        関数渡し
-      </h4>
+      </h3>
       <p>
        一番簡単な利用例として関数渡しと呼ばれる使い方を紹介します。
 これは Python の「関数もオブジェクトである」という性質を使ったものです。
@@ -457,9 +483,9 @@ GUI 自体の実装は先程の電卓プログラムよりはるかに複雑な�
 カスタマイズをするだけであれば先ほどの電卓の例とそれほど違いはありません。
 このようなことができるのが「関数渡し」や「高階関数」の強さだと言えます。
       </p>
-      <h4>
+      <h3 id="header-6">
        クロージャ
-      </h4>
+      </h3>
       <p>
        高階関数の高度な使い方として「関数をカスタマイズして返す関数」を作るということもできます。
 これは先程まで行っていたことと逆のようなもので、このようなテクニックはクロージャと呼ばれています。
@@ -513,9 +539,9 @@ adderのなかの関数がテンプレートで、adder5がそれをベースに
 ただ、クロージャのコードを Python で見かけることはほとんどありません。
 関数渡しに比べるとその使いどころが難しいかもしれません。
       </p>
-      <h4>
+      <h3 id="header-7">
        ラムダ式
-      </h4>
+      </h3>
       <p>
        今までの関数はdefを使って宣言してきました。
 ただ、関数渡しを利用する場合は「使い捨ての関数」を渡すだけで十分な場合があります。
@@ -633,12 +659,12 @@ my_print('hello')
 それぞれのメリット、デメリットを考えて適切に利用する必要があります。
 一般的には処理の内容が複雑であればdefで宣言し、簡単でかつ使いまわさない場合はlambdaを使うことになるかと思います。
       </p>
-      <h3 id="header-6">
+      <h2 id="header-8">
        関数を使ったデータの操作
-      </h3>
-      <h4>
+      </h2>
+      <h3 id="header-9">
        filter
-      </h4>
+      </h3>
       <p>
        Python は関数渡しで使うことを前提とした関数や、リスト内包表記とよばれる特殊なリストを生成する書式を持っています。
 これらはかなり関数型の言語に近い使われかたをします。
@@ -688,9 +714,9 @@ filter 関数にこの is_even を第一引数として私、range(10) で 0 か
 自分のコードで使うか使わないかは自分の判断で選べばいいでしょうが、
 ラムダを使う人は多くいますので少なくとも読めるようにはなっておく必要があります。
       </p>
-      <h4>
+      <h3 id="header-10">
        map
-      </h4>
+      </h3>
       <p>
        次にmap関数です。こちらはリストの各要素に関数を適用していき、
 適用された値をリストにするというものです。
@@ -762,9 +788,9 @@ for 文で要素の i を使わなくていいように、map に渡された関
 こういうことをできると知っておくべきかと思いますが、
 コードを読む人にとって分かりにくいため積極的に使うようなテクニックではないかもしれません。
       </p>
-      <h4>
+      <h3 id="header-11">
        reduce
-      </h4>
+      </h3>
       <p>
        最後にreduceです。これは「たたみ込み」と呼ばれる処理で、別言語だとfoldなどという呼び方をしているかもしれません。
 mapやfilterに比べるとちょっと複雑で、利用場面はそれほど多くないと思います。
@@ -859,9 +885,9 @@ mapやfilterに比べるとちょっと複雑で、利用場面はそれほど�
 for 文でリストから要素を取得するのが王道なのでしょうが、reduce でも同様のことができるというのは覚えておいて下さい。
 関数型を使えるプログラマがよく使うテクニックです。
       </p>
-      <h3 id="header-7">
+      <h2 id="header-12">
        リスト内包表記
-      </h3>
+      </h2>
       <p>
        本章の最後にリスト内包表記を扱います。
 リスト内包表記はリストを生成するための特別な書式で、そのイメージとしてはラムダとmap とfilterを同時に使うというものになります。
@@ -1057,8 +1083,8 @@ Python内にあるバイナリでリストに対して処理を施すためで�
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -1069,11 +1095,6 @@ Python内にあるバイナリでリストに対して処理を施すためで�
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

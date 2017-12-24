@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        ファイル処理
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,60 +96,84 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          ファイル処理
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="header-2">
+          基礎
          </a>
          <ul>
           <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
            <a href="#header-3">
-            基礎
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            テキストファイルの読み込み
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            バッファリング
-           </a>
-          </li>
-          <li>
-           <a href="#header-6">
-            バイナリファイルの読み書き
-           </a>
-          </li>
-          <li>
-           <a href="#header-7">
-            with/as によるファイル処理
-           </a>
-          </li>
-          <li>
-           <a href="#header-8">
-            OS内でのファイルの扱い
+            OSがどうファイルを扱うか
            </a>
           </li>
          </ul>
         </li>
+        <li>
+         <a href="#header-4">
+          テキストファイルの読み込み
+         </a>
+         <ul>
+          <li>
+           <a href="#header-5">
+            ファイルの読み込みメソッド
+           </a>
+          </li>
+          <li>
+           <a href="#header-6">
+            ファイルへの書き込み(上書きと追記)
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-7">
+          バッファリング
+         </a>
+        </li>
+        <li>
+         <a href="header-8">
+          バイナリファイルの読み書き
+         </a>
+         <ul>
+          <li>
+           <a href="#header-9">
+            サンプル
+           </a>
+          </li>
+          <li>
+           <a href="#header-10">
+            バイナリファイルをどのように処理するか
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-11">
+          with/as によるファイル処理
+         </a>
+        </li>
+        <li>
+         <a href="header-12">
+          OS内でのファイルの扱い
+         </a>
+        </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        あとで書く
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        基礎
-      </h3>
-      <h4>
+      </h2>
+      <h3 id="header-3">
        OSがどうファイルを扱うか
-      </h4>
+      </h3>
       <p>
        OSにおけるファイル処理は主に以下のような流れとなります。
       </p>
@@ -195,9 +218,9 @@ java
 バイナリファイルの扱いは後ほど簡単に扱いますが、Python でそれを専用ライブラリなしにやることはかなり稀かと思います。
 私が過去にバイナリファイルを操作した際に利用した言語は C もしくは Objective-C でした。
       </p>
-      <h3 id="header-4">
+      <h2 id="header-4">
        テキストファイルの読み込み
-      </h3>
+      </h2>
       <p>
        実際に pythonでテキストファイルの処理をどのようにするか紹介します。
 先ほどのテキストファイルの処理方法さえ理解してしまえば非常に簡単です。
@@ -240,9 +263,9 @@ hello java
        print文の改行に加えてもとのテキストの改行コードも表示されるので業の間にもう1行スペースがあいてしまっていますが、
 この回避方法については先に説明した sys.stdout.write() を使うか後述する print 文の出力オプションを使います。
       </p>
-      <h4>
+      <h3 id="header-5">
        ファイルの読み込みメソッド
-      </h4>
+      </h3>
       <p>
        ほかにはファイルを丸ごと読む方法もあります。
       </p>
@@ -269,9 +292,9 @@ hello java
       <p>
        コメント : 他のreadメソッドも追加すること
       </p>
-      <h4>
+      <h3 id="header-6">
        ファイルへの書き込み(上書きと追記)
-      </h4>
+      </h3>
       <p>
        次にファイルへの書き込み方法について説明します。
 書き込みも読み込みと大差ありませんが、ファイルをオープンする際に書き込みモードを指定します。
@@ -331,9 +354,9 @@ hello java
 ファイルのオープンごとに以前の内容が消えないので、アプリケーションのログなどを取る際に便利な手法です。
 なお、書き込みを「次の行」にする場合は改行コード”\n”をファイルに書き込めばそこで改行されます。
       </p>
-      <h3 id="header-5">
+      <h2 id="header-7">
        バッファリング
-      </h3>
+      </h2>
       <p>
        ファイルへの読み書きをする際に知っておいてもらいたいのが「バッファリング」という処理です。
 ご存知かもしれませんが、ハードディスクへのアクセス速度はメモリへのアクセス速度に比べて何桁も遅いです。
@@ -366,18 +389,18 @@ hello java
 ただ、openしっぱなしで、なかなかcloseしないようなプログラムは適切なタイミングでflush するように心がけてください。
 でないと、プログラムが強制終了されてしまった場合などに、ファイルに書き込みがされていない可能性があります。
       </p>
-      <h3 id="header-6">
+      <h2 id="header-8">
        バイナリファイルの読み書き
-      </h3>
-      <h4>
+      </h2>
+      <h3 id="header-9">
        サンプル
-      </h4>
+      </h3>
       <p>
        コメント: 画像ファイルのコピーのサンプルを作成
       </p>
-      <h4>
+      <h3 id="header-10">
        バイナリファイルをどのように処理するか
-      </h4>
+      </h3>
       <p>
        テキストファイルの主要な話を終えたため、次はバイナリファイルについて扱います。
 バイナリファイルは中身が01から構成されているファイルで、一般的には画像ファイルや音声ファイル、
@@ -440,9 +463,9 @@ JPEG を直接操作するのであれば、JPEG に関する深い知識が必�
 音声も同じでmp3を直接編集するのではなく、mp3 → wav → 編集 → new wav →new mp3とすればよいです。
 これらの変換には組み込みもしくは外部のライブラリを利用することになると思います。
       </p>
-      <h3 id="header-7">
+      <h2 id="header-11">
        with/as によるファイル処理
-      </h3>
+      </h2>
       <p>
        withとasは「コンテキスト」を扱うための特別な構文です。
 ほかの言語ではあまり見られない少々独特な概念なのですが、知っておいて損はないと思うので取り扱いたいと思います。
@@ -500,9 +523,9 @@ with と as でコンテキストとして扱っていることです。
        一般的なopen関数と代入によるファイルオブジェクトの取得ではなく、
 with/asを使うとファイルオブジェクトがクローズされることが保証されます。
       </p>
-      <h3 id="header-8">
+      <h2 id="header-12">
        OS内でのファイルの扱い
-      </h3>
+      </h2>
       <p>
        ファイル処理については、プログラミングというよりも「OSのファイル処理の方式」をまず理解しておく必要があります。
 そのため、最初にファイル処理の概念について説明します。
@@ -636,8 +659,8 @@ with/asを使うとファイルオブジェクトがクローズされること�
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -648,11 +671,6 @@ with/asを使うとファイルオブジェクトがクローズされること�
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

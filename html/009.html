@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        関数
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,46 +96,39 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          関数
+          概要
          </a>
-         <ul>
-          <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
-           <a href="#header-3">
-            関数の必要性
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            関数の定義と利用
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            ローカル変数
-           </a>
-          </li>
-          <li>
-           <a href="#header-6">
-            グローバル変数
-           </a>
-          </li>
-          <li>
-           <a href="#header-7">
-            副作用
-           </a>
-          </li>
-         </ul>
+        </li>
+        <li>
+         <a href="header-2">
+          関数の必要性
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          関数の定義と利用
+         </a>
+        </li>
+        <li>
+         <a href="header-4">
+          ローカル変数
+         </a>
+        </li>
+        <li>
+         <a href="header-5">
+          グローバル変数
+         </a>
+        </li>
+        <li>
+         <a href="header-6">
+          副作用
+         </a>
         </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        Pythonに限らず、多くのプログラミング言語には「関数(Function)」という概念があります。
 関数は特定の機能を「呼び出す」ために使われます。
@@ -162,9 +154,9 @@
        これらについて本ページでは解説し、それらが理解できたところで実際にどのようにして、
 関数を作る(自分で定義する)かについて説明します。
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        関数の必要性
-      </h3>
+      </h2>
       <p>
        プログラムは必ず、キーボード入力やファイルの読み込みといった「外からの情報の入力」と、
 ディスプレイやスピーカー出力といった「外への情報の出力」を必要としています。
@@ -262,9 +254,9 @@ CPUとメモリを無駄に消費するという目的以外には使えませ�
 一方、関数で同じ処理をまとめていると、理想的には一箇所のみの修正となります。
 これはプログラムの「保守性(メンテナンス性)」を向上させるというメリットがあります。
       </p>
-      <h3 id="header-4">
+      <h2 id="header-3">
        関数の定義と利用
-      </h3>
+      </h2>
       <p>
        関数のメリットがわかったところで、関数をどのように作って利用するかを具体的に説明していきます。
 以下の図を見てください。
@@ -364,9 +356,9 @@ return文はいくつあっても構わないのですが、returnされたあ�
        ほかには「デフォルト引数」や「可変長引数」といった関数の書き方もありますが、
 高度なトピックとなるため本書の最後の章にてアドバンスドトピックとして扱います。
       </p>
-      <h3 id="header-5">
+      <h2 id="header-4">
        ローカル変数
-      </h3>
+      </h2>
       <p>
        関数内では引数も含めて変数を宣言できます。
 例えば以下の関数があるとしましょう。
@@ -411,9 +403,9 @@ return文はいくつあっても構わないのですが、returnされたあ�
       <p>
        重要なことなので覚えておいて下さい。
       </p>
-      <h3 id="header-6">
+      <h2 id="header-5">
        グローバル変数
-      </h3>
+      </h2>
       <p>
        さっそくですが次のコードを見てください。
       </p>
@@ -532,9 +524,9 @@ global 変数を参照するだけでも global 宣言を書いたほうが分�
 ついグローバル変数を関数内で使ってしまいたくなりますが、
 これは中編にて扱うクラスを使うことで簡単に解決できます。
       </p>
-      <h3 id="header-7">
+      <h2 id="header-6">
        副作用
-      </h3>
+      </h2>
       <p>
        難しい話となってしまうのですが、関数などを動かすことで
 「期待される範囲を超えた外の世界に影響がおよぶ」ことを「副作用」といいます。
@@ -674,8 +666,8 @@ global宣言を使うより以下のようにするのが一般的です。
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -686,11 +678,6 @@ global宣言を使うより以下のようにするのが一般的です。
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

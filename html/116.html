@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        クラスの高度なトピック
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,55 +96,60 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          クラスの高度なトピック
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="header-2">
+          クラス変数
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          クラス定数
+         </a>
+        </li>
+        <li>
+         <a href="header-4">
+          クラスメソッド
+         </a>
+        </li>
+        <li>
+         <a href="header-5">
+          スタティックメソッド
+         </a>
+        </li>
+        <li>
+         <a href="header-6">
+          メソッドのオーバーロード(デフォルト引数)
          </a>
          <ul>
           <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
-           <a href="#header-3">
-            クラス変数
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            クラス定数
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            クラスメソッド
-           </a>
-          </li>
-          <li>
-           <a href="#header-6">
-            スタティックメソッド
-           </a>
-          </li>
-          <li>
            <a href="#header-7">
-            メソッドのオーバーロード(デフォルト引数)
+            クラスの特殊属性
+           </a>
+          </li>
+          <li>
+           <a href="#header-8">
+            多重継承
            </a>
           </li>
          </ul>
         </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        この章では今まで扱わなかったクラスの高度なトピックについて扱います。
 それらは初心者にとってはオブジェクト指向を実現するうえで必ず必要なものではないものの、
 中級者以上のコードを読み書きする際に必要となることがあります。
 まずは「こういったこともできる」という程度のものかと認識していただければ十分です。
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        クラス変数
-      </h3>
+      </h2>
       <p>
        今までのクラス内での変数は「インスタンス変数」であり、インスタンスごとに独立したものでした。
 クラスにはインスタンス変数に加えて「クラス変数」というものがあり、それは全てのインスタンスで共有されています。
@@ -231,9 +235,9 @@
        クラス外に定義されている変数や関数はグローバル空間に属しています。
 前書で説明した global 宣言なども関わってくるため、値のアップデートは極力避けて参照をするのみにしてください。
       </p>
-      <h3 id="header-4">
+      <h2 id="header-3">
        クラス定数
-      </h3>
+      </h2>
       <p>
        クラス変数は変数名を大文字にすることで「クラス定数」としても利用できます。
 以下にサンプルコードを記載します。
@@ -292,9 +296,9 @@
        色を必要とするクラスが複数ある場合、それらのクラスは上記のようなクラスを参照して色を使えば、
 複数のクラス間で一貫した色の扱いをすることができます。
       </p>
-      <h3 id="header-5">
+      <h2 id="header-4">
        クラスメソッド
-      </h3>
+      </h2>
       <p>
        クラスメソッドはインスタンス化しなくても使えるメソッドです。
 今までメソッドを利用する場合はまずクラスからインスタンスを作成し、そのインスタンスからメソッドを呼び出していました。
@@ -442,9 +446,9 @@ self.a が新しく代入された値を持っているのに対し、cls.a は�
        self を経由したクラス変数へのアクセスは思わぬトラブルのもとになります。
 大文字のため一目で分かり、絶対に上書きがされないクラス定数以外では利用をしないほうがよいでしょう。
       </p>
-      <h3 id="header-6">
+      <h2 id="header-5">
        スタティックメソッド
-      </h3>
+      </h2>
       <p>
        クラスメソッドに似た性質を持つスタティックメソッドというものもあります。
 簡単に言ってしまうとスタティックメソッドは「クラスメソッドの第一引数がない版」のようなものです。
@@ -497,9 +501,9 @@ self.a が新しく代入された値を持っているのに対し、cls.a は�
        なお、クラスメソッドやスタティックメソッドは継承と関わると話が複雑になります。
 興味がある人は調べてみるとよいかもしれませんが、そんな詳細まで把握している人は限られているため、使わないほうがよいと思います。
       </p>
-      <h3 id="header-7">
+      <h2 id="header-6">
        メソッドのオーバーロード(デフォルト引数)
-      </h3>
+      </h2>
       <p>
        オブジェクト指向にはオーバーロードと呼ばれている概念があります。
 オーバーライドと名前が似ているので注意してください。
@@ -533,9 +537,9 @@ self.a が新しく代入された値を持っているのに対し、cls.a は�
       <p>
        見てもらうと分かるように同名のメソッドを引数2でも引数3 でも呼び出すことができています。
       </p>
-      <h4>
+      <h3 id="header-7">
        クラスの特殊属性
-      </h4>
+      </h3>
       <p>
        今までも利用してきたようにクラスやインスタンスには特殊な変数やメソッドがあります。
 例えば
@@ -622,9 +626,9 @@ print 文もその恩恵に預かります。
       <p>
        特殊属性の詳細は高度な話題となるため後編にて詳細を扱いますが、そのようなものが存在しているということは覚えておいて下さい。
       </p>
-      <h4>
+      <h3 id="header-8">
        多重継承
-      </h4>
+      </h3>
       <p>
        Pythonのクラスは2つのクラスを継承することができます。
 存在は知っておいて欲しいですが、これを禁止している言語もあるので あまり積極的に使って欲しくはない機能です。
@@ -761,8 +765,8 @@ print 文もその恩恵に預かります。
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -773,11 +777,6 @@ print 文もその恩恵に預かります。
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

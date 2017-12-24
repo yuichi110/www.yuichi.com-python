@@ -5,13 +5,15 @@
   <meta charset="utf-8" />
   <meta content="IE=edge" http-equiv="X-UA-Compatible" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
   <meta content="Sample Description" name="description" />
   <meta content="Yuichi Ito" name="author" />
+
   <link href="./asset/favicon.ico" rel="icon" />
   <title>
     {{ TITLE }}
   </title>
+
   <!-- Bootstrap -->
   <link href="./assets/css/bootstrap.css" rel="stylesheet" />
   <link href="./assets/css/bootstrap-theme.css" rel="stylesheet" />
@@ -46,14 +48,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand {{ NAV_HOME }}" href="#">Python</a>
+          <a class="navbar-brand {{ NAV_HOME }}" href="./">Python</a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="{{ NAV_NAVI }}"><a href="">Navi</a></li>
-            <li class="{{ NAV_QA }}"><a href="">QA</a></li>
-            <li class="{{ NAV_BOOKS }}"><a href="">Books</a></li>
+            <li class="{{ NAV_NAVI }}"><a href="./navi.html">Navi</a></li>
+            <li class="{{ NAV_QA }}"><a href="./qa.html">QA</a></li>
+            <li class="{{ NAV_BOOKS }}"><a href="./books.html">Books</a></li>
           </ul>
         </div>
 
@@ -189,8 +191,8 @@
         </a>
               </li>
               <li>
-                <a href="./download.html">
-         ダウンロード
+                <a href="./navi.html">
+         目次
         </a>
               </li>
               <li>
@@ -201,11 +203,6 @@
               <li>
                 <a href="./books.html">
          おすすめPython書籍
-        </a>
-              </li>
-              <li>
-                <a href="./about.html">
-         このページについて
         </a>
               </li>
             </ol>

@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        リスト再入門
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,44 +96,84 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          リスト再入門
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="header-2">
+          リストのメソッド
          </a>
          <ul>
           <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
            <a href="#header-3">
-            リストのメソッド
+            要素の追加 : append, insert
            </a>
           </li>
           <li>
            <a href="#header-4">
-            リストの仕組みと配列との違い
+            要素の削除 : del演算子、removeメソッド
+           </a>
+          </li>
+          <li>
+           <a href="#header-5">
+            要素の取り出し : pop
+           </a>
+          </li>
+          <li>
+           <a href="#header-6">
+            キュー(Queue)とスタック(Stack)
+           </a>
+          </li>
+          <li>
+           <a href="#header-7">
+            リストの結合 : +演算子, extendメソッド
+           </a>
+          </li>
+          <li>
+           <a href="#header-8">
+            リストの反転: reverse
+           </a>
+          </li>
+          <li>
+           <a href="#header-9">
+            リストのソート: sort
+           </a>
+          </li>
+          <li>
+           <a href="#header-10">
+            リストの初期化
+           </a>
+          </li>
+          <li>
+           <a href="#header-11">
+            リストのコピー
            </a>
           </li>
          </ul>
         </li>
+        <li>
+         <a href="#header-12">
+          リストの仕組みと配列との違い
+         </a>
+        </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        あとで書く
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        リストのメソッド
-      </h3>
+      </h2>
       <p>
        文字列と同じく、リストもオブジェクトです。
 そのため、まずは以前扱わなかったメソッドを使う処理を紹介します。
       </p>
-      <h4>
+      <h3 id="header-3">
        要素の追加 : append, insert
-      </h4>
+      </h3>
       <p>
        リストにデータを追加する方法です。
 追加するといっても「リスト末尾への追加」と「リストの途中への追加」でやりかたが異なります。
@@ -151,9 +190,9 @@
 <span class="c1"># [1, 10, 2, 3, 4]</span>
 </pre>
       </div>
-      <h4>
+      <h3 id="header-4">
        要素の削除 : del演算子、removeメソッド
-      </h4>
+      </h3>
       <p>
        追加とくれば削除です。
 削除にはremoveメソッドを使います。
@@ -196,9 +235,9 @@ del 演算子を使った要素の削除もできますが、
 <span class="c1"># [1, 2, 3, 4]</span>
 </pre>
       </div>
-      <h4>
+      <h3 id="header-5">
        要素の取り出し : pop
-      </h4>
+      </h3>
       <p>
        次に pop メソッドです。
 これは del 演算子に似ているのですが、消すだけではなく同時に値を取り出します。
@@ -220,9 +259,9 @@ del 演算子を使った要素の削除もできますが、
 <span class="c1"># 5</span>
 </pre>
       </div>
-      <h4>
+      <h3 id="header-6">
        キュー(Queue)とスタック(Stack)
-      </h4>
+      </h3>
       <p>
        様々なプログラミング言語でリストを使ってキューやスタックと呼ばれるデータ構造を実現することがよくあります。
 キュー及びスタックは複数のデータを管理するためのデータ構造です。
@@ -278,9 +317,9 @@ del 演算子を使った要素の削除もできますが、
        スタックからデータを取り出すということはつまり、リストの最後の要素を取り出すということです。
 そのため、引数なしの pop メソッドでリストの最後の要素を取得します。
       </p>
-      <h4>
+      <h3 id="header-7">
        リストの結合 : +演算子, extendメソッド
-      </h4>
+      </h3>
       <p>
        次はリストとリストの結合です。これにはプラス演算子を使う方法と extend メソッドがあります。
 append を使うと、append されたリスト自体がメソッドを呼び出したリストの最後の要素になるので結合はされません。
@@ -304,15 +343,15 @@ append を使うと、append されたリスト自体がメソッドを呼び出
 一方、extend メソッドを使うと呼び出し元のリスト a の後ろに指定されたリストb が結合されます。
 リストb 自体は変更が加わりませんが、リスト a はもとのデータではなくなっています。
       </p>
-      <h4>
+      <h3 id="header-8">
        リストの反転: reverse
-      </h4>
+      </h3>
       <p>
        あとで整理
       </p>
-      <h4>
+      <h3 id="header-9">
        リストのソート: sort
-      </h4>
+      </h3>
       <p>
        他にはリストの順序を反転するreverse メソッドや、
 中身の順序をソートする sort メソッドあたりも利用されます。
@@ -329,15 +368,15 @@ append を使うと、append されたリスト自体がメソッドを呼び出
 <span class="c1"># [1, 2, 3, 4, 5]</span>
 </pre>
       </div>
-      <h4>
+      <h3 id="header-10">
        リストの初期化
-      </h4>
+      </h3>
       <p>
        あとで整理
       </p>
-      <h4>
+      <h3 id="header-11">
        リストのコピー
-      </h4>
+      </h3>
       <p>
        リストのコピーや初期化は以下のように行います。
       </p>
@@ -361,9 +400,9 @@ append を使うと、append されたリスト自体がメソッドを呼び出
 つまり片方の変数の値を操作すると、もう片側の変数の値も変わっているということです。
 上記のようにコピーを行った場合は別々のオブジェクトとなるため片側の操作がもう片側に影響をあたえることはありません。
       </p>
-      <h3 id="header-4">
+      <h2 id="header-12">
        リストの仕組みと配列との違い
-      </h3>
+      </h2>
       <p>
        ここではCやJavaの「配列」とPythonのリストの比較を通して、Python のリストがどのようなものか説明します。
 Python では配列相当のものがないので必ずしも学ぶ必要はないかと思いますが、
@@ -551,8 +590,8 @@ Pythonではリストをまるで配列のように使いますが、両者は�
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -563,11 +602,6 @@ Pythonではリストをまるで配列のように使いますが、両者は�
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

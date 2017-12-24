@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        関数の高度な使い方
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,56 +96,49 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          関数の高度な使い方
+          概要
          </a>
-         <ul>
-          <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
-           <a href="#header-3">
-            関数内の関数
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            関数オブジェクト
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            位置引数とキーワード引数
-           </a>
-          </li>
-          <li>
-           <a href="#header-6">
-            デフォルト引数
-           </a>
-          </li>
-          <li>
-           <a href="#header-7">
-            可変長引数
-           </a>
-          </li>
-          <li>
-           <a href="#header-8">
-            なんでも受け取るキーワード引数
-           </a>
-          </li>
-          <li>
-           <a href="#header-9">
-            再帰関数
-           </a>
-          </li>
-         </ul>
+        </li>
+        <li>
+         <a href="header-2">
+          関数内の関数
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          関数オブジェクト
+         </a>
+        </li>
+        <li>
+         <a href="header-4">
+          位置引数とキーワード引数
+         </a>
+        </li>
+        <li>
+         <a href="header-5">
+          デフォルト引数
+         </a>
+        </li>
+        <li>
+         <a href="header-6">
+          可変長引数
+         </a>
+        </li>
+        <li>
+         <a href="header-7">
+          なんでも受け取るキーワード引数
+         </a>
+        </li>
+        <li>
+         <a href="header-8">
+          再帰関数
+         </a>
         </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        本章では関数の高度なトピックについて扱います。
 正直なところ本章の内容は初心者にはかなり難しいのですが、
@@ -155,9 +147,9 @@ Pythonの初心者であっても既存ライブラリなどを利用する場�
 本トピックは下編で扱うか悩んだのですが、難易度が高いわりに利用する頻度が高いためここで扱わせていただきます。
 難しければ斜め読みしていただき、ある程度 Python のプログラムが書けるようになってから読み直してみて下さい。
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        関数内の関数
-      </h3>
+      </h2>
       <p>
        Python の関数は実は関数の中に入れ子構造にすることができます。
 例えば以下のような使い方ができます。
@@ -180,9 +172,9 @@ Pythonの初心者であっても既存ライブラリなどを利用する場�
 今回のサンプルのような短い関数であればこのような使い方は不要ですが、
 より複雑な処理を関数で行う場合は処理を綺麗に分類するために内部で関数を定義して使うことがあります。
       </p>
-      <h3 id="header-4">
+      <h2 id="header-3">
        関数オブジェクト
-      </h3>
+      </h2>
       <p>
        先程もお伝えしましたがPython は関数自体もオブジェクトです。
 そのため、変数に関数を代入し、それを利用することができます。
@@ -217,9 +209,9 @@ Pythonの初心者であっても既存ライブラリなどを利用する場�
 <span class="c1"># 10</span>
 </pre>
       </div>
-      <h3 id="header-5">
+      <h2 id="header-4">
        位置引数とキーワード引数
-      </h3>
+      </h2>
       <p>
        関数の引数の使い方については既に何度も説明しています。
 例えば以下の関数があるとしましょう。
@@ -272,9 +264,9 @@ Pythonの初心者であっても既存ライブラリなどを利用する場�
 次に説明する「デフォルト引数を使う関数」や
 「キーワード引数を使うことを前提に定義された関数」を使う関数を使う場合に利用されます。
       </p>
-      <h3 id="header-6">
+      <h2 id="header-5">
        デフォルト引数
-      </h3>
+      </h2>
       <p>
        デフォルト引数は引数定義時にデフォルトの値を決めてしまい、
 呼び出し時に対応する引数が与えられなければデフォルト値が適用されるというものです。
@@ -355,9 +347,9 @@ Pythonの初心者であっても既存ライブラリなどを利用する場�
 全ての引数を指定するのは大変ですが、デフォルト引数の機能を使って必要な箇所のみピンポイントで指定し、
 あとはデフォルト値を使うようにすれば呼び出しが簡単になります。
       </p>
-      <h3 id="header-7">
+      <h2 id="header-6">
        可変長引数
-      </h3>
+      </h2>
       <p>
        可変長引数は名前の通り「引数の長さ(数)が変わる」ということです。
  先ほどのキーワード引数も良い出す際の引数の数はデフォルト値を使うか否かという観点では可変でした。
@@ -424,9 +416,9 @@ Pythonの初心者であっても既存ライブラリなどを利用する場�
        とするなどして、
 必要な数にマッチした関数の定義をしてください。
       </p>
-      <h3 id="header-8">
+      <h2 id="header-7">
        なんでも受け取るキーワード引数
-      </h3>
+      </h2>
       <p>
        位置指定引数のところで紹介したキーワード引数は関数の引数の順序を無視して呼び出す目的で使いました。
 実はこのキーワード引数は自分が定義した引数以外にも使えます。
@@ -537,9 +529,9 @@ Pythonの初心者であっても既存ライブラリなどを利用する場�
        上記のサンプルは sum 関数になにを与えるかをリッチに出力させています。
 面白いのは関数 sum はキーワード引数を受け取らないのに呼び出し時にそれを与えても問題が発生していないところかと思います。
       </p>
-      <h3 id="header-9">
+      <h2 id="header-8">
        再帰関数
-      </h3>
+      </h2>
       <p>
        再帰関数は自分自身を呼び出す関数です。
 for や while 文でループ処理をしますが、再帰関数も似たように「同じ処理を何度も繰り返す」場面で使われます。
@@ -772,8 +764,8 @@ for や while 文でループ処理をしますが、再帰関数も似たよう
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -784,11 +776,6 @@ for や while 文でループ処理をしますが、再帰関数も似たよう
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

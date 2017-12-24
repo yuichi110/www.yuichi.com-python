@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        オブジェクトは何をすべきか
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,49 +96,54 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          オブジェクトは何をすべきか
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="header-2">
+          オブジェクトとオブジェクトの連携
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          コンポジション
+         </a>
+        </li>
+        <li>
+         <a href="header-4">
+          コンポジションの実現
          </a>
          <ul>
           <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
-           <a href="#header-3">
-            オブジェクトとオブジェクトの連携
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            コンポジション
-           </a>
-          </li>
-          <li>
            <a href="#header-5">
-            コンポジションの実現
+            処理を分割
            </a>
           </li>
           <li>
            <a href="#header-6">
-            クラス分けによるコードの再利用
-           </a>
-          </li>
-          <li>
-           <a href="#header-7">
-            オブジェクト渡し
+            状態を分割
            </a>
           </li>
          </ul>
         </li>
+        <li>
+         <a href="#header-7">
+          クラス分けによるコードの再利用
+         </a>
+        </li>
+        <li>
+         <a href="header-8">
+          オブジェクト渡し
+         </a>
+        </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
-      <h3 id="header-3">
+      </h2>
+      <h2 id="header-2">
        オブジェクトとオブジェクトの連携
-      </h3>
+      </h2>
       <p>
        オブジェクト指向において「オブジェクト」と「インスタンス」は非常に近い存在です。
 ただ、インスタンスは「クラスから生成される」という意味合いが強く、
@@ -201,9 +205,9 @@
 そしてチーム全体で情報の共有をより多く必要とします。
 要は、手続き型言語では開発のリーダーや各プログラマの腕が悪いと簡単にプログラムのアーキテクチャが崩壊するということです。
       </p>
-      <h3 id="header-4">
+      <h2 id="header-3">
        コンポジション
-      </h3>
+      </h2>
       <p>
        オブジェクトとオブジェクトは連携するということがわかっていただけたかと思います。
 問題はこれをどう実現するかです。
@@ -258,12 +262,12 @@
 自然と正しい設計ができるようになるのではないでしょうか。
 デザインパターンという設計の教科書を読むのもてっとり早いのですが、ある程度の経験がないと自分の血肉にはならないです。
       </p>
-      <h3 id="header-5">
+      <h2 id="header-4">
        コンポジションの実現
-      </h3>
-      <h4>
+      </h2>
+      <h3 id="header-5">
        処理を分割
-      </h4>
+      </h3>
       <p>
        実際にどのようにしてコンポジションを実現するかについて話します。
 先ほどのWebサービスの開発の仕組みを簡単にして、以下の図のようなものを構築してみたいと思います。
@@ -308,9 +312,9 @@
 今回の例は非常に簡単な処理(計算)をコンポジションで実現していますが、実際はこの処理が複雑なものに置き換えられます。
 そうするとコンポジションを使う側のManager クラスに相当する側の処理がシンプルに保たれます。
       </p>
-      <h4>
+      <h3 id="header-6">
        状態を分割
-      </h4>
+      </h3>
       <p>
        もう少しプログラムを複雑にしてオブジェクト指向のメリットを得てみたいと思います。
 この無能なマネージャーBobは仕事が管理できておらず、
@@ -435,9 +439,9 @@ Secretaryが状態を持つということは、100%マネージャーの思い�
 例のような3者の関係ですら頭で追うのは難しいのに、これが4,5 と増えていくと追いきれなくなってきます。
 コンポジションを実現する場合はクラスの設計をシンプルにするだけでなく、オブジェクト間の連携の仕組みもシンプルに保つことを心がけて下さい。
       </p>
-      <h3 id="header-6">
+      <h2 id="header-7">
        クラス分けによるコードの再利用
-      </h3>
+      </h2>
       <p>
        クラス分けをすることにより実装がシンプルになるという話をしましたが、これはコードを再利用する際にも重要なことです。
 先ほどのSecretaryクラスのSaraですが、ManagerのBobの上司であるDirectorのJohnも「俺もログ機能を使いたい」と思ったとします。
@@ -557,9 +561,9 @@ write_log をすると新しいログを追記し、get_log をするとファ�
 このように適切に機能がクラス分けされていると、コードの修正範囲が狭くなり、機能拡張や変更、そしてバグ潰しが楽になります。
 大切なことなので覚えておいてください。
       </p>
-      <h3 id="header-7">
+      <h2 id="header-8">
        オブジェクト渡し
-      </h3>
+      </h2>
       <p>
        今までのManager、Engineer、Secretaryの例を見てもらうとわかるのですが、
 常に「AがBを持つ」という形でプログラムが実現されています。
@@ -828,8 +832,8 @@ write_log をすると新しいログを追記し、get_log をするとファ�
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -840,11 +844,6 @@ write_log をすると新しいログを追記し、get_log をするとファ�
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

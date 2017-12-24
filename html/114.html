@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        メソッドのオーバーライド
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,42 +96,35 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          メソッドのオーバーライド
+          概要
          </a>
-         <ul>
-          <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
-           <a href="#header-3">
-            オーバーライド
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            オーバーライドされた親メソッドの呼び出し
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            ポリモーフィズム
-           </a>
-          </li>
-         </ul>
+        </li>
+        <li>
+         <a href="header-2">
+          オーバーライド
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          オーバーライドされた親メソッドの呼び出し
+         </a>
+        </li>
+        <li>
+         <a href="header-4">
+          ポリモーフィズム
+         </a>
         </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        あとで書く
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        オーバーライド
-      </h3>
+      </h2>
       <p>
        「オーバーライド」は継承したクラスで継承元のクラスのメソッドを「上書き」する手法です。
 前章にてコンストラクタであまり説明をせずにオーバーライドを使いましたが、もう少ししっかり解説したいと思います。
@@ -226,9 +218,9 @@
 再定義していない場合は親クラスのメソッドを呼び出します。
 当然ながら、子クラスだけしか持たないメソッドを親クラスのインスタンスは呼び出せません。
       </p>
-      <h3 id="header-4">
+      <h2 id="header-3">
        オーバーライドされた親メソッドの呼び出し
-      </h3>
+      </h2>
       <p>
        先ほどのオーバーライドの例ですが、若干困ったところがあります。
 それは「オーバーライドしたいのだけれども、親の処理を呼び出す必要がある」という場合です。
@@ -352,9 +344,9 @@ Web RegisterはHTTPからの入力をデータベースに登録します。
 python3 の場合は親クラスの名前を指定しなくても親クラスのメソッドが呼び出せるため、
 先ほどの super() を使った呼び出しのほうが一般的です。
       </p>
-      <h3 id="header-5">
+      <h2 id="header-4">
        ポリモーフィズム
-      </h3>
+      </h2>
       <p>
        ポリモーフィズムは日本語で多態性と訳されます。
 その意味をWikipediaで調べてみると以下のようにありました。
@@ -638,8 +630,8 @@ python3 の場合は親クラスの名前を指定しなくても親クラスの
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -650,11 +642,6 @@ python3 の場合は親クラスの名前を指定しなくても親クラスの
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

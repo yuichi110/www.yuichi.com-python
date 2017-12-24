@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        プログラムへの入力
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,47 +96,40 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          プログラムへの入力
+          概要
          </a>
-         <ul>
-          <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
-           <a href="#header-3">
-            なぜ入力が必要か
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            コマンドライン引数
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            標準入力
-           </a>
-          </li>
-          <li>
-           <a href="#header-6">
-            インタラクティブなプログラムの作成
-           </a>
-          </li>
-         </ul>
+        </li>
+        <li>
+         <a href="header-2">
+          なぜ入力が必要か
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          コマンドライン引数
+         </a>
+        </li>
+        <li>
+         <a href="header-4">
+          標準入力
+         </a>
+        </li>
+        <li>
+         <a href="header-5">
+          インタラクティブなプログラムの作成
+         </a>
         </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        あとで書く
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        なぜ入力が必要か
-      </h3>
+      </h2>
       <p>
        WindowsやMacのGUIアプリケーションを使うときに、さまざまな入力を求められることはありませんか。
 書き出すファイル名の入力や、利用するサーバを一覧から選択するといった場合などです。
@@ -177,9 +169,9 @@
 それにそもそも「プログラムを開いてそれを修正する」などということは、そのプログラムの開発者でなければできません。
 要するにプログラムファイルをいちいち書き変えるという対応での解決策はなしということです。
       </p>
-      <h3 id="header-4">
+      <h2 id="header-3">
        コマンドライン引数
-      </h3>
+      </h2>
       <p>
        解決方法はいろいろ考えられますが、最も一般的なものは、コマンドライン引数を利用することです。
 コマンドライン引数とは、Pythonコマンドでプログラムを起動する際に与えるパラメータのことです。
@@ -275,9 +267,9 @@ sys.argvの何番目という表現を延々とプログラム中で使い続け
        なお、UnixやLinuxコマンドの「オプション(-v や --help など)」相当のことを実装したいのであれば、
 sys.argvを使って根性で作りこむよりも専用のパッケージ「argparse」などを利用したほうがよいかと思います。
       </p>
-      <h3 id="header-5">
+      <h2 id="header-4">
        標準入力
-      </h3>
+      </h2>
       <p>
        ユーザーがプログラムに入力を与えるのはコマンドライン引数だけではありません。
 標準入力も用います。先ほどの生徒の成績を取得するプログラムを例に、標準入力がどのようなものか説明します。
@@ -416,9 +408,9 @@ Unixの思想にはいろいろあるのですが、「入力」に関しては�
 なお、パスワード入力に関してはgetpassというモジュールもありますので、
 パスワード入力を求める場合は、それを使ってもよいでしょう。
       </p>
-      <h3 id="header-6">
+      <h2 id="header-5">
        インタラクティブなプログラムの作成
-      </h3>
+      </h2>
       <p>
        今までのプログラムは「ユーザーがプログラムを起動したら処理を実行し、それが終われば終了」というものでした。
 ただ、なかにはこれにそぐわないプログラムもあります。
@@ -640,8 +632,8 @@ server = 10.0.0.1
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -652,11 +644,6 @@ server = 10.0.0.1
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        コンストラクタ
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,35 +96,45 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          コンストラクタ
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="header-2">
+          コンストラクタの定義
          </a>
          <ul>
           <li>
-           <a href="#header-2">
-            概要
+           <a href="#header-3">
+            インスタンス作成時に呼び出される特殊なメソッド
            </a>
           </li>
           <li>
-           <a href="#header-3">
-            コンストラクタの定義
+           <a href="#header-4">
+            コンストラクタの引数
+           </a>
+          </li>
+          <li>
+           <a href="#header-5">
+            コンストラクタを使うメリット
            </a>
           </li>
          </ul>
         </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        あとで書く
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        コンストラクタの定義
-      </h3>
-      <h4>
+      </h2>
+      <h3 id="header-3">
        インスタンス作成時に呼び出される特殊なメソッド
-      </h4>
+      </h3>
       <p>
        クラスにデータを持たせる際に以下のように
        <code>
@@ -177,9 +186,9 @@
        </code>
        内にあるprint文が呼び出されることがわかります。
       </p>
-      <h4>
+      <h3 id="header-4">
        コンストラクタの引数
-      </h4>
+      </h3>
       <p>
        さて、このコンストラクタなのですが見てわかるように文法としてはメソッドの宣言そのもので、
 名前が
@@ -238,9 +247,9 @@
        の対応が取れています。
 そしてコンストラクタ内では、与えられた引数をインスタンスのデータの初期化に利用しています。
       </p>
-      <h4>
+      <h3 id="header-5">
        コンストラクタを使うメリット
-      </h4>
+      </h3>
       <p>
        コンストラクタの引数を使うと「インスタンスの初期化を実施する」という保証を与えることができます。
 今までのようにコンストラクタを使わずに個別にデータを初期化する実装にすると特定のデータの初期化を忘れる可能性が考えられます。
@@ -383,8 +392,8 @@
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -395,11 +404,6 @@
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

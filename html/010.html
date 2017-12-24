@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta content="Sample Description" name="description"/>
   <meta content="Yuichi Ito" name="author"/>
   <link href="./asset/favicon.ico" rel="icon"/>
@@ -47,24 +46,24 @@
        <span class="icon-bar">
        </span>
       </button>
-      <a class="navbar-brand " href="#">
+      <a class="navbar-brand " href="./">
        Python
       </a>
      </div>
      <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
        <li class="">
-        <a href="">
+        <a href="./navi.html">
          Navi
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./qa.html">
          QA
         </a>
        </li>
        <li class="">
-        <a href="">
+        <a href="./books.html">
          Books
         </a>
        </li>
@@ -87,9 +86,9 @@
      <div class="col-sm-8 u1-main">
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
-      <h2 id="header-1">
+      <h1>
        モジュール
-      </h2>
+      </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
         本記事の内容
@@ -97,31 +96,46 @@
        <ul class="toc_list">
         <li>
          <a href="#header-1">
-          モジュール
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="header-2">
+          なぜモジュールが必要化
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          モジュールの利用
+         </a>
+        </li>
+        <li>
+         <a href="header-4">
+          モジュールの作成
          </a>
          <ul>
           <li>
-           <a href="#header-2">
-            概要
-           </a>
-          </li>
-          <li>
-           <a href="#header-3">
-            なぜモジュールが必要化
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            モジュールの利用
-           </a>
-          </li>
-          <li>
            <a href="#header-5">
-            モジュールの作成
+            モジュール開発のポイント
            </a>
           </li>
           <li>
            <a href="#header-6">
+            モジュールのリロード
+           </a>
+          </li>
+          <li>
+           <a href="#header-7">
+            モジュールの読み込みと実行
+           </a>
+          </li>
+          <li>
+           <a href="#header-8">
+            モジュールが起点の場合だけ実行される処理
+           </a>
+          </li>
+          <li>
+           <a href="#header-9">
             モジュール紹介
            </a>
           </li>
@@ -129,9 +143,9 @@
         </li>
        </ul>
       </div>
-      <h3 id="header-2">
+      <h2 id="header-1">
        概要
-      </h3>
+      </h2>
       <p>
        作成するアプリケーションが複雑なものであれば、そのプログラムの行数は数千、数万となります。
 一つのファイルにそれを収めるのは、どこになにがあるか分からなくなるため推奨されません。
@@ -150,9 +164,9 @@ Pythonのプログラムを処理に応じていくつかのモジュールに�
       <p>
        本ページではこのモジュールについて扱います。
       </p>
-      <h3 id="header-3">
+      <h2 id="header-2">
        なぜモジュールが必要化
-      </h3>
+      </h2>
       <p>
        Pythonのプログラムは書けば書くほど大きくなります。
 数百行のコードでしたらひとつのファイルに書けないことはないですが、
@@ -173,9 +187,9 @@ Pythonではこの「ファイルに分けられた各プログラム」のこ�
       <p class="blog-img">
        <img alt="image" class="img-responsive" src="./0050_image/01.jpg"/>
       </p>
-      <h3 id="header-4">
+      <h2 id="header-3">
        モジュールの利用
-      </h3>
+      </h2>
       <p>
        まずはPythonが提供してくれているモジュールを利用することからはじめていきましょう。
 モジュールを利用するには「import宣言」が必要です。
@@ -263,9 +277,9 @@ import されるモジュール名が長かったりわかりにくかったり�
        あるモジュールをテストするといったシナリオでは有効な使い方ですが、
 本番環境用のコードでは使用しないほうがよいです。
       </p>
-      <h3 id="header-5">
+      <h2 id="header-4">
        モジュールの作成
-      </h3>
+      </h2>
       <p>
        モジュールの作成は簡単です。本連載の最初に説明したように、
 「.py」という拡張子をつけたファイルにpythonのコードを書くだけです。
@@ -307,9 +321,9 @@ python!
       <p>
        特別に難しいことはありませんね。
       </p>
-      <h4>
+      <h3 id="header-5">
        モジュール開発のポイント
-      </h4>
+      </h3>
       <p>
        モジュールを書くにあたって注意すべきすることは、モジュールが以下の特性を持っているかということです。
       </p>
@@ -339,9 +353,9 @@ python!
 モジュールの探索には規則があり、それを知ることで別の場所にあるモジュールを読み込むこともできます。
 ただ、それらは難しいため本書ではなく本シリーズの下編にて扱います。
       </p>
-      <h4>
+      <h3 id="header-6">
        モジュールのリロード
-      </h4>
+      </h3>
       <p>
        モジュールを開発している際にモジュールのコードを更新しても、
 それを import している側は昔のコードのモジュールを保持し続けます。
@@ -416,9 +430,9 @@ hello!
        本番環境でモジュールをリロードすることはあまりありませんが、
 サーバープロセスなどにおいて動的に実行するコードを更新するといった目的にも使えるかもしれません。
       </p>
-      <h4>
+      <h3 id="header-7">
        モジュールの読み込みと実行
-      </h4>
+      </h3>
       <p>
        Python はモジュールを読み込む際に実行をしています。
 そのため、先程までのような関数のみのモジュールを import しても全く影響はありませんが、
@@ -530,9 +544,9 @@ hello.py: __main__
        </code>
        となっていることが分かります。
       </p>
-      <h4>
+      <h3 id="header-8">
        モジュールが起点の場合だけ実行される処理
-      </h4>
+      </h3>
       <p>
        この
        <code>
@@ -573,7 +587,7 @@ if(__name__ == '__main__'):
 モジュールとして使われるプログラムを起点と呼び出した場合にだけテストをするというのは理にかなっています。
 この書き方は様々なところで使われているので、ぜひ覚えておいて下さい。
       </p>
-      <h3 id="header-6">
+      <h3 id="header-9">
        モジュール紹介
       </h3>
       <p>
@@ -768,8 +782,8 @@ OS モジュールはちょうどターミナルや DOS Prompt、power shell の
          </a>
         </li>
         <li>
-         <a href="./download.html">
-          ダウンロード
+         <a href="./navi.html">
+          目次
          </a>
         </li>
         <li>
@@ -780,11 +794,6 @@ OS モジュールはちょうどターミナルや DOS Prompt、power shell の
         <li>
          <a href="./books.html">
           おすすめPython書籍
-         </a>
-        </li>
-        <li>
-         <a href="./about.html">
-          このページについて
          </a>
         </li>
        </ol>

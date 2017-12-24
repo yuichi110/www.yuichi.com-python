@@ -1,0 +1,6 @@
+NAV_HOME = ''
+NAV_ABOUT = ''
+
+PREVIOUS = '#'
+NEXT = '#'
+PRINT = './navi_print.html'
