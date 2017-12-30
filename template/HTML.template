@@ -56,6 +56,7 @@
             <li class="{{ NAV_NAVI }}"><a href="./navi.html">Navi</a></li>
             <li class="{{ NAV_QA }}"><a href="./qa.html">QA</a></li>
             <li class="{{ NAV_BOOKS }}"><a href="./books.html">Books</a></li>
+            <li style="font-family: avenger"><a href="/">GC</a></li>
           </ul>
         </div>
 

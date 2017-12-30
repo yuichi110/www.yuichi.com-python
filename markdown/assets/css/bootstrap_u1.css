@@ -20,6 +20,11 @@ Belize Hole : #2980b9
  - Blue high light.
 */
 
+@font-face {
+  font-family: 'avenger';
+  src: url(/fonts/avenger.ttf);
+}
+
 body {
   background-image:url(../images/background-not-free.jpg);
   background-size: 480px;
