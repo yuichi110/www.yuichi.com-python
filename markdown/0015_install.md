@@ -14,12 +14,6 @@ WindowsにはPython2もPython3も、デフォルトではインストールさ�
 MacにはPython2のみデフォルトでインストールされています。
 Python3を使いたければ、Python3をインストールする必要があります。
 
-WindowsやMacにPythonをインストールすると、Pythonが使えるようになります。
-Pythonを使うにはコンソール(Windowsではパワーシェル、Macではターミナル)で、pythonコマンドを使います。
-そうすることでPythonのプログラムを実行したり、対話式のシェルを使うことができます。
-
-<!-- 図を貼ること -->
-
 ## Pythonのインストール
 
 ### Windows10へのインストール
