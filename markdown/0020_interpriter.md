@@ -28,7 +28,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 #### コンソール: Pythonシェルのプロンプト
 
-```python
+```text
 >>>
 ```
 
@@ -37,7 +37,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 #### コンソール: Pythonシェルで足し算を実行
 
-```python
+```text
 >>> 1 + 1
 2
 >>>
@@ -46,12 +46,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 エンターキー(リターンキー)を押すと、入力していたプログラムをPythonが読み取り、
 その結果を返します。
 今回は`1 + 1`がユーザの入力で、Pythonがそれを読み取って解釈し、結果である`2`を返しています。
-
-詳細は後ほど扱いますが、文字を画面に表示させることもできます。
+計算に使っている「+」は「*演算子*」と呼ばれており、他には「-」などもあります。
 
 #### コンソール: Pythonシェルで文字列を出力
 
-```python
+```text
 >>> 'hello' + ' python'
 hello python
 >>>
@@ -64,7 +63,16 @@ Pythonシェルは「インタプリタ」とも呼ばれます。
 Pythonシェルはプログラムのちょっとした挙動確認には便利なのですが、
 プログラムの「ソースコード(コード)」を書くためのものではありません。
 
+## インタプリタの終了方法
 
+インタプリタを抜けるには「exit()」と入力するか「Ctrl + d　(Controlボタンを押しながらdを押す)」を入力します。
+
+```text
+>>> 1 + 1
+2
+>>> exit()
+$
+```
 
 ### Pythonコマンドのオプション
 
