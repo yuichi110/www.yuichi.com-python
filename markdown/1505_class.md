@@ -244,3 +244,23 @@ print(a)
 ### メソッドの返り値
 
 あとで整理
+
+
+
+
+dir に加えて help 関数を使うと、属性のより詳細を調べることもできます。
+たとえばリストの pop メソッドがどういうものか調べたければ以下のようにします。
+
+```
+>>> help(a.pop)
+
+Help on built-in function pop:
+
+pop(...) method of builtins.list instance
+    L.pop([index]) -> item -- remove and return item at index (default last).
+    Raises IndexError if list is empty or index is out of range.
+```
+
+上記のヘルプを使うことでメソッドの挙動がわかります。
+少し慣れが必要ですが、いちいち本で調べたりGoogle で検索したりするより、
+上記のようにインタプリタを使ってその場でどういう属性を持つか調べるほうがはやいので積極的に使ってみて下さい。
