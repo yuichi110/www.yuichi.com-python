@@ -47,26 +47,28 @@ Pythonのモジュールの作成は今までのプログラムファイルの�
 モジュール「util(util.py)」を作成し、それを実行するファイル「main.py」から呼び出すというシナリオで確認します。
 両ファイルは同じディレクトリで作成します。
 
-#### プログラム: util.py
+#### プログラム: util1.py
 
 ```python
 def say_hello():
-  print('hello!')
+  print('hello')
 
 def say_python():
-  print('python!')
+  print('python')
 ```
 
 上記が呼び出される側のPythonのプログラム「util.py」です。
 これには2つの関数が定義されています。
 
-以下が上記のモジュールを呼び出す側のPythonのプログラム「main.py」です。
+以下が上記のモジュールを呼び出す側のPythonのプログラム「main1.py」です。
+
+#### プログラム: main1.py
 
 ```python
-import util
+import util1
 
-util.say_hello()
-util.say_python()
+util1.say_hello()
+util1.say_python()
 ```
 
 モジュールどのように使うかはPythonの標準ライブラリを利用する場合と全く同じです。
@@ -75,8 +77,8 @@ main.pyを実行すると以下のような出力が得られます。
 きちんと自分が作成したモジュールを呼び出せています。
 
 ```
-hello!
-python!
+hello
+python
 ```
 
 ### モジュール開発のポイント
@@ -158,7 +160,7 @@ Pythonには特別な変数やメソッドなどがあり、それらは「*特�
 #### プログラム: util3.py
 
 ```python
-print('util3.py __name__: ' + __name__)
+print('util3.py __name__ : ' + __name__)
 ```
 
 #### プログラム: main2.py
@@ -166,14 +168,14 @@ print('util3.py __name__: ' + __name__)
 ```python
 import util3
 
-print('main3.py __name__: ' + __name__)
+print('main3.py __name__ : ' + __name__)
 ```
 
 #### コンソール: main3.pyの実行結果
 
 ```text
-util3.py __name__: util3
-main3.py __name__: __main__
+util3.py __name__ : util3
+main3.py __name__ : __main__
 ```
 
 ### モジュールが起点の場合だけ実行される処理
@@ -229,3 +231,5 @@ start util4 test
 util4_function called
 end util4 test
 ```
+
+## パッケージの作成
