@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       タプル
+       関数
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,42 +107,40 @@
         </li>
         <li>
          <a href="header-2">
-          タプルの目的
+          Pythonが提供する組み込み関数
          </a>
         </li>
         <li>
          <a href="header-3">
-          基礎
+          関数の定義と利用
          </a>
          <ul>
           <li>
            <a href="#header-4">
-            作成
+            引数
            </a>
           </li>
           <li>
            <a href="#header-5">
-            要素の取得
+            返り値なしはNoneを返す
            </a>
           </li>
           <li>
            <a href="#header-6">
-            要素をまとめて取得
+            返り値がない自作関数
+           </a>
+          </li>
+          <li>
+           <a href="#header-7">
+            複数のreturn文
            </a>
           </li>
          </ul>
         </li>
         <li>
-         <a href="#header-7">
-          タプルの便利な使い方
+         <a href="#header-8">
+          関数内の関数
          </a>
-         <ul>
-          <li>
-           <a href="#header-8">
-            関数の返り値
-           </a>
-          </li>
-         </ul>
         </li>
        </ul>
       </div>
@@ -150,159 +148,327 @@
        概要
       </h2>
       <p>
-       あとで書く
-      </p>
-      <h2 id="header-2">
-       タプルの目的
-      </h2>
-      <p>
-       リストという型がなぜ存在するのか覚えていますか。
-ひとつの型のなかに任意の数の複数のデータを格納できると便利だからでした。
-たとえば「生徒たちの成績を格納する」といった目的で利用されます。
-タプルもリストと似ていて、ひとつの型のなかに複数のデータを格納します。
-ただ、その目的は異なっていて、「決まった数の複数のデータがひとつの意味を持つもの」にタプルは使われます。
+       Pythonに限らず、多くのプログラミング言語には「関数」という概念があります。
+関数は呼び出し元から「引数」として値を受けとり、
+内部で「処理」をして、結果を「返り値」として返します。
+引数と返り値は必須ではなく、どちらかもしくは両方がないこともあります。
       </p>
       <p>
-       例をあげて説明しましょう。
-お店の会員情報というものをデータで表現することを考えてみます。
-例えば 'taro, 1986, tokyo' といった具合で単純に文字列としてすべてを含めてしまってもいいのですが、
-以下のような複数の要素を持つデータとして表現したほうがプログラムで使いやすそうです。
+       関数は以下の役割を持っています
       </p>
       <ul>
        <li>
-        氏名
+        Pythonが提供する機能を呼び出す
        </li>
        <li>
-        生年月日
+        プログラムを分かりやすくする
        </li>
        <li>
-        住所
+        プログラムの重複を減らす
        </li>
       </ul>
       <p>
-       テキスト処理で文字列の中から生年月日を抜き出したりするよりも、
-「Aさんの住所 -&gt; 東京都…」というようにぱっと取り出せる方が便利です。
-これはちょうど先ほど説明したオブジェクト指向におけるメソッドがないクラスのようなものです。
+       Pythonが提供する関数を使うことでキーボードやファイルからの入力、
+ディスプレイへの出力といったプログラマーが作れない処理を実現できます。
       </p>
       <p>
-       タプルは上記のような複数のデータをひとつにまとめるための型です。
-Python のリストは様々な種類のデータを格納することができるため、
-同じことをリストでも実現できます。
-ただ、リストは「可変長(長さが変わる)」なので、
-複数のデータが合わさってはじめて意味を持つ場合の利用は本来の用途ではなく、
-それよりも同じデータをいくつも格納する用途で使われます。
+       複雑な処理をPythonが提供する関数で簡単に実現できたり、
+自分でその関数を作ることで複雑なコードを外に追いやることでプログラムの見通しがよくなります。
+また、似たような処理をコピーペーストではなく関数を使って実現できるため、
+プログラムの重複が減ります。
+      </p>
+      <h2 id="header-2">
+       Pythonが提供する組み込み関数
+      </h2>
+      <p>
+       関数はプログラマが自分で作るものと、プログラミング言語の環境(Python)が提供するものがあり、
+後者を特に「
+       <em>
+        組み込み関数
+       </em>
+       」と呼びます。
       </p>
       <p>
-       以下にリストとタプルの違いを図にまとめます。
+       たとえば出力をコンソールにするprint文も組み込み関数です。
+この関数に値を与えると、それがコンソールに表示されます。
       </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0070_image/01.jpg"/>
+      <div class="codehilite">
+       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'Hello Python'</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>Hello Python
+</pre>
+      </div>
+      <p>
+       この関数の「()」にいれる値を「
+       <em>
+        引数
+       </em>
+       」と呼んでいます。
+関数の目線で「引き込む値」で、関数を使う側が関数に渡す値です。
+上記の例では「'Hello Python'」という文字列が引数であり、
+これがprint関数を使う側からprint関数に渡されています。
+      </p>
+      <p>
+       関数はそれぞれ役割を持っていて、print関数は引数をコンソールに表示することが役割です。
+      </p>
+      <p>
+       &lt;&lt;図&gt;&gt;
+      </p>
+      <p>
+       別の関数len()はリストの長さを確認するための関数です。
+この関数は引数としてリストを受け取ると、リストの長さを求めるという処理をします。
+ただ、先ほどのprint関数と異なり、この関数はリストの長さをプログラムの呼び出し側に「返す」という動きをします。
+この返す値のことを「返り値」と呼びます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'h'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'l'</span><span class="p">,</span> <span class="s1">'l'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>5
+</pre>
+      </div>
+      <p>
+       先ほどのprint関数は引数を処理のなかで画面出力することが役割でしたので、
+特に値を呼び出し元に返す必要がありません。
+そのため返り値がありませんでした。
+      </p>
+      <p>
+       一方、関数lenは処理の役割がリストの長さを求めるということなので、
+求めた値を呼び出し元に返さないと呼び出した意味がありません。
+そのため、呼び出し元に返り値を返します。
+      </p>
+      <p>
+       &lt;&lt;図&gt;&gt;
+      </p>
+      <p>
+       関数は突き詰めると「呼び出し元が引数で値を関数に渡す」「関数の処理のなかで引数を使ってなにかをする」
+「関数が返り値として処理した結果を呼び出し側に返す」という3つの流れに集約されます。
       </p>
       <h2 id="header-3">
-       基礎
+       関数の定義と利用
       </h2>
+      <p>
+       組み込み関数を使うだけでなく、関数を自分で作って使うこともできます。
+関数の定義もif文やfor文と同じように、「
+       <em>
+        def文
+       </em>
+       」を使って宣言し、コードブロックで処理を書きます。
+      </p>
+      <p>
+       リスト長を求めるlen()関数と同じことをする「mylen()」関数を定義します。
+      </p>
+      <p>
+       &lt;&lt;図&gt;&gt;
+      </p>
+      <p>
+       def文に続けて自分がつけたい関数名を書き、それに続けて()に囲まれた引数を書きます。
+関数名や引数名は変数と同じように自分の好きな名前をつけられます。
+ただ、変数と同じく小文字のアルファベットとアンダーバーと数字を使うのが一般的です。
+      </p>
+      <p>
+       コードブロック内にその処理を書き、ここではfor文を使って要素を全てループして数を数えています。
+求めた値を呼び出し側に返すには「
+       <em>
+        return文
+       </em>
+       」を使います。
+      </p>
+      <p>
+       return文は関数を打ち切るキーワードで、return文以降のコードは実行されません。
+return文の後ろに何も書かなければ返り値はなにもなく、後ろに値を書けばそれが返り値となります。
+return文がない、もしくはif文の関係で実行されなかったといった場合は、
+関数のコードブロックの最後まで実行されて返り値なしとなります。
+      </p>
+      <p>
+       自分が定義した関数を使う方法は組み込み関数と全く同じです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">mylen</span><span class="p">(</span><span class="n">list_</span><span class="p">):</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="n">list_</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">count</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'h'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'l'</span><span class="p">,</span> <span class="s1">'l'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">mylen</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>5
+</pre>
+      </div>
+      <p>
+       注意をして欲しいのは自分が作った関数を利用するのは定義をした後になるということです。
+上記ではmylenの定義をしたあとで、それを使っています。
+もしこの順序が逆になれば「mylenは定義されていない」としてエラーが発生します。
+      </p>
       <h3 id="header-4">
-       作成
+       引数
       </h3>
       <p>
-       タプルがどういうものかわかっていただけたと思うので、具体的にどのように使うのか説明しましょう。
-タプルの作成はタプルの要素となる値を () で囲むことで作成できます。
-type関数は型を確認するために利用する関数です。
+       関数の引数は好きな数だけ定義できます。
+引数が存在しない場合は引数定義を「関数名()」と空にして、
+複数存在する場合は「関数名(引数名1, 引数名2, 引数名3)」とコンマ区切りで並べます。
+      </p>
+      <p>
+       この関数の定義にある引数の数と、関数を呼び出す際に与える引数の数をあわせる必要があります。
+定義と呼び出しの引数の数があっていなければエラーが発生します。
+functionは関数で、argは引数、callは呼び出しの英語です。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'taro'</span><span class="p">,</span><span class="s1">'1986'</span><span class="p">,</span><span class="s1">'tokyo'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="c1"># &lt;class 'tuple'&gt;</span>
+       <pre><span></span><span class="k">def</span> <span class="nf">myfunction1</span><span class="p">():</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'myfunction1 called'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">myfunction2</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'myfunction2 called'</span><span class="p">)</span>
+
+<span class="n">myfunction1</span><span class="p">()</span>
+<span class="n">myfunction2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">myfunction1</span><span class="p">(</span><span class="s1">'test'</span><span class="p">)</span>
 </pre>
       </div>
+      <div class="codehilite">
+       <pre><span></span>myfunction1 called
+myfunction2 called
+Traceback (most recent call last):
+  File "sample.py", line 10, in &lt;module&gt;
+    myfunction1('test')
+TypeError: myfunction1() takes 0 positional arguments but 1 was given
+</pre>
+      </div>
+      <p>
+       引数の数を揃えた1番めと2番めの呼び出しは成功していますが、
+引数がない関数を引数を与えて呼び出すと「関数myfunction1は引数を0受け取るが、1つ与えられている」としてエラーになっています。
+      </p>
+      <p>
+       Pythonの関数の引数には中級者向けの様々なテクニックがあります。
+それらを使えば上記の引数の数が違う問題なども回避できます。
+これらについては関数の引数の詳細を扱うページにて解説します。
+      </p>
       <h3 id="header-5">
-       要素の取得
+       返り値なしはNoneを返す
       </h3>
       <p>
-       上記は先ほどの会員情報のタプルです。
-その要素への参照はリストに似ています。
+       返り値がない関数があると先ほど説明しましたが、厳密にいうとそれらの関数は「
+       <em>
+        None
+       </em>
+       」という値を返り値として返しています。
+Noneは日本語でいうと「何もない」ですので、何もないということを明示的に返しています。
+      </p>
+      <p>
+       先ほどprint()関数は返り値がないと説明しましたが、あえて返り値を変数に代入して中身を確認すると、
+このNoneという値が返されていることが分かります。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'taro'</span><span class="p">,</span><span class="s1">'1986'</span><span class="p">,</span><span class="s1">'tokyo'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="c1"># 'taro'</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="c1"># 3</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="c1"># taro</span>
-<span class="c1"># 1986</span>
-<span class="c1"># tokyo</span>
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>hello
+None
+&lt;class 'NoneType'&gt;
 </pre>
       </div>
       <p>
-       ただし、リストと異なり一度作成されたオブジェクトは変更することはできません。
+       なお、Noneが返されていることを「返り値はNone」と明示的には言わず、「返り値はない」とされることが多いです。
+どちらの表現も間違いではありませんが「返り値はNone」とわざわざ伝える必要はないです。
       </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'taro'</span><span class="p">,</span><span class="s1">'1986'</span><span class="p">,</span><span class="s1">'tokyo'</span><span class="p">)</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1">#  ...</span>
-<span class="c1"># TypeError: 'tuple' object does not support item assignment</span>
-</pre>
-      </div>
       <h3 id="header-6">
-       要素をまとめて取得
+       返り値がない自作関数
       </h3>
       <p>
-       少しトリッキーな見た目ですが、タプル内の要素を一気に取得することもできます。
+       自作の関数でreturn文を後ろの返り値なしで呼び出したり、関数内でreturn文が呼び出されないと、
+Noneが返されます。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'taro'</span><span class="p">,</span><span class="s1">'1986'</span><span class="p">,</span><span class="s1">'tokyo'</span><span class="p">)</span>
-<span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># taro</span>
-<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>   <span class="c1"># 1986</span>
-<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>   <span class="c1"># tokyo</span>
-</pre>
-      </div>
-      <p>
-       タプルはC言語でいう「構造体」やJavaでいう「クラスのメンバ関数」の簡易版として使うのが主な用途です。
-ただし、構造体やメンバ関数はそれぞれ「変数名」を持っているのに対して、
-タプルは「何番目にある要素か」ということを基準にしてデータを管理します。
-      </p>
-      <h2 id="header-7">
-       タプルの便利な使い方
-      </h2>
-      <h3 id="header-8">
-       関数の返り値
-      </h3>
-      <p>
-       最後にタプルの便利な使い方を紹介します。あまり機会は多くないのですが、
-関数の返り値を2つ返したい場合がときどき発生します。
-一つひとつ別の関数に分けて値を取得するようにすることもできますが、
-たとえばfor文での探索のようなプログラムだと計算コストが高いため、
-無駄に2周するのは避けたほうがよいです。
-そのようなときにタプルをreturnで使うと便利です。
-たとえば、リストの要素の最小値と最大値を取得する関数だと、返り値は2つ返したいところです。
-そのような場合は以下のようにすれば大丈夫です。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">get_min_max</span><span class="p">(</span><span class="n">list_</span><span class="p">):</span>
-  <span class="n">min_</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-  <span class="n">max_</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_</span><span class="p">:</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">min_</span><span class="p">):</span> <span class="n">min_</span> <span class="o">=</span> <span class="n">i</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">max_</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">):</span> <span class="n">max_</span> <span class="o">=</span> <span class="n">i</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="p">)</span>
+       <pre><span></span><span class="k">def</span> <span class="nf">myfunction1</span><span class="p">():</span>
+  <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
-<span class="p">(</span><span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="p">)</span> <span class="o">=</span> <span class="n">get_min_max</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'min: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_</span><span class="p">))</span>
-<span class="c1"># 1</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'max: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_</span><span class="p">))</span>
-<span class="c1"># 10</span>
+<span class="k">def</span> <span class="nf">myfunction2</span><span class="p">():</span>
+  <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">return</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">myfunction1</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">myfunction2</span><span class="p">())</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>None
+None
+</pre>
+      </div>
+      <h3 id="header-7">
+       複数のreturn文
+      </h3>
+      <p>
+       関数内に複数のreturn文を書くことができます。
+これはループの中に書かれたbreakと似ていて、
+それが呼び出されたタイミングで全ての残りの処理が打ち切られて関数呼び出しが終了します。
+      </p>
+      <p>
+       プログラムの最後にbreak文があれば関数の処理は最後まで実施されるが、
+途中にある場合はそれ以後は実施されないということです。
+      </p>
+      <p>
+       以下の関数では引数が10の場合のみ、if文でreturn文が実行されます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">return</span>
+  <span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">function</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">function</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>1
+2
+1
 </pre>
       </div>
       <p>
-       返り値をタプルにした際は、タプルの構造に気をつけて利用してください。
-たとえ関数の返り値のタプルの形式が変更されたにもかかわらず、それを利用する側が変更されなければエラーとなります。
-複雑な形式をやりとりしたいのであれば、続編で扱うクラスなどにしてしまうほうがよいです。
+       関数のなかで複数のreturn文を使うのであれば、全てのreturn文が同じ形式の返り値を返すようにしてください。
+状況に応じて引数Noneが返されたり数値が返されたりすると、それを使う側は引数の型のチェックなどが必要になります。
+そのような何が返されるか分からない関数は非常に使いにくいものとなります。
+      </p>
+      <h2 id="header-8">
+       関数内の関数
+      </h2>
+      <p>
+       Python の関数は実は関数の中に入れ子構造にすることができます。
+例えば以下のような使い方ができます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">test1</span><span class="p">():</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+
+  <span class="k">def</span> <span class="nf">test2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">test2</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">test1</span><span class="p">())</span>
+<span class="c1"># 21</span>
+</pre>
+      </div>
+      <p>
+       上記の例では関数 test1() の中で関数 test2() を定義し、それを使っています。
+今回のサンプルのような短い関数であればこのような使い方は不要ですが、
+より複雑な処理を関数で行う場合は処理を綺麗に分類するために内部で関数を定義して使うことがあります。
       </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
@@ -396,12 +562,6 @@ type関数は型を確認するために利用する関数です。
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -432,224 +592,102 @@ type関数は型を確認するために利用する関数です。
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          Pythonプログラミング
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>

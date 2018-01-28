@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       リスト再入門
+       ループ
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,60 +107,42 @@
         </li>
         <li>
          <a href="header-2">
-          リストのメソッド
+          for によるループ
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          ループ処理の必要性
          </a>
          <ul>
           <li>
-           <a href="#header-3">
-            要素の追加 : append, insert
-           </a>
-          </li>
-          <li>
            <a href="#header-4">
-            要素の削除 : del演算子、removeメソッド
+            for の変数名
            </a>
           </li>
           <li>
            <a href="#header-5">
-            要素の取り出し : pop
-           </a>
-          </li>
-          <li>
-           <a href="#header-6">
-            キュー(Queue)とスタック(Stack)
-           </a>
-          </li>
-          <li>
-           <a href="#header-7">
-            リストの結合 : +演算子, extendメソッド
-           </a>
-          </li>
-          <li>
-           <a href="#header-8">
-            リストの反転: reverse
-           </a>
-          </li>
-          <li>
-           <a href="#header-9">
-            リストのソート: sort
-           </a>
-          </li>
-          <li>
-           <a href="#header-10">
-            リストの初期化
-           </a>
-          </li>
-          <li>
-           <a href="#header-11">
-            リストのコピー
+            forをシーケンス型に使う
            </a>
           </li>
          </ul>
         </li>
         <li>
-         <a href="#header-12">
-          リストの仕組みと配列との違い
+         <a href="#header-6">
+          while によるループ
          </a>
+        </li>
+        <li>
+         <a href="header-7">
+          break
+         </a>
+         <ul>
+          <li>
+           <a href="#header-8">
+            continue
+           </a>
+          </li>
+         </ul>
         </li>
        </ul>
       </div>
@@ -168,323 +150,402 @@
        概要
       </h2>
       <p>
-       あとで書く
+       ループは同じ処理を何度も繰り返すためのプログラミングの制御方法です。
+      </p>
+      <p>
+       ループを使わずに似たような処理をなんども行う場合は、それを全てプログラムにベタ書きする必要があります。
+処理の回数に融通が効かず、無駄に長く、修正を加える場合も大変です。
+そのため、同じ処理を繰り返す場合はループを使います。
+      </p>
+      <p>
+       Pythonのループ処理は「for文」か「while文」を使います。
+for文はリスト型の値(もしくはそれに似た型の値)の要素に対してなんらかの処理を繰り返すような使い方をし、
+whileは条件式を満たすまでループ処理を繰り返すという使い方をします。
       </p>
       <h2 id="header-2">
-       リストのメソッド
+       for によるループ
       </h2>
       <p>
-       文字列と同じく、リストもオブジェクトです。
-そのため、まずは以前扱わなかったメソッドを使う処理を紹介します。
+       プログラミングの制御構造に「同じ処理を何度も繰り返す」というものがあり、それは「
+       <em>
+        ループ
+       </em>
+       」と呼ばれています。
+ループは少し複雑なプログラムでは必須となるテクニックです。
       </p>
-      <h3 id="header-3">
-       要素の追加 : append, insert
-      </h3>
       <p>
-       リストにデータを追加する方法です。
-追加するといっても「リスト末尾への追加」と「リストの途中への追加」でやりかたが異なります。
-末尾(一番最後)への追加は append メソッドを使い、間に追加するには insert を使います。
+       for文はPythonでループ処理をするための文法です。
+for文に与えたリストの全ての要素に対して、同じ処理を実施します。
+      </p>
+      <p>
+       &lt;&lt;図&gt;&gt;
+      </p>
+      <p>
+       for文はif文と同じく制御のルールを書いた後で、実行する処理を書くコードブロックを続けます。
+for文の構造は「for 変数 in リスト:」とすると、リストのヘッド(インデックス0)から要素を取り出して変数に格納し、
+for文のコードブロックを実行します。
+      </p>
+      <p>
+       for文のコードブロックの処理が終了すると、次の要素を取り出してコードブロックを再度実行します。
+これをリストの全てに対して行うまで繰り返します。
+      </p>
+      <h4>
+       コード: for文
+      </h4>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre>
+      </div>
+      <h4>
+       出力
+      </h4>
+      <div class="codehilite">
+       <pre><span></span>1
+2
+3
+4
+5
+</pre>
+      </div>
+      <p>
+       for文の構文のなかで必ずしも様子を格納する変数を使う必要はありません。
+また、要素の数が0であるリストを渡された場合は一度も処理を実行しないだけです。
+      </p>
+      <h2 id="header-3">
+       ループ処理の必要性
+      </h2>
+      <p>
+       たとえば「クラス全員のテストの平均点を求める」という処理を自分で実装するとしましょう。
+ループを使わなければ生徒全員の点数を「78 + 82 + 64 + 74 + ...」として合計値を求め、
+それを人数で割るというという処理をします。
+      </p>
+      <p>
+       この時、生徒の人数が変わると足し合わせる処理の数が増減し、
+割り算の値も変わります。
+プログラムの処理が生徒の数に依存しているということです。
+      </p>
+      <p>
+       4人の平均のプログラムは上記のものとなります。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># 末尾への追加</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3, 4]</span>
+       <pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="mi">78</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="mi">82</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">s4</span> <span class="o">=</span> <span class="mi">74</span>
+<span class="n">sum_score</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span> <span class="o">+</span> <span class="n">s3</span> <span class="o">+</span> <span class="n">s4</span>
+<span class="n">ave_score</span> <span class="o">=</span> <span class="n">sum_score</span> <span class="o">/</span> <span class="mi">4</span>
+</pre>
+      </div>
+      <p>
+       5人目を追加すると以下のようになりました。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="mi">78</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="mi">82</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">s4</span> <span class="o">=</span> <span class="mi">74</span>
+<span class="n">s5</span> <span class="o">=</span> <span class="mi">98</span>
+<span class="n">sum_score</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span> <span class="o">+</span> <span class="n">s3</span> <span class="o">+</span> <span class="n">s4</span> <span class="o">+</span> <span class="n">s5</span>
+<span class="n">ave_score</span> <span class="o">=</span> <span class="n">sum_score</span> <span class="o">/</span> <span class="mi">5</span>
+</pre>
+      </div>
+      <p>
+       新しい変数の作成、合計値の取得、割り算でコードが変更されています。
+      </p>
+      <p>
+       リストとfor文を使うとプログラムは以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">students_score</span> <span class="o">=</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">74</span><span class="p">]</span>
 
-<span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>   <span class="c1"># 1番目の要素に10を追加</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># [1, 10, 2, 3, 4]</span>
+<span class="n">sum_score</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">num_students</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">students_score</span><span class="p">:</span>
+  <span class="n">sum_score</span> <span class="o">+=</span> <span class="n">score</span>
+  <span class="n">num_students</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">ave_score</span> <span class="o">=</span> <span class="n">sum_score</span> <span class="o">/</span> <span class="n">num_students</span>
+</pre>
+      </div>
+      <p>
+       少し長く難しくなっていますが、以下のようになっています。
+      </p>
+      <ul>
+       <li>
+        生徒ごとに変数を作るのではなくリストの要素とした
+       </li>
+       <li>
+        合計値の変数を作り、それに生徒の点数をループで足していく
+       </li>
+       <li>
+        生徒数の変数を作り、それに生徒の人数をループで足していく
+       </li>
+       <li>
+        合計値と生徒数から平均値を求める
+       </li>
+      </ul>
+      <p>
+       このプログラムは先ほどのループを使わないプログラムと異なり、
+生徒の合計点を得る処理と、頭数での割り算の処理は生徒の人数に依存していません。
+10人だろうと、100人だろうと同じです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">students_score</span> <span class="o">=</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">98</span><span class="p">]</span>
+
+<span class="n">sum_score</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">num_students</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">students_score</span><span class="p">:</span>
+  <span class="n">sum_score</span> <span class="o">+=</span> <span class="n">score</span>
+  <span class="n">num_students</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">ave_score</span> <span class="o">=</span> <span class="n">sum_score</span> <span class="o">/</span> <span class="n">num_students</span>
 </pre>
       </div>
       <h3 id="header-4">
-       要素の削除 : del演算子、removeメソッド
+       for の変数名
       </h3>
       <p>
-       追加とくれば削除です。
-削除にはremoveメソッドを使います。
+       for 文を書く際に注意すべきなのは取り出した値を格納する変数の名前付けです。
+プログラムとしては変数名として有効なものであれば何を書いても動くのですが、
+一般的には以下のようなルールがあります。
       </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">]</span>
-<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">'b'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># ['a', 'c', 'd']</span>
-
-<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1">#   ...</span>
-<span class="c1"># ValueError: list.remove(x): x not in list</span>
-</pre>
-      </div>
+      <ul>
+       <li>
+        リストなどのシーケンスの変数名に対応する単数形の名前
+       </li>
+       <li>
+        順番に並んだ数字の場合は i, j, k (i が既に使われていれば j といった具合)
+       </li>
+       <li>
+        リストや文字列から取り出す「一文字」は c (character の c)
+       </li>
+      </ul>
       <p>
-       remove メソッドはリストの中にある要素自体を指定してそれを消します。
-存在しない要素を指定するとエラーになりますので、
-含まれるかどうか分からない場合は in 演算子で存在を確認したあとで remove して下さい。
-del 演算子を使った要素の削除もできますが、
-こちらは remove メソッドとは異なり消す要素を「インデックス」で指定します。
-何番目の要素を消すか番号で指定するということです。
-これはスライスやリスト末尾からの指定などもできます。
+       例えばリストとして students という複数形があればそれを取り出す変数は student といった具合です。
+自分でプログラムを開発する場合はこのような名前付けになるように注意を払って下さい。
+サンプルプログラムなどで数字の配列に対して for 文を回す場合は i という変数名を使うことも多いですが、
+これは index という単語から来ています。
+i が既に使われている場合は j, k と使っていくのですが、
+これは単に ijk というアルファベットとしての並びがあるからです。
+l (小文字のL)は数字の1や大文字のI (i)と見分けが使いにくいので使用は避けることが望ましいとされています。
+変数名としてよい名前が浮かばないときに i が使われることも多いのですが、あまりよい使い方ではありません。
       </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># [1, 2, 4, 5]</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># [1, 4, 5]</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3, 4]</span>
-</pre>
-      </div>
       <h3 id="header-5">
-       要素の取り出し : pop
+       forをシーケンス型に使う
       </h3>
       <p>
-       次に pop メソッドです。
-これは del 演算子に似ているのですが、消すだけではなく同時に値を取り出します。
-引数にインデックス番号(先頭が0)を渡せばそれに対応する要素を取得してリストから消します。
-引数を与えない場合はリスト末尾の要素を取り出します。
+       for文はリスト型以外でも使うことができます。
+たとえば文字列にたいしてfor文を使うと、文字列を構成する文字ごとにループを回すことができます。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3, 5]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="c1"># 4</span>
-
-<span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="c1"># 5</span>
+       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello'</span>
+<span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
 </pre>
       </div>
-      <h3 id="header-6">
-       キュー(Queue)とスタック(Stack)
-      </h3>
-      <p>
-       様々なプログラミング言語でリストを使ってキューやスタックと呼ばれるデータ構造を実現することがよくあります。
-キュー及びスタックは複数のデータを管理するためのデータ構造です。
-キューは別名FIFO (First In First Out) とも呼ばれており、
-最初にいれたデータを最初に取り出すというデータ構造です。
-一方、スタックは LIFO(Last In First Out) と呼ばれており、
-その名前が示すように最後にいれたデータを最初に取り出すというデータ構造です。
-以下に両者がどのようなものか示す図を記載します。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0065_image/01.png"/>
-      </p>
-      <p>
-       キュー及びスタックに1,2,3 というデータが入っているとします。
-キューにデータ4をいれると1,2,3,4 というデータを持ちます。
-そこからデータをとりだすと先頭(最初にいれたデータ)にある 1 を取り出し、2,3,4 となります。
-一方、スタックは最後にいれたデータを最初に取り出します。
-そのため、4をいれられて 1,2,3,4 となっているデータから取り出されるのは4となります。
-リストへの追加には既に利用した append メソッドを利用し、データの取り出しには pop メソッドを使います。
-      </p>
-      <p>
-       以下に list を使ったキューの実現方法を記載します。
-      </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3, 4]</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># 1</span>
-<span class="k">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
-<span class="c1"># [2, 3, 4]</span>
+       <pre><span></span>h
+e
+l
+l
+o
 </pre>
       </div>
       <p>
-       append でリストの最後にデータを追加し、pop(0) でリストの最初のデータを取り出しています。
-そして次にスタックです。
+       ただ、どのような型にもfor文を使えるかというわけではなく、
+たとえば数値型にたいしては使えません。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3, 4]</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># 4</span>
-<span class="k">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
-<span class="c1">#[1, 2, 3]</span>
+       <pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">number</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>Traceback (most recent call last):
+  File "sample.py", line 2, in &lt;module&gt;
+    for i in number:
+TypeError: 'int' object is not iterable
 </pre>
       </div>
       <p>
-       スタックからデータを取り出すということはつまり、リストの最後の要素を取り出すということです。
-そのため、引数なしの pop メソッドでリストの最後の要素を取得します。
+       実行時のエラーに「TypeError: 'int' object is not iterable」とあり、
+これを日本語に訳すと「整数型のデータはイテレート処理できない」となります。
       </p>
-      <h3 id="header-7">
-       リストの結合 : +演算子, extendメソッド
-      </h3>
       <p>
-       次はリストとリストの結合です。これにはプラス演算子を使う方法と extend メソッドがあります。
-append を使うと、append されたリスト自体がメソッドを呼び出したリストの最後の要素になるので結合はされません。
+       「
+       <em>
+        イテレート
+       </em>
+       」はリスト型などのデータ集合で、全ての要素に対して処理を実行する手法のことです。
       </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3, 4, 5, 6, 7, 8]</span>
-
-<span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3, 4, 5, 6, 7, 8]</span>
-</pre>
-      </div>
       <p>
-       プラス演算子とextend メソッドは一見すると同じに見えますが、
-もとのデータがどうなるかという点でかなり違います。
-まずプラス演算子ですが、結合されているリストa,bはそのまま残り、
-両者が結合された新しいリストが作られています。
-一方、extend メソッドを使うと呼び出し元のリスト a の後ろに指定されたリストb が結合されます。
-リストb 自体は変更が加わりませんが、リスト a はもとのデータではなくなっています。
+       リストは要素の集合で、文字列は文字の集合のためイテレート処理ができます。
+一方、数値型(整数型)は集合でないためイテレート処理ができません。
       </p>
-      <h3 id="header-8">
-       リストの反転: reverse
-      </h3>
       <p>
-       あとで整理
+       リストや文字列型以外にもループを使える型があり、それらは総称して「
+       <em>
+        シーケンス型
+       </em>
+       」と呼ばれています。
       </p>
-      <h3 id="header-9">
-       リストのソート: sort
-      </h3>
-      <p>
-       他にはリストの順序を反転するreverse メソッドや、
-中身の順序をソートする sort メソッドあたりも利用されます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># [5, 4, 3, 2, 1]</span>
-
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">b</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3, 4, 5]</span>
-</pre>
-      </div>
-      <h3 id="header-10">
-       リストの初期化
-      </h3>
-      <p>
-       あとで整理
-      </p>
-      <h3 id="header-11">
-       リストのコピー
-      </h3>
-      <p>
-       リストのコピーや初期化は以下のように行います。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3, 4, 5, 6]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="c1"># [1, 2, 3, 4, 5]</span>
-
-<span class="n">a</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># []</span>
-</pre>
-      </div>
-      <p>
-       先にお伝えしたようにリストを格納する変数を別の変数に代入したとしても、
-それはコピーではなく同じオブジェクトを共有するだけです。
-つまり片方の変数の値を操作すると、もう片側の変数の値も変わっているということです。
-上記のようにコピーを行った場合は別々のオブジェクトとなるため片側の操作がもう片側に影響をあたえることはありません。
-      </p>
-      <h2 id="header-12">
-       リストの仕組みと配列との違い
+      <h2 id="header-6">
+       while によるループ
       </h2>
       <p>
-       ここではCやJavaの「配列」とPythonのリストの比較を通して、Python のリストがどのようなものか説明します。
-Python では配列相当のものがないので必ずしも学ぶ必要はないかと思いますが、
-この違いはプログラミング一般において重要なため、C や Java を学ばれたことがないかたも一読していただくといいと思います。
+       「
+       <em>
+        while文
+       </em>
+       」もfor文と同じくループ処理のための制御構造です。
+両者はループを回すためのルールが異なっており、whileは「
+       <em>
+        条件式がTrueなら処理を繰り返す
+       </em>
+       」という動きをします。
       </p>
       <p>
-       生徒の点数を扱うことを題材にして配列とリストを比較してみます。
-まず簡単に両者のイメージ図を以下に記載します。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0065_image/02.jpg"/>
-      </p>
-      <p>
-       左側のCやJavaの配列は「メモリ」上に連番でデータを格納するスペースを用意するのに対して、
-右側の「リスト」はバラバラの複数のデータ間を順序を持って結びつけることで実現されています。
-      </p>
-      <p>
-       Pythonのリストは、CやJavaのVectorやListに相当する型です。
-Pythonのリストはまるで配列のように利用されますが、CやJava の配列とは大きく異なります。
-たとえば純粋な配列では、「要素(配列やリストの中にあるデータ)」の間に新しいデータを挟み込むことはできません。
-そのため、配列に入っている要素を詰め替えるなどしてデータを追加します。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0065_image/03.jpg"/>
-      </p>
-      <p>
-       一方、リストはN-1番目の要素とN番目の要素の間に新しいデータを挟み込むことができます。
-配列ではメモリ上に要素を連番で格納するためのスペースを用意するのに対し、
-リストは以下の図のようにバラバラに用意された要素間を順に結びつけることで実現されているためです。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0065_image/04.jpg"/>
-      </p>
-      <p>
-       Javaの配列のコードを確認してみます。
+       while文の書き方は「while 条件式:」を書き、それに続けて処理をするためのコードブロックが続きます。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="kt">int</span> <span class="n">a</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>      <span class="c1">// 2番目の要素の値を取得 -&gt; 1</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>  <span class="c1">// a の配列長を取得 -&gt; 3</span>
-<span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-<span class="n">a</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>  <span class="c1">// Error</span>
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+  <span class="n">a</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>5
+4
+3
+2
+1
 </pre>
       </div>
       <p>
-       1行目では要素数3のint型の配列の変数を宣言し、それに代入しています。
-先の章でお伝えしたように、Javaの変数には型があるのでした。
-a[x]とすると配列aのx番目の要素にアクセスできます。
-そして、a.lengthとすることで配列長が取得できます。
+       for文はループを回す回数が限られています。
+一方、whileは条件式がTrueである限り何周でもするため、条件式がFalseにならないと永遠にループをし続けます。
+このような終わりのないループは「
+       <em>
+        無限ループ
+       </em>
+       」と呼ばれています。
+      </p>
+      <h2 id="header-7">
+       break
+      </h2>
+      <p>
+       for文によるループは全ての要素を処理するまで回り続け、
+whileによるループは条件式を満たさなくなるまで回り続けます。
       </p>
       <p>
-       4行目では配列の2番目の要素に値を代入しています。
-ただ、5行目では配列長3の4番目の要素に値を代入しようとしているのでエラーとなってしまいます。
+       ただ、「もうループを回す必要がない」という状況になることがあります。
+その場合には「break文」を使ってループ処理を打ち切ります。
       </p>
       <p>
-       次にPythonのリストを使ってみます。Pythonの変数には型がないので、
-特に型を指定していない変数aに[0, 1, 2]という3要素のリストをそのまま代入しています。
-2行目ではリストの中身を確認しています。そして3行目では配列長を取得しています。
+       たとえばリストの中から特定の条件を満たす要素があるか否かということを調べるとします。
+今回は「5である」という条件とします。
+      </p>
+      <p>
+       リストを先頭から順にループで調べていき、そこで5という要素を見つけた場合は、
+それ以後のループは回す必要がありません。
+なぜなら5が存在するかどうかを調べているため、
+存在することが分かった時点でそれより後ろの要素を調べる必要がなくなるからです。
+そういった状況でbreak文を使ってループを終了します。
+      </p>
+      <p>
+       break文を使った要素5を探すプログラムを書くと以下のようになります。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="c1"># 2番目の要素の値を取得 -&gt; 1</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>   
-<span class="c1"># a の配列長を取得 -&gt; 3</span>
-
-<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>   
-<span class="c1"># 4</span>
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">has_5</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="n">has_5</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">break</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"List has 5: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">has_5</span><span class="p">))</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>3
+9
+10
+4
+5
+List has 5: True
 </pre>
       </div>
       <p>
-       異なるのは5行目です。
-配列は配列長を超えて要素を代入することができませんが、リストはリスト長を伸ばすことができます。
-Pythonではリストをまるで配列のように使いますが、両者はあくまでも別物という認識を持っておく必要があります。
+       ループで何かを探す際によく使われるテクニックですが、
+ループの前に「探している要素が存在するか」という変数を作って、
+そこに「存在しない」ということでFalseを代入しておきます。
+      </p>
+      <p>
+       ループを回した時に要素をチェックし、それが探している値(今回だと5)であれば「存在する」としてTrueを代入します。
+そして以後はループを回す必要がないのでbreak文でループを打ち切ります。
+ループが終わった場所で「探している要素が存在するか」という変数を調べれば、あったかなかったかが分かります。
+      </p>
+      <p>
+       このループ処理では要素を毎回print出力しています。
+3から5までは各要素が出力されていますが、5以降の1と8は出力されていません。
+ここから要素が5であった際にbreak文を呼び出してループを抜け、残りの要素はループ処理されていないことが分かります。
+      </p>
+      <h3 id="header-8">
+       continue
+      </h3>
+      <p>
+       ループを回している際に「この回は条件を満たしていないので、処理をしなくていい」という状況になることがあります。
+      </p>
+      <p>
+       たとえばループで要素5に対してだけ処理をしたい場合であれば、要素が5以外であった場合は処理を継続する必要はありません。
+ただ、先ほどのbreakとは異なり、リストの残りの要素も処理するためループ自体は終了できないとします。
+      </p>
+      <p>
+       このような場合は「continue文」を使うことで、いま実行されている回の処理を打ち切ります。
+打ち切った後はループを抜けるのではなく、for文の場合は次の要素で処理を開始し、
+while文の場合は条件式のチェックからやり直します。
+      </p>
+      <p>
+       リストの要素が5であった場合のみprint処理をするプログラムを記載します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="k">continue</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'Found 5'</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>3
+9
+10
+4
+5
+Found 5
+1
+8
+5
+Found 5
+3
+</pre>
+      </div>
+      <p>
+       continueを呼び出した後は以後の処理がされなくなるため、
+「5でない要素」は「'Found 5'」と出力がありません。
+      </p>
+      <p>
+       continue文の代わりにif文で同じことを実現することもできます。
+たとえば上記であれば「5であれば'Found 5'と出力」としたほうが簡単です。
+      </p>
+      <p>
+       ただ、continueを使うと実行する条件が複雑な時にプログラムがシンプルに組める場合が多いです。
+また、処理を打ち切っているということが明確に分かるので、
+その回の処理を飛ばす際はcontinueの利用を検討してください。
       </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
@@ -578,12 +639,6 @@ Pythonではリストをまるで配列のように使いますが、両者は�
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -614,224 +669,102 @@ Pythonではリストをまるで配列のように使いますが、両者は�
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          Pythonプログラミング
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>

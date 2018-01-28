@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       初級編の概要
+       Pythonの実行
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -104,62 +104,20 @@
          <a href="#header-1">
           概要
          </a>
-        </li>
-        <li>
-         <a href="header-2">
-          Pythonシェル
-         </a>
          <ul>
           <li>
+           <a href="#header-2">
+            プログラムをファイルに書いて実行する
+           </a>
+          </li>
+          <li>
            <a href="#header-3">
-            計算
+            Pythonのプログラムの中で日本語を使う方法
            </a>
           </li>
           <li>
            <a href="#header-4">
-            変数
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            関数
-           </a>
-          </li>
-          <li>
-           <a href="#header-6">
-            標準ライブラリとモジュール
-           </a>
-          </li>
-          <li>
-           <a href="#header-7">
-            print関数
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="#header-8">
-          プログラムファイルの作成と実行
-         </a>
-         <ul>
-          <li>
-           <a href="#header-9">
-            関数の作成
-           </a>
-          </li>
-          <li>
-           <a href="#header-10">
-            条件分岐
-           </a>
-          </li>
-          <li>
-           <a href="#header-11">
-            GUIのプログラムを体験1
-           </a>
-          </li>
-          <li>
-           <a href="#header-12">
-            GUIのプログラムを体験2
+            Pythonコマンドで直接プログラムを実行
            </a>
           </li>
          </ul>
@@ -170,649 +128,203 @@
        概要
       </h2>
       <p>
-       Pythonプログラミングは他のプログラミング言語に比べると、それほど学習に時間がかからないと言われています。
-ただ、それでも学ぶべきことは多くあります。
+       Pythonのインタプリタは1行ずつしか実行することができません。
+きちんとしたプログラムを開発するには「プログラミング用のエディタ」でコードを書く必要があります。
       </p>
       <p>
-       プログラミングの全体像を理解せずに、黙々とページを読んでいくのも退屈かもしれません。
-そのため、細かいことを説明する前に、このページではでPythonプログラミングを体験してもらいたいと思います。
+       ファイルに書かれたプログラムはコンソールからpythonコマンドを使って実行します。
+      </p>
+      <h3 id="header-2">
+       プログラムをファイルに書いて実行する
+      </h3>
+      <p>
+       プロンプトの次は「IDLE」と呼ばれるPythonの開発環境を使ってコードを書いてみます。
+IDLEは先ほどのようなプロンプト画面も使えますし、Pythonを書くのに適したエディタの機能も持っています。
+では、さっそくIDLEを立ち上げてみましょう。
       </p>
       <p>
-       この後のページで詳細な解説をするため、このページの内容は深く考えずに軽く流してください。
-手を動かして、プログラミングでどのようなことができるのか感じてみてください。
+       起動すると以下のような画面が立ち上がってきます。
+プロンプトと同じなので、計算をさせたり、文字を表示させたりすることもできます。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0020_image/07.png"/>
       </p>
       <p>
-       本ページの内容としては、最初にPythonプロンプトを使ってPythonの様々な機能を使います。
-具体的には以下のようなものです。
+       Windowsは、Windows メニューにある「すべてのプログラム」から「Python」を選択し、
+その下にある「IDLE (Python GUI)」を選べば起動します。
+      </p>
+      <p>
+       Macは、アプリケーションフォルダ配下の「Python」ディレクトリの下に「IDLE」がありますので、
+それをダブルクリックして起動させます。
+パワーシェルやターミナルと同じように、IDLEもタスクバーやDockに登録してしまってもいいかもしれないです。
+      </p>
+      <p>
+       プロンプトに1行1行書いて実行させるだけでなく、ファイルにPythonのプログラムを書いて実行させることもできます。
+IDLEのメニューから［File］ -&gt; ［New File］とすることでエディタが開きます。
+これに以下の文を書き込んで「test.py」というファイル名で保存(［File］ -&gt; ［Save］)してください。
+      </p>
+      <p>
+       Pythonプログラムが書かれたファイルの名前は好きなもので構いませんが、次の条件を満たすものとしてください。
       </p>
       <ul>
        <li>
-        変数
+        ファイルの拡張子が「.py」
        </li>
        <li>
-        関数
+        アルファベット(小文字推奨)と数字のみから構成されている
        </li>
        <li>
-        モジュール
+        最初の一文字はアルファベット
        </li>
       </ul>
       <p>
-       これらは改めて、後のページで扱います。
-ただ、あまりにも基本的な内容であるため概要だけは次ページ以降でも必要となります。
-そのため本ページで説明します。
+       拡張子はファイルがPythonのものであることを、ユーザとPython自体に知らせるために必要です。
+ファイル名のルールは後ほど扱う「モジュール」という仕組みに関連しています。
+今の時点では、深いことは考えずにこの命名規則を守るようにしてください。
       </p>
       <p>
-       そのあとでGUIを使った簡単なアプリケーションを作成します。
-GUI以外にもアプリケーションは存在しますが、目に見えて分かりやすい内容ですので取り上げました。
-以降のページでも単純にプログラミングの文法を覚えていくだけでなく、
-自分のゴールをどこにするかを意識しながら学んで下さい。
+       以下にIDLEのエディタに書く、サンプルプログラムを記載します。
+プログラムの内容は1、2、3と順番に画面に出力させるだけの簡単なものです。
       </p>
-      <h2 id="header-2">
-       Pythonシェル
-      </h2>
-      <p>
-       さっそくはじめていきましょう。
-Pythonのプロンプトを起動してください。
+      <h4>
+       プログラム: 1,2,3と出力
+      </h4>
+      <div class="codehilite">
+       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'1'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'2'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'3'</span><span class="p">)</span>
+</pre>
+      </div>
+      <h4>
+       コンソール出力
+      </h4>
+      <div class="codehilite">
+       <pre><span></span>1
+2
+3
+</pre>
+      </div>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0020_image/08.png"/>
       </p>
       <p>
-       多くのプログラミング言語は、一行一行に順に命令を書いていくことで複雑な処理を実現します。
-Pythonもそれと同じです。
+       IDLEのエディタが選択されている状態で［F5］ボタンを押すと、
+このファイルをPythonで実行できます(Macで「F5」を実行するには、［fn］キーを押しながら［F5］ボタンを押す必要があります)。
+実行するにはファイルが保存されている必要があります。
+      </p>
+      <p>
+       F5を押すとプロンプトのウィンドウが前面に来て、プログラムの実行結果が出力されます。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0020_image/09.png"/>
+      </p>
+      <p>
+       なお、先ほど作成したファイル「test.py」を開く際に、利用するアプリケーションとしてIDLEを選択することもできます。
+Windows ですと右クリックを押すと「IDLEで編集 (Edit with IDLE)」と出るので、
+そこからファイルを直接開けます。
+Macだと右クリック(［Control］を押しながらクリック)して、「IDLEで開く」と指定することで実現できます。
+もちろん、IDELE のメニューから既存のファイルを開くこともできます。
+      </p>
+      <p>
+       先程はIDLEからファイルの実行をしましたが、コンソールからpythonのプログラムファイルを実行することも可能です。
+Windowsのパワーシェルや、Macのターミナルで「pythonコマンドに続けてファイルを指定する」ことで、
+そのファイルに書かれたPythonのプログラムが実行されます。
+      </p>
+      <p>
+       試しに、先ほどIDLEで作成した「test.py」をターミナルから起動してみます。
+IDLEと同じ出力があることからプログラムがきちんと動いていることが分かります。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0020_image/10.png"/>
+      </p>
+      <p>
+       また、プロンプトを見てもらうと分かるように「pythonファイルがあるディレクトリ」に移動してからファイル名を与えてプログラムを実行しています。
+違うディレクトリで実行するファイルを指定する場合は、
+相対パス(自分がいる場所を起点としたファイルやディレクトリの場所)なり、
+絶対パス(ファイルシステムのルートを起点としたファイルの場所)なりを指定する必要があります。
+      </p>
+      <p>
+       なお、以下のように自分の好きな高機能エディタとターミナルを並べて開発するスタイルや、
+PyCharm といった IDE (統合開発環境) を使った開発が現場では一般的です。
+IDLEは最初から使えるので便利なのですが、開発に必要な機能がそれほど多くないため、
+大規模な開発ではそれほど利用されません。
+      </p>
+      <p>
+       ある程度コードが書けるようになったら、
+自分にあった開発環境を模索してみてもいいかもしれません。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0020_image/11.png"/>
       </p>
       <h3 id="header-3">
-       計算
+       Pythonのプログラムの中で日本語を使う方法
       </h3>
       <p>
-       まずは簡単な数値計算を、Pythonにさせてみます。
-Pythonプロンプトに計算式を書くと、その結果が返されます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="mi">3</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">4</span>
-<span class="o">-</span><span class="mi">1</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">6</span>
-<span class="mi">30</span>
-</pre>
-      </div>
-      <p>
-       3つめの式にある「*」は、掛け算です。
+       日本人である私達がプログラムを書く場合、日本語を利用する状況は多いはずです。
       </p>
       <p>
-       これも立派なプログラムなのですが、一行でできることは限られています。
-そのため、現実的なプログラムを書くのであれば「ある行の処理を別の行の処理に、関係性を持たせる」ことが必要です。
+       日本語などのアルファベット文字以外の扱いについては、
+後ほど詳細に説明します。
+現時点では「UTF-8」という文字コードでプログラムを書けば、
+Python3では日本語を使えると覚えておいて下さい。
+      </p>
+      <p>
+       Windowsでよくつかわれている「Shift-Jis」などは、Python3のデフォルトの文字コードではありません。
+特別な宣言なしにShift-Jisを使うと、プログラムが実行できないので注意をしてください。
+逆に言えば、宣言をすればShift-Jisの日本語も使えます。
       </p>
       <h3 id="header-4">
-       変数
+       Pythonコマンドで直接プログラムを実行
       </h3>
       <p>
-       一番簡単な行と行の関わり方は、ある行の処理結果を別の行で使うというものです。
-具体的には、1行目の結果を2行目で利用するといったことになります。
+       この項目はそれほど一般的でないため、初心者のかたは読み飛ばして頂いて構いません。
       </p>
       <p>
-       その際、「処理の結果を保存する」ことが必要となり、そのために「変数」を使います。
-「変数に処理の結果を保存」し「変数から処理の結果を取得」することによって、
-後ろの行で前の行の結果を使うことができます。
+       Pythonでプログラムを実行する方法は、先に説明した「Pythonシェルを使う」ことと、
+「Pythonのプログラムファイルを実行する」ことがほとんどです。
       </p>
       <p>
-       以下に変数の利用例を示します。
+       ただ、これらに加えて「Pythonコマンドに続けてプログラムを書き、それを実行する」という方法があります。
+例えば以下のようなものです。
       </p>
+      <h4>
+       コンソール: Pythonプログラムをコマンドに書いて実行
+      </h4>
       <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">abc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">abc</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="mi">6</span>
+       <pre><span></span>$ python3 -c "print(1+1)"
+2
 </pre>
       </div>
       <p>
-       上の例では1 + 2の結果を「abc」に保存しています。
-この保存に利用しているabcが「変数」で、「=」記号の右側の結果を、左側の変数に格納します。
-変数に利用する文字はabcでなくても構わず、名前付けのルールさえ守れば自分が好きなものを使うことができます。
-なお、変数に値を格納することを「代入する」といいます。
+       Pythonコマンドに続けて、「-c」オプション、そして実行するプログラムが書かれています。
+その実行結果が2となっていることから、「print(1+1)」が実行されていることがわかります。
       </p>
       <p>
-       これらをまとめると、1行目は「1+2の結果を、変数abcに代入している」といえます。
+       このように「-c」オプションを使うと、プログラムを直接書いて、実行することができます。
       </p>
       <p>
-       次の行では、変数に代入された「3」を取り出し、3+3を計算して6を得ています。
-値が代入された変数をプログラム中に書くと、その中に格納されている値を取り出して使います。
-値の取り出しは何回でも行なうことができ、取り出しても変数の中身はなくなりません。
+       ただ、「-c」に続けて記述するプログラムには、改行を含むことができません。
+そのため、プログラムは1行で完結する必要があり、複雑なプログラムを書くには適しません。
       </p>
       <p>
-       変数の概念を以下の図に記します。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0025_image/01.jpg"/>
-      </p>
-      <h3 id="header-5">
-       関数
-      </h3>
-      <p>
-       プログラムは、処理を一行一行書いていくことを繰り返して作られるのですが、
-全ての機能を「自分で書く」ことはできません。
-      </p>
-      <p>
-       たとえばファイルの内容を読み込む処理をしたいとした場合、
-その処理は「1 + 1」とは根本的に違います。
-「ファイルを開いて、それを読み込む(readする)」といった処理が必要となります。
-      </p>
-      <p>
-       ファイルの読み込みのような特別な処理は、「Pythonの言語開発者が作った機能」を呼び出すことで実現します。
-具体的には、「ファイルを開く処理」を呼び出し、その後で「ファイルの中身を読む処理」を呼び出すのです。
-この特別な機能の呼び出しは「関数」と呼ばれる機能を使うことなどで実現できます。
-      </p>
-      <p>
-       ファイルの読み出しだと話が難しいので、もっと簡単な「数の絶対値を得る」という関数を利用してみます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
-<span class="mi">5</span>
-</pre>
-      </div>
-      <p>
-       上記のプログラムの「abs」が関数です。
-関数は複数存在し、それぞれに名前があります。
-その名前を指定することで関数の「処理」を呼び出すことができます。
-      </p>
-      <p>
-       関数absの処理は「数値を受け取って、それを絶対値にして返す」というものです。
-そのため、上記では()のなかの「-5」を受け取って、画面に出力されている「5」を返しています。
-      </p>
-      <p>
-       関数は「なんらかの処理を実行する」ので、今回は数値を受けとり、
-数値を返すという
-      </p>
-      <p>
-       上記のプログラムでは、「abs()」を使うことで-5の絶対値である5を得ています。
-absが関数の名前で()の中の数字が関数に与える値です。
-      </p>
-      <p>
-       この関数は変数などと組み合わせることもできます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">value</span>
-<span class="mi">5</span>
-</pre>
-      </div>
-      <p>
-       1行目では、関数absへの入力値として「5」を与えて、出力値として「5」を得て、それを変数valueに代入しています。
-      </p>
-      <p>
-       変数の値の取り出しにしろ、関数の呼び出しにしろ、それが実行されれば単なる値と同じです。
-そのため、その結果を代入したり、改めて変数に代入したり、関数に与えたりといったこともできます。
-      </p>
-      <p>
-       この関数absを使うことで、自分で絶対値を得る具体的な処理を書かなくても絶対値を得ることができています。
-絶対値を得るぐらいの処理でしたら自分で書いてもいいでしょうが、
-先ほどのファイル処理やネットワークの利用などはそもそも関数を使わないと実現不可能です。
-      </p>
-      <h3 id="header-6">
-       標準ライブラリとモジュール
-      </h3>
-      <p>
-       次に「小数点の切り捨て」をします。
-      </p>
-      <p>
-       小数点の切り捨てもabsと同様に関数として提供されています。
-ただ、絶対値を得るabsほどよく使われる処理ではないので「組み込み関数(いきなり使える関数)」としては提供されていません。
-      </p>
-      <p>
-       小数点の切り捨ての関数は「標準ライブラリ」という、特定の処理をするための「ツール」のなかの、
-ひとつの機能として提供されています。
-      </p>
-      <p>
-       標準ライブラリはそのなかに、特定機能を担当する「モジュール」をいくつも持っています。
-たとえば、数学関連の「mathモジュール」や、OSの機能を利用するための「osモジュール」などがあります。
-      </p>
-      <p>
-       組み込み関数以外の「モジュールに属する関数」を使う場合は、
-まず「◯◯というモジュールを使いますよ」という宣言をする必要があります。
-      </p>
-      <p>
-       切り捨ては「数学」的に利用される機能ですので、「mathモジュール」に含まれています。
-そのため、今回は「mathモジュールを使いますよ」という宣言をして、そのうえで小数点の切り捨て関数を使います。
-      </p>
-      <p>
-       具体的には次のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">5.5</span><span class="p">)</span>
-<span class="mf">5.0</span>
-</pre>
-      </div>
-      <p>
-       importは日本語でいうと「取り込む」といったニュアンスがあります。
-そのため、「import math」は「mathモジュールを取り込む」と宣言しています。
-      </p>
-      <p>
-       モジュールを取り込むと、そのモジュールの関数を使えるようになります。
-2行目はmathモジュールのfloor関数を呼び出しをしています。
-      </p>
-      <p>
-       モジュールに属する関数は、“モジュール名.関数()”というスタイルで呼び出すことができます。
-5.5を与えて5.0を得ているのは先ほどのabsと同じですが、関数名の前にモジュール名がついているところが違います。
-組み込み関数とモジュールの利用方法を以下に図示します。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0025_image/02.jpg"/>
-      </p>
-      <p>
-       なお、mathモジュールにはほかの機能もあり、floorはそのひとつにすぎません。
-切り捨てがあるのですから切り上げも当然ながらあります。
-      </p>
-      <p>
-       また、実際に試してみるとわかりますが、モジュールの関数をimportなしに使おうとすると、
-エラーが発生します。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="err">$</span> <span class="n">python3</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">5.5</span><span class="p">)</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'math'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
-</pre>
-      </div>
-      <p>
-       エラーには「math」は定義されていないと表示されています。
-      </p>
-      <p>
-       この「○○ is not defined」は良く見かけるエラーです。
-宣言などがされていない何か(代入されていない変数、定義されていない関数など)を、
-利用した場合に発生します。
-      </p>
-      <h3 id="header-7">
-       print関数
-      </h3>
-      <p>
-       今後のプログラムで利用することになるprint関数について説明します。
-      </p>
-      <p>
-       この関数を呼び出すと、引数に与えた値をコンソールに出力します。
-たとえば以下のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
-<span class="n">hello</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">abc</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">abc</span><span class="p">)</span>
-<span class="mi">3</span>
-</pre>
-      </div>
-      <p>
-       print関数は上記のように変数に何が入っているか確認する用途に利用できます。
-そのため、プログラムの挙動を確認するのに便利です。
-      </p>
-      <p>
-       本書のコードがどういう動きをしているか分からない場合は自分でコードにprint関数を挟むことで、
-どこをどう実行しているかといったことや、変数になにが入っているかということを確認してみてください。
-      </p>
-      <h2 id="header-8">
-       プログラムファイルの作成と実行
-      </h2>
-      <p>
-       ここからはプログラムが複雑になってくるため、
-Pythonシェルではなく、プログラムファイルにプログラムを書いて実行します。
-      </p>
-      <h3 id="header-9">
-       関数の作成
-      </h3>
-      <p>
-       さきほど絶対値を返す関数absを使ってみましたが、このような「関数」を自分で作ることも可能です。
-      </p>
-      <p>
-       absのような一般的な処理は、それが関数やモジュールの関数などで既に提供されている可能性があります。
-提供されていれば、それを使えばよいだけですので、自分で処理を作る必要はありません。
-ただ、自分だけが使うような処理は自分でプログラムを作る必要があります。
-      </p>
-      <p>
-       自分で処理を作る際に知っておいて頂きたいのは、
-関数を自分で定義できれば「何度も同じ処理を書く必要がなくなる」ということです。
-自分が使いたい関数を自分で作り、その関数を何度も呼び出すだけで自分独自の処理を何度も実行できます。
-      </p>
-      <p>
-       また、「プログラムを整理する」という目的で関数を作ることも有効です。
-延々と複雑な処理を書くよりは、処理Aと処理Bと処理Cを作り、それらA,B,Cを使って処理Dを作るとしたほうが、
-処理Dの動きは分かりやすいものとなります。
-      </p>
-      <p>
-       関数作成の手始めに“hello”と出力する簡単な関数「print_hello」を作ってみます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>def print_hello():
-  print('hello')
-</pre>
-      </div>
-      <p>
-       上記は関数の宣言(名前の登録)と処理の実装(機能を作る)をしています。
-一行目の
-       <code>
-        def
-       </code>
-       で関数を作るという宣言をし、
-       <code>
-        print_hello
-       </code>
-       という変数名としました。
-そしてその宣言の後に関数の処理である
-       <code>
-        print('hello')
-       </code>
-       が書かれています。
-      </p>
-      <p>
-       作った関数を使うためには、それを呼び出します。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">print_hello</span><span class="p">():</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
-
-<span class="n">print_hello</span><span class="p">()</span>
-</pre>
-      </div>
-      <p>
-       これを実行すると以下のように出力されます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>hello
-</pre>
-      </div>
-      <p>
-       print_hello()を2回呼び出せば、helloが2回出力されます。
-      </p>
-      <p>
-       次にprint_helloよりも、もう少し複雑な関数「add5」を作ります。
-名前から分かるかもしれませんが、受け取った数値に5を加えたものを返す関数です。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">add5</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
-  <span class="k">return</span> <span class="n">y</span>
-</pre>
-      </div>
-      <p>
-       defで定義する際にadd5の()の中にxという変数が書かれています。
-このxは関数を呼び出す際に「値を受け取る」ことを意味しています。
-      </p>
-      <p>
-       そして関数の定義の最後にreturnという命令が加えられています。
-これは呼び出し元に、returnの後に指定した値を返すという役割を果たします。
-      </p>
-      <p>
-       さっそく定義した関数
-       <code>
-        add5
-       </code>
-       を使います。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">add5</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
-  <span class="k">return</span> <span class="n">y</span>
-
-<span class="n">z</span> <span class="o">=</span> <span class="n">add5</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-</pre>
-      </div>
-      <div class="codehilite">
-       <pre><span></span>10
-</pre>
-      </div>
-      <p>
-       absが値を受け取るのと同じように、add5も値を受け取ります。
-呼び出し側である「
-       <code>
-        z = add5(5)
-       </code>
-       」の()のなかの5と、
-呼び出される側である「
-       <code>
-        def add5(x):
-       </code>
-       」のxは対応がとられています。
-そのため、定義された関数内の処理ではxに5が代入された状態となり、
-続く処理が実行されます。
-      </p>
-      <p>
-       <code>
-        y = x + 5
-       </code>
-       の前に、
-       <code>
-        print(x)
-       </code>
-       などという処理を書いてみれば、
-実際にxに5が代入されていることが分かるはずです。
-      </p>
-      <p>
-       関数の最後にある
-       <code>
-        return y
-       </code>
-       を実行した際、上記の例ではyには10が代入されています。
-そのため、
-       <code>
-        z = add5(5)
-       </code>
-       の
-       <code>
-        add(5)
-       </code>
-       は10を返し、それがzに代入されるという動作をします。
-      </p>
-      <p>
-       なお、わかりやすくするために、上の例では命令を一行にひとつしか書いていませんが、
-一行に複数の命令を書くことも可能です。
-      </p>
-      <p>
-       上記のadd5の例では、以下のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">add5</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">add5</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-</pre>
-      </div>
-      <div class="codehilite">
-       <pre><span></span>10
-</pre>
-      </div>
-      <h3 id="header-10">
-       条件分岐
-      </h3>
-      <p>
-       関数作成の最後にabsと同じ働きをする関数「my_abs」を作ってみます。
-まず絶対値を得るにはどういう手順で実現するか、考えてみます。
-      </p>
-      <ol>
-       <li>
-        数字Xを受け取る
-       </li>
-       <li>
-        その数字Xが0より大きければ、すでにXは絶対値。 Xが0より小さければ、-1をかけて絶対値にする。
-       </li>
-       <li>
-        絶対値を関数の呼び出しもとに返す
-       </li>
-      </ol>
-      <p>
-       この2番目のステップで、「Xが0より大きければ、Aをする。そうでなければBをする」といったように、
-プログラムの処理が条件によって、動きが変わります。
-      </p>
-      <p>
-       このような条件に依存した特別な処理の書き方を「条件分岐」と読んでいます。
-      </p>
-      <p>
-       条件分岐もプログラムで実現できます。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0025_image/03.jpg"/>
-      </p>
-      <p>
-       上記の図を参考にして、関数my_absを書いて利用してみます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">my_abs</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-      <span class="k">return</span> <span class="n">x</span>
-  <span class="k">else</span><span class="p">:</span>
-      <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">my_abs</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">))</span>
-</pre>
-      </div>
-      <div class="codehilite">
-       <pre><span></span>6
-</pre>
-      </div>
-      <p>
-       先ほどのprint_hello、add5関数よりも複雑になっていますが、最初の5行で関数の定義をして、
-後半で定義した関数を呼び出している点は同じです。
-      </p>
-      <p>
-       -6という数字をmy_abs関数に渡して、
-返された絶対値をprint関数で画面に出力しています。
-      </p>
-      <p>
-       関数my_absの中の動きを見てみます。
-      </p>
-      <p>
-       my_abs(x)のxは、呼び出しもとで渡された値を格納しています。
-今回は-6になります。
-      </p>
-      <p>
-       その次に「xが0以上ならAをする、そうでないならBをする」という処理がきますが、
-それが「if else」の文です。
-      </p>
-      <p>
-       if文の後の条件「x &gt; 0 (xは0よりも大きいか)」が満たされるなら、
-if文に続く「return x」が実行されます。
-      </p>
-      <p>
-       条件が満たされないなら、elseの後の処理である「return x * -1」が実行されます。
-      </p>
-      <p>
-       つまり、「x &gt; 0」のときはxをそのまま返して、
-x&gt;0でないときは-1をかけて負数を正数にしたうえで値を関数の呼び出しもとに返すということです。
-      </p>
-      <p>
-       これで渡された値(xに代入されている)が正数であろうと、負数であろうと、
-常に絶対値が返されます。
-      </p>
-      <p>
-       ifのような「条件分岐」や、特定の処理を繰り返す「ループ」と呼ばれるものを組み合わせることで、
-プログラムの動きをより複雑にすることができ、「特定の機能を実現するためのルール」が実現されます。
-そのルールのことを「アルゴリズム」と呼びます。
-      </p>
-      <h3 id="header-11">
-       GUIのプログラムを体験1
-      </h3>
-      <p>
-       一行一行命令を書くことと、誰かが作った処理(関数など)を呼び出すことで、
-プログラムが作られるということはわかっていただけたかと思います。
-      </p>
-      <p>
-       ただ、簡単な計算処理をさせるだけではプログラミングで何を実現できるか、
-いまいちイメージがつかめていないかもしれません。
-      </p>
-      <p>
-       そのため、かなり駆け足となってしまいますが、GUIのアプリケーションを実際に作ってみたいと思います。
-GUIという目に見えて分かりやすいものを作ることで、
-「一歩先のレベルで何が作れるようになるか」を実際に味わってもらいたいと思います。
-      </p>
-      <p>
-       なお、GUIのアプリケーション開発はオブジェクト指向の知識を必要とします。
-そのため、本サイトの初級編ではなく、中級編で扱っています。
-      </p>
-      <p>
-       まず、以下のプログラムをコピペで結構ですので実行してみてください。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span>
-
-<span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">'Helevetica'</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">'bold'</span><span class="p">)</span>
-<span class="n">label</span> <span class="o">=</span> <span class="n">tkinter</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">'Hello Python'</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
-<span class="n">label</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
-<span class="n">label</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</pre>
-      </div>
-      <p>
-       プロンプトへの貼り付けはうまく貼り付けられないことがあるので、
-前回話したようにファイルに記入してから実行したほうがいいかもしれません。
-      </p>
-      <p>
-       起動すると以下のようなGUIの画面がでてきます。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0025_image/04.jpg"/>
-      </p>
-      <p>
-       GUIを利用する手法はさまざまですが、上の例では「tkinter」と呼ばれるPythonが提供しているGUIのモジュールを使っています。
-      </p>
-      <p>
-       mathモジュールと同じように、tkinterをimportし、「tkinter.Label」という関数でGUIのパーツを作り、
-それを変数labelに格納しています。
-その際にフォントや背景色、テキストに表示する文字などを指定しています。
-少し複雑ですが、基本的には関数absに-5を与え5を得ていたのと全く同じです。
-      </p>
-      <p>
-       そして、そのlabelに格納されたパーツに対して、「pack()やmainloop()という処理をしろ」と命令することで、
-実際に画面にGUIのパーツが画面に表示されます。
-      </p>
-      <h3 id="header-12">
-       GUIのプログラムを体験2
-      </h3>
-      <p>
-       本章の最後にGUIのカウンターのアプリケーションを書いてみます。
-アプリケーションとしては非常に単純なもので「ボタンがクリックされた回数」を表示するだけのものです。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span>
-
-<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">'Helevetica'</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">'bold'</span><span class="p">)</span>
-<span class="n">button</span> <span class="o">=</span> <span class="n">tkinter</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">clicked</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">counter</span><span class="p">,</span> <span class="n">button</span>
-    <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">button</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span>
-
-<span class="n">button</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="n">clicked</span><span class="p">)</span>
-<span class="n">button</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
-<span class="n">button</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</pre>
-      </div>
-      <p>
-       こののプログラムを実行すると、以下のようなアプリケーションの画面が立ち上がります。
-このボタンをクリックすると、表示される数が増えることがわかります。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0025_image/05.jpg"/>
-      </p>
-      <p>
-       上記のプログラムを細かく解説することはしませんが、このプログラムで以下のようなことを行っています。
+       利用場面はそれほど多くありませんが、Pythonのプログラムファイルを用意する必要がないため、
+以下のような使い方ができます。
       </p>
       <ul>
        <li>
-        def clicked(): による関数の宣言
+        手順書で「これを実行してください」などと示す
        </li>
        <li>
-        button.config(command=clicked) による関数の登録
+        SSH 経由で他のマシンに処理を実行させる
+       </li>
+       <li>
+        シェルのパイプと組み合わせて使う
        </li>
       </ul>
       <p>
-       ボタンをクリックした際の処理を自分で関数「clicked」として定義し、
-それを「button」というGUIのパーツに「ボタンがクリックされたらこの関数を実施して下さい」という形で登録をします。
-そうすることで簡単にGUIのプログラムをカスタマイズして作ることが可能になります。
-      </p>
-      <p>
-       今までのプログラムに比べると、相当複雑です。
-ただ、それでも自分で何にも頼らずにGUIのアプリケーションを作ることに比べれば簡単です。
-      </p>
-      <p>
-       これから学んでいく様々なテクニックを覚えて、使っていくことで、
-このようなこともいずれできるようになっていくはずです。
+       1行で複雑なプログラムを書くには、高いプログラミングスキルを必要とします。
+そのうえ、開発もめんどうなうえに、書かれているプログラムを呼んでも分かりにくいです。
+可能であれば、プログラムファイルにプログラムを書き、それを実行するようにしてください。
       </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
@@ -906,12 +418,6 @@ GUIという目に見えて分かりやすいものを作ることで、
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -942,224 +448,102 @@ GUIという目に見えて分かりやすいものを作ることで、
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          Pythonプログラミング
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>

@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       制御構造
+       変数
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,74 +107,30 @@
         </li>
         <li>
          <a href="header-2">
-          if による条件分岐
-         </a>
-        </li>
-        <li>
-         <a href="header-3">
-          インデントとコードブロック
+          変数の目的と利用方法
          </a>
          <ul>
           <li>
+           <a href="#header-3">
+            変数の宣言と代入
+           </a>
+          </li>
+          <li>
            <a href="#header-4">
-            コードブロックのネスト
+            代入演算子の優先度
            </a>
           </li>
           <li>
            <a href="#header-5">
-            pass文
+            変数に同じ変数の値を加工して代入
+           </a>
+          </li>
+          <li>
+           <a href="#header-6">
+            複合代入演算子
            </a>
           </li>
          </ul>
-        </li>
-        <li>
-         <a href="#header-6">
-          for によるループ
-         </a>
-         <ul>
-          <li>
-           <a href="#header-7">
-            forをシーケンスに使う
-           </a>
-          </li>
-          <li>
-           <a href="#header-8">
-            for の変数名
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="#header-9">
-          while によるループ
-         </a>
-        </li>
-        <li>
-         <a href="header-10">
-          break と continue によるループ制御
-         </a>
-         <ul>
-          <li>
-           <a href="#header-11">
-            continue
-           </a>
-          </li>
-          <li>
-           <a href="#header-12">
-            無限ループ
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="#header-13">
-          3項演算子
-         </a>
-        </li>
-        <li>
-         <a href="header-14">
-          1ライナーの条件式
-         </a>
         </li>
        </ul>
       </div>
@@ -182,606 +138,212 @@
        概要
       </h2>
       <p>
-       プログラムの基本的な流れは上から下へ一行ずつ実行していくというものです。
-単純なプログラムですと、テキストファイルに実施する処理を順番に羅列するだけで実現できます。
-いわゆる「バッチ処理」と呼ばれている処理方式です。
-      </p>
-      <p>
-       ただ、複雑なプログラムだと、
-このような「上から下に順番に実行していく」というスタイルだけでは処理を実現できなくなってきます。
-たとえば、天気予報を確認するアプリケーションでは、
-「今日が晴れなら晴れマークを表示、雨なら雨マークを表示」といった具合に
-「あるものがAならBをする。そうでないならCをする」という複雑な処理が必要になってきます。
-「条件」に応じて処理が「分岐」しているので、こういった処理のことを「条件分岐」といいます。
-      </p>
-      <p>
-       ほかには、同じ処理を何度も繰り返す「ループ処理」があります。
-たとえば、「クラス全員のテストの平均点を求め、
-その平均点と各生徒の点数の差分をチェックする」といった場合を考えてみましょう。
-平均を求めるには「生徒の点数の合計/人数」とする必要がありますが、
-この合計を求めるために「先頭の生徒から最後の生徒まで順番に点数を足していく」という「繰り返し(ループ)」が必要となります。
-平均との差分の算出も同様です。
-      </p>
-      <p>
-       本ページではこのような条件分岐やループ処理といった「プログラムの制御構造」について取り扱います。
-これらの処理を使うこと自体はそれほど難しくないので、何度も書いて慣れてしまえば、
-簡単に使いこなせるようになるはずです。
+       「変数」は様々なデータを保存したり取り出したりすることができる容器のようなものです。
+変数を使うことで複数行に及ぶ複雑なプログラムで、
+前の行で得た結果を後ろの行で使うといったことができます。
       </p>
       <h2 id="header-2">
-       if による条件分岐
+       変数の目的と利用方法
       </h2>
       <p>
-       条件分岐は、条件分岐の式を満たすか満たさないかで実行される処理が変わるという制御構造です。
-前章にて扱った Bool型が条件判定に利用され、その値がTrueかFalseかで実行するプログラムの挙動が変わります。
+       現実のプログラムは複雑であるため、1行のプログラムで全ての処理を作ることはできません。
+そのため、複数の行で少しずつプログラムを組み立てていくという作業が必要です。
       </p>
       <p>
-       以下に条件分岐の仕組みを図で記します。
+       これには関数の作成や条件分岐、ループといった以後のページで学ぶ文法も使いますが、
+それよりも基本的な「前の行で処理した結果を、後の行で使う」ことが一番多いです。
+      </p>
+      <p>
+       「
+       <em>
+        変数
+       </em>
+       」は処理結果を格納したり、取り出したりするために使われる仕組みです。
+前の行でなんらかの処理をして結果を求め、それを変数に格納する。
+そして後ろの行で変数から値を取り出して利用することで、複数行にまたがる処理を書くことができます。
       </p>
       <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0040_image/01.jpg"/>
+       <img alt="image" class="img-responsive" src="./0030_image/02.jpg"/>
       </p>
       <p>
-       上記の図のうち、「if」は必ず必要です。そして「elif」は任意の数(0も含む)繰り返すことができ、
-「else」も省略することができます。if や elif、else にはそれぞれ決まった処理が書かれます。
-条件が合致した処理のみが実行され、他の条件に結びついた処理は一切実行されません。
-elseがないときは、どの条件にも合致しない場合は「何もしない」という動きになります。
+       変数には何回でも値を格納することができますが、
+すでに変数が値を持っている場合はそれが上書きされます。
       </p>
       <p>
-       この図をPythonのプログラムで書くと以下のようになります。
+       変数から値を取り出すことも何度もできます。
+値を取り出しても変数の中身は残ったままとなりますので、変数が上書きされていない限りは毎回同じ値を得ます。
+      </p>
+      <h3 id="header-3">
+       変数の宣言と代入
+      </h3>
+      <p>
+       実際にPythonで変数を使いながら、その利用方法と特徴を確認します。
+      </p>
+      <p>
+       変数を使うにはまず最初に変数が作成される必要があります。
+変数を作成することを「
+       <em>
+        変数を宣言する
+       </em>
+       」といいます。
+      </p>
+      <p>
+       Pythonは変数を宣言する際に、同時に変数に値を格納する必要があります。
+変数に値を格納することを「
+       <em>
+        代入
+       </em>
+       」といい、宣言された変数に最初に代入することを特に「
+       <em>
+        初期化
+       </em>
+       」と呼びます。
+      </p>
+      <p>
+       変数の宣言と初期化(代入)は以下のように「=」記号(「
+       <em>
+        代入演算子
+       </em>
+       」と呼ばれる)の左に変数名を書き、右側に代入する値を書きます。
       </p>
       <div class="codehilite">
-       <pre><span></span>if(条件A):
-  処理1  # 条件 A が True の時に実行される処理
-elif(条件B):
-  処理2  # 条件 A が False で条件 B が True の時に実行される処理
-elif(条件C):
-  処理3  # 条件 A,B が False で条件 C が True の時に実行される処理
-else:
-  処理4  # 全ての条件が False の時に実行される処理
+       <pre><span></span>変数名 = 変数に入れたい値
 </pre>
       </div>
       <p>
-       上記のifからelseの次の行までがひとつの「if文のカバー範囲」であり、
-そのなかにあるifやelif、elseが細かい処理の単位だと思っていただければ大丈夫です。
-条件ごとの処理はインデント(字下げ)されていることが分かります。
+       注意をしてほしいのはプログラミングにおける代入演算子「=」は、
+算数や数学のイコール記号「=」とは異なることです。
+今さら説明することでもないでしょうが、算数や数学のイコール記号は「=」の左辺(左側)と右辺(右側)が同じことを示しています。
+一方、プログラミングにおける代入演算子は右辺を左辺に代入することに使われます。
       </p>
       <p>
-       実際に条件分岐を行うプログラムを書くことで、条件分岐の使い方をイメージしてみましょう。
-プログラムは非常に簡単で、変数xの値が0より大きければ「+」と出力し、
-ピッタリ0なら「0」、0未満なら「-」と出力するというものです。
-これは以下のようになります。
+       たとえば変数abを宣言し、数値の5で初期化するとすれば以下のようになります。
+このように書けば、左辺にある変数abの中身は右辺の5となります。
       </p>
+      <h4>
+       インタプリタ: 変数の宣言と初期化(代入)
+      </h4>
       <div class="codehilite">
-       <pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'+'</span><span class="p">)</span>
-<span class="k">elif</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'0'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'-'</span><span class="p">)</span>
-
-<span class="c1"># +</span>
+       <pre><span></span>&gt;&gt;&gt; ab = 5
 </pre>
       </div>
       <p>
-       上記プログラムをIDLEのエディタに書いて実行してみてください。
-xに5が代入されているので、「+」と出力されたはずです。これはx &gt; 0の条件式が満たされ(Trueとなり)、
-「print('+')」が実行されたからです。そして if else の条件文をぬけるため、
-print(‘0’) や print(‘-‘) は実行されません。
-このxに代入する値をいろいろ変えて動かしてみると、どの条件式がチェックされ、
-「if、elif、else」のどの処理が実行されたのかイメージできるはずです。
+       変数を今まで扱ってきたデータのように使えば、代入されている変数の中身の値は取り出されます。
       </p>
-      <h2 id="header-3">
-       インデントとコードブロック
-      </h2>
-      <p>
-       条件分岐の話が終わったので、インデント(字下げ)についてもう少し詳しくお話しましょう。
-先ほどのプログラムでif文に書かれた処理はかなりシンプルなものでしたが、
-実際にはif文は多くの処理を持ちます。
-すると、if文 が「どこからどこまでをカバーしているか」をどのような形で表現するかが問題になってきます。
-このカバー範囲のことをコードブロックと読んでおり、
-インデント(字下げ)を揃えることで範囲を決めています。
-Pythonのインデントの仕方は「半角空白を4つ」が標準で、それに次いで半角空白2つも一般的です。
-タブの使用は推奨されていません。本書は紙面の都合上、半角空白2つとしています。
-      </p>
-      <p>
-       以下のコードを見て下さい。
-      </p>
+      <h4>
+       インタプリタ: 変数からの値の取り出し(直前のプログラムの続き)
+      </h4>
       <div class="codehilite">
-       <pre><span></span>処理1
-if(条件A):
-   # ここから
-   処理2
-   処理3
-   # ここまでがコードブロック
-else:
-   # ここから
-   処理4
-   # ここまでがコードブロック
-処理5
+       <pre><span></span>&gt;&gt;&gt; 10 + ab
+15
+&gt;&gt;&gt; print(ab)
+5
 </pre>
       </div>
       <p>
-       上記のプログラムでは処理1、2、3、4、5 があります。このうち処理1は if 文の範囲外なので常に実行されます。
-そして処理2,3 は if 文のコードブロックに属するので、条件Aが満たされる場合に両方とも実行されます。
-処理2,3 のインデントは同じ深さなので、同じコードブロックです。
-処理4はelse の場合のみ実行され、処理5は常に実行されます。
-字下げをすることでコードブロックを表現する。簡単です。
+       ここでは変数abから値を2回取り出していますが、
+いずれも代入されている5を返していることがわかります。
+変数から値を取り出しても中身はなくなりません。
       </p>
       <p>
-       なお、CやJavaにもコードブロックはありますが、その書き方は異なっています。
-たとえばJavaだと上記のサンプルコードは以下のようなものとなります。
+       すでに宣言されている変数に値をもういちど代入する(「
+       <em>
+        再代入
+       </em>
+       」)することもできます。
+プログラミング言語によりやりかたは異なりますが、Pythonでは初期化と見た目は全く変わりません。
       </p>
+      <h4>
+       インタプリタ: 変数への再代入
+      </h4>
       <div class="codehilite">
-       <pre><span></span>処理1
-if(条件A){    
-  // ここから
-  処理2  // 字下げは必須ではない
-  処理3
-　// ここまでがコードブロック
-}else{
-  // ここから
-  処理4
-　// ここまでがコードブロック    
-}
-処理5
+       <pre><span></span>&gt;&gt;&gt; cd = 10
+&gt;&gt;&gt; print(cd)
+10
+&gt;&gt;&gt; cd = 20
+&gt;&gt;&gt; print(cd)
+20
 </pre>
       </div>
       <p>
-       {}で囲むことでコードブロックを表しています。
-たいていは読みやすいように上記のようにインデントをしますが、
-プログラムとしてはインデントをする必要性はありません。
+       「変数名」はアルファベットや数字、一部の記号を使って自分の好きなものを使うことができます。
+変数名の命名規則は次のページにて詳細を扱います。
       </p>
       <h3 id="header-4">
-       コードブロックのネスト
+       代入演算子の優先度
       </h3>
       <p>
-       コードブロックの中にコードブロックを作ることも可能です。
-たとえば条件分岐の中に、さらに条件分岐を作ったりすることもできます。
-書き方は簡単で、コードブロックの内側にさらにコードブロックを作るというものです。
-その際、内側のコードブロックは外側のコードブロックに属しています。
-      </p>
-      <p>
-       サンプルコードをあげてみます。
+       1行の中に様々な演算子が混ざることがあります。
+たとえば以下のプログラムを見て下さい。
       </p>
       <div class="codehilite">
-       <pre><span></span>if(条件A):
-  処理1    # "if(条件1)"のコードブロックに属する
-  if(条件B):
-    処理2   # "if(条件1)" と "if(条件2)" の両方法のコードブロックに属する
-  処理3
-else:
-  処理4
+       <pre><span></span>&gt;&gt;&gt; ef = 10 + 5
 </pre>
       </div>
       <p>
-       処理1、2、3はすべて「if(条件1)」のコードブロックに属していますが、
-処理2だけではそれに加えて「if(条件B):」にも属しています。
-そのため、処理2が実行されるのは条件A、Bが共にTrueのときのみです。
-たとえ条件BがTrueであっても、条件AがFalseなら処理2は実行されません。
-コードブロックはifやループなどの制御構造だけではなく、関数やクラスでも利用されます。
+       このプログラムは「ef = 10」をした結果に対して「+ 5」をするのでしょうか。
+それとも「10 + 5」をした結果を「ef = 」とするのでしょうか。
       </p>
       <p>
-       なお、コードブロックに限らず、
-プログラミングで「入れ子」構造にすることを一般的に「ネストする」と言いますので覚えておいてください。
-ネストすること自体には問題はありませんが、その深さが増えてくるとプログラムが非常に読みにくくなります。
-深いレベルのネストが必要な状況になってきたら、アルゴリズムそのものを見直すか、
-後の章で扱う「関数」に処理を分割することで読みやすくすることが多いです。
+       答えは後者で、変数efに対して15が代入されています。
+      </p>
+      <p>
+       これには理由があり、結合演算子「+」のほうが、代入演算子「=」よりも優先度が高いためです。
+算数で「5 + 10 x 2」が、30ではなく25になるのは足し算よりも掛け算の優先度が高いからです。
+それと同じでプログラミングの演算子にも優先度があり、代入演算子の優先度はかなり低いです。
+      </p>
+      <p>
+       代入演算子の右側でなんらかの処理が書かれていれば、その処理がされた結果が変数に代入されます。
+変数に代入されてから代入演算子の右側の処理がされることはありません。
       </p>
       <h3 id="header-5">
-       pass文
+       変数に同じ変数の値を加工して代入
       </h3>
       <p>
-       なお、コードブロックの中には最低一つの式を書く必要があります。
-そのため、if 文や関数を「とりあえず作って詳細は後で実装する」という場合に
-「なにもしない」ということをブロック内に書く必要があります。
-それには pass キーワードを使います。
+       変数に同じ変数の値を加工して代入することも可能です。
+たとえば、変数aにすでに文字列が入っており、それに別の文字列を追加したいという場合は以下のように書きます。
       </p>
+      <h4>
+       インタプリタ: 変数内の文字列を変更
+      </h4>
       <div class="codehilite">
-       <pre><span></span>a = 'hello'
-if(a == 'hello'):
-  # 将来ここに処理を実装
-  pass
-else:
-  # 将来ここに処理を実装
-  pass
-
-print(a)
+       <pre><span></span>&gt;&gt;&gt; a = 'hello'
+&gt;&gt;&gt; a = a + 'python'
+&gt;&gt;&gt; print(a)
+hellopython
 </pre>
       </div>
       <p>
-       上記の pass はなにもしないためにこの if 文は不要です。
-ただ、コメントにもあるように「とりあえずプログラムの構造を作っておきたい」という場合に pass 文を利用することはよくあります。
-pass を書かかずにブロックに何もないとプログラムはエラーとなります。
-      </p>
-      <h2 id="header-6">
-       for によるループ
-      </h2>
-      <p>
-       ループはその名前からわかるように「同じ処理を何度も繰り返す」という処理です。
-ループ処理の制御構造にはforとwhileの2つがあり、両者の使うべきポイントは若干異なっています。
-そのため、まずは利用頻度の多い for について扱い、その後で while について説明します。
-      </p>
-      <p>
-       forは「グループにある要素すべてを処理する」といったときに使われるループ構造です。
-一番よく使われるのが、前回お話したリスト(配列)に格納されている要素すべてをチェックするような処理です。
-JavaやCで使われるfor文と書き方はかなり異なるものの、ほとんど同じような場面で使います。
-      </p>
-      <p>
-       Pythonのfor文のイメージを以下の図に書きます。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0040_image/02.jpg"/>
-      </p>
-      <p>
-       難しい用語でいうと「イテレーター」と呼ばれる処理方式なのですが、
-ようするに「たくさんある集合の先頭ひとつを取り出して、それを処理する。
-それが終わったら、次を取り出して処理をする」ということを、集合が空になるまで繰り返すというイメージです。
-      </p>
-      <p>
-       それほど難しくないので例で示しましょう。
-1、2、3、4、5という数字が格納されているリストの中身を、
-一つひとつすべてprint出力する処理をforで書くと以下のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       この for 文は以下のような動きをします。
+       上記の「a = a + 'python'」は以下の動きをします。
       </p>
       <ol>
        <li>
-        リスト a から 1 を取り出して i に格納。それをprint出力
+        代入演算子の右にあるaが'hello'という文字列を返す
        </li>
        <li>
-        リスト a から 2 を取り出して i に格納。それをprint出力
+        それに'python'が結合されて'hellopython'になる
        </li>
        <li>
-        …(中略)…
-       </li>
-       <li>
-        リスト a から 5 を取り出して i に格納。それをprint出力
-       </li>
-       <li>
-        リスト a からすべてを取り出したのでforのコードブロックを終了
+        代入演算子の右の結果である'hellopython'が左の変数aに再代入される
        </li>
       </ol>
       <p>
-       すでに想像はついているかもしれませんが、出力は以下のようになります。
+       こういった処理は上から下に順番に実行していくような状況ではあまり利用されませんが、
+後ほど扱うループ処理(同じ処理を繰り返す)の中で利用されることがよくあります。
       </p>
-      <div class="codehilite">
-       <pre><span></span>1
-2
-3
-4
-5
-</pre>
-      </div>
-      <p>
-       イテレーターを使っているので、Javaのfor文で使うような「インデックス(配列の何番目か)による制御」に比べて、
-間違った要素を指定するリスクが減っています。
-一方、インデックスを操作するような複雑な処理は python の for では実現できません。
-そのような場合は後述する while を使うことになります。
-      </p>
-      <h3 id="header-7">
-       forをシーケンスに使う
+      <h3 id="header-6">
+       複合代入演算子
       </h3>
       <p>
-       なお、for 文はリスト以外の「シーケンス型」と呼ばれる「並びを持つ型」 にも使えます。
-例えば今までに扱った文字列もシーケンス型なので for 文が使えます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>text = 'hello'
-for c in text:
-  print(c)
-
-# h
-# e
-# l
-# l
-# o
-</pre>
-      </div>
-      <p>
-       ただ、for 文は十中八九はリスト及びそれに似た型に対して利用することになると思います。
-それ以外の型で使うことはあまり多くありません。
-      </p>
-      <h3 id="header-8">
-       for の変数名
-      </h3>
-      <p>
-       for 文を書く際に注意すべきなのは取り出した値を格納する変数の名前付けです。
-プログラムとしては変数名として有効なものであれば何を書いても動くのですが、
-一般的には以下のようなルールがあります。
-      </p>
-      <ul>
-       <li>
-        リストなどのシーケンスの変数名に対応する単数形の名前
-       </li>
-       <li>
-        順番に並んだ数字の場合は i, j, k (i が既に使われていれば j といった具合)
-       </li>
-       <li>
-        リストや文字列から取り出す「一文字」は c (character の c)
-       </li>
-      </ul>
-      <p>
-       例えばリストとして students という複数形があればそれを取り出す変数は student といった具合です。
-自分でプログラムを開発する場合はこのような名前付けになるように注意を払って下さい。
-サンプルプログラムなどで数字の配列に対して for 文を回す場合は i という変数名を使うことも多いですが、
-これは index という単語から来ています。
-i が既に使われている場合は j, k と使っていくのですが、
-これは単に ijk というアルファベットとしての並びがあるからです。
-l (小文字のL)は数字の1や大文字のI (i)と見分けが使いにくいので使用は避けることが望ましいとされています。
-変数名としてよい名前が浮かばないときに i が使われることも多いのですが、あまりよい使い方ではありません。
-      </p>
-      <h2 id="header-9">
-       while によるループ
-      </h2>
-      <p>
-       whileもforと同じくループ処理のための制御構造です。
-ただ、whileは「ループを何周すればいいかわからない処理」に利用されます。
+       先ほどの「変数A = 変数A + 値B」という処理をするための特別な代入演算子があります。
+複合代入演算子と呼ばれるもので「演算子=」という形式を取ります。
       </p>
       <p>
-       先ほどのforの例を思い出して下さい。forでのループ回数は「リストaに格納されている要素の数」と明確にわかります。
-このような場合はforで処理すべきです。
-一方、たとえば「123456789という数字を2進数で表現するのに必要な桁数を求める処理」が必要だとした場合、
-これをどうfor文で処理すればいいか、想像できますか。私はシンプルでスマートな実装は思いつかないです。
+       たとえば演算子「+」を使った複合代入演算子として「+=」があり、「変数A += 値B」とすると、
+変数Aの値に値Bをたした結果を変数Aに代入します。
       </p>
       <p>
-       解き方はいろいろあると思いますが、一番簡単な解法の一つとして、以下のようなものが考えられます。
-      </p>
-      <ol>
-       <li>
-        2 の 1 乗は 123456789 より大きいか　-&gt; No
-       </li>
-       <li>
-        2 の 2 乗は 123456789 より大きいか　-&gt; No
-       </li>
-       <li>
-        ..
-       </li>
-       <li>
-        2 の N 乗は 123456789 より大きいか　-&gt; No
-       </li>
-       <li>
-        2 の N+1 乗は 123456789 より大きいか　-&gt; YES
-       </li>
-       <li>
-        N+1桁あれば 123456789 を表現可能だとわかる
-       </li>
-      </ol>
-      <p>
-       この処理では2を1乗、2乗とループ処理でどんどん大きくしていきますが、
-最終的に2の何乗になるかがわかりません。
-このようなときに「特定の条件をクリアするまでループを回す」ためにwhileを使うと便利です。
-      </p>
-      <p>
-       以下にwhile文の使い方のイメージ図をのせます。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0040_image/03.jpg"/>
-      </p>
-      <p>
-       上記の図を見てもらうとわかるように、while文はループを回るごとに条件式をチェックして、
-それがTrueならループを継続して、Falseならループを抜けるという処理をします。
-これはJavaやCのwhileとまったく同じです。
-      </p>
-      <p>
-       先ほどの2進数の桁数を求めるプログラムをwhileで書いてみます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">123456789</span>
-<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">while</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">):</span>
-  <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
-<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="c1"># 27</span>
-</pre>
-      </div>
-      <p>
-       すでに扱った内容ですが、上記のプログラムを補足すると、2
-       <strong>
-        iは「2のi乗」を計算していて、
-i+=1はiをインクリメント(i = i + 1)しています。
-2
-       </strong>
-       iが123456789より小さい間はiをインクリメントしていき、
-2**iが123456789より大きくなったらループを抜けるという動きをします。
-ループを抜けた際iに入っている値が必要な桁数を表しています。
-      </p>
-      <h2 id="header-10">
-       break と continue によるループ制御
-      </h2>
-      <p>
-       ループ制御そのものの打ち切りや「ループのその回だけ」の打ち切りが必要な場面があります。
-たとえば以下のような偶数が含まれるかを判定するプログラムがあるとします。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
-<span class="n">has_even</span> <span class="o">=</span> <span class="bp">False</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="n">has_even</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"List has even: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">has_even</span><span class="p">))</span>
-<span class="c1"># True</span>
-</pre>
-      </div>
-      <p>
-       上記はリストを for 文で走査し、その要素が偶数であれば has_even という変数に True をいれます。
-リストに偶数がなければ False のままで、偶数があれば True になります。
-今回はリストの中に10があるので、当然Trueとなります。
-      </p>
-      <p>
-       ただ、よく考えてみてください。なにか無駄な処理があると思いませんか。
-そう、ループが10になった回で偶数があることがわかったのに、さらに偶数が含まれるかチェックを繰り返しています。
-10が現れた時点で偶数があることはわかりきっているので、ループを回し続けるのは無駄です。
-      </p>
-      <p>
-       「break」を使ってループ処理を打ち切ることで、この問題を解決できます。
-break を使ったプログラムは以下のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
-<span class="n">has_even</span> <span class="o">=</span> <span class="bp">False</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>   <span class="c1"># NEW CODE</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="n">has_even</span> <span class="o">=</span> <span class="bp">True</span>
-    <span class="k">break</span>  <span class="c1"># NEW CODE</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"List has even: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">has_even</span><span class="p">))</span>
-</pre>
-      </div>
-      <p>
-       確認のためにbreakだけでなく、print文も追加しています。
-これを実行すると以下のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>1
-3
-5
-7
-9
-10
-List has even: True
-</pre>
-      </div>
-      <p>
-       どうです、11以降のチェックをしなくなりました。
-i に10が代入されたタイミングで break が実行され、ループから抜けているためです。
-      </p>
-      <h3 id="header-11">
-       continue
-      </h3>
-      <p>
-       一方「continue」ですが、正直こちらはbreakほど頻繁に利用されない気がします。
-ただ、ループで「特定の条件の場合だけ処理をしたい」というときに利用されることが多いです。
-      </p>
-      <p>
-       たとえば、数値1から99のリストのうち、3でも5でも割り切れるものだけを画面出力する必要があるとします。
-リストを使わないで愚直な書き方をすると以下のようになります(実際はcontinueを使わなくとも、もっとスマートに書けます)。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-      <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-
-<span class="c1"># 15 30 45 60 75 90</span>
-</pre>
-      </div>
-      <p>
-       上記は range 関数で [1,2,3,..,98,99] というリストを作成し、
-それに対して for ループを回しています。
-もし、iが3で割り切れたら、もしiが5で割り切れたら……などというように条件分岐がどんどん深くなってしまいます。
-これをcontinueを使って書き直すと、次のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="k">continue</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">5</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="k">continue</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-
-<span class="c1"># 15 30 45 60 75 90</span>
-</pre>
-      </div>
-      <p>
-       行数は増えてしまいましたが、プログラムの見渡しはよくなりましたね。
-このように使いようによっては、breakとcontinueは便利です。
-      </p>
-      <h3 id="header-12">
-       無限ループ
-      </h3>
-      <p>
-       個人的に私がよく使うのは「whileの条件判定にTrueをいれた無限ループ」をbreakで抜けるというものです。
-たとえば以下のような構造です。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>while(True):
-  処理
-  if(条件):
-    処理
-    break
-  処理
-</pre>
-      </div>
-      <p>
-       気をつけないと無限ループから抜けられなくなりますが、
-適切に使えば while の条件式に判定をいれるよりも綺麗なコードが書けます。
-      </p>
-      <h2 id="header-13">
-       3項演算子
-      </h2>
-      <p>
-       今まで扱ってきた if 文や ループに比べてあまり利用されないため後にもってきましたが、
-実は if 文の亜種の3項演算子というものも存在します。
-      </p>
-      <p>
-       例えば以下のプログラムがあるとしましょう。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>a = 5
-
-if(a % 2 == 0):
-  is_even = True
-else:
-  is_even = False
-
-print(is_even)
-# False
-</pre>
-      </div>
-      <p>
-       上記プログラムは a という変数に格納されている値が偶数であれば is_even という変数に True をいれ、
-そうでなければ False をいれるというものです。
-プログラムを書いていると、時々こういうような if 文の結果に応じて同じ変数に入れる値が変わるという場面に出くわします。
-      </p>
-      <p>
-       3項演算子はまさにこういった処理をするために用意された文法で、以下のように書きます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="c1"># (Trueのときに返る値) if (条件式) else (Falseのときに返る値)</span>
-<span class="n">is_even</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="bp">False</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">is_even</span><span class="p">)</span>
-<span class="c1"># False</span>
-</pre>
-      </div>
-      <h2 id="header-14">
-       1ライナーの条件式
-      </h2>
-      <p>
-       最後に1ライナーと呼ばれるテクニックを紹介します。
-インデントとコードブロックで説明したように、基本的には if や for の処理は字下げして書きます。
-ただ、1行だけの処理であれば条件式の直後に処理を書くことができます。
-      </p>
-      <p>
-       例えば以下のようなものになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="mi">5</span><span class="p">):</span> <span class="k">print</span><span class="p">(</span><span class="s1">'a == 5'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s1">'a != 5'</span><span class="p">)</span>
-<span class="c1"># a == 5</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="c1"># 1</span>
-<span class="c1"># 2</span>
-<span class="c1"># 3</span>
-</pre>
-      </div>
-      <p>
-       Python の分かりやすさは綺麗なインデントにあるといっても過言ではないので、
-乱用は避けたほうがいいです。
-ただ、あまりにも短い単純なコードであれば1ライナーで書いてしまったほうが見やすい場合もあります。
+       他には「-=」や「*=」などもありますが、それぞれ「引いて代入」「かけて代入」となります。
       </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
@@ -875,12 +437,6 @@ print(is_even)
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -911,224 +467,102 @@ print(is_even)
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          Pythonプログラミング
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>

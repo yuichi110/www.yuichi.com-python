@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       プログラミングとはそもそもなにか
+       Python3のインストール
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,67 +107,25 @@
         </li>
         <li>
          <a href="header-2">
-          機械と人間のかけはしとなるプログラミング言語
+          Pythonのインストール
          </a>
          <ul>
           <li>
            <a href="#header-3">
-            機械の言葉「01」
+            Windows10へのインストール
            </a>
           </li>
           <li>
            <a href="#header-4">
-            なぜプログラムを書くのに日本語ではなく「プログラミング言語」を使うか
+            Windows10でPythonの動作確認
            </a>
           </li>
           <li>
            <a href="#header-5">
-            プログラミング言語から機械語への変換
+            Macへのインストールと動作確認
            </a>
           </li>
          </ul>
-        </li>
-        <li>
-         <a href="#header-6">
-          なぜ Python を学ぶのか
-         </a>
-         <ul>
-          <li>
-           <a href="#header-7">
-            高級な言語と低級な言語
-           </a>
-          </li>
-          <li>
-           <a href="#header-8">
-            同じプログラムを複数のプログラミング言語で比較する
-           </a>
-          </li>
-          <li>
-           <a href="#header-9">
-            Pythonのコード
-           </a>
-          </li>
-          <li>
-           <a href="#header-10">
-            Javaのコード
-           </a>
-          </li>
-          <li>
-           <a href="#header-11">
-            C言語の例
-           </a>
-          </li>
-          <li>
-           <a href="#header-12">
-            3つの言語の比較結果
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="#header-13">
-          用語
-         </a>
         </li>
        </ul>
       </div>
@@ -175,563 +133,160 @@
        概要
       </h2>
       <p>
-       コンピュータは人間の言葉を理解できず、01で記述されたプログラム(命令)の通りに動きます。
-ただ、逆に人間は「01で書かれた機械の命令」は理解しすることが苦手です。
+       Pythonを使うには、そのコンピュータにPythonがインストールされている必要があります。
+Pythonには「Python2」と「Python3」があり、2017年現在はPython2からPython3に主流が移る過渡期にいます。
+そのため、特別な理由などがなければPython3を学ぶことが、今後のことを考えると望ましいです。
       </p>
       <p>
-       プログラミング言語はこの「人間の言葉」と「01で書かれた機械の命令」の中間に存在しています。
-人間が「規則性を持ったプログラミング言語」で命令を書き、それを01に変換してコンピュータに実行させます。
-このようにすることで、人間が苦労少なくコンピュータに命令を与えることができます。
+       WindowsにはPython2もPython3も、デフォルトではインストールされていません。
+そのため、Pythonを使うにはインストールが必要です。
       </p>
       <p>
-       プログラミング言語にも幾つかの種類があり、Pythonはその一つです。
-コンピュータに同じ命令をするにしても、簡単なプログラミング言語で書けば簡単に書けます。
-一方、難しいプログラミング言語でプログラムを書けば、余計な知識が必要とされるため難しいです。
-効率的にプログラムを書くには簡単な言語を選ぶことが大事であり、Pythonは簡単な言語です。
-      </p>
-      <p>
-       また、プログラミング言語にはそれぞれ得意不得意な分野があります。
-Pythonは他の言語に比べると得意な分野が広いものの、例えば組み込みコンピュータの制御といった機械に近い部分は苦手です。
-どのようなことを実現したいかによって、学ぶべきプログラミング言語は変わってきます。
-特にこだわりがないのであれば、最初は簡単で広く使われているプログラミング言語を学ぶべきでしょう。
-      </p>
-      <p>
-       Pythonは簡単なプログラミング言語として普及しており、なおかつ多くのことが実現できる優秀な言語です。
-そのため、最初に学ぶプログラミング言語としてPythonを選ぶのは間違っていません。
+       MacにはPython2のみデフォルトでインストールされています。
+Python3を使いたければ、Python3をインストールする必要があります。
       </p>
       <h2 id="header-2">
-       機械と人間のかけはしとなるプログラミング言語
+       Pythonのインストール
       </h2>
       <h3 id="header-3">
-       機械の言葉「01」
+       Windows10へのインストール
       </h3>
       <p>
-       コンピュータ(PC)や機械は人間の言葉をそのまま理解することはできません。
-AppleのSiriなどはユーザの質問にたいして応答をしているように見えますが、あくまでも人の声をデジタルデータに変換して、それにたいして機械的に応答をしているだけです。
-そのため、人間の言葉を理解しているように「見せかけている」だけです。
+       WindowsにはデフォルトでPythonがインストールされていません。
+Pythonを使うためにはインストールが必須です。
       </p>
       <p>
-       それでは、機械はどのように人間からの命令を処理しているのでしょうか。
-答えは簡単で「電気的に処理」しています。
-      </p>
-      <p>
-       電気はON/OFFの2つの状態があり、それが数字の「0と1」に対応付けられています。
-ご存知のかたも多いと思いますが、WindowsやMacといったOSは、ハードディスク(HDD)の円盤にある0,1の情報(磁気で管理)や、SSDのメモリ上にある0,1の情報(電気で管理)として存在しています。
-PCの電源をいれたら、HDDやSSDのうえにある情報をメモリ(RAM)とCPUを使って処理することで、PCは動いています。
-      </p>
-      <!-- 図 -->
-      <p>
-       OSだけでなく、OSの上で動くアプリケーションもこれと全く同じ要領で動きます。
-アプリケーションを動かすためのWindowsの「.exe ファイル」や、Macの「.app ファイル」も、
-ディスクの上にある「0,1で構成されたファイル」です。
-アプリケーションを実行するときも、0,1で書かれた命令をメモリに読み込み、
-CPUがそれを実行することでPCは人間の命令を実現します。
-      </p>
-      <p>
-       これからプログラミングで学ぶような「PCのディスプレイに"Hello"と表示させる」という命令も、
-つきつめると0,1で構成されています。
-ただ、「画面に Hello と出力することを機械が理解できるように0、1で命令して、
-実行させろ」といわれても、どういう0,1 の羅列を書けばいいか分からずに途方にくれてしまいます。
-機械が理解できる0,1の命令には規則性があるため、理論上は0,1 で命令を書くことはできるはずです。
-ただ普通の人はそんなことはやりたくありません。
-      </p>
-      <h3 id="header-4">
-       なぜプログラムを書くのに日本語ではなく「プログラミング言語」を使うか
-      </h3>
-      <p>
-       プログラミングはこの「機械が理解できるように0,1で命令を与える」という難しい作業を、
-人間がより簡単に行うための方法です。
-      </p>
-      <p>
-       人間は機械とは違って「アナログ」な「言葉」を通して、ものごとを考えたり、意思疎通をしています。
-      </p>
-      <p>
-       この人間の言葉は機械が理解できる「01の命令」に比べると、かなり曖昧です。
-たとえば「料理を作る手順」について考えてみて下さい(料理は手順を順序だてて作業をするため、
-非常に簡単なプログラミングに似ています)。
-      </p>
-      <p>
-       同じ料理を同じ手順で作るレシビを書くにしても、100人いれば100通りのレシビができるはずです。
-それらのレシピは論理的には全く同じものであっても、日本語という言葉が柔軟すぎるため、
-様々な書き方ができてしまうからです。
-そのような柔軟な言葉で書かれた命令を、01のプログラムの命令に変換することは難しいです。
-複雑な文法を機械が簡単には理解できないからです。
-      </p>
-      <p>
-       そのため、あえてプログラミング言語は日本語のような曖昧な言葉ではなく、
-「制限された言葉」を使います。
-ちょうど日本語とプログラミング言語で、同じ命令を書くと以下のようになります。
-      </p>
-      <ul>
-       <li>
-        日本語: 70度の水で、15分間茹でます
-       </li>
-       <li>
-        プログラミング言語: ゆでる 70度　15分
-       </li>
-      </ul>
-      <p>
-       後者のプログラミング言語は、私が適当に文法を「作業　温度　時間」としました。
-これであれば、機械が文字を解釈して01に変換するのは簡単そうです。
-      </p>
-      <p>
-       そのため、プログラミングでは人間が普通に使う言葉(自然言語と呼ばれる)ではなく、
-プログラミング言語というプログラミング専用の言葉を使います。
-      </p>
-      <h3 id="header-5">
-       プログラミング言語から機械語への変換
-      </h3>
-      <p>
-       人間と機械の両方にとってわかりやすい「中間言語」であるプログラミング言語で、
-人間は機械が解釈できる命令を書き、機械はそれを0,1に変換します。
-      </p>
-      <p>
-       この開発から実行までの流れが「プログラミング」と呼ばれています。
-以下にこの概念を示す図を記載します。
+       インストールにはPythonの公式サイト(https://www.python.org/)から、
+実行環境にあったPythonのインストールイメージをダウンロードしてきます。
       </p>
       <p class="blog-img">
        <img alt="image" class="img-responsive" src="./0015_image/01.png"/>
       </p>
       <p>
-       図の真ん中に位置する「C、Java、Python」がプログラミング言語です。
-これら以外にも多くの言語があります。
+       Pythonには現在2.xと3.xのバージョンがあります。
+新しくPythonを学ぶのであれば、現在主流になりつつある3.Xの最新版をインストールしてください。
+本サイトでは「3.X」にて解説をしております。
       </p>
       <p>
-       図にあるように人間が「機械にHelloと言わせたい」と思ったら、
-プログラミング言語で「Hello と出力しろ」と命令を書きます。
-上記図の「print(“Hello”)」がその命令です。
-この命令のことを「プログラム」や「コード」と呼びます。
-      </p>
-      <p>
-       なお、このプログラミング言語から機械語への変換には大まかに次の2つの方式があります。
-      </p>
-      <ul>
-       <li>
-        コンパイル型
-       </li>
-       <li>
-        インタプリタ型
-       </li>
-      </ul>
-      <p>
-       コンパイルはプログラミング言語で書かれた命令を、「コンパイラ」と呼ばれるプログラムで、
-プログラムが実行される前に機械語に変換します。
-そして、その機械語のプログラムを実行します。
-      </p>
-      <p>
-       一方、インタプリタはプログラムを実行する際に、
-インタプリタと呼ばれるプログラムがプログラミング言語の文法を読み取って解釈し、
-その場で機械語に変換してプログラムを実行します。
-      </p>
-      <p>
-       コンパイル型とインタプリタ型のプログラミング言語には、それぞれ長所と短所があります。
-      </p>
-      <p>
-       ただ、いずれにせよ"Hello"というテキストを表示するために「0,1 の規則性を勉強して、
-0,1を延々と羅列して命令を書く」のと「プログラミング言語で print("Hello")と書く」 ことを比べたら、
-どう考えても後者のほうがずっと簡単で効率的です。
-そのため機械になんらかの作業をさせる場合は、プログラミング言語を使ってその命令を書きます。
-      </p>
-      <p>
-       ※広義では0、1で命令を羅列することもプログラミングといえます。
-ただ、今ではあまり一般的ではないと考えています。
-      </p>
-      <h2 id="header-6">
-       なぜ Python を学ぶのか
-      </h2>
-      <h3 id="header-7">
-       高級な言語と低級な言語
-      </h3>
-      <p>
-       プログラミングを実現する手法や言語はさまざまです。
-どのプログラミング言語であっても自分がやりたいことはおおよそ実現可能です。
-      </p>
-      <p>
-       ただ、重要なのはプログラミング言語にはそれぞれ得意な分野があるということです。
-つまり、プログラムで実現したいことにより、適切な言語は変わるということです。
-      </p>
-      <p>
-       今回学ぶPythonは、そのようなプログラミング言語のひとつであり、
-他の言語よりも汎用的(なんにでも使える)であり簡単です。
-先程、プログラミング言語は人間と機械の中間にあると説明しましたが、
-他のプログラミング言語よりも、Pythonは「人間より」だということです。
-      </p>
-      <p>
-       逆に「C言語」は人間よりも機械よりで、「アセンブリ言語」とよばれている最も原始的なプログラミングは、
-かなり機械に近いです。
-プログラミング言語が機械側に近いということは、非常に小さなコンピュータを動かす際に、
-機械にとって処理しやすいプログラムを作ることができます。
-ただし、それは人間からは遠いので、プログラムを作るのが大変です。
-      </p>
-      <p>
-       ようするに、人間に近ければプログラムを書くのが簡単であり、
-機械に近ければ「電子機器(家電など)の制御」といった処理能力の少ないコンピュータ用のプログラムを書くことができます。
-おそらく多くのかたがプログラムを書くのはPCでなにかの作業をするためでしょうから、
-そのような場合は人間に近いプログラミング言語を選ぶほうが賢いです。
-PCが持つCPUはパワーがあるので、人間に近いプログラミング言語もなんなく使うことができるからです。
-      </p>
-      <p>
-       これらの理由からプログラミング未経験者にとって、Pythonはかなりいい言語だと考えられています。
-例えば、有名な MIT (マサチューセッツ工科大学)などでも、
-Pythonを大学の最初のプログラミング授業で扱っていたりします。
-      </p>
-      <h3 id="header-8">
-       同じプログラムを複数のプログラミング言語で比較する
-      </h3>
-      <p>
-       Python は汎用的であり簡単だと言いましたが、それは具体的にはどういうことでしょうか。
-まずは論より証拠を見せたほうがはやいと思いますので、
-「ディレクトリ(フォルダ)の階層を書き出すプログラムを作る」ということを複数の言語で行い、それを比較してみます。
-同じ内容を複数の言語で書けば、それぞれの言語の特徴がよく分かります。
-      </p>
-      <p>
-       プログラムを書くにあたっては、まず「それをどう実現するか」について理解する必要があるため、
-「ディレクトリ(フォルダ)の階層を書き出す」方法について考えます。
-      </p>
-      <p>
-       実現方法はいろいろありますが、今回は以下のルールに従って動かすことで実現させます。
-      </p>
-      <ol>
-       <li>
-        ディレクトリの中身を順に見ていく
-       </li>
-       <li>
-        それがファイルであればそのままファイル名を表示。ディレクトリであれば、インデント(字下げ)してディレクトリ名を [ ] 付きで表示し1.に戻る
-       </li>
-       <li>
-        ディレクトリ内のファイルをすべてチェックしたら終えたら終了
-       </li>
-      </ol>
-      <p>
-       たとえば、以下のようなディレクトリ構造があるとしましょう。
-四角で囲われているのがディレクトリで、Python ディレクトリが起点となっています。
+       上記ページから落としてきたイメージからインストーラーを立ち上げると以下のような画面が現れると思います。
       </p>
       <p class="blog-img">
        <img alt="image" class="img-responsive" src="./0015_image/02.png"/>
       </p>
       <p>
-       プログラムでこれを表示させると次のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">[/python]</span>
- <span class="k">[/python/a]</span>
- <span class="na">- aa</span>
-  <span class="k">[/python/a/ab]</span>
-  <span class="na">- aba</span>
-<span class="na">- b</span>
-<span class="na">- c</span>
- <span class="k">[/python/d]</span>
- <span class="na">- da</span>
- <span class="na">- db</span>
-</pre>
-      </div>
-      <p>
-       上記のルールにしたがって、この構造のディレクトリを表示させた際のプログラムの動きを具体的に書きくだすと、以下のようになります。
-      </p>
-      <ol>
-       <li>
-        pythonディレクトリの中を確認
-       </li>
-       <li>
-        aはディレクトリなのでインデントしてディレクトリを表示
-       </li>
-       <li>
-        aディレクトリの中を確認
-       </li>
-       <li>
-        aaはファイルなので表示
-       </li>
-       <li>
-        abはディレクトリなので、更にインデントしてディレクトリ名を表示
-       </li>
-       <li>
-        abディレクトリの中を確認
-       </li>
-       <li>
-        abaはファイルなので表示
-       </li>
-       <li>
-        abディレクトリの中身を確認し終えたので、aディレクトリの確認の続きに戻る
-       </li>
-       <li>
-        aディレクトリの中身を確認し終えたので、pythonディレクトリの中の確認の続きに戻る
-       </li>
-       <li>
-        bはファイルなので表示
-       </li>
-       <li>
-        以下省略
-       </li>
-      </ol>
-      <p>
-       ルールに従って規則的に動いていることがわかります。
-この自分で書いた「プログラムの挙動のルール」をアルゴリズムと呼びます。
+       この選択画面で赤の枠囲みがされている場所をチェックすると、
+「環境変数」と呼ばれるアプリケーションの所在地を示す情報が自動で登録されますのでチェックをして下さい。
+環境変数への登録は後ほど説明するコンソールでpythonコマンドを使うために必要となります。
       </p>
       <p>
-       では、実際にこれを実現するプログラムの例を、いくつかの有名な言語で記載していきます。
-各言語について知らない方も多いと思うので、プログラムが実際に何をしているかということよりも、
-ぼーっと眺めることで、各プログラミング言語の違いについていろいろと思いを馳せていただけたらよいと思います。
-なお、比較を簡単にするために、必ずしも教科書的な書き方をしていないので注意して下さい。
+       環境変数に登録しないと、コンソールがPythonがどこに存在するか知らないため、
+Pythonを使おうとした際に「そんなものはない」と怒られてしまいます。
+仮にこの選択画面でチェックを忘れた場合は、「パスを通す」という作業をする必要があります。
+面倒な場合はもう一度Pythonをインストールしなおして、その際に環境変数の登録をすれば大丈夫です。
       </p>
-      <h3 id="header-9">
-       Pythonのコード
+      <p>
+       「Install Now」と「Customize installation」の選択肢がありますが、
+一般的には「Install Now」で構いません。
+いま操作しているユーザー以外がPythonを利用したり、
+凝った使い方をしたりしたい場合は「Customize Installation」が必要となります。
+      </p>
+      <h3 id="header-4">
+       Windows10でPythonの動作確認
       </h3>
       <p>
-       まずPythonのプログラムを以下に記載します。 日本語のコメントを除けば全部で約15行となっています。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="k">def</span> <span class="nf">list_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">indent_level</span><span class="p">):</span>
-  <span class="c1"># ディレクトリ名を表示</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'{}[{}]'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">' '</span><span class="o">*</span><span class="n">indent_level</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
-
-  <span class="c1"># ディレクトリ内のファイルとディレクトリを全てループで確認</span>
-  <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">file_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)):</span> <span class="k">continue</span>
-    <span class="n">abs_filepath</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="n">file_name</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">abs_filepath</span><span class="p">)):</span>
-      <span class="c1"># ディレクトリだったので、そのディレクトリをチェックする</span>
-      <span class="n">list_file</span><span class="p">(</span><span class="n">abs_filepath</span><span class="p">,</span> <span class="n">indent_level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>      
-    <span class="k">else</span><span class="p">:</span>
-      <span class="c1"># ファイルだったので、ファイル名を表示</span>
-      <span class="k">print</span><span class="p">(</span><span class="s1">'{}- {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">' '</span> <span class="o">*</span> <span class="n">indent_level</span><span class="p">,</span> <span class="n">file_name</span><span class="p">))</span>
-
-<span class="n">list_file</span><span class="p">(</span><span class="s1">'/python'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       コード中にある「#」以降がプログラムのコメントであり、どのような処理をしているかメモしています。
-      </p>
-      <h3 id="header-10">
-       Javaのコード
-      </h3>
-      <p>
-       Javaで同じことをするプログラムを書くと、以下のようになります。Pythonだと15行程度だったプログラムが、およそ30行になっています。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
-
-<span class="c1">// クラス定義</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-
-  <span class="c1">// エントリーポイント(プログラムの起点)</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-    <span class="n">Main</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Main</span><span class="o">();</span>
-    <span class="n">m</span><span class="o">.</span><span class="na">listFile</span><span class="o">(</span><span class="s">"/python"</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-  <span class="o">}</span>
-
-  <span class="c1">// インデントのためのユーティリティ関数</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printIndent</span><span class="o">(</span><span class="kt">int</span> <span class="n">indentLevel</span><span class="o">){</span>
-    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">indentLevel</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"  "</span><span class="o">);</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">listFile</span><span class="o">(</span><span class="n">String</span> <span class="n">dirPath</span><span class="o">,</span> <span class="kt">int</span> <span class="n">indentLevel</span><span class="o">){</span>
-    <span class="c1">// ディレクトリ名を表示</span>
-    <span class="n">printIndent</span><span class="o">(</span><span class="n">indentLevel</span><span class="o">);</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"[%s]\n"</span><span class="o">,</span> <span class="n">dirPath</span><span class="o">);</span>
-
-    <span class="n">File</span> <span class="n">dir</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">dirPath</span><span class="o">);</span>
-    <span class="n">File</span> <span class="n">files</span><span class="o">[]</span> <span class="o">=</span> <span class="n">dir</span><span class="o">.</span><span class="na">listFiles</span><span class="o">();</span>
-    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">files</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-      <span class="c1">// ディレクトリ内のファイルとディレクトリを全て確認</span>
-      <span class="k">if</span><span class="o">(</span><span class="n">files</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">getName</span><span class="o">().</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"."</span><span class="o">))</span> <span class="k">continue</span><span class="o">;</span>
-
-      <span class="k">if</span><span class="o">(</span><span class="n">files</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">isDirectory</span><span class="o">()){</span>
-        <span class="c1">// ディレクトリだったので、そのディレクトリをチェックする</span>
-        <span class="n">listFile</span><span class="o">(</span><span class="n">files</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">getAbsolutePath</span><span class="o">(),</span> <span class="n">indentLevel</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-      <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-        <span class="c1">// ファイルだったので、ファイル名を表示</span>
-        <span class="n">printIndent</span><span class="o">(</span><span class="n">indentLevel</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"- %s\n"</span><span class="o">,</span> <span class="n">files</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">getName</span><span class="o">());</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</pre>
-      </div>
-      <p>
-       "public void listFile(String dirPath, int indentLevel){"というのが真ん中にありますが、
-これがディレクトリを走査するアルゴリズムです。
-Pythonと若干異なりますが、やっていることはほとんど同じです。
-      </p>
-      <p>
-       プログラムに詳しい人が見ると、増えたのはJavaによる言語の制約(Classの宣言が必要なことなど)や、
-文字列処理あたりにあることがわかります。
-      </p>
-      <p>
-       メインの処理である"public void listFile" の下にある処理は、Pythonとさほど変わっていません。
-同じことを実現するにしても Python のほうがずっと簡単に見えます。
-      </p>
-      <p>
-       プログラムの実行方法に関しても、Pythonのほうが Java よりも簡単です。
-Python であればこのプログラムファイルを「python プログラム名」というコマンドで呼び出すだけですが、
-Javaは「コンパイル」と呼ばれる作業で上記のテキストで書かれたプログラムを0、1のバイナリにしてあげて、
-それをコマンドで指定して実行するという方式になります。
-      </p>
-      <h3 id="header-11">
-       C言語の例
-      </h3>
-      <p>
-       最後にC言語のプログラムです。これは約50行となっています。
-どうです、もう読むのが面倒くさくなってきたのではないですか。書くのはもっと面倒でした(笑)。
-      </p>
-      <p>
-       面倒なだけではなく、CはPythonやJavaと違い、プログラムが「実行するOS」に強く依存するという問題があります。
-下記のコードはMacで書いたものなので、おそらくWindowsでは動かないのではないでしょうか。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;dirent.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
-
-<span class="kt">void</span> <span class="nf">printIndent</span><span class="p">(</span><span class="kt">int</span> <span class="n">indentLevel</span><span class="p">);</span>
-<span class="kt">void</span> <span class="nf">listFile</span><span class="p">(</span><span class="kt">char</span> <span class="n">path</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">indentLevel</span><span class="p">);</span>
-
-<span class="c1">// エントリーポイント(プログラムの起点)</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-  <span class="n">listFile</span><span class="p">(</span><span class="s">"/python"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// インデントのためのユーティリティ関数</span>
-<span class="kt">void</span> <span class="nf">printIndent</span><span class="p">(</span><span class="kt">int</span> <span class="n">indentLevel</span><span class="p">){</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-  <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">indentLevel</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"  "</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">listFile</span><span class="p">(</span><span class="kt">char</span> <span class="n">dirPath</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">indentLevel</span><span class="p">){</span>
-  <span class="kt">DIR</span> <span class="o">*</span><span class="n">dir</span><span class="p">;</span>
-  <span class="k">struct</span> <span class="n">dirent</span> <span class="o">*</span><span class="n">dp</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-  <span class="k">struct</span> <span class="n">stat</span> <span class="n">stat_buf</span><span class="p">;</span>
-
-  <span class="n">printIndent</span><span class="p">(</span><span class="n">indentLevel</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"[%s]</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">dirPath</span><span class="p">);</span>  <span class="c1">// ディレクトリ名を表示</span>
-
-  <span class="n">dir</span> <span class="o">=</span> <span class="n">opendir</span><span class="p">(</span><span class="n">dirPath</span><span class="p">);</span>
-  <span class="c1">// ディレクトリ内のファイルとディレクトリを全て確認</span>
-  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nb">NULL</span> <span class="o">!=</span> <span class="p">(</span><span class="n">dp</span><span class="o">=</span><span class="n">readdir</span><span class="p">(</span><span class="n">dir</span><span class="p">));</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">dp</span><span class="o">-&gt;</span><span class="n">d_name</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="sc">'.'</span> <span class="o">==</span> <span class="n">fileName</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>
-
-    <span class="kt">char</span> <span class="n">cp</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
-    <span class="n">strcpy</span><span class="p">(</span><span class="n">cp</span><span class="p">,</span> <span class="n">dirPath</span><span class="p">);</span>
-    <span class="n">strcat</span><span class="p">(</span><span class="n">cp</span><span class="p">,</span> <span class="s">"/"</span><span class="p">);</span>
-    <span class="n">strcat</span><span class="p">(</span><span class="n">cp</span><span class="p">,</span> <span class="n">fileName</span><span class="p">);</span>
-    <span class="n">stat</span><span class="p">(</span><span class="n">cp</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">stat_buf</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">S_ISDIR</span><span class="p">(</span><span class="n">stat_buf</span><span class="p">.</span><span class="n">st_mode</span><span class="p">)){</span>
-      <span class="c1">// ディレクトリだったので、そのディレクトリをチェックする</span>
-      <span class="n">listFile</span><span class="p">(</span><span class="n">cp</span><span class="p">,</span> <span class="n">indentLevel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>  
-    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-      <span class="c1">// ファイルだったので、ファイル名を表示</span>
-      <span class="n">printIndent</span><span class="p">(</span><span class="n">indentLevel</span><span class="p">);</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">"- %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">fileName</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="n">closedir</span><span class="p">(</span><span class="n">dir</span><span class="p">);</span>
-<span class="p">}</span>
-</pre>
-      </div>
-      <p>
-       "void listFile(char dirPath[], int indentLevel){" の下にあるプログラムがディレクトリを走査するプログラムです。
-先に提示したPythonやJavaと同じアルゴリズムですが、ずいぶんと長くなっています。
-      </p>
-      <h3 id="header-12">
-       3つの言語の比較結果
-      </h3>
-      <p>
-       いくつかのプログラミング言語で同一の処理を書きましたが、
-ここで知ってほしいことは各プログラミング言語の詳細というよりも
-「Aという処理を、Pythonだと2行で実現できるのに、Cだと5行必要」というような具合で、
-言語ごとにプログラムを書く労力が大きく違うということです。
-      </p>
-      <p>
-       処理を書けば書くほどプログラムの文量がどんどん増えていくので、
-今回の例では Pythonと C 言語の3倍以上のコード行数が必要となってしまっています。
-      </p>
-      <p>
-       また、Cをわかる人が見ればすぐに見抜かれてしまいますが、上記は非常に問題の多いコードです。
-たとえばディレクトリが深くなったり、ファイル名が長かったりすると一気に破綻してしまいます。
-本来であれば、そのあたりも考慮したコードを書かなければいけないはずです。
-      </p>
-      <p>
-       ディレクトリ構造を書き出すという処理をさせるのであれば、あまりC言語は使いたくないという感想を持っていただけたのではないでしょうか。
-      </p>
-      <p>
-       最後に、Python、Java、Cの特徴を比較した図を記載します。
+       Pythonは「コンソール」と呼ばれるアプリケーションから利用します。
+Windowsで利用されるコンソールは「パワーシェル」もしくは「コマンドプロンプト」が一般的です。
+パワーシェル及びコマンドプロンプトは場所がわからなくてもWindows の検索機能を使うことで見つけられるかと思います。
+参考のために以下に画像を記載します。
       </p>
       <p class="blog-img">
        <img alt="image" class="img-responsive" src="./0015_image/03.png"/>
       </p>
       <p>
-       PythonはC言語やJavaに比べると、同じ処理を短いプログラムで実現することができます。
-短いということをいいかえると、PythonはCやJavaより「簡単」な言語であるともいえます。
+       パワーシェルやコマンドプロンプトは何度も使うことになるので、
+タスクバーにピン留めしてすぐに使えるようにしておくと今後が楽です。
       </p>
       <p>
-       私の個人的な意見なのですが、初心者がまず学ぶべきことは、プログラミング言語の仕様詳細よりも、そのプログラミング作業を行う際の考え方や思想だと思います。
-複雑な処理を実現したいときに「処理を小さい単位に分解して、どのようなステップで実現するか順序立てて考える」ことが必ず必要となります。
-それを学ぶのであれば、Cのように余計な作法に振り回されて本質に注力できないプログラミング言語よりも、
-Pythonのような簡単な言語で「プログラミングの本質」に着目するほうがよいと思われます。
+       プロンプトから以下のように「python --version」と打ってPythonを起動してみてください。
+先ほどのインストール作業時にパスが登録されていれば、以下のような出力が得られると思います。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0015_image/04.png"/>
       </p>
       <p>
-       そのため私は、プログラミング初心者にはPythonからはじめることを推奨しています。
+       そのようなものがないと怒られた場合はインストールができていないかパスが通っていません。
+パスの通し方は検索してもらえればすぐに分かるはずです。
       </p>
       <p>
-       余談ですが、Pythonは簡単なだけではなく、OpenStackをはじめとした多くの大規模なソフトウェアプロジェクトで採用されていたり、
-GoogleやCiscoといったメジャーなIT企業でも積極的に利用されていたりします。
-「エキスパートたちがわざわざ選ぶのだから間違いない」と安直に考えることもできます。
+       なお、本サイトのプログラムはMacで書いて実行しているため、微妙にWindowsと食い違いが発生するかもしれません。
+大きな差ですと明記しますが、コマンド名やOSのディレクトリ構造といった小さい箇所は適時読み変えて下さい。
       </p>
-      <h2 id="header-13">
-       用語
-      </h2>
-      <ul>
-       <li>
-        プログラミング
-       </li>
-       <li>
-        プログラム
-       </li>
-       <li>
-        コード
-       </li>
-       <li>
-        プログラミング言語
-       </li>
-       <li>
-        自然言語
-       </li>
-       <li>
-        機械語
-       </li>
-       <li>
-        コンパイル
-       </li>
-       <li>
-        コンパイラ
-       </li>
-       <li>
-        インタプリタ
-       </li>
-       <li>
-        Python
-       </li>
-       <li>
-        Java
-       </li>
-       <li>
-        C言語
-       </li>
-       <li>
-        アセンブリ言語
-       </li>
-      </ul>
+      <p>
+       また、「ターミナル」と言った場合はパワーシェルやコマンドプロンプトのことを指します。
+      </p>
+      <h3 id="header-5">
+       Macへのインストールと動作確認
+      </h3>
+      <p>
+       Windowsと異なり、MacにはデフォルトでPythonがインストールされています。
+ただ、インストールされているものはPython2のため、Python3はインストールが必要です。
+Windowsへのインストールと同じように公式サイト(https://www.python.org/)へ行き、
+Python3のイメージをダウンロードしてきてインストールを行って下さい。
+      </p>
+      <p>
+       MacでのPython3のインストールは非常に簡単なため、割愛します。
+Windowsで行ったパスを通すなどの作業は、自動で行われるため不要です。
+      </p>
+      <p>
+       MacでのPythonの実行も、Windowsと同じコンソールを使います。
+Macのコンソールアプリケーションはターミナル(コマンドライン)で、
+それは「アプリケーション」フォルダ配下の「ユーティリティ(Utilities)」の下にあります。
+      </p>
+      <p>
+       ターミナルは今後頻繁に使うことになるので、ドラッグ&amp;ドロップでDockに登録しておいたほうがよいと思います。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0015_image/05.png"/>
+      </p>
+      <p>
+       ターミナルを起動して、「python --version」と打つと、
+おそらくPython2のバージョンが表示されます。
+      </p>
+      <p>
+       Python3のバージョンを確認するには「python3 --version」と打つ必要があります。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0015_image/06.png"/>
+      </p>
+      <p>
+       Macには複数のバージョンのPythonがインストールされています。
+デフォルトのPythonはPython2であるため、「python」とだけ入力するとpython2が使われます。
+python3を使うためには、「python3」と明示的にバージョンを指定する必要があります。
+      </p>
+      <p>
+       ちなみに、ターミナルにて「python」に続いてtabボタンを打つと、
+MacにインストールされているPythonのバージョン一覧が確認できます。
+      </p>
+      <h4>
+       MAC: pythonのバージョン一覧を確認
+      </h4>
+      <div class="codehilite">
+       <pre><span></span>$ python
+python             python2.7-config   python3.5-32       pythonw2.6
+python-config      python3            python3.5-config   pythonw2.7
+python2.6          python3-32         python3.5m
+python2.6-config   python3-config     python3.5m-config
+python2.7          python3.5          pythonw
+</pre>
+      </div>
+      <p>
+       上記の例ではPython2として、python2.6と2.7がインストールされており、
+Python3としてpython3.5がインストールされています。
+      </p>
+      <p>
+       Python3 を使うつもりで間違えてPython2を使ったり、
+その逆が発生したりしないように注意をしてください。
+      </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>
@@ -747,7 +302,7 @@ GoogleやCiscoといったメジャーなIT企業でも積極的に利用され�
          </a>
         </li>
         <li class="pager-next" id="next-li">
-         <a href="./002.html" id="next-a">
+         <a href="./004.html" id="next-a">
           Next →
          </a>
         </li>
@@ -824,12 +379,6 @@ GoogleやCiscoといったメジャーなIT企業でも積極的に利用され�
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -860,234 +409,102 @@ GoogleやCiscoといったメジャーなIT企業でも積極的に利用され�
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          前書き
+          プログラミングとは
          </a>
         </li>
         <li>
          <a href="./002.html">
-          目次
+          なぜPythonを学ぶのか
          </a>
         </li>
         <li>
          <a href="./003.html">
-          Pythonプログラミング
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>

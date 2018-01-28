@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       関数
+       変数の名前付け
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,27 +107,56 @@
         </li>
         <li>
          <a href="header-2">
-          関数の必要性
+          変数名の重要性
          </a>
         </li>
         <li>
          <a href="header-3">
-          関数の定義と利用
+          変数名のルール
          </a>
+         <ul>
+          <li>
+           <a href="#header-4">
+            予約語は変数名にできない
+           </a>
+          </li>
+          <li>
+           <a href="#header-5">
+            変数名には決められた文字しか使えない
+           </a>
+          </li>
+         </ul>
         </li>
         <li>
-         <a href="header-4">
-          ローカル変数
+         <a href="#header-6">
+          変数名の付け方
          </a>
+         <ul>
+          <li>
+           <a href="#header-7">
+            分かりやすい変数名
+           </a>
+          </li>
+          <li>
+           <a href="#header-8">
+            変数名には名詞を使う
+           </a>
+          </li>
+          <li>
+           <a href="#header-9">
+            単語の区切りにはアンダーバーを使う
+           </a>
+          </li>
+          <li>
+           <a href="#header-10">
+            アンダーバーから変数名を始めない
+           </a>
+          </li>
+         </ul>
         </li>
         <li>
-         <a href="header-5">
-          グローバル変数
-         </a>
-        </li>
-        <li>
-         <a href="header-6">
-          副作用
+         <a href="#header-11">
+          変数名の例
          </a>
         </li>
        </ul>
@@ -136,432 +165,250 @@
        概要
       </h2>
       <p>
-       Pythonに限らず、多くのプログラミング言語には「関数(Function)」という概念があります。
-関数は特定の機能を「呼び出す」ために使われます。
-たとえば今まで利用していたprint()も関数のひとつで、
-()の中に入れた変数や定数をスクリーンに出力するという処理を呼び出します。
-本ページではこの関数について扱います。
+       変数名はその変数にどのようなデータが入っているかを示しています。
+そのため、正しい変数名を付けるとプログラムが何をやっているか分かりやすくなります。
       </p>
       <p>
-       関数は以下の役割を持っています
+       変数名のつけかたにはPythonの文法上のルールを守った上で、分かりやすいものを付けるのが鉄則です。
+変数名は「アルファベット、数字、アンダーバー」のみで構成されており、
+一般的には英単語をアンダーバー「_」区切りで使います。
+短いサンプルプログラムなどを除けば、変数名に「a」などといった用途が分からないものを使うことは避けて下さい。
+      </p>
+      <p>
+       Pythonの文法が利用する「if」といった予約語や、
+「str」「print」といった既に定義されているキーワードを変数として使わないでください。
+プログラムがエラーになったり、関数が本来の動きと異なる動きをしたりするようになります。
+      </p>
+      <h2 id="header-2">
+       変数名の重要性
+      </h2>
+      <p>
+       プログラムは長いものだと1万行以上となります。
+今後学んでいく関数やクラス、モジュールといった機能でプログラムは整理されるものの、
+そのなかで使われる変数の数は膨大なものとなります。
+      </p>
+      <p>
+       そのような状況で変数に分かりにくい名前をつけると、その変数になにが入っているか分からなくなってきます。
+例えば人の年齢をいれる変数に「a」という変数名を使うのと「age」という変数名を使うのでは、
+後者のほうが分かりやすいはずです。
+      </p>
+      <p>
+       また、複数のプログラマの間で「この変数名はこういったものに使いましょう」というルールを守ると、
+変数名を見ただけでそれがどういったデータを持っているかが瞬時に分かります。
+      </p>
+      <p>
+       プログラミングの文法としては、変数名はさほど重要ではありません。
+変数名に「a」を使おうと、「age」を使おうと問題なく動作します。
+      </p>
+      <p>
+       ただ、プログラムを書く人間にとって分かりにくい名前を使うと、間違って捉えてしまったり、
+読み解くのに余計な時間がかかるといった問題がおきます。
+      </p>
+      <p>
+       プログラムの開発をスムーズに行うためにも、変数名の付け方には注意を払って下さい。
+      </p>
+      <h2 id="header-3">
+       変数名のルール
+      </h2>
+      <p>
+       変数名の名付け方にはいくつかの文法上の規則があります。
+これらの規則を破った変数名を使うとプログラムでエラーが発生します。
+      </p>
+      <p>
+       規則は以下のものとなります。
       </p>
       <ul>
        <li>
-        Pythonが提供する機能を呼び出す
+        予約語でないこと
        </li>
        <li>
-        プログラムの重複を減らす
+        アルファベット(大文字、小文字)か、アンダーバーから始まること
        </li>
        <li>
-        プログラムを分かりやすくする
+        アルファベット、数字、アンダーバーから構成されていること
        </li>
       </ul>
+      <h3 id="header-4">
+       予約語は変数名にできない
+      </h3>
       <p>
-       これらについて本ページでは解説し、それらが理解できたところで実際にどのようにして、
-関数を作る(自分で定義する)かについて説明します。
-      </p>
-      <h2 id="header-2">
-       関数の必要性
-      </h2>
-      <p>
-       プログラムは必ず、キーボード入力やファイルの読み込みといった「外からの情報の入力」と、
-ディスプレイやスピーカー出力といった「外への情報の出力」を必要としています。
-入出力のないプログラムも作れますが、動かしても「プログラムの外の世界」に何も影響がないので、
-CPUとメモリを無駄に消費するという目的以外には使えません。
-変数や条件分岐といった制御はあくまでもデータを処理するための手段でしかなく、
-プログラムの外とやりとりするためには関数が必須です。
-先に説明した画面への文字出力を行うprint関数もその一例です。
-      </p>
-      <p>
-       そして「関数を使わなくても書けるコード」も、うまく関数を使うことで「分かりやすいコード」になります。
-例をあげて説明してみます。
-絶対値を得ようと思った場合、以下のようにif文で条件分岐させることで実現が可能です。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
-<span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">):</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="c1"># 5</span>
-</pre>
-      </div>
-      <p>
-       2、3行目を見てもらうとわかりますが、「もしxが0より小さければ、xに-1をかける」という処理をしており、
-絶対値を得ているということが読み取れます。
-同じ処理を、絶対値を得る関数abs()を使って書くと、以下のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="c1"># 5</span>
-</pre>
-      </div>
-      <p>
-       前者と後者は同じことを実現していますが、どちらのほうがわかりやすいと思いますか。
-圧倒的に後者です。
-      </p>
-      <p>
-       関数は突き詰めるとその中身は処理の塊だといえます。
-ただ、関数の名前はその「処理の要約」なので、
-どういう実装で処理が実現されているのかは関数の利用者に隠蔽されています。
-たとえばabs()では、「どうやって絶対値を求めるか」を理解していなくても、
-それを使えば絶対値が得られることが分かります。
-人間の思考能力には限界があるので、ゴチャゴチャとした実装を見せられるよりは、
-関数名という要約を見せられたほうが何をやっているか判断しやすくなります。
-複雑な処理を隠蔽して機能を分かりやすく提供する、これも関数の利点の1つです。
-      </p>
-      <p>
-       他にも関数の利用場面は多くあります。
-例えばプログラムを書いていると、「同じ処理を何度も使う」という場面が多々あります。
-たとえば「2つの数字の絶対値を比較する」というプログラムを作る場合、
-関数を使わないと以下のように絶対値を得るコードが2回出現する冗長なものとなります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
-
-<span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">):</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
-<span class="k">if</span><span class="p">(</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">):</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'abs x &gt; abs y ?'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>
-<span class="c1"># False</span>
-</pre>
-      </div>
-      <p>
-       xとyの絶対値を得る処理はほとんど同じなのにもかかわらず、2回書いています。
-2回程度なら書いてもいいような気もしますが、これが5回、10回となればどんどん面倒になっていきます。
-      </p>
-      <p>
-       先のコードを、関数を使って書き直すと以下のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'abs x &gt; abs y ?'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>
-<span class="c1"># False</span>
-</pre>
-      </div>
-      <p>
-       冗長な要素が省かれてずいぶんと読みやすくなったのではないでしょうか。
-今回はabsのような簡単な関数でしたが、これがたとえば100行以上必要なアルゴリズムだったら、
-関数で冗長性を減らすことによる多大な恩恵を得られます。
-      </p>
-      <p>
-       関数を使わず同じコードを何度もコピペで書いていると、
-そのなかに「バグ(プログラムのミス)」があることがわかった場合にすべての場所で修正を施す必要があります。
-一方、関数で同じ処理をまとめていると、理想的には一箇所のみの修正となります。
-これはプログラムの「保守性(メンテナンス性)」を向上させるというメリットがあります。
-      </p>
-      <h2 id="header-3">
-       関数の定義と利用
-      </h2>
-      <p>
-       関数のメリットがわかったところで、関数をどのように作って利用するかを具体的に説明していきます。
-以下の図を見てください。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0045_image/01.jpg"/>
-      </p>
-      <p>
-       これが関数の基本的な概念です。関数は入力を受け取り、それを加工して出力する。
-基本的にはこれだけです。
-先程の関数 abs を自分で作るとしたら、たとえば以下のようなものとなります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">my_abs</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span>
-  <span class="k">else</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">my_abs</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="c1"># 5</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">my_abs</span><span class="p">(</span><span class="o">-</span><span class="mf">3.3</span><span class="p">))</span>
-<span class="c1"># 3.3</span>
-</pre>
-      </div>
-      <p>
-       関数の入力と出力はそれぞれなくてもかまわず、入力がない場合は関数の宣言の引数(入力の宣言)をなくし、
-出力が不要な場合はreturn文(出力の宣言)をなくします。
-      </p>
-      <p>
-       具体的には以下のように関数を定義します。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># 引数がない関数</span>
-<span class="k">def</span> <span class="nf">my_func1</span><span class="p">():</span>
-  <span class="k">return</span> <span class="mi">0</span>
-
-<span class="c1"># 返り値がない関数</span>
-<span class="k">def</span> <span class="nf">my_func2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
-</pre>
-      </div>
-      <p>
-       関数をどう呼び出すかについては今までさんざん利用したのでなんとなくわかると思いますが、
-宣言した引数に対応する箇所に入力値を入れることで呼び出します。
-ひとつ目の変数は引数がないので、呼び出し時に()に何も入れていないものの、
-後者は引数をとるので()に値を与えています。
-返り値については return されたものが返ってきて、
-なにも return されていない場合は None が返ってきます。
-この None については後述しますがようするに「なにもない」ということです。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">my_func1</span><span class="p">())</span>  
-<span class="c1"># 0</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">my_func2</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="c1"># None</span>
-</pre>
-      </div>
-      <p>
-       ほかに知っておくべきこととしては以下のものがあります。
+       「
        <em>
-        引数は複数指定できる
+        予約語
        </em>
-       return文は一度しか実行されない
-      </p>
-      <p>
-       これも具体例を示しましょう。
+       」はPythonの文法において特別な意味を持つキーワードのことです。
+たとえば条件分岐に利用する「if」「else」といったものです。
+これらを変数名として使おうとすると、予約語が間違った使い方をされているとPythonが解釈してしまうため、
+プログラムの実行の前の文法チェックでエラーが発生してしまいます。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">my_func3</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'A'</span><span class="p">)</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'B'</span><span class="p">)</span>
-  <span class="k">return</span> <span class="n">y</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">my_func3</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="c1"># A</span>
-<span class="c1"># 5</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">my_func3</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="c1"># A</span>
-<span class="c1"># B</span>
-<span class="c1"># 4</span>
+       <pre><span></span>&gt;&gt;&gt; name = 'taro'
+&gt;&gt;&gt; if = 'taro'
+  File "&lt;stdin&gt;", line 1
+    if = 'taro'
+       ^
+SyntaxError: invalid syntax
 </pre>
       </div>
       <p>
-       上記関数では入力値を2つとっています。
-コンマで区切られた引数の数のぶんだけ入力を受け付けるという簡単なルールです。
-そして、内部では2つのreturn文が確認できます。
-注目して欲しいのはx &gt; yの条件を満たす場合はprint('B')が実行されていないということです。
-return文はいくつあっても構わないのですが、returnされたあとの関数の処理は一切無視されます。
-      </p>
-      <p>
-       ほかには「デフォルト引数」や「可変長引数」といった関数の書き方もありますが、
-高度なトピックとなるため本書の最後の章にてアドバンスドトピックとして扱います。
-      </p>
-      <h2 id="header-4">
-       ローカル変数
-      </h2>
-      <p>
-       関数内では引数も含めて変数を宣言できます。
-例えば以下の関数があるとしましょう。
+       また、予約語ではありませんが既に定義されている関数名などを変数名として使うこともしないでください。
+たとえば関数「print」を変数名として使うこともできますが、それをやると関数のprintが使えなくなります。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
-  <span class="k">return</span> <span class="n">a</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">test</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="c1"># 10</span>
+       <pre><span></span>&gt;&gt;&gt; print('hello python')
+hello python
+&gt;&gt;&gt; print = 'taro'
+&gt;&gt;&gt; print('hello python')
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: 'str' object is not callable
+</pre>
+      </div>
+      <h3 id="header-5">
+       変数名には決められた文字しか使えない
+      </h3>
+      <p>
+       変数名に使うことができる文字は「アルファベットの大文字と小文字」「数字」「アンダーバー」となり、
+これらを組み合わせて変数名とします。
+他の記号などを変数名に加えるとエラーとなります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; user_name = 'taro'
+&gt;&gt;&gt; user$_name = 'taro'
+  File "&lt;stdin&gt;", line 1
+    user$_name = 'taro'
+        ^
+SyntaxError: invalid syntax
 </pre>
       </div>
       <p>
-       これは与えられた引数を2倍して返すという単純な関数です。
-内部に引数(関数内部では変数と同じ扱い)である x と変数 a が存在しています。
-実はこれらの変数は関数の外からはアクセスできません。
-      </p>
-      <p>
-       なんとなくですが、上記の関数を呼び出す前に x や a にアクセスしたら問題が起きそうな気がするのは分かります。
-なぜなら、一度も呼ばれていないから x や a になにも入っていないからです。
-ただ、実際には関数を呼び出した後であっても関数内の引数や変数に関数外からアクセスすることはできません。
-      </p>
-      <p>
-       具体的には以下のようなエラーとなります。
+       変数名に数字は使えるのですが、変数名の1文字目には数字は使えないというルールもあります。
+「user_name1」は正しい変数名ですが、「1user_name」は間違った変数名ですのでエラーとなります。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">test</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="c1"># 10</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1"># ...</span>
-<span class="c1"># NameError: name 'x' is not defined</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1"># ...</span>
-<span class="c1"># NameError: name 'a' is not defined</span>
+       <pre><span></span>&gt;&gt;&gt; user_name1 = 'taro'
+&gt;&gt;&gt; 1user_name = 'taro'
+  File "&lt;stdin&gt;", line 1
+    1user_name = 'taro'
+             ^
+SyntaxError: invalid syntax
 </pre>
       </div>
       <p>
-       重要なことなので覚えておいて下さい。
-      </p>
-      <h2 id="header-5">
-       グローバル変数
-      </h2>
-      <p>
-       さっそくですが次のコードを見てください。
+       実は全角文字もPythonの変数で使えるため、日本語の変数を作ることもできます。
+ただ、プログラミング一般として日本語の変数名は使いませんので、
+余計なトラブルを避けるためにも全角文字の利用は避けることが無難です。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="k">def</span> <span class="nf">add</span><span class="p">():</span>
-  <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">add</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+       <pre><span></span>&gt;&gt;&gt; あいうえお = 'hello python'
+&gt;&gt;&gt; print(あいうえお)
+hello python
 </pre>
       </div>
-      <p>
-       このプログラムを実行するとどのようになると思いますか。
-addという関数がxに1をインクリメントするので、以下のようになるでしょうか。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>5
-6
-</pre>
-      </div>
-      <p>
-       実行してみると分かりますが、実際はエラーが出てしまいます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>Traceback (most recent call last):
-  File "/Users/yuichi/Desktop/hello.py", line 7, in &lt;module&gt;
-    add()
-  File "/Users/yuichi/Desktop/hello.py", line 4, in add
-    x += 1
-UnboundLocalError: local variable 'x' referenced before assignment
-</pre>
-      </div>
-      <p>
-       上記エラーを見ると、関数の中で「変数xに値が与えられる前に参照した」というような内容となっています。
-結論から言いますと、プログラム1行目のxと関数内のxは別物です。
-そのため関数内のxを使おうとしたところ、エラーが出てしまったのです。
-関数内に存在しない1行目の変数xは「グローバルレベル」に存在する変数です。
-一方、関数内は「その関数のレベル」で変数などが定義されています。
-そのため、グローバルレベルの変数を関数内で使いたい場合は、
-関数がそれを利用できるように「global 変数名」と宣言をしてあげる必要があります。
-具体的には以下のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="k">def</span> <span class="nf">add</span><span class="p">():</span>
-  <span class="k">global</span> <span class="n">x</span>  <span class="c1"># global宣言</span>
-  <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre>
-      </div>
-      <p>
-       こうすることで、関数の外で定義された変数xを関数の中で利用することができるようになります。
-他のプログラミング言語の経験者であればグローバルレベルから関数内の変数を見れないことを知っている人は多いのですが、
-Python にはその逆があることを知らないことが時々あるようです。
-グローバルレベルと先程説明した関数レベルの変数のアクセスについて以下の図にまとめます。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0045_image/02.png"/>
-      </p>
-      <p>
-       関数内からグローバルは global 宣言すれば見えるが、グローバルレベルから関数内の変数や引数は見えない。
-基本的にはこのルールさえ守れば問題ありません。
-      </p>
-      <p>
-       ただ、実はglobal 宣言しなくても関数内からグローバル変数にアクセスできる例外があります。
-それは「参照するだけ」の場合です。例えば以下のようなプログラムはエラーなく実行できます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">def</span> <span class="nf">print_x</span><span class="p">():</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">print_x</span><span class="p">()</span>
-<span class="c1"># 5</span>
-</pre>
-      </div>
-      <p>
-       見て分かるように関数内でグローバル変数x を「参照」のみしています。
-これは問題ありません。一方、関数内でグローバル変数に「代入」のコードが存在する場合、
-代入する前に参照するとエラーになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="c1"># OK</span>
-<span class="k">def</span> <span class="nf">print_x1</span><span class="p">():</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># OK</span>
-<span class="k">def</span> <span class="nf">print_x2</span><span class="p">():</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1">#ERROR</span>
-<span class="k">def</span> <span class="nf">print_x3</span><span class="p">():</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       上記例だと print_x1, print_x2 は上記エラーとなる条件を満たしません。
-一方、print_x3 及び最初に提示した x += 1は条件を満たすためエラーとなるのです。
-正直なところ、こんなことまでいちいち意識して関数は書いてほしくありません。
-global 変数を参照するだけでも global 宣言を書いたほうが分かりやすいです。
-      </p>
-      <p>
-       ちなみに「参照のみの場合はグローバル宣言が不要」というルールを生かして、
-グローバルレベルにある定数を使うことは全く問題はありません。
-なぜなら定数は値が再代入されることがないからです。
-ただ、繰り返しますが関数内でグローバルレベルの変数は利用しないべきです。
-2つの関数がなにか一つのものをともに利用しないといけないといったケースでは、
-ついグローバル変数を関数内で使ってしまいたくなりますが、
-これは中編にて扱うクラスを使うことで簡単に解決できます。
-      </p>
       <h2 id="header-6">
-       副作用
+       変数名の付け方
       </h2>
       <p>
-       難しい話となってしまうのですが、関数などを動かすことで
-「期待される範囲を超えた外の世界に影響がおよぶ」ことを「副作用」といいます。
-関数の章でも話しましたが、基本的に関数は「入力を受け取って出力を返す」ことをその役割としています。
-そのため、関数を動かすことでこの「グローバルレベルの変数x」を変更するのは一般的には副作用だと言えます。
+       サンプルプログラムでは、変数名に「a」や「abc」といった意味のない名前をつけることがよくあります。
+これはPythonの文法という観点では間違っていませんが、プログラムの見通しが悪くなる変数名です。
       </p>
       <p>
-       この副作用を減らすことがきれいなコードを書くコツですので、
-先ほどのグローバル変数 x を変更するコードであれば、
-global宣言を使うより以下のようにするのが一般的です。
+       実際のプログラミングを行う際は、先の文法ルール以外にも、
+以下のルールを守って変数名をつけることが推奨されています。
+      </p>
+      <ul>
+       <li>
+        分かりやすい変数名にする
+       </li>
+       <li>
+        名詞を使う
+       </li>
+       <li>
+        大文字は使わずに、アンダーバーで単語を区切る(python流)
+       </li>
+       <li>
+        理由なくアンダーバーから始まる変数名は使わない(特別な意味を持つ)
+       </li>
+      </ul>
+      <h3 id="header-7">
+       分かりやすい変数名
+      </h3>
+      <p>
+       年齢を持つ変数名は「age」といった年齢を示す単語を使うべきです。
+たとえば「age」や「user_age」といったものです。
+      </p>
+      <p>
+       年齢を持つ変数名に「name」などという中身と全く異なる変数名をつけるのはよくありません。
+そのプログラムを読んだ人は読み違えるか、プログラムのバグだと判断するはずです。
+      </p>
+      <p>
+       Pythonでは変数名にアルファベットの大文字は一切使わないのが一般的です。
+変数名の1文字めをアルファベットの大文字にするのは「クラス」の命名規則なので、
+1文字めを大文字にするとクラスと間違われる可能性があります。
+      </p>
+      <h3 id="header-8">
+       変数名には名詞を使う
+      </h3>
+      <p>
+       変数はデータを保持しています。
+一方、これから学ぶ関数やメソッドなどはなんらかの処理をする(アクションをおこす)ために使われます。
+      </p>
+      <p>
+       その違いから、変数には英語の名詞(nameやageなど)を使い、関数やメソッドには動詞(addやcutなど)を使います。
+変数名に動詞を使うと関数と紛らわしくなるため、変数名には動詞ではなく名詞をつけるようにしてください。
+      </p>
+      <h3 id="header-9">
+       単語の区切りにはアンダーバーを使う
+      </h3>
+      <p>
+       長いプログラムで変数名をつける場合は、英語の1単語だけでは足りない場合があります。
+      </p>
+      <p>
+       たとえば会社のシステムで「name」という変数名を使った場合、
+それは「お客さんの名前」なのか「社員の名前」なのか分からない場面があるかもしれません。
+そのような場合には「customer_name」と「employee_name」といったように、
+複数単語を使うことでより具体的な変数名をつけるようにしてください。
+      </p>
+      <p>
+       単語の区切りはPythonではアンダーバーを使うのが一般的です。
+C言語やJava言語では「customerName」といったように区切りを大文字にするのが一般的ですが、
+Pythonの変数名では一般的ではありません。
+      </p>
+      <h3 id="header-10">
+       アンダーバーから変数名を始めない
+      </h3>
+      <p>
+       Pythonには「特殊属性」と呼ばれる機能が存在します。
+ここでは解説は控えますが、これはアンダーバーから始まる名前を持っています。
+      </p>
+      <p>
+       アンダーバーから始まる名前をつけると、
+Pythonに詳しい人がそれを見た際に「何か特別な意図がある」と勘違いするかもしれません。
+意図的に使う場合を除いてはアンダーバーから始まる変数名は使わないでください。
+      </p>
+      <h2 id="header-11">
+       変数名の例
+      </h2>
+      <p>
+       以下に変数名の良い例と悪い例を示します。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+       <pre><span></span># 1単語の場合
+student = 'taro' # OK : 小文字のみで構成
+Student = 'taro' # 大文字スタートなのでNG
+a = 'taro'       # a が何か分からないのでNG
 
-<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+# 2単語の場合
+student_name = 'taro' # OK : 小文字の単語間を _ で区切る
+studentName = 'taro'  # NG : 単語の区切りを大文字に
+                      #      するのは Python 流でない
 
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="c1"># 5</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="c1"># 6</span>
+# 先頭が _ から始まる
+# 特別な意味があるため、初心者向けではない
+_student = 'taro'   # 他の人に「これを使わないで下さい」と示す
+__student = 'taro'  # 文法として外から使えなくする
 </pre>
       </div>
-      <p>
-       こうすることでグローバル変数 x と関数の処理が切り離されます。
-最終的にグローバル変数 x は更新されるという点では同じですが、副作用という点では全く異なります。
-繰り返しますが、関数内でのグローバル変数へのアクセスは可能な限り避けて下さい。
-      </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>
@@ -654,12 +501,6 @@ global宣言を使うより以下のようにするのが一般的です。
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -690,224 +531,102 @@ global宣言を使うより以下のようにするのが一般的です。
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          Pythonプログラミング
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>

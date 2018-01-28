@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       テキスト処理
+       条件分岐とコードブロック
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,93 +107,47 @@
         </li>
         <li>
          <a href="header-2">
-          文字列の基本操作
-         </a>
-         <ul>
-          <li>
-           <a href="#header-3">
-            文字列の定義
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            文字列を作る演算子
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            in 演算子
-           </a>
-          </li>
-          <li>
-           <a href="#header-6">
-            文字列の部分取得
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="#header-7">
-          文字列型のメソッド
-         </a>
-         <ul>
-          <li>
-           <a href="#header-8">
-            文字列のデータは決して変わらない
-           </a>
-          </li>
-          <li>
-           <a href="#header-9">
-            文字列の部分置き換えと削除 : replace メソッド
-           </a>
-          </li>
-          <li>
-           <a href="#header-10">
-            文字列の検索 : startswith, endswith, find
-           </a>
-          </li>
-          <li>
-           <a href="#header-11">
-            文字列の前後の削除 : strip, rstrip, lstrip
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="#header-12">
-          メソッドの連続呼び出し
+          条件分岐
          </a>
         </li>
         <li>
-         <a href="header-13">
-          文字列の生成
+         <a href="header-3">
+          if文
          </a>
-         <ul>
-          <li>
-           <a href="#header-14">
-            文字列の結合
-           </a>
-          </li>
-          <li>
-           <a href="#header-15">
-            format メソッド
-           </a>
-          </li>
-          <li>
-           <a href="#header-16">
-            formatメソッドのフォーマット
-           </a>
-          </li>
-          <li>
-           <a href="#header-17">
-            書式化演算子 %
-           </a>
-          </li>
-         </ul>
         </li>
         <li>
-         <a href="#header-18">
-          文字列のエスケープ
+         <a href="header-4">
+          コードブロック
+         </a>
+        </li>
+        <li>
+         <a href="header-5">
+          コードブロックのネスト
+         </a>
+        </li>
+        <li>
+         <a href="header-6">
+          else文
+         </a>
+        </li>
+        <li>
+         <a href="header-7">
+          elif
+         </a>
+        </li>
+        <li>
+         <a href="header-8">
+          3項演算子
+         </a>
+        </li>
+        <li>
+         <a href="header-9">
+          1ライナーの条件式
+         </a>
+        </li>
+        <li>
+         <a href="header-10">
+          コラム: 多くの言語のコードブロック
          </a>
         </li>
        </ul>
@@ -202,590 +156,422 @@
        概要
       </h2>
       <p>
-       テキスト処理は要するに、文字列型の処理です。
-前の章で扱ったように文字列型もオブジェクトであるため、様々なメソッドが利用できます。
-テキストファイルの処理では文字列型の基本知識が必要なので、
-以前学んだことを少し発展させて復習します。
+       条件分岐は「ある条件Aを満たす場合にBをする」といったかたちで、
+特定の条件に応じてプログラムの動きを変えるためのPythonの文法です。
+      </p>
+      <p>
+       条件分岐にはif/elif/elseの構文を使い、それぞれ「条件を満たすなら処理をする」
+「それより上の条件分岐を満たしておらず、この条件を満たすなら処理をする」
+「どの条件も満たさなければ処理をする」という役割を持ちます。
+if文は必須ですが、elifとelseは必ずしも必要ありません。
+そしてelifは好きなだけ使えますが、ifとelseは1つまでです。
+      </p>
+      <p>
+       プログラムの実行グループはコードブロックと呼ばれており、
+Pythonはそれをインデントで記します。
+C言語やJavaのように中括弧「{}」でコードブロックを書くのではなく、
+インデントを強制しているため見た目が綺麗になるという特徴があります。
       </p>
       <h2 id="header-2">
-       文字列の基本操作
+       条件分岐
       </h2>
-      <h3 id="header-3">
-       文字列の定義
-      </h3>
       <p>
-       まず、文字列は以下のように定義するのでした。
+       プログラムの基本的な流れは上から下へ一行ずつ実行していくというものです。
+単純なプログラムですと、プログラムファイルに実施する処理を順番に羅列するだけで実現できます。
+ただ、少し複雑なプログラムになると「上から下に順番に実行していく」というだけでは処理を実現できません。
+      </p>
+      <p>
+       たとえば、天気予報を確認するアプリを考えてみます。
+「今日が晴れなら晴れマークを表示、雨なら雨マークを表示」といった具合に
+「あるものがAならBをする。そうでないならCをする」という「条件」に応じて処理が「分岐」します。
+こういった処理のことを「
+       <em>
+        条件分岐
+       </em>
+       」と呼び、多くのプログラミング言語でサポートされます。
+      </p>
+      <p>
+       条件分岐は、条件分岐の式を満たすか満たさないかで実行される処理が変わるという制御構造です。
+Bool型の値が条件判定に利用され、それがTrueなら処理Aをし、Falseなら処理Bをするといった形で、
+条件により実行するプログラムが変わります。
+      </p>
+      <h2 id="header-3">
+       if文
+      </h2>
+      <p>
+       Pythonだけでなく多くのプログラミング言語は条件分岐を「
+       <em>
+        if文
+       </em>
+       」で実現します。
+if文のあとに「
+       <em>
+        条件式
+       </em>
+       」を書き、その条件式が満たされる場合にif文の処理が実行されます。
+      </p>
+      <p>
+       条件式は「Bool型の値」として判定されるコードで、
+一般的には「Bool値を持つ変数」や「比較演算子を使った式」が使われます。
+文法としては以下のように使います。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">text1</span> <span class="o">=</span> <span class="s1">'hello python'</span>
-
-<span class="n">text2</span> <span class="o">=</span> <span class="s1">'''hello</span>
-<span class="s1">world</span>
-<span class="s1">python'''</span>
+       <pre><span></span>if 条件式:
+  条件式がTrueの時に実行される処理
 </pre>
       </div>
       <p>
-       ひとつめに関しては今さらいうこともないですが、
-2つめに関しては複数行でテキストをプログラム中で定義する方法でした。
-記号「'」の代わりに記号「"」を使うことも可能ですが、文字列の前後で統一されている必要があります。
+       ifのあとに条件式を書き、それに続けてコロン「:」を書きます。
+そのあとで改行及びインデント(字下げ)をし、条件式がTrueになる場合に実行される処理を書きます。
       </p>
-      <h3 id="header-4">
-       文字列を作る演算子
-      </h3>
       <p>
-       文字列の結合に関しては「+」記号でできますが、
-数字などを結合するときは「文字列に変換」してから結合するのでした。
-ほかの型から文字列型への変換にはstr関数を使います。
+       実際のPythonのプログラムですと以下のようになります。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'hello '</span> <span class="o">+</span> <span class="s1">'world'</span><span class="p">)</span>
-<span class="c1"># hello world</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'hello '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="c1"># hello 5</span>
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">if</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'True: 10 &gt; a'</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>True: 10 &gt; a
 </pre>
       </div>
       <p>
-       文字列長は以下のように len() 関数を使うことで取得できます。
+       上記の「10 &gt; a」が条件式で、これがTrueとなればif文の次の行の処理が実行されます。
+aには5が代入されているため、「10 &gt; 5」はTrueとなり、その次のprint文が実行されています。
+      </p>
+      <p>
+       aに代入する値を100に変えて、再度プログラムを実行してみます。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="s1">'hello world'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
-<span class="c1"># 11</span>
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">if</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'True: 10 &gt; a'</span><span class="p">)</span>
 </pre>
       </div>
-      <h3 id="header-5">
-       in 演算子
-      </h3>
-      <p>
-       検索には「存在の確認」と「位置の確認」の2つの使い方があり、それぞれ次のようになります。
-      </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello world python'</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'wor'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
-<span class="c1"># True</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'w0r'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
-<span class="c1"># False</span>
+       <pre><span></span>
 </pre>
       </div>
       <p>
-       inについてはlistでの使い方と同じで、「A in B」の場合は「AがBに含まれていれば Trueを返す」という動きをします。
-’hello world python’ というテキストに ‘wor’ は含まれているので True となっています。
+       今度は「10 &gt; a」のaに100が代入されているため、条件式はFalseとなります。
+そのため、if文の次の行(条件式がTrueの場合だけ実行される)が実行されず、print文の出力がありません。
       </p>
-      <h3 id="header-6">
-       文字列の部分取得
-      </h3>
+      <h2 id="header-4">
+       コードブロック
+      </h2>
       <p>
-       文字列中の「文字」の取得は以下のように [X] で位置を指定して行います。
+       先ほどの例ではif文が条件を満たす場合の処理を細かい説明なしに1行だけとしました。
+ただ、複雑なプログラムではif文の処理も複雑になるため複数行の処理を実行する必要がでてきます。
+      </p>
+      <p>
+       その際にif文が「どこからどこまでをカバーしているか」をプログラムに教えてあげる必要があります。
+プログラミングでは条件分岐といったある特定の処理の「対象範囲」を「
+       <em>
+        コードブロック
+       </em>
+       」で示します。
+      </p>
+      <p>
+       Pythonではコードブロックを「
+       <em>
+        インデント(字下げ)
+       </em>
+       」を揃えることで実現しています。
+具体的には以下のようなものです。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello world python'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-<span class="c1"># o</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
-<span class="c1"># t</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">100</span><span class="p">])</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1">#  ...</span>
-<span class="c1"># IndexError: string index out of range</span>
+       <pre><span></span>処理1
+if 条件式:
+   # ここから
+   処理2
+   処理3
+   # ここまでがコードブロック
+処理4
 </pre>
       </div>
       <p>
-       この位置の指定はリストの要素の数え方と同じで0から始まります。
-先頭から0、1、2……と数えていくと4はoに対応しています。
-面白いのがこの値をマイナスにできるところです。
-このように指定すると後ろ側から取得してきます。
-この際、0からではなく-1、-2、-3……とカウントすることに注意してください。
-文字列の範囲を超えてアクセスしようとするとエラーになります。
+       上記の例ではif文の後にif文のコードブロックが続き、
+どこからどこまでが対象になるかをインデントで示しています。
+処理2と処理3は同じインデントレベル(深さ)で字下げされているので、同じコードブロックに属しています。
       </p>
       <p>
-       文字列から「文字列」を取得するには、以下のように行います。
+       Pythonのインデントの仕方は「半角空白を4つ」が標準で、それに次いで半角空白2つも一般的です。
+タブでインデントをすることは推奨されておりませんが使えます。
+ただ、半角空白とタブを併用したインデントは避けて下さい。
+      </p>
+      <p>
+       具体例としては以下のようなものになります。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello world python'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">11</span><span class="p">])</span>
-<span class="c1"># world</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">:</span><span class="o">-</span><span class="mi">7</span><span class="p">])</span>
-<span class="c1"># world</span>
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>1
+2
+3
+4
 </pre>
       </div>
       <p>
-       これは「スライシング」と呼ばれるテクニックで、
-[X:Y]とあるとXからYまで取得という意味になります。
-[X:Y] と指定する際はX &lt; Yとなるようにしてください。
-先ほどと同じように、範囲指定にもマイナス値を利用できます。
+       変数aに5が代入されているため、条件分岐で「10 &gt; a」が満たされます。
+そのためif文に属さない「print(1)」に続いて、if文の処理である「print(2)」と「print(3)」が実行されます。
+その後にある「print(4)」はif文のコードブロック外なので、if文の条件式に関わらず実行されます。
       </p>
       <p>
-       前と後ろを指定するのではなく、Xより前、Xより後という指定の仕方も可能です。
+       aに代入する値を100に変えて、条件式がFalseになる状態でプログラムを再度実行してみます。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">6</span><span class="p">:])</span>
-<span class="c1"># world python</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">11</span><span class="p">])</span>
-<span class="c1"># hello world</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:])</span>
-<span class="c1"># hello world python</span>
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>1
+4
 </pre>
       </div>
       <p>
-       見ていただくとわかるように [X:Y] の片方を省略しています。
-そうすると先頭から、もしくは末尾までという意味になります。
-あまり使いどころはありませんが、両方とも省略すると、文字列のすべてが取得されます。
-このスライシングはリストから複数の要素を取り出す際にも使えます。
+       if文のコードブロックに属する「print(2)」と「print(3)」が実行されなくなりましたが、
+コードブロックの範囲外である「print(1)」と「print(4)」は実行されています。
+      </p>
+      <h2 id="header-5">
+       コードブロックのネスト
+      </h2>
+      <p>
+       コードブロックの中にコードブロックを作ることも可能です。
+たとえばif文による条件分岐の中に、さらにif文の条件分岐を作るといった具合です。
+コードブロックに限らず、プログラミングで「入れ子」構造にすることを一般的に「
+       <em>
+        ネスト
+       </em>
+       」すると言います。
+      </p>
+      <p>
+       Pythonはコードブロックをインデントレベル(深さ)で示しますので、
+コードブロックの中のコードブロックはインデントレベルが1つ深くなります。
+具体的には以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>if 条件式A:
+  処理1
+  if 条件式B:
+    処理2
+  処理3
+</pre>
+      </div>
+      <p>
+       条件式Bを持つif文のコードブロックは、条件式Aのif文のコードブロックの中にあります。
+コードブロックの中のコードブロックに属する処理2はインデントレベルが一つ下がっています。
+      </p>
+      <p>
+       実際のコードでは以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">if</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre>
+      </div>
+      <p>
+       変数の値を変更した際に、プログラムがどのように動くかを以下に図で記載します。
+      </p>
+      <p>
+       &lt;&lt;図&gt;&gt;
+      </p>
+      <p>
+       「print(2)」「print(3)」「print(4)」はすべて「if 10 &gt; a:」のコードブロックに属しています。
+ただ、「print(3)」はそれに加えて「if 10 &gt; b:」のコードブロックにも属しています。
+      </p>
+      <p>
+       内側のコードブロックは外側のコードブロックが実行される場合のみ実行されます。
+そのため、たとえ「if 10 &gt; b:」がTrueになったとしても、
+「if 10 &gt; a:」がFalseになる場合は判定すらされませんので処理は実行されません。
+      </p>
+      <p>
+       コードブロックのネストは深くなるとプログラムが読みにくくなります。
+深いレベルのネストが必要な状況になってきたら、
+アルゴリズムそのものを見直すか後のページで扱う「関数」に処理を分割するなどして、
+ネストのレベルを下げるようにしてください。
+      </p>
+      <h2 id="header-6">
+       else文
+      </h2>
+      <p>
+       ある条件を満たす場合の処理だけでなく、条件を満たさない場合の処理を定義することもできます。
+if文のコードブロックに続けて「
+       <em>
+        else文
+       </em>
+       」を書くことで、
+if文の条件に合致しなかった場合にelse文のコードブロックの処理が実行されます。
+elseのコードブロックはif文に合致した場合は実行されません。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">if</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'True: 10 &gt; a'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'False: 10 &gt; a'</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>False: 10 &gt; a
+</pre>
+      </div>
+      <p>
+       else文はif文と組み合わせて使用され、省略しても構いません。
       </p>
       <h2 id="header-7">
-       文字列型のメソッド
+       elif
       </h2>
-      <h3 id="header-8">
-       文字列のデータは決して変わらない
-      </h3>
       <p>
-       先にお伝えしたように文字列型もオブジェクトであるためメソッドが利用できます。
-ただ、文字列型に対してメソッドを呼び出した場合は
-「呼び出し元の文字列オブジェクトは変更されない」という規則があります。
-例えば次にお話する文字列の置き換えも、置き換えメソッドを呼び出した文字列は変更されず、
-メソッドの返り値として変更された文字列オブジェクトがかえってくるという動きをします。
-これは全ての文字列型のメソッドに共通した特徴なので必ず覚えておいて下さい。
+       if文の条件に合致しない場合でも、別の条件式に合致するか確認したい場合があります。
+そのような場合に「
+       <em>
+        elif文
+       </em>
+       」を使えます。
       </p>
-      <h3 id="header-9">
-       文字列の部分置き換えと削除 : replace メソッド
-      </h3>
       <p>
-       文字列型のメソッドを使ってテキストの置き換え処理をしてみます。
-テキストエディタなどである特定のキーワードを別のキーワードに置き換えることがあるかと思いますが、それと同じ要領です。
-サンプルコードを以下に記載します。
+       たとえばテストの点数の採点で「80点以上で優」「60点以上で合格」「それ以下で不合格」という判定をしたいとしましょう。
+そのようなときは「ifで80点以上かをチェック」「elifで60点以上かをチェック」「elseでそれ以外は不合格とする」とできます。
+      </p>
+      <p>
+       elif文の使い方はif文と全く同じです。
+elif文に続けられた条件式が満たされれば、elif文のコードブロックが実行されます。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello world python'</span>
-<span class="n">text1</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'o'</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="c1"># hello world python</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
-<span class="c1"># hell0 w0rld pyth0n</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'world'</span><span class="p">,</span> <span class="s1">'WORLD'</span><span class="p">))</span>
-<span class="c1"># hello WORLD python</span>
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="k">if</span> <span class="mi">80</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'Pass, Good'</span><span class="p">)</span>
+<span class="k">elif</span> <span class="mi">60</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'Pass'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'Fail'</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>Pass
 </pre>
       </div>
       <p>
-       文字列.replace(置き換える文字列, 置き換えられる文字列)とすると、変換された文字列が返されます。
-例にもあるように、元の文字列自体は変化していません。
-1文字だけを変更することもできますし、文字列を変更することもできます。
-不要かもしれませんが、上記のコードのオブジェクトとメソッドの関係を図に示します。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0060_image/01.png"/>
+       elif文は必ずif文の後に続きます。
+好きなだけ宣言することができるため、0個でも100個書いても構いません。
       </p>
       <p>
-       ‘hello world python’ という文字列型のオブジェクトを変数 text に格納し、
-そのオブジェクトに対してメソッド replace を呼び出しています。
-そのメソッドは変換した文字列を返り値として返しますが、
-元のデータ(オブジェクトが持つ’hello world python’ というテキストデータ自体)は変更を加えません。
+       elseを書く場合は必ずelifの後に続きます。
+      </p>
+      <h2 id="header-8">
+       3項演算子
+      </h2>
+      <p>
+       今まで扱ってきた if 文や ループに比べてあまり利用されないため後にもってきましたが、
+実は if 文の亜種の3項演算子というものも存在します。
       </p>
       <p>
-       文字列中の特定の文字列を消したい場合は、replaceメソッドの置き換え対象の文字列を空文字(
-       <code>
-        ''
-       </code>
-       )にします。
-そうすることで、置き換え対象の文字列が空文字になるため、実質的に削除されます。
+       例えば以下のプログラムがあるとしましょう。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello world python'</span>
-<span class="n">text1</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'o'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
-<span class="c1"># hell wrld pythn</span>
-</pre>
-      </div>
-      <h3 id="header-10">
-       文字列の検索 : startswith, endswith, find
-      </h3>
-      <p>
-       文字列の検索もそれほど難しくはありません。
-      </p>
-      <p>
-       find メソッドについては最も左側にあるマッチした位置を返します。
-そのため、'o'は何個もありますが、一番左の位置となっています。
-マッチしない場合は-1が返ってきます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'wor'</span><span class="p">))</span>
-<span class="c1"># 6</span>
+       <pre><span></span>a = 5
 
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'w0r'</span><span class="p">))</span>
-<span class="c1"># -1</span>
+if(a % 2 == 0):
+  is_even = True
+else:
+  is_even = False
 
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'o'</span><span class="p">))</span>
-<span class="c1"># 4</span>
+print(is_even)
+# False
 </pre>
       </div>
       <p>
-       find メソッドに似たメソッドで startswith と endswith があります。
-名前から分かるかもしれませんが、前者は「この文字列から始まっていればTrue」、
-後者は「この文字列で終わっていればTrue」という動きをします。
+       上記プログラムは a という変数に格納されている値が偶数であれば is_even という変数に True をいれ、
+そうでなければ False をいれるというものです。
+プログラムを書いていると、時々こういうような if 文の結果に応じて同じ変数に入れる値が変わるという場面に出くわします。
+      </p>
+      <p>
+       3項演算子はまさにこういった処理をするために用意された文法で、以下のように書きます。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello world python'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'hell'</span><span class="p">))</span>
-<span class="c1"># True</span>
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'hell0'</span><span class="p">))</span>
-<span class="c1"># False</span>
+<span class="c1"># (Trueのときに返る値) if (条件式) else (Falseのときに返る値)</span>
+<span class="n">is_even</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="bp">False</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'hon'</span><span class="p">))</span>
-<span class="c1"># True</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'h0n'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">is_even</span><span class="p">)</span>
 <span class="c1"># False</span>
 </pre>
       </div>
-      <p>
-       それほど使う場面は多くないのですが、
-find メソッドのオプションである第二引数を指定することで前側を指定した数だけ飛ばして途中から検索することもできます。
-右側から探索をする rfind というメソッドも利用できます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello world python'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'o'</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="c1"># 16</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">'o'</span><span class="p">))</span>
-<span class="c1"># 16</span>
-</pre>
-      </div>
-      <h3 id="header-11">
-       文字列の前後の削除 : strip, rstrip, lstrip
-      </h3>
-      <p>
-       次に文字列の前後からの特定の文字の削除メソッド stripです。
-よく利用するのは、前後の空白や改行コード、タブなどを取り除く場合などでしょう。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">' hello world </span><span class="se">\n</span><span class="s1">'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-<span class="c1"># 'hello world'</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">' hell'</span><span class="p">))</span>
-<span class="c1"># 'o world \n'</span>
-</pre>
-      </div>
-      <p>
-       strip関数に引数を指定しないと文字列の前後の空白文字(空白とタブ、改行)が取り除かれます。
-引数に文字列を指定すると、その文字列が取り除かれます。
-この strip() 関数はファイル読み込み処理とともに「改行コードを取り除く」ことによく使われることがありますので、
-覚えておいて頂いたほうがいいかもしれません。
-左側の文字だけを取り除く場合は lstrip、右側だけの場合は rstrip メソッドを使います。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">' hello world </span><span class="se">\n</span><span class="s1">'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-<span class="c1"># 'hello world'</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">lstrip</span><span class="p">())</span>
-<span class="c1"># 'hello world \n'</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
-<span class="c1"># ' hello world'</span>
-</pre>
-      </div>
-      <p>
-       また、文字列を split メソッドで特定の区切り文字で分割して文字列のリストにすることもできます。
-改行コードで分割する場合は split(‘\n’) とすることもできますし、
-splitlines() という専用のメソッドもあります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'1, taro, 35, male'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">))</span>
-<span class="c1"># ['1', ' taro', ' 35', ' male']</span>
-
-<span class="n">text</span> <span class="o">=</span> <span class="s1">'hello</span><span class="se">\n</span><span class="s1">world</span><span class="se">\n</span><span class="s1">python'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
-<span class="c1"># ['hello', 'world', 'python']</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">))</span>
-<span class="c1"># ['hello', 'world', 'python']</span>
-</pre>
-      </div>
-      <p>
-       上記サンプルにあるようなコンマ「,」記号での文字列の分割は CSV(Excel出力)やログの解析あたりでよく使うテクニックです。
-たとえば以下ではトリプルくおテーションで作ったCSV形式のテキストを、
-まず改行コードで分割して1行ずつににして、各行においてコンマでテキストを区切っています。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'''1, taro, 35, male</span>
-<span class="s1">2, jiro, 29, male</span>
-<span class="s1">3, hanako, 23, female'''</span>
-
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">):</span>
-  <span class="n">elems</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">elems</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> <span class="n">elems</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-
-<span class="c1"># taro:35</span>
-<span class="c1"># jiro:29</span>
-<span class="c1"># hanako:23</span>
-</pre>
-      </div>
-      <p>
-       この例のように CSV の要素に空白が含まれているのであれば、
-先ほどの strip 関数と組み合わせて前後の空白を取り除いて整形してあげてもいいかもしれません。
-      </p>
-      <h2 id="header-12">
-       メソッドの連続呼び出し
+      <h2 id="header-9">
+       1ライナーの条件式
       </h2>
       <p>
-       「オブジェクトを返す関数やメソッド」に対してメソッドを呼び出しているようなコードはよくありますが、
-それは上記と同じように「作成されたばかりのオブジェクトのメソッドを呼ぶ」ということをしています。
-例えば以下の様なコードにです。
+       最後に1ライナーと呼ばれるテクニックを紹介します。
+インデントとコードブロックで説明したように、基本的には if や for の処理は字下げして書きます。
+ただ、1行だけの処理であれば条件式の直後に処理を書くことができます。
+      </p>
+      <p>
+       例えば以下のようなものになります。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'hello world python'</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'he'</span><span class="p">,</span><span class="s1">'HE'</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'py'</span><span class="p">,</span><span class="s1">'PY'</span><span class="p">))</span>
-<span class="c1"># HEllo world PYthon</span>
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="mi">5</span><span class="p">):</span> <span class="k">print</span><span class="p">(</span><span class="s1">'a == 5'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s1">'a != 5'</span><span class="p">)</span>
+<span class="c1"># a == 5</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="c1"># 1</span>
+<span class="c1"># 2</span>
+<span class="c1"># 3</span>
 </pre>
       </div>
       <p>
-       これは分かりやすく書けば以下のようになります。
+       Python の分かりやすさは綺麗なインデントにあるといっても過言ではないので、
+乱用は避けたほうがいいです。
+ただ、あまりにも短い単純なコードであれば1ライナーで書いてしまったほうが見やすい場合もあります。
       </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">'hello world python'</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'he'</span><span class="p">,</span><span class="s1">'HE'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'py'</span><span class="p">,</span><span class="s1">'PY'</span><span class="p">))</span>
-<span class="c1"># HEllo world PYthon</span>
-</pre>
-      </div>
-      <p>
-       メソッドをチェーン上に並べるのは長くなりすぎなければ積極的に活用するべきだと思います。
-ただ、例えばマイナーなメソッドを呼び出したりバグを生んだりしそうな場所での利用は避けて頂いたほうが無難です。
-メソッドをチェーン上に並べた場所でエラーが発生すると、そのエラー原因の特定が困難な場合があります。
-      </p>
-      <p>
-       他には文字列の大文字、小文字の変換あたりもよく使います。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; a = 'Hello Python'
-&gt;&gt;&gt; a.lower()
-'hello python'
-&gt;&gt;&gt; a.upper()
-'HELLO PYTHON'
-</pre>
-      </div>
-      <h2 id="header-13">
-       文字列の生成
-      </h2>
-      <h3 id="header-14">
-       文字列の結合
-      </h3>
-      <p>
-       テキストを整形して文字列を作ることはよくあります。
-たとえば、文字列型の名前と数値型の年齢を合わせて「名前 : 年齢」とするには以下のようにすればできます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'taro'</span> <span class="o">+</span> <span class="s1">' : '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="c1"># taro : 35</span>
-</pre>
-      </div>
-      <p>
-       上記は文字列の結合を使って文字列を生成しています。
-数値型と文字列は直接結合できないため、数値35はstr()関数を使って一旦文字列にしています。
-      </p>
-      <p>
-       3つの文字列ぐらいであれば結合を使うことで文字列を作れますが、
-あまりに長くなってくると結合で文字列を作るのは非常に見苦しくなってきます。
-      </p>
-      <h3 id="header-15">
-       format メソッド
-      </h3>
-      <p>
-       結合の代わりに、文字列にテキストや数字を埋め込むという手法で文字列を生成することができます。
-これを実現する format メソッドを使うと非常にシンプルに文字列を作ることができます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'{} : {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'taro'</span><span class="p">,</span><span class="mi">35</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="c1"># taro : 35</span>
-</pre>
-      </div>
-      <p>
-       文字列のformat関数(メソッド)の引数に {} に対応する文字列なり数値なりを与えています。
-ひとつ目の{}がfortmatメソッドの1つめの引数に対応し、2番目の{}が2番目の引数に対応、
-といった具合で文字列に引数を埋め込んでいきます。
-私はそれほど利用しませんが、この format はもっと複雑な使い方もできます。
-たとえば {} の中に数字やキーワードを埋め込むことで引数の何番目をそこに埋め込むかを調整できます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'{0} {2} {1} {0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">))</span>
-<span class="c1"># a c b a</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'{user} : {age}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s1">'taro'</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">35</span><span class="p">))</span>
-<span class="c1"># taro : 35</span>
-</pre>
-      </div>
-      <p>
-       上記のように同じ引数を何度も埋め込むこともできます。キーワード引数を使うこともできます。
-      </p>
-      <h3 id="header-16">
-       formatメソッドのフォーマット
-      </h3>
-      <p>
-       さらに format メソッドは文字列に埋め込む「フォーマット(形式)」も調整できます。
-フォーマットを指定するには「:」のあとにフォーマットを指定する書式を書きます。
-かなり細かく調整できますが、いくつか便利なものだけ紹介します。
-      </p>
-      <p>
-       まず数字の桁の調整です。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># 5桁</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'{:5}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
-<span class="c1"># '   50'</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'{:5}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
-<span class="c1"># '  255'</span>
-
-<span class="c1"># 5桁(左寄せ)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'{:&lt;5}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
-<span class="c1"># '255  '</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'{:&lt;5}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
-<span class="c1"># '50   '</span>
-
-<span class="c1"># 5桁(0埋め)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'{:05}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
-<span class="c1"># '00050'</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'{:05}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
-<span class="c1"># '00255'</span>
-
-<span class="c1"># 位置指定やキーワードとの併用</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'{ab:05} {cd:05}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ab</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">cd</span><span class="o">=</span><span class="mi">255</span><span class="p">))</span>
-<span class="c1"># '00050 00255'</span>
-</pre>
-      </div>
-      <p>
-       コロンの後に数字を指定することで表示される桁数を調整できます。
-0を指定する桁数の前に付けることで0埋めされます。
-      </p>
-      <p>
-       数値型の表示を調整することもよくあります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># 整数、少数</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'{:d}, {:f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
-<span class="c1"># '5, 5.500000'</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'{:.3f}, {:.5f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
-<span class="c1"># '5.500, 5.50000'</span>
-
-<span class="c1"># 3桁区切り</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'{:,}, {:10,}, {:010,}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">111111</span><span class="p">,</span> <span class="mi">111111</span><span class="p">,</span> <span class="mi">111111</span><span class="p">))</span>
-<span class="c1"># '111,111,    111,111, 00,111,111'</span>
-
-<span class="c1"># 基数変換(2進数、8進数, 10進数, 16進数)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'{0:b}, {0:o}, {0:d}, {0:x}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="c1"># '1100100, 144, 100, 64'</span>
-</pre>
-      </div>
-      <h3 id="header-17">
-       書式化演算子 %
-      </h3>
-      <p>
-       format メソッドに似た書式化演算子(%)も Python3 では利用できます。
-書式化演算子は format メソッドより気軽に使えますが、そのぶん単純なことしかできません。
-以下のように使います。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>ベースとなる文字列 % 埋め込む値
-ベースとなる文字列 % (埋め込む値1, 埋め込む値2,..)
-</pre>
-      </div>
-      <p>
-       ベースとなる文字列に値を一つだけ埋め込む場合はそれを % 記号の後におきます。
-そして複数の値を埋め込む場合は % 記号のあとに埋め込む要素をタプルにまとめて配置します。
-例えば以下のようになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="s1">'HELLO'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="c1"># hello HELLO</span>
-
-<span class="n">text</span> <span class="o">=</span> <span class="s1">'hello </span><span class="si">%s</span><span class="s1"> python </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="s1">'HELLO'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="c1"># hello HELLO python 1</span>
-</pre>
-      </div>
-      <p>
-       ベースとなる文字列の「%s」の箇所に値が埋め込まれていることがわかります。
-この %s はどのような形で値が埋め込まれるかを指定する「変換指定子」と呼ばれており、
-%s は文字列、%d は整数、%f は少数として利用されます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'hello </span><span class="si">%s</span><span class="s1"> python'</span> <span class="o">%</span> <span class="p">(</span><span class="mf">5.5</span><span class="p">))</span>
-<span class="c1"># hello 5.5 python</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'hello </span><span class="si">%d</span><span class="s1"> python </span><span class="si">%f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
-<span class="c1"># hello 5 python 5.500000</span>
-</pre>
-      </div>
-      <p>
-       format メソッドと書式化指定子は奥が深く、様々な使い方ができます。
-ただ、込み入った使い方は頻繁には利用されないため、必要になったタイミングでドキュメントなどを参照すれば問題ないと思います。
-C言語などの printf に慣れているかたは書式化演算子のほうが書式を見慣れているため魅力的に見えるかもしれません。
-ただ、今後の Python は format メソッドを主流としていく見込みなので、可能であれば format メソッドを使うようにしてください。
-      </p>
-      <p>
-       リストに含まれる複数の文字列を「特定の文字列」で結合していくことも可能です。
-これはちょうど先程のsplit メソッドの逆です。
-2次元配列(リストにリストが入っている)に格納された情報をCSV形式でファイルに書き出したりする際に便利な手法です。
-書式は「結合に使う文字列.join(文字列のリスト)」となります。
-空白で結合すればそのままつながります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'taro'</span><span class="p">,</span> <span class="s1">'35'</span><span class="p">,</span> <span class="s1">'male'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="c1"># 1, taro, 35, male</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="c1"># 1taro35male</span>
-</pre>
-      </div>
-      <h2 id="header-18">
-       文字列のエスケープ
+      <h2 id="header-10">
+       コラム: 多くの言語のコードブロック
       </h2>
       <p>
-       最後に文字列で使われる特殊記号についてお話します。
-特殊記号はプログラム中で意味を持ってしまう特別な記号のことです。
-たとえば「'」という記号は文字列を作成する際に利用する特別な記号です。
-そのほかにはビープ音なども記号に分類されます。
-これらは文法的な理由やそもそもそれを表現する記号がキーボードのキーにないことから、
-「これは XX ですよ」という特別なルールにもとづいて文字列に表記します。
-そのルールに利用されるのがエスケープ記号と呼ばれるもので半角のバックスラッシュ「\」(英語キーボード)か、
-半角の円記号「¥」(日本語キーボード)を利用します。
-このエスケープ記号の後に特別な文字を続けることで、それが特別な意味を持つのです。
+       Pythonはコードブロックをインデントで示します。
+これは他のプログラミング言語ではあまり見られない記述方法です。
       </p>
       <p>
-       たとえば「'」とビープ音は以下のように記載できます。
+       多くのプログラミング言語では中括弧「{}」を使ってコードブロックを書きます。
+たとえばJavaだと以下のようなものとなります。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'escape sample1 </span><span class="se">\'</span><span class="s1">.'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'escape sample2 </span><span class="se">\a</span><span class="s1">.'</span><span class="p">)</span>
+       <pre><span></span>処理1
+if(条件A){    
+  処理2
+  処理3
+}else{
+  処理4
+}
+処理5
 </pre>
       </div>
       <p>
-       ほかには改行とエスケープ記号自身あたりをよく使います。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'escape sample1 </span><span class="se">\n</span><span class="s1">.'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'escape sample1 </span><span class="se">\\</span><span class="s1">.'</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       エスケープ記号一覧は調べてもらえればすぐに出てきますので、興味がある人は検索してみてください。
+       Javaのプログラムであっても、コードブロックがどこからどこまでかを分かりやすくするためにインデントをするのが一般的です。
+ただ、プログラムの文法としてはインデントは必須ではないため、やらなくてもエラーにはなりません。
       </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
@@ -879,12 +665,6 @@ C言語などの printf に慣れているかたは書式化演算子のほう�
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -915,224 +695,102 @@ C言語などの printf に慣れているかたは書式化演算子のほう�
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          Pythonプログラミング
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>

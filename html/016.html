@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       辞書型(マップ)
+       オブジェクト指向を体験
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,66 +107,32 @@
         </li>
         <li>
          <a href="header-2">
-          辞書型はどういうものか
+          クラスとインスタンス
          </a>
         </li>
         <li>
          <a href="header-3">
-          基礎
+          インスタンスとメソッド
          </a>
-         <ul>
-          <li>
-           <a href="#header-4">
-            初期化
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            キーを指定したバリューの取得
-           </a>
-          </li>
-          <li>
-           <a href="#header-6">
-            キーとバリューの追加と更新
-           </a>
-          </li>
-          <li>
-           <a href="#header-7">
-            キーの存在確認
-           </a>
-          </li>
-         </ul>
         </li>
         <li>
-         <a href="#header-8">
-          高度な辞書型の使い方
+         <a href="header-4">
+          リストで学ぶオブジェクト指向
          </a>
-         <ul>
-          <li>
-           <a href="#header-9">
-            バリューのデフォルト値 : get, setdefault
-           </a>
-          </li>
-          <li>
-           <a href="#header-10">
-            キーを指定したバリューの取り出し : pop
-           </a>
-          </li>
-          <li>
-           <a href="#header-11">
-            for 文の利用
-           </a>
-          </li>
-          <li>
-           <a href="#header-12">
-            一覧の取得
-           </a>
-          </li>
-         </ul>
         </li>
         <li>
-         <a href="#header-13">
-          辞書型の仕組み
+         <a href="header-5">
+          不変オブジェクト
+         </a>
+        </li>
+        <li>
+         <a href="header-6">
+          メソッドを直接呼び出す
+         </a>
+        </li>
+        <li>
+         <a href="header-7">
+          dir関数
          </a>
         </li>
        </ul>
@@ -174,238 +140,278 @@
       <h2 id="header-1">
        概要
       </h2>
-      <h2 id="header-2">
-       辞書型はどういうものか
-      </h2>
       <p>
-       辞書型は、別名で連想配列やマップとも呼ばれている型です。
-簡単にいってしまえば、重複が許されないキー(Key)とその値(Value)が対応付けられたデータ型です。
-「キー」という名前からわかるように、これも内部的にハッシュを使っています。
+       オブジェクト指向について理解するには、
+オブジェクトが持つ「状態」と「処理」がどのようなものか理解することが必要です。
+このページでは既存のリストという型を使って、それらがどのようなものか体験してもらいます。
       </p>
       <p>
-       例をあげて説明しましょう。果物(Key)と色(Value)の辞書オブジェクトを作るとすると、
+       「状態」と「処理」の関係をなんとなく把握したうえで、
+次ページ以降で学ぶ「クラス」を使ってオブジェクト指向に沿ったプログラムを書けば、
+オブジェクト指向について理解が深まります。
+      </p>
+      <h2 id="header-2">
+       クラスとインスタンス
+      </h2>
+      <p>
+       Pythonを含む「
+       <em>
+        オブジェクト指向
+       </em>
+       」のプログラミング言語を理解するには「
+       <em>
+        クラス
+       </em>
+       」と「
+       <em>
+        インスタンス
+       </em>
+       」の関係の理解が欠かせません。
+これらを自分で定義して使うこともできるのですが、このページでは既存の型を使いこなすのに必要な知識のみを扱います。
+      </p>
+      <p>
+       今までの説明でデータの種類のことを「型」と呼び、そのデータ自体のことを「値」と呼んでいました。
+この呼び方も一般的ですが、オブジェクト指向の世界においては両者は「クラス」と「インスタンス」と呼ばれます。
+既に説明した型でいえば、以下のようになります。
       </p>
       <ul>
        <li>
-        りんご(Key) : 赤色(Value)
+        整数型がクラスであり、1や2,3はインスタンス
        </li>
        <li>
-        レモン : 黄色
+        文字列型がクラスであり、'hello'や'python'はインスタンス
        </li>
        <li>
-        ぶどう : 紫
-       </li>
-       <li>
-        さくらんぼ : 赤色
+        リストがクラスであり、[]や[1,2,3],['hello', 'python']はインスタンス
        </li>
       </ul>
       <p>
-       というペアが作れます。辞書型を使うと「りんご」と指定すれば「赤色」が得られ、
-「ぶどう」と指定すれば「紫」が帰ってきます。
-先ほどのセットと同じように「りんご」というキーは重複が許されずにひとつしか存在することができないため、
-「りんご : 緑色」というペアを改めて登録すると昔のデータは上書きされてなくなってしまいます。
-ただ、例にある「りんご」と「さくらんぼ」を見ればわかるように値(Value)の重複は許されています。
+       クラスが概念であり、インスタンスが実際の値にあたります。
+概念はとしてのクラスは1つしかありませんが、そのインスタンスは無数にあります。
       </p>
       <h2 id="header-3">
-       基礎
-      </h2>
-      <h3 id="header-4">
-       初期化
-      </h3>
-      <p>
-       それではさっそく辞書型を利用するサンプルプログラムを書いてみます。
-まずは辞書オブジェクトの生成です。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="c1"># &lt;class 'dict'&gt;</span>
-
-<span class="n">b</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-<span class="c1"># &lt;class 'dict'&gt;</span>
-
-<span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"apple"</span><span class="p">:</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"lemon"</span><span class="p">:</span><span class="s2">"yellow"</span><span class="p">}</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-<span class="c1"># &lt;class 'dict'&gt;</span>
-</pre>
-      </div>
-      <p>
-       辞書オブジェクトの生成にはdict()関数を使う方法と、リストにおける [] に近い {} 記号を使うという方法があります。
-{} を使う場合はその内部で 「key:value」 という組み合わせをコンマ区切りで列挙すると、
-そのペアが追加された辞書オブジェクトが得られます。
-      </p>
-      <h3 id="header-5">
-       キーを指定したバリューの取得
-      </h3>
-      <p>
-       次に辞書オブジェクトを操作してみます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"apple"</span><span class="p">:</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"lemon"</span><span class="p">:</span><span class="s2">"yellow"</span><span class="p">}</span>
-
-<span class="c1"># バリューの取得</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s1">'apple'</span><span class="p">])</span>
-<span class="c1"># red</span>
-
-<span class="c1"># 存在しないキーへのアクセス</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s1">'banana'</span><span class="p">])</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1"># ...</span>
-<span class="c1"># KeyError: 'banana'</span>
-</pre>
-      </div>
-      <p>
-       "辞書オブジェクト[キー]" としてキーを指定することで、対応する値(Value)を参照します。
-存在しないキーを参照しようとするとエラーとなります。
-      </p>
-      <h3 id="header-6">
-       キーとバリューの追加と更新
-      </h3>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># キーを指定したバリューの更新</span>
-<span class="n">a</span><span class="p">[</span><span class="s1">'apple'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'green'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s1">'apple'</span><span class="p">])</span>
-<span class="c1"># green</span>
-
-<span class="c1"># 新しいキーとバリューの組み合わせの追加</span>
-<span class="n">a</span><span class="p">[</span><span class="s1">'orange'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'orange'</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s1">'orange'</span><span class="p">])</span>
-<span class="c1"># orange</span>
-</pre>
-      </div>
-      <p>
-       キーを使った値の取得、キーと値のペアの登録を行っています。
-リストにおけるインデックス番号がキー名に変わっているだけです。
-      </p>
-      <h3 id="header-7">
-       キーの存在確認
-      </h3>
-      <p>
-       セットと同じように辞書型もリストと似た操作ができます。
-例えばキーの存在確認に in を使うことができます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"apple"</span><span class="p">:</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"lemon"</span><span class="p">:</span><span class="s2">"yellow"</span><span class="p">}</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'apple'</span> <span class="ow">in</span> <span class="n">a</span><span class="p">)</span>
-<span class="c1"># True</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'banana'</span> <span class="ow">in</span> <span class="n">a</span><span class="p">)</span>
-<span class="c1"># False</span>
-</pre>
-      </div>
-      <p>
-       コメント: メソッドを使わないデフォルト値の取得サンプルを書くこと
-      </p>
-      <h2 id="header-8">
-       高度な辞書型の使い方
-      </h2>
-      <h3 id="header-9">
-       バリューのデフォルト値 : get, setdefault
-      </h3>
-      <p>
-       ただ、存在しないキーを参照した場合に「デフォルト値」を返したいという場合がたまにあります。
-そのような場合、get メソッドや setdefault メソッドを利用します。
-get メソッドの第一引数にキーを指定し、第二引数にキーが存在しなかった際に取得されるデフォルト値を指定します。
-第二引数がない場合はデフォルト値として None が使われます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'apple'</span><span class="p">:</span><span class="s1">'red'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">:</span><span class="s1">'yellow'</span><span class="p">}</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'apple'</span><span class="p">,</span> <span class="s1">'green'</span> <span class="p">))</span>
-<span class="c1"># red</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">))</span>
-<span class="c1"># green</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="p">{</span><span class="s1">'lemon'</span><span class="p">:</span> <span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'apple'</span><span class="p">:</span> <span class="s1">'red'</span><span class="p">}</span>
-</pre>
-      </div>
-      <p>
-       辞書オブジェクトにはキー apple が存在するため、
-’apple’ を get した際はそのバリューである red が返されています。
-ただ、存在しないキー ‘banana’ を指定した場合はデフォルト値である ‘green’ が返されています。
-辞書オブジェクト自身は変更されていません。
-      </p>
-      <p>
-       setdefault は get とほとんど同じですが、
-その名前からわかるように辞書オブジェクトがアップデートされます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'apple'</span><span class="p">:</span><span class="s1">'red'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">:</span><span class="s1">'yellow'</span><span class="p">}</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'apple'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">))</span>
-<span class="c1"># red</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">))</span>
-<span class="c1"># green</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># {'lemon': 'yellow', 'apple': 'red', 'banana': 'green'}</span>
-</pre>
-      </div>
-      <h3 id="header-10">
-       キーを指定したバリューの取り出し : pop
-      </h3>
-      <p>
-       ほかにも、リストに似た特性はあり、pop や for 文での利用も可能です。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'lemon'</span><span class="p">:</span> <span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'apple'</span><span class="p">:</span> <span class="s1">'red'</span><span class="p">,</span> <span class="s1">'banana'</span><span class="p">:</span> <span class="s1">'green'</span><span class="p">}</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'apple'</span><span class="p">))</span>
-<span class="c1"># red</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># {'banana': 'green', 'lemon': 'yellow'}</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">popitem</span><span class="p">())</span>
-<span class="c1"># ('banana', 'green')</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># {'lemon': 'yellow'}</span>
-</pre>
-      </div>
-      <h3 id="header-11">
-       for 文の利用
-      </h3>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'lemon'</span><span class="p">:</span> <span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'apple'</span><span class="p">:</span> <span class="s1">'red'</span><span class="p">,</span> <span class="s1">'banana'</span><span class="p">:</span> <span class="s1">'green'</span><span class="p">}</span>
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="c1"># lemon apple banana</span>
-</pre>
-      </div>
-      <h3 id="header-12">
-       一覧の取得
-      </h3>
-      <p>
-       キー一覧の取得などもよく使います。値一覧の取得はそれほど使わないかもしれないです。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'lemon'</span><span class="p">:</span> <span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'apple'</span><span class="p">:</span> <span class="s1">'red'</span><span class="p">,</span> <span class="s1">'banana'</span><span class="p">:</span> <span class="s1">'green'</span><span class="p">}</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="c1"># dict_keys(['apple', 'lemon', 'banana'])</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<span class="c1"># dict_values(['red', 'yellow', 'green'])</span>
-</pre>
-      </div>
-      <p>
-       コメント: items も追加すること
-      </p>
-      <p>
-       ほかにも辞書型の使い方にはいろいろありますが、まずはこのあたりさえ使いこなせれば十分でしょう。
-      </p>
-      <h2 id="header-13">
-       辞書型の仕組み
+       インスタンスとメソッド
       </h2>
       <p>
-       勘のいいかたであれば辞書型のしくみの想像がついたかもしれませんが、
-簡単にいってしまうと、セットにおけるハッシュの使い方に「Valueも追加」しているだけです。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0080_image/01.jpg"/>
+       インスタンスは単なるデータではなく、「データと処理の組み合わせ」です。
       </p>
       <p>
-       「John Smith」をキーとして指定するとハッシュ関数で「02」が得られ、
-「02」のなかから「John Smith」のValueを取得してきます。
+       この後でリスト型を参考に具体的な説明をしますが、インスタンスは内部にデータを持ちつつ、
+「
+       <em>
+        メソッド
+       </em>
+       」と呼ばれる処理を使うことができます。
+      </p>
+      <p>
+       メソッドは関数に非常によく似ていて、引数を呼び出し元から受け取ったり、返り値を呼び出し元に返すことができます。
+ただ、関数と異なりメソッドはそのインスタンスが持つ内部データを操作します。
+      </p>
+      <p>
+       クラスはインスタンスの設計図ですので、インスタンスがどのような内部データを持ち、
+それをメソッドがどう使うかはクラスの定義に書かれています。
+      </p>
+      <h2 id="header-4">
+       リストで学ぶオブジェクト指向
+      </h2>
+      <p>
+       数多くのプログラマにオブジェクト指向を教えて得られた教訓は、
+「オブジェクト指向は使わないと分からない」「クラスを設計しないとオブジェクト指向の本質は分からない」というものです。
+      </p>
+      <p>
+       概念的な話を続けるよりも、リスト型のインスタンスをどのように使うかを題材としてオブジェクト指向を体験してみます。
+Pythonのインタプリタでリスト型のデータを作成して変数に代入します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt;
+</pre>
+      </div>
+      <p>
+       リスト型のデータの作成は、リスト型のインスタンスの作成と同じ意味です。
+つまり変数aにはリストのインスタンスが格納されています。
+      </p>
+      <p>
+       どのような内部データを持っているかはprint()関数にインスタンスを与えることで確認できます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; print(a)
+[1, 2, 3]
+&gt;&gt;&gt;
+</pre>
+      </div>
+      <p>
+       インスタンスは内部に値を持っているだけでなく、その内部データを処理するためにメソッドを持っています(他の目的のメソッドもあります)。
+ここではリストのインスタンスが持つ「要素を追加する」というメソッドを呼び出して、要素「4」を追加します。
+      </p>
+      <p>
+       メソッドの呼び出しは「
+       <em>
+        インスタンス.メソッド名(引数)
+       </em>
+       」というフォーマットです。
+要素を追加するメソッドは「append」ですので、今回は「a.append(4)」となります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a.append(4)
+&gt;&gt;&gt;
+</pre>
+      </div>
+      <p>
+       呼び出しただけでは特に何も変わったように見えませんが、
+内部データをprint()関数で確認すると、要素4が追加されていることがわかります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; print(a)
+[1, 2, 3, 4]
+&gt;&gt;&gt;
+</pre>
+      </div>
+      <p>
+       メソッドは返り値を持つものもあります。
+リストのpopメソッドはリストのインスタンスから要素を取り出すためのメソッドで、取り出された要素は返り値として返されます。
+そしてインスタンスが持つ内部データからはpopされたものがなくなります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; b = a.pop()
+&gt;&gt;&gt; print(b)
+4
+&gt;&gt;&gt; print(a)
+[1, 2, 3]
+&gt;&gt;&gt;
+</pre>
+      </div>
+      <p>
+       リストがどのようなメソッドを持つかはリスト型の解説ページにて詳細を扱います。
+      </p>
+      <h2 id="header-5">
+       不変オブジェクト
+      </h2>
+      <p>
+       リスト型のインスタンスはメソッドを呼び出すと、そのインスタンスが持つ内部データが書き換わることがあります。
+一方、インスタンスの内部データが絶対に書き変わらないインスタンスも存在し、それらは「
+       <em>
+        不変オブジェクト
+       </em>
+       」と呼ばれています。
+      </p>
+      <p>
+       不変オブジェクトの代表格が文字列型で、文字列型のインスタンスはメソッドが呼び出されても変わりません。
+たとえば「特定文字を別の文字と置き換える」という「replace」というメソッドが文字列型にはありますが、
+これを使うと「返り値として置き換えられた文字列が返る」という動きをして、呼び出し元のインスタンスは変わりません。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = 'Hello Python'
+&gt;&gt;&gt; b = a.replace('o', '0')
+&gt;&gt;&gt; print(a)
+Hello Python
+&gt;&gt;&gt; print(b)
+Hell0 Pyth0n
+</pre>
+      </div>
+      <p>
+       同様に、アルファベットを大文字に変換するというupper()メソッドも、呼び出し元の値は変わりません。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = 'Hello Python'
+&gt;&gt;&gt; b = a.upper()
+&gt;&gt;&gt; print(a)
+Hello Python
+&gt;&gt;&gt; print(b)
+HELLO PYTHON
+</pre>
+      </div>
+      <h2 id="header-6">
+       メソッドを直接呼び出す
+      </h2>
+      <p>
+       少し高度なトピックになりますが、比較的よく使われるメソッドの使い方を紹介します。
+      </p>
+      <p>
+       実はメソッドは必ずしも変数に代入されたインスタンスに対して使う必要はなく、
+インスタンスが生成された瞬間に使うことができます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1, 2, 3].pop()
+&gt;&gt;&gt; print(a)
+3
+</pre>
+      </div>
+      <p>
+       上記は「[1, 2, 3]」でリストのインスタンスを作成し、そのインスタンスに対してpop()メソッドを呼び出しています。
+      </p>
+      <p>
+       他には関数の返り値に対してメソッドを呼び出すこともできます。
+たとえば文字列型にキャストするstr()関数の返り値は文字列型のインスタンスですので、そのメソッドを使うことができます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = 1010
+&gt;&gt;&gt; b = str(a).replace('0', 'o')
+&gt;&gt;&gt; print(b)
+1o1o
+</pre>
+      </div>
+      <p>
+       上記は「str(a)」の返り値である文字列インスタンス「'1010'」に対して、直接replace()メソッドを呼び出して「'0'」を「'o'」に変換しています。
+      </p>
+      <p>
+       このメソッドの直接呼び出しを繋げると、まるでメソッドが鎖のように繋がることがあり、このテクニックを「メソッドのチェイニング」と呼びます。
+例えば以下の様なコードにです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = 'Hello Python'.replace('o', '0').replace('l', '1').upper()
+&gt;&gt;&gt; print(a)
+HE110 PYTH0N
+</pre>
+      </div>
+      <p>
+       これは分かりやすく書けば以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = 'Hello Python'.replace('o', '0')
+&gt;&gt;&gt; b = a.replace('l', '1')
+&gt;&gt;&gt; c = b.upper()
+&gt;&gt;&gt; print(c)
+HE110 PYTH0N
+</pre>
+      </div>
+      <p>
+       メソッドをチェーン上に並べるのは、無駄に変数をたくさん作るのを防ぐために活用するべき場面があります。
+ただ、あまりにも長く繋げ過ぎたり、あまり有名でないメソッドを呼び出してバグを生むような状況にはならないようにしてください。
+メソッドをチェーン上に並べた場所でエラーが発生すると、そのエラー原因の特定が困難な場合があります。
+      </p>
+      <h2 id="header-7">
+       dir関数
+      </h2>
+      <p>
+       インスタンスがどのようなメソッドを持つかは「
+       <em>
+        dir関数
+       </em>
+       」で確認できます。
+dir関数に引数としてインスタンスを渡すと、そのメソッドの属性(インスタンスが持つ内部データやメソッドなどの総称)の一覧をリスト形式で返します。
+      </p>
+      <p>
+       たとえばリストですと以下のよう出力が得られます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3]
+&gt;&gt;&gt; dir(a)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__',
+'__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__',
+'__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__',
+'__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__',
+'__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__',
+'__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend',
+'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+</pre>
+      </div>
+      <p>
+       先ほど利用したappend()メソッドや、pop()メソッドもあります。
+      </p>
+      <p>
+       このdir関数は「あの処理をしたいのだけど、どういうメソッド名だったかな」といった感じで忘れしまったメソッドを確認したり、
+「あの処理をしたいのだけど、なにかそれらしい名前のメソッドはあるかな」といったこと調べたりするのに便利です。
       </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
@@ -499,12 +505,6 @@ get メソッドの第一引数にキーを指定し、第二引数にキーが�
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -535,224 +535,102 @@ get メソッドの第一引数にキーを指定し、第二引数にキーが�
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          Pythonプログラミング
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>

@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       モジュール
+       定数とマジックナンバー
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,45 +107,35 @@
         </li>
         <li>
          <a href="header-2">
-          なぜモジュールが必要化
+          定数とはなにか
          </a>
         </li>
         <li>
          <a href="header-3">
-          モジュールの利用
-         </a>
-        </li>
-        <li>
-         <a href="header-4">
-          モジュールの作成
+          定数はどういうものに使われるか
          </a>
          <ul>
           <li>
+           <a href="#header-4">
+            マジックナンバーの説明
+           </a>
+          </li>
+          <li>
            <a href="#header-5">
-            モジュール開発のポイント
+            プログラムのパラメーター
            </a>
           </li>
           <li>
            <a href="#header-6">
-            モジュールのリロード
-           </a>
-          </li>
-          <li>
-           <a href="#header-7">
-            モジュールの読み込みと実行
-           </a>
-          </li>
-          <li>
-           <a href="#header-8">
-            モジュールが起点の場合だけ実行される処理
-           </a>
-          </li>
-          <li>
-           <a href="#header-9">
-            モジュール紹介
+            プログラム中の識別子
            </a>
           </li>
          </ul>
+        </li>
+        <li>
+         <a href="#header-7">
+          「Pythonの定数」は定数ではない
+         </a>
         </li>
        </ul>
       </div>
@@ -153,530 +143,157 @@
        概要
       </h2>
       <p>
-       作成するアプリケーションが複雑なものであれば、そのプログラムの行数は数千、数万となります。
-一つのファイルにそれを収めるのは、どこになにがあるか分からなくなるため推奨されません。
+       変数はその名前から分かるように、その中身が「変わる」ことがあります。
+値が初期化されたものから変わらない場合は変数の代わりに「定数」を使います。
       </p>
       <p>
-       モジュールはPythonのプログラムを分割するための仕組みです。
-Pythonのプログラムを処理に応じていくつかのモジュールに分類することで、
-上記のような状況が管理しやすくなります。
+       定数はその名前にあるように「定まった数」ですので、中身が変わることがありません。
+定数を使うことでプログラム中に登場するパッと見てなにか分からない「マジックナンバー」をなくしたり、
+プログラムのパラメーターを調整しやすくなったりします。
       </p>
       <p>
-       また、自分が作成するプログラムだけでなく、汎用的な処理(例えば時間関係、
-ランダムな処理など)には既存のモジュールが用意されています。
-既に作成されているモジュールを取り込んで使うことで、自分で作成できない機能を利用したり、
-開発の手間を省くことが可能になります。
+       プログラミング言語の多くは定数を文法として持っていますが、Pythonには文法としての定数はありません。
+ただ、定数という仕組みは便利ですので、プログラマの間でのルールとしてPythonの定数は用いられれています。
+変数を大文字のアルファベットの単語とアンダーバーで区切ると、それは変数ではなく定数として扱うことになっています。
       </p>
       <p>
-       本ページではこのモジュールについて扱います。
+       Pythonの文法レベルでは定数は変数にすぎません。
+そのため、初期化済みの定数に値を再代入することはできます。
+ただ、そのようなことをすると「定数の値が常に同じ」というルールが信用できなくなりますので、
+絶対に再代入しないでください。
       </p>
       <h2 id="header-2">
-       なぜモジュールが必要化
+       定数とはなにか
       </h2>
       <p>
-       Pythonのプログラムは書けば書くほど大きくなります。
-数百行のコードでしたらひとつのファイルに書けないことはないですが、
-何千行にもなってくるとコードを複数のファイルに分けたほうが管理はしやすいです。
-これは日常生活の整理整頓とまったく同じです。たとえば洋服ダンスがあるとすると、
-それを使いやすく使うためには下着、シャツ、ズボンといった種類ごとに引き出しを分けて使うと思います。
-ひとつの大きなダンボール箱にすべての服をつっこんでしまうとどこに何があるかわからなくなり、
-なおかつ服もきれいに管理できずにシワシワになってしまいます。
-プログラムのファイルを分けないと、後者のような乱雑な服の管理法に近い形でコードを書くことになります。
-ひとつの大きなファイルのなかにさまざまなコードをゴチャゴチャと書くのでどこで何をやっているのかわからなくなってきます。
+       プログラムの中にはたまに「
+       <em>
+        マジックナンバー
+       </em>
+       」と呼ばれる「正体不明の数字」が現れることがあります。
+たとえば以下のコードを見て下さい。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">1.08</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre>
+      </div>
+      <p>
+       このコードが何をやっているか分からないかもしれませんが、
+私は「1.08は税率」として、税抜き100円が税込みいくらになるかを計算する意図で書いています。
       </p>
       <p>
-       一方、特定の処理ごとにファイルを分けて「このファイルはXXの処理」「このファイルはYYの処理」などと整理すると、
-XXの処理を追加したり修正したりする際にすぐに場所がわかります。
-Pythonではこの「ファイルに分けられた各プログラム」のことをモジュールと呼んでいます。
-既存のモジュールを使ったり、自分で新しくモジュールを使ってプログラムを書いていったりすることになります。
+       1.08という数字を見て勘のいいかたであれば、「税率のようだ」と気づくかもしれませんが、
+プログラミングはそのような気づきには頼ってほしくありません。
+誰が見ても理解できるコードであるべきです。
       </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0050_image/01.jpg"/>
+      <p>
+       もしこれが1.08というよくわからない「マジックナンバー」ではなく、
+「tax_rate(税率)」という1.08を持った変数であれば、
+その名前からそれが税率であることは一目瞭然となります。
+      </p>
+      <p>
+       税率は数年単位であれば変わる可能性がありますが、
+Pythonのその場限りのプログラムを動かしている最中に変わることはないでしょう。
+そのような場合は「値が変わる可能性がある変数」ではなく、
+「絶対に値が変わらない」性質を持つ「
+       <em>
+        定数
+       </em>
+       」を使います。
+      </p>
+      <p>
+       「定数は一回設定されたら変更されることがない」という性質を持つ特殊な変数であり、
+その「名前は大文字とアンダーバー」で宣言されます。
+そして「定数は一般的にプログラムのファイルの先頭周辺で宣言」されます。
+      </p>
+      <p>
+       例えば先程の税込み額の計算プログラムを、定数を使って書き直すと以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.08</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">TAX_RATE</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre>
+      </div>
+      <p>
+       定数はプログラムのパラメータとして使われることも多く、
+ファイルを開いて定数の値を変更することでプログラムの挙動を変えることがよくあります。
+例えば税率が10%に変更されたら、プログラム本体ではなく定数を書き換えることで対応します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.10</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">TAX_RATE</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre>
+      </div>
+      <p>
+       もし仮に定数を使わずに1.08という税率をプログラムのいたるところに書いていたら、
+全てを修正するのは大変です。
+1.08を直接書くのではなく、それが代入されている定数TAX_RATEを使っていれば、
+その初期化の値を1.08から1.10に変更するだけで全ての箇所で変更が適用されます。
       </p>
       <h2 id="header-3">
-       モジュールの利用
+       定数はどういうものに使われるか
       </h2>
+      <h3 id="header-4">
+       マジックナンバーの説明
+      </h3>
       <p>
-       まずはPythonが提供してくれているモジュールを利用することからはじめていきましょう。
-モジュールを利用するには「import宣言」が必要です。
-たとえば、数学処理がまとめられたmathモジュールを利用するには以下のようにします。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># import モジュール名</span>
-<span class="kn">import</span> <span class="nn">math</span>
-</pre>
-      </div>
-      <p>
-       このようにimportをすると、mathモジュールに入っている関数などが利用できるようになります。
-たとえばmathモジュールの切り捨て関数を使うには以下のようにします。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">5.5</span><span class="p">)</span>
-<span class="mf">5.0</span>
-</pre>
-      </div>
-      <p>
-       モジュール内の関数を呼び出すには"モジュール名.関数()"とします。
-math モジュールに含まれる関数であれば全て「math.関数名()」という形で呼び出します。
-import されるモジュール名が長かったりわかりにくかったりする場合はそれに別名を付けることが可能です。
-それは以下のように行います。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># import A as B</span>
-<span class="c1"># モジュール A を B として import</span>
-<span class="kn">import</span> <span class="nn">tkinter</span> <span class="kn">as</span> <span class="nn">tk</span>
-
-<span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">'Helevetica'</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">'bold'</span><span class="p">)</span>
-<span class="c1"># 呼び出しは tk</span>
-<span class="n">label</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">'Hello Python'</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
-<span class="n">label</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
-<span class="n">label</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</pre>
-      </div>
-      <p>
-       上記例では tkinter と呼ばれている GUI のモジュールを tk として import しています。
-      </p>
-      <p>
-       モジュールの関数を呼び出すたびに毎回モジュール名を書くのが面倒であれば「from」を使うことで、
-モジュール内の関数をモジュール名なしで呼び出すことも可能になります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># from モジュール名 import 関数名</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="mf">5.5</span><span class="p">))</span>
-<span class="c1"># 5</span>
-</pre>
-      </div>
-      <p>
-       頻繁に使う関数であればこのように使用しても構いませんが、
-一般的には from を使わずに import のみを行うほうが分かりやすいコードになります。
-なぜならその関数がどのモジュールに属しているかひとめで分かるからです。
-      </p>
-      <p>
-       先ほどの 「import A as B」とこの from を組み合わせることで、
-あるモジュールに属する関数を別名で使うこともできます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># math モジュールの floor 関数 を f として import</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span> <span class="k">as</span> <span class="n">f</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mf">5.5</span><span class="p">))</span>
-<span class="c1"># 5</span>
-</pre>
-      </div>
-      <p>
-       2つのモジュールが同名の関数を持っていて、2つとも使いたいといった場合に利用可能ですが、
-そのような状況ではモジュール名ごと関数を書くほうが賢明かと思います。
-      </p>
-      <p>
-       モジュール内の関数すべてをモジュール名なしで呼び出すには以下のようにワイルドカードを使います。
-ただ、このような乱雑なモジュールの利用法は「名前の衝突(同じ名前が２箇所で使われてしまっている)」
-などの問題が発生しかねないので、あまり推奨できません。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
-</pre>
-      </div>
-      <p>
-       あるモジュールをテストするといったシナリオでは有効な使い方ですが、
-本番環境用のコードでは使用しないほうがよいです。
-      </p>
-      <h2 id="header-4">
-       モジュールの作成
-      </h2>
-      <p>
-       モジュールの作成は簡単です。本連載の最初に説明したように、
-「.py」という拡張子をつけたファイルにpythonのコードを書くだけです。
-モジュール名(ファイル名)はアルファベットの小文字と数字のみから構成されていることが望ましいとされていますが、
-それに加えてアンダーバーを使うこともあります。
-ここではモジュールutil.pyを作成し、それをmain.pyから呼び出す例を示します。
-両ファイルは同じディレクトリで作成し、そのディレクトリ内でプログラムを実行してください。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1">#util.py</span>
-<span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'hello!'</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">say_python</span><span class="p">():</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'python!'</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       上記が呼び出される側の Python のプログラムです。2つの関数が定義されています。
-そして以下がそれを呼び出す側の Python のプログラムです。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1">#main.py</span>
-<span class="kn">import</span> <span class="nn">util</span>
-
-<span class="n">util</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
-<span class="n">util</span><span class="o">.</span><span class="n">say_python</span><span class="p">()</span>
-</pre>
-      </div>
-      <p>
-       main.py を実行すると以下のような出力が得られ、
-Python のプログラムのファイルが別の Python のプログラムのファイルを呼び出していることが分かります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>hello!
-python!
-</pre>
-      </div>
-      <p>
-       特別に難しいことはありませんね。
+       定数の利用目的はいくつかあり、その1つは先ほど解説した「マジックナンバーの説明」という用途です。
       </p>
       <h3 id="header-5">
-       モジュール開発のポイント
+       プログラムのパラメーター
       </h3>
       <p>
-       モジュールを書くにあたって注意すべきすることは、モジュールが以下の特性を持っているかということです。
-      </p>
-      <ul>
-       <li>
-        再利用可能か
-       </li>
-       <li>
-        似た処理のみをまとめているか
-       </li>
-      </ul>
-      <p>
-       たとえば標準ライブラリで提供されていない特殊な数値計算が必要なら、
-その計算のためのモジュールを作ってもよいでしょう。
-ただ、そこに特殊な文字列処理であったり、ネットワークの処理も書いたりするというのは誤った設計です。
-数値計算のモジュールであればそれに徹するべきです。
-文字列処理、ネットワークの処理についても同様です。
-また、そのモジュールを誰しもが簡単に使えるようにすることが理想です。
-例えばよくわからない名前の関数を作っていたり、変な副作用などがあったりすると扱いに困ります。
-実際は複雑なプログラムを分割するためだけにモジュール化することも多いのですが、
-それでも「使いやすい」ように書くことを心がけておくといいかもしれません。
-      </p>
-      <p>
-       なお、実行するプログラムからモジュールが見つからずにエラーとなることがたまにあります。
-サンプルを試す際に「両ファイルは同じディレクトリで作成し、
-そのディレクトリ内でプログラムを実行してください」とお願いしたのはこの問題を防ぐためです。
-モジュールの探索には規則があり、それを知ることで別の場所にあるモジュールを読み込むこともできます。
-ただ、それらは難しいため本書ではなく本シリーズの下編にて扱います。
+       その他にもプログラムの変更可能なパラメーターとして定数を使うことがあります。
+例えば後ほど扱うファイルを扱うプログラムにおいて、
+どのファイルを読むか、どのファイルに書くかといったことを定数で定義をしておけば、
+そのプログラムを使うユーザーがプログラムファイルの冒頭にある定数の値を書き換えるだけで変更ができます。
+もし読み込むファイルの指定が定数でなく、分かりにくい場所にあれば、
+変更を加えるためにプログラムを読んで理解しなければいけなくなります。
       </p>
       <h3 id="header-6">
-       モジュールのリロード
+       プログラム中の識別子
       </h3>
       <p>
-       モジュールを開発している際にモジュールのコードを更新しても、
-それを import している側は昔のコードのモジュールを保持し続けます。
-新しいコードのものを参照して欲しい場合はそのモジュールを「リロード」することが必要で、
-それは以下のように行います。
+       その他にはプログラムの様々な箇所で使われる「識別子」としての役割もあります。
+たとえばGUIを使うプログラムで色に応じた対応をする際に文字列の「'red'」などで色を認識させるのも一つのですが、
+これを「RED」という定数にすることのほうが望ましいです。
+      </p>
+      <p>
+       なぜなら文字列であればタイプミスをしても文法的な間違いにはならないため、
+「'red'」ではなく「'ret'」などとなっていてもプログラムが動いてしまい期待されない動作を引き起こす可能性が高いです。
+一方、定数の「RED」であれば、タイプミスがあれば文法エラーとなるため、問題箇所が即座に判明します。
+      </p>
+      <h2 id="header-7">
+       「Pythonの定数」は定数ではない
+      </h2>
+      <p>
+       他のプログラミングを学んだことがある人であれば知っているかと思いますが、
+一般的に「定数は上書きできない」という性質があります。
+定数を初期化した後に、なんらかの値を再代入しようとするとエラーとなります。
+      </p>
+      <p>
+       ただ、実はPythonの定数は「大文字をアンダーバーで区切った単なる変数」にすぎません。
+そのため、以下のように定数の値を上書きしてもエラーは発生しません。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="kn">import</span> <span class="nn">imp</span>
-<span class="n">imp</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="err">モジュール名</span><span class="p">)</span>
+       <pre><span></span><span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.08</span>
+<span class="n">TAX_RATE</span> <span class="o">=</span> <span class="mf">1.10</span>
 </pre>
       </div>
       <p>
-       モジュール imp の reload という関数を使うことでモジュールのリロードができます。
-実際に先ほど作成した util モジュール(util.py) を使いながらこの挙動を確認してみます。
-インタプリタを起動しモジュールの関数を呼び出します。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">util</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">util</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
-<span class="n">hello</span><span class="err">!</span>
-</pre>
-      </div>
-      <p>
-       先ほど定義した通りの動きをしました。
-この util モジュールのファイルを以下のように更新し保存します。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># util.py</span>
-
-<span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'hello!'</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">say_python</span><span class="p">():</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'python!'</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       モジュールのファイルを新しくしたあとで、
-インタプリタで再度同じ関数を呼び出してみます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; util.say_hello()
-hello!
-</pre>
-      </div>
-      <p>
-       出力を見てもらうと分かるように「昔の定義」のまま動いています。
-試しにモジュールを再度 import し関数を呼び出してみます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">util</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">util</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
-<span class="n">hello</span><span class="err">!</span>
-</pre>
-      </div>
-      <p>
-       再度 import をしても挙動は変わっていません。
-次に先ほど紹介したモジュールのリロードを行い、関数を実行してみます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">imp</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">imp</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">util</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">module</span> <span class="s1">'util'</span> <span class="kn">from</span> <span class="s1">'/Users/yuichi/Desktop/util.py'</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">util</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
-<span class="n">hello</span><span class="err">!</span><span class="n">hello</span><span class="err">!</span><span class="n">hello</span><span class="err">!</span>
-</pre>
-      </div>
-      <p>
-       出力を見ると分かりますが、モジュールが更新されていることが分かります。
+       Pythonのプログラマの多くは他のプログラミング言語も知っています。
+その人達は定数の利便性を知っているので、
+定数の文法が存在しないPythonでも「大文字とアンダーバーで構成された変数を定数として扱う」というルールを自分たちで決めました。
       </p>
       <p>
-       本番環境でモジュールをリロードすることはあまりありませんが、
-サーバープロセスなどにおいて動的に実行するコードを更新するといった目的にも使えるかもしれません。
-      </p>
-      <h3 id="header-7">
-       モジュールの読み込みと実行
-      </h3>
-      <p>
-       Python はモジュールを読み込む際に実行をしています。
-そのため、先程までのような関数のみのモジュールを import しても全く影響はありませんが、
-特定の処理をするコードを書くとそれが実行されてしまいます。
-例えば以下の関数を定義しているモジュール util.py ですが、
-これを import するだけで 4 行目が実行されて test と出力されてしまいます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'test'</span><span class="p">)</span>
-
-<span class="n">test</span><span class="p">()</span>
-</pre>
-      </div>
-      <p>
-       そのため、モジュールとして読み込まれることを想定して開発された Python のプログラムファイルは、
-実行されるコードを含まないべきです。
-モジュールを読み込んだ際になんらかの初期化処理が必要な場合でも関数などとして提供するほうが行儀はいいです。
-なぜなら import をする側は import をするだけで勝手になんらかの処理をすると想定していないからです。
-      </p>
-      <p>
-       ただ、モジュールがプログラムの起点になることもあれば import されることもあるという場合は、
-「起点となる場合はある処理をする」一方、「モジュールとして呼び出される場合はそれをしない」
-という実装が必要なことがあります。
-これを実現するには特殊な変数
-       <code>
-        __name__
-       </code>
-       を使います。
-これは特殊属性(詳細は本シリーズの下編にて扱います)と呼ばれる高度なトピックなのですが、
-難しいことは考えずにこれにはモジュール名が入っていると認識して下さい。
-たとえば util.py をモジュールとして読み込めば util となりますし、
-testmodule.py を読み込めば testmodule となります。
-ただし、一つ例外がありプログラムの起点となるプログラムは、
-モジュール名がファイル名ではなく
-       <code>
-        __main__
-       </code>
-       となります。
-      </p>
-      <p>
-       せっかくなので実際に試してみます。
-以下に3つのファイルがあるとします。
-      </p>
-      <p>
-       hello.py
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="kn">import</span> <span class="nn">nice</span>
-<span class="kn">import</span> <span class="nn">world</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'hello.py: '</span> <span class="o">+</span> <span class="vm">__name__</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       nice.py
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">fun_nice</span><span class="p">():</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'nice'</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'nice.py: '</span> <span class="o">+</span> <span class="vm">__name__</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       world.py
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">fun_world</span><span class="p">():</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">'world'</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'world.py: '</span> <span class="o">+</span> <span class="vm">__name__</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       コードを読んでもらえば分かりますが、hello.py は nice.py と world.py をimport しています。
-nice.py 及び world.py はモジュールとして使われることを想定していますので、
-簡単な関数の定義を持っています。
-そしてそれらのファイルは最後にモジュール名のプリントをしています。
-hello.py を起点に呼び出すと以下のような出力が得られます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>$ python3 hello.py
-nice.py: nice
-world.py: world
-hello.py: __main__
-</pre>
-      </div>
-      <p>
-       この際、 Python は以下の図のようにコードを読み込み、print 出力をしています。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0050_image/02.png"/>
-      </p>
-      <p>
-       出力を見てもらうと分かりますが、import されたモジュール内にある特殊変数
-       <code>
-        __name__
-       </code>
-       には、
-ファイル名(モジュール名)が入っています。
-ただ、起点となるファイルの
-       <code>
-        __name__
-       </code>
-       だけはファイル名ではなく
-       <code>
-        __main__
-       </code>
-       となっていることが分かります。
-      </p>
-      <h3 id="header-8">
-       モジュールが起点の場合だけ実行される処理
-      </h3>
-      <p>
-       この
-       <code>
-        __name__
-       </code>
-       の性質を利用して、
-そのモジュールが起点として呼ばれた場合のみ特定の処理をすることができます。
-想像がつくかもしれませんが、以下のようなものとなります。
-      </p>
-      <p>
-       test.py
-      </p>
-      <div class="codehilite">
-       <pre><span></span>def fun_test(x):
-  return x**2
-
-if(__name__ == '__main__'):
-  print('start function tests')
-
-  if(4 != fun_test(2)):
-    print('error')
-  if(9 != fun_test(-3)):
-    print('error')
-</pre>
-      </div>
-      <p>
-       上記のコードは
-       <strong>
-        name
-       </strong>
-       がもし
-       <strong>
-        main
-       </strong>
-       だった場合、
-つまりこのモジュールが起点としてプログラムが起動された場合にモジュールで定義された関数をテストしています。
-このモジュールが呼び出されるたびにいちいちテストをするのは問題ですが、
-モジュールとして使われるプログラムを起点と呼び出した場合にだけテストをするというのは理にかなっています。
-この書き方は様々なところで使われているので、ぜひ覚えておいて下さい。
-      </p>
-      <h3 id="header-9">
-       モジュール紹介
-      </h3>
-      <p>
-       Python には数え切れないほどのモジュールがあります。
-モジュールには大きく分けて2つあり、標準モジュール、及び外部のモジュール(インストールなどが必要)があります。
-有用なモジュールは多くあるのですが、
-それらを多く語るのは本書の趣旨にそぐわないため下編に譲ります。
-ここでは最重要なモジュールのみ駆け足で紹介します。
-      </p>
-      <p>
-       まず Python の環境自体に関わる sys モジュールがあります。
-インタプリタとしての挙動に関わる関数を多く持ち、たとえば sys.exit() はプログラムを終了させます。
-他には標準入出力や標準エラー出力を扱う機能も持っており、sys.stdin.read() や、sys.stdout.write(),
-そしてエラー出力の sys.stderr.write() があります。
-改行なしの print 文を使いたい場合は改行をしないオプションを加える(後述します)か、
-代わりに sys.stdout.write() を使うという方法があります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">' python'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">' python'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       上記コードを見てもらうと、同じ出力を print()と sys.stdout.write() で出力させています。
-このプログラムを実行すると以下のような出力が得られます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>hello
- python
-
-
-hello python
-</pre>
-      </div>
-      <p>
-       出力を見てもらうと分かりますが、sys.stdout.write は出力後に改行されていません。
-改行なしでコンソールに出力をしたい場合は使ってみて下さい。
-      </p>
-      <p>
-       次に OSに関わる処理として os モジュールがあります。
-OS モジュールはちょうどターミナルや DOS Prompt、power shell のような、
-シェルを使ったファイルやディレクトリの操作に近いことができます。
-例えば以下のようなものとなります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span># 現在のディレクトリを取得
-&gt;&gt;&gt; os.getcwd()
-'/Users/yuichi/Desktop'
-
-# ディレクトリを移動
-&gt;&gt;&gt; os.chdir('test')
-
-# ディレクトリの中身を確認
-&gt;&gt;&gt; os.listdir('./')
-['.DS_Store', '1.txt']
-
-# ディレクトリを作成
-&gt;&gt;&gt; os.mkdir('hello')
-
-# ディレクトリを削除
-&gt;&gt;&gt; os.rmdir('hello')
-</pre>
-      </div>
-      <p>
-       os モジュールは子モジュールも持っており、たとえば os.path モジュールはパス関係の処理をできます。
-他には時間関係の time モジュールや数学関係の math モジュールなどもよく利用されます。
-それらの使い方の詳細は適時Python の公式ドキュメントなり、webサイトや書籍を参照してください。
-      </p>
-      <p>
-       Python のモジュールの数は膨大ですが、
-プログラマが実現したい処理は一般的なことであればたいがいは既になんらかの形で提供されています。
-どういうものがあるか手を動かしながら試し、
-概観を掴んでしまえば簡単にそれらを利用できるようになるはずです。
-ただ、提供されるモジュールやライブラリはPythonやプログラミングの最低限の知識を必要とする場合が多いです。
-モジュールの詳細について学ぶ前に、
-まずは Python やプログラミングの基礎知識を身につけることに注力するのがよいと思います。
+       Pythonの定数へは値の再代入ができます。
+ただ、定数の初期化後にその値が別のものに変わることは誰も想定していません。
+定数への再代入は絶対にしないでください。
       </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
@@ -770,12 +387,6 @@ OS モジュールはちょうどターミナルや DOS Prompt、power shell の
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -806,224 +417,102 @@ OS モジュールはちょうどターミナルや DOS Prompt、power shell の
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          Pythonプログラミング
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>

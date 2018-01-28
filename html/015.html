@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       セット
+       名前空間
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,49 +107,22 @@
         </li>
         <li>
          <a href="header-2">
-          基礎
-         </a>
-         <ul>
-          <li>
-           <a href="#header-3">
-            初期化
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            要素の追加と削除
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            要素の存在確認
-           </a>
-          </li>
-          <li>
-           <a href="#header-6">
-            要素の取得
-           </a>
-          </li>
-          <li>
-           <a href="#header-7">
-            結合
-           </a>
-          </li>
-          <li>
-           <a href="#header-8">
-            演算
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="#header-9">
-          ハッシュの仕組み
+          ローカル変数
          </a>
         </li>
         <li>
-         <a href="header-10">
-          リストとセットの違い
+         <a href="header-3">
+          グローバル変数の参照
+         </a>
+        </li>
+        <li>
+         <a href="header-4">
+          グローバル変数の上書き
+         </a>
+        </li>
+        <li>
+         <a href="header-5">
+          不必要な副作用を避ける
          </a>
         </li>
        </ul>
@@ -158,197 +131,267 @@
        概要
       </h2>
       <p>
-       セットは「集合」という概念を実現するための型です。
-たとえば、ある空の集合にAを追加すると、その集合にはAがあります。
-さらにBを追加するとA、Bの2つが存在します。
-しかし、ここにさらにAを追加しても、「A、A、B」とはならずに「A、B」のままです。
-そして集合は「順序を持たない」ので「A、B」も、「B、A」も同じ意味を持ちます。
+       Pythonの変数や関数を宣言しても、それをどこででも利用できるわけではありません。
+たとえば、関数の中で宣言した変数は関数の外で利用することはできません。
+      </p>
+      <p>
+       関数や今後学ぶクラスなどは「内部で使っている変数名や関数名(関数のなかの関数)が、
+その内部でだけで通用する」というルールを持っています。
+この仕組は「名前空間」と呼ばれています。
+      </p>
+      <p>
+       名前空間があるため、関数Aの内部にある変数abcと、関数Bの内部にある変数abcは別物となります。
+何十万行もある複雑なPythonのプログラムでこの変数名は関数Aで使っているから、
+関数Bでは使えない(上書きしてしまうから)などといったことは考える必要はありません。
+      </p>
+      <p>
+       名前空間は入れ子構造になっていて、この名前空間の一番外側のことを「グローバル」と呼んでいます。
+そこで定義された変数は「グローバル変数」と呼ばれています。
+一方、関数の内側の変数などはそれと比較して「ローカル変数」と呼ばれます。
+      </p>
+      <p>
+       名前空間の入れ子の内側は外側の変数や関数は参照できます。
+つまり、関数の中では関数の外側にあるグローバル変数が持つ値を利用できるということです。
+      </p>
+      <p>
+       ただ、グローバル変数に値を代入して上書きするには「global宣言」が必要となります。
+もしglobal宣言がなければ、同じ変数名を持っていたとしても、それはローカル変数として扱われます。
       </p>
       <h2 id="header-2">
-       基礎
-      </h2>
-      <h3 id="header-3">
-       初期化
-      </h3>
-      <p>
-       空のセットのオブジェクトを作るにはset() 関数を使います。
-空でない場合は{}に要素を並べることで作ることもできます。
-  もしくはリストのデータをset関数に渡すことで、中身のあるセットを作ることもできます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># set()</span>
-
-<span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="c1"># {1, 2, 3}</span>
-
-<span class="n">c</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="c1"># {1, 3, 5, 7}</span>
-</pre>
-      </div>
-      <p>
-       空のセットを作る際に注意して欲しいことは「変数 = {}」 としてしまうと、
-  セットではなく次に説明する「辞書型のオブジェクト」が作成されてしまうということです。
-      </p>
-      <h3 id="header-4">
-       要素の追加と削除
-      </h3>
-      <p>
-       セットへの要素の追加にはadd、削除にはremoveメソッドを使います。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
-<span class="n">a</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># {1, 2, 3, 4}</span>
-<span class="n">a</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># {1, 2, 3, 4}</span>
-
-<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># {2, 3, 4}</span>
-</pre>
-      </div>
-      <p>
-       リストのデータ追加のメソッド名を覚えていますか。addではなく、appendや insertでしたね。
-日本語で言うと同じ「追加」であっても、addだと「集合に加える」という感じで、
-appendだと「末尾に加える」という意味合いになります。
-順序を持たない set 型なので、add というメソッド名となっています。
-そして removeメソッドを使うと指定した値をセットから取り除きます。
-存在しない値を指定するとエラーになるので注意してください。
-      </p>
-      <h3 id="header-5">
-       要素の存在確認
-      </h3>
-      <h3 id="header-6">
-       要素の取得
-      </h3>
-      <p>
-       セットの使い方はリストに似ています。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># in, not in を使える</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">}</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">a</span><span class="p">)</span>
-<span class="c1"># True</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">2</span> <span class="ow">in</span> <span class="n">a</span><span class="p">)</span>
-<span class="c1"># False</span>
-
-<span class="c1"># pop を使える(何が帰ってくるかは分からない)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># {3, 5, 7}</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="c1"># 1</span>
-
-<span class="c1"># for も使えるが順序は不明</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">}:</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="c1"># 1 3 5 7</span>
-</pre>
-      </div>
-      <h3 id="header-7">
-       結合
-      </h3>
-      <p>
-       リストと若干異なるのはセットの結合です。
-先程説明したようにセットは重複した要素を持たないため、
-結合される2つのセットが同じものを持っていれば1つだけになります。
-プラス記号を使った結合はできません。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">a</span><span class="o">.</span><span class="n">union</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">})</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># {1, 2, 3, 4, 5}</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">})</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1"># ...</span>
-<span class="c1"># TypeError: unsupported operand type(s) for +: 'set' and 'set'</span>
-</pre>
-      </div>
-      <h3 id="header-8">
-       演算
-      </h3>
-      <p>
-       あまり利用場面は多くないかもしれませんが、集合特有の演算をすることもできます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="c1"># 比較</span>
-<span class="k">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span> <span class="o">&lt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">})</span>
-<span class="c1"># True</span>
-
-<span class="c1"># AND(両方含むもののみ)</span>
-<span class="k">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span> <span class="o">&amp;</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">})</span>
-<span class="c1"># {3}</span>
-
-<span class="c1"># OR(結合)</span>
-<span class="k">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span> <span class="o">|</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">})</span>
-<span class="c1"># {1, 2, 3, 4, 5}</span>
-</pre>
-      </div>
-      <p>
-       セットの使い方はわかっていただけたでしょうか。
-追加や削除、有無のチェックなどの機能を見ると、なんだかリストに似ているような気がしたかもしれませんが、
-両者の仕組みはまったく異なっています。
-      </p>
-      <h2 id="header-9">
-       ハッシュの仕組み
+       ローカル変数
       </h2>
       <p>
-       セットで使われている重要なコンピュータ技術に、ハッシュ(Hash)と呼ばれているものがあります。
-集合はハッシュを使わずにでも実現できるでしょうが、
-PythonのセットはJavaでいうところのHashSetに近いです。
-このハッシュの概念図を以下に示します。
+       関数内では引数も含めて変数を宣言できます。
       </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0075_image/01.jpg"/>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+  <span class="k">return</span> <span class="n">a</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>10
+</pre>
+      </div>
+      <p>
+       これは与えられた引数を2倍して返すという単純な関数です。
+内部に引数(関数内部では変数と同じ扱い)であるxと変数aが存在しています。
       </p>
       <p>
-       ハッシュは「ハッシュ関数」と呼ばれるものに特定の値(キー)を与えて「ハッシュ値」を得ることで実現されています。
-ハッシュ値はある範囲のなかの数値(一般的には0からN)のどれかとなり、
-同じキーから生成されるハッシュ値は常に同じです。
+       実はこれらの関数内で使われている引数や変数は、関数の外からはアクセスできません。
+関数の呼び出し前(関数が実行されていないから変数が宣言されていない)であろうと、
+関数の呼び出し後であろうと、関数内の引数や変数にアクセスするとエラーになります。
       </p>
       <p>
-       上記の図でいうと、キーとして「John Smith」をハッシュ関数にかけるとハッシュ値「02」が得られています。
-同様に「Lisa Smith」をハッシュ関数にかけると「01」となります。
-そしてハッシュ値の範囲は00から15です。
-この性質を考慮したうえで「ある集合に要素Xはあるか」ということをどのようにして実現するか想像してください。
+       具体的には以下のようなエラーとなります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+  <span class="k">return</span> <span class="n">a</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>Traceback (most recent call last):
+  File "sample.py", line 6, in &lt;module&gt;
+    print(a)
+NameError: name 'a' is not defined
+</pre>
+      </div>
+      <p>
+       関数や今後学ぶクラスのメソッドの中で定義する変数は「
+       <em>
+        ローカル変数
+       </em>
+       」と呼ばれており、
+その中でしか通用しない変数です。
+同様に関数の中で定義された関数なども、関数の外からアクセスできません。
       </p>
       <p>
-       ハッシュを使う場合、たとえば「John Smith」を集合に加える際には、
-ハッシュ値「02」の場所に「John Smith」を格納します。
-そして「John Smith」が存在するかどうかのチェックはハッシュ値「02」の場所に「John Smith」がいるかどうか確認すればいいのです。
-一方、リストの探索であれば「先頭から末尾まで順に「John Smith」かどうかを確認していく」ことが必要です。
-リストのサイズが大きければこの探索コストは非常に大きくなります。
-「要素」の探索という面においてハッシュはリストに比べるとであるのに比べると随分スマートだと思いませんか。
-実際、ハッシュを使った要素の探索は非常に高速です。
+       このようなどこからどこにアクセスできるかという仕組みは「
+       <em>
+        名前空間
+       </em>
+       」と呼ばれています。
+この仕組は不便なように感じるかもしれませんが、大きなプログラムを書く際は大事な性質です。
+たとえば関数が100個あったときに、名前空間という仕組みがなければ、
+ある関数内で他の関数の変数と変数名が重複しないように気を配る必要があります。
+一方、関数ごとに内部の変数が独立していれば、他の関数がどのような変数を持っているかを気にする必要はありません。
       </p>
-      <p>
-       ただ、ハッシュも使い方を間違えると効率が悪くなります。もう一度図を見てください。
-よく見ると「John Smith」と「Sandra Dee」は同じハッシュ値に割り当てられています。
-これはいわゆる「ハッシュの衝突」と呼ばれており、これが多発すると探索のスピードが遅くなります。
-なぜなら「Sandra Dee」の有無の確認をする際に「01」を見にいって、
-そこに「John Smith」やほかの要素がたくさん入っていると、
-「01」のなかで「リストの探索」のようにして全部をチェックしていかないといけないからです。
-      </p>
-      <p>
-       この問題を防ぐためにハッシュ値の範囲は十分な広さを持たせる必要があります。
-たとえば今回のように00から15などという範囲は狭すぎるので、これをもっと広げます。
-そうすると確率的には衝突は発生しにくくなります。
-ただ、通常はこんなことを気にしなくてもPythonがよしなに処理してくれるので大丈夫です。
-      </p>
-      <h2 id="header-10">
-       リストとセットの違い
+      <h2 id="header-3">
+       グローバル変数の参照
       </h2>
       <p>
-       あとで書く
+       関数内の変数に関数外からアクセスすることはできませんでした。
+ただ、その逆はできます。
       </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">function</span><span class="p">()</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>5
+</pre>
+      </div>
+      <p>
+       Pythonの名前空間は入れ子状になっています。
+つまり、外の名前空間の中に、中の名前空間が入っているということです。
+この例でいえば一番外側の名前空間に関数function()の名前空間が入っています。
+この一番外側の名前空間は「
+       <em>
+        グローバル
+       </em>
+       」と呼ばれています。
+      </p>
+      <p>
+       名前空間の内側にはアクセスできませんが、外側にはアクセスできます。
+そのため、先ほどのようにグローバルに属する処理が関数内の変数を参照できず、
+グローバルの内側にある関数はグローバルにある変数にアクセスできるのです。
+      </p>
+      <p>
+       このグローバルの名前空間にある変数は「
+       <em>
+        グローバル変数
+       </em>
+       」と呼ばれています。
+      </p>
+      <h2 id="header-4">
+       グローバル変数の上書き
+      </h2>
+      <p>
+       Pythonは関数内などの内側の名前空間から、グローバル変数を上書きすることが特別な宣言なしにはできません。
+関数内でグローバル変数を上書きしようとすると、同じ名前のローカル変数が作られて、それに代入されます。
+つまりグローバル変数の値はそのままです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'function(): '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'global: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">function</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'global: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>global: 5
+function(): 10
+global: 5
+</pre>
+      </div>
+      <p>
+       上記のプログラムではグローバル変数aに5が代入されています。
+関数function内で同名の変数aに10を代入すると、関数の内側では変数aの値が10になり、
+関数の外側では変数aの値が5のままです。
+      </p>
+      <p>
+       これは関数の外側にある変数aがグローバル変数であり、
+関数の内側の変数aは「代入されている」ことでローカル変数になっているため、
+両者が別物だからです。
+      </p>
+      <p>
+       関数内でグローバル変数を上書きしたい場合は「
+       <em>
+        global文
+       </em>
+       」を使って、
+「この変数はグローバル変数です」と宣言する必要があります。
+      </p>
+      <p>
+       以下に先ほどのプログラムを少し変更して、関数の中でglobal宣言をするようにしました。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+  <span class="k">global</span> <span class="n">a</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'function(): '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'global: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">function</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'global: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>global: 5
+function(): 10
+global: 10
+</pre>
+      </div>
+      <p>
+       プログラムの実行結果をみると、関数の実行後にグローバル変数aの値が関数内で代入された10となっています。
+これは関数の中で代入される変数がローカル変数(デフォルト)からグローバル変数(global宣言が必要)に変わったからです。
+      </p>
+      <h2 id="header-5">
+       不必要な副作用を避ける
+      </h2>
+      <p>
+       関数などを動かすことで「外の世界に影響がおよぶ」ことを「
+       <em>
+        副作用
+       </em>
+       」と呼びます。
+リスト長を調べる関数len()は外の世界に影響がないため、副作用のない関数です。
+一方、引数をコンソール出力する関数print()は「コンソールに出力する」という外の世界への影響があるため、副作用のある関数です。
+      </p>
+      <p>
+       よいプログラムを書くには「余計な副作用を避ける」という経験則がプログラミングの世界にはあります。
+print関数の副作用は自分が意図して実施しているため問題ないでしょうが、
+先ほどのglobal文を使った「関数内からの関数の外の世界の変更」はあまり推奨されない副作用です。
+      </p>
+      <p>
+       複雑なプログラムを書く場合は多数の関数を定義して、多くの場所でそれらを呼び出します。
+呼び出した関数が「引数を受け取る」「返り値を返す」ということ以上をしなければ、関数を使っても他の箇所に影響はおきません。
+一方、global文を使って内部でグローバル変数を変更すると、グローバル変数の値が上書きされてしまいます。
+もし関数を使う人がそのことを意識していなければ、グローバル変数の値はおそらくプログラマが認識しているものと違った値になります。
+こういった効果が数百の関数にあれば、なにがなにをどう変えるのかということを慎重に調べないとプログラムが書けなくなってしまいます。
+そのような複雑に絡み合ったプログラムは開発効率が悪いため、不必要な副作用は避ける習慣をつけてください。
+      </p>
+      <p>
+       グローバル変数を更新するにしても、必ずしも関数の中でglobal文を使う必要はありません。
+それよりも、引数でグローバル変数を受けとり、返り値をグローバル変数に代入するようにしてください。
+      </p>
+      <p>
+       以下の2つのプログラムは共にグローバル変数aに5を追加する関数ですが、
+副作用がないという点で後者のほうが優れています。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">add5</span><span class="p">():</span>
+  <span class="k">global</span> <span class="n">a</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="mi">5</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">add5</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">add5</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">x</span> <span class="o">+=</span> <span class="mi">5</span>
+  <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">add5</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre>
+      </div>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>
@@ -441,12 +484,6 @@ PythonのセットはJavaでいうところのHashSetに近いです。
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -477,224 +514,102 @@ PythonのセットはJavaでいうところのHashSetに近いです。
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          Pythonプログラミング
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>

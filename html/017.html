@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       None 型
+       モジュールの利用
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,13 +107,47 @@
         </li>
         <li>
          <a href="header-2">
-          None型とは
+          モジュールの全体像
          </a>
         </li>
         <li>
          <a href="header-3">
-          None型の判定
+          モジュールの利用
          </a>
+         <ul>
+          <li>
+           <a href="#header-4">
+            import
+           </a>
+          </li>
+          <li>
+           <a href="#header-5">
+            import A as B
+           </a>
+          </li>
+          <li>
+           <a href="#header-6">
+            from A import B
+           </a>
+          </li>
+          <li>
+           <a href="#header-7">
+            from A import *
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-8">
+          pip
+         </a>
+         <ul>
+          <li>
+           <a href="#header-9">
+            パッケージのインストール
+           </a>
+          </li>
+         </ul>
         </li>
        </ul>
       </div>
@@ -121,45 +155,299 @@
        概要
       </h2>
       <p>
-       あとで書く
+       Pythonが提供する機能は多く、print関数といったよく利用される機能だけでなく、
+数学やネットワーク関連の機能もあります。
+      </p>
+      <p>
+       これらの補助的な機能については「モジュール」という形でPythonはプログラマに提供しています。
+既に作成されているモジュールを取り込んで使うことで、自分で作成できない機能を利用したり、
+開発の手間を省くことが可能になります。
+      </p>
+      <p>
+       また、Pythonはモジュールの集合をパッケージとしても提供しています。
+複雑なライブラリだと1つのモジュールで全ての機能を提供するのではなく、
+複数のモジュールをパッケージとしてグループ化して提供します。
       </p>
       <h2 id="header-2">
-       None型とは
+       モジュールの全体像
       </h2>
       <p>
-       None 型は「値がない」ということを表明する特別な型です。
-たとえば返り値がない関数の結果を取得しようとしたら、以下のように None 型が取得できます。
+       「
+       <em>
+        モジュール
+       </em>
+       」はプログラムを分割する手法です。
+モジュールはPython自体が提供する環境でも利用されており、自分でモジュールを作って利用することもできます。
       </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
-<span class="c1"># hello</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># None</span>
-</pre>
-      </div>
       <p>
-       None は C 言語や Java の null に相当するもので、
-たまに関数やメソッドから期待されるオブジェクトの代わりに返されることがあります。
-少し高度になるのですが、たとえばある関数内の複雑な処理(例えばネットワークやデータベースへの接続など)に失敗した際に、
-「Noneを返す」もしくは「例外を発生させる」とことで処理が失敗したことを示すことができます。
+       Python自体が提供するモジュールは「
+       <em>
+        標準ライブラリ
+       </em>
+       」と呼ばれています(ライブラリはモジュールの集合というニュアンスがあります)。
+これには今まで利用してきたprint関数といった特に宣言無く利用できる「
+       <em>
+        組み込みモジュール
+       </em>
+       」と呼ばれるものと、
+数学やネットワークの処理といった用途ごとのモジュールがあります。
+Pythonが提供するこれらのモジュールの一部はC言語で書かれていて、
+Pythonのプログラマが直接使うことができないシステム機能へのアクセス(たとえば画面出力など)を提供しています。
+      </p>
+      <p>
+       Python環境自体が提供する標準ライブラリ以外にも、普及しているモジュールはあります。
+それはpipと呼ばれるパッケージ管理システムを使って追加インストールをしたり、
+ソースコードとして配布されているものを取り込んだりして使います。
+      </p>
+      <p>
+       pipで提供されるのはモジュールではなく複数のモジュールを含む「
+       <em>
+        パッケージ
+       </em>
+       」というものです。
+複雑な機能を実現するプログラムを1つのモジュールに詰め込むことはできないため、
+複数のモジュールに分けてそれをパッケージという入れ物にいれて提供します。
+      </p>
+      <p>
+       大規模なソフトウェアを開発する場合は自分が書くソースコードの量も数千行、数万行となります。
+そのときはプログラムの機能ごとにファイルを分けて、それらをモジュール化します。
+自分が開発したモジュールを自分のプログラムで読み込むことで、コードを整理できます。
+      </p>
+      <p>
+       以下にPythonのモジュールの全体像を記載します。
+      </p>
+      <p>
+       &lt;&lt;図&gt;&gt;
       </p>
       <h2 id="header-3">
-       None型の判定
+       モジュールの利用
       </h2>
+      <h3 id="header-4">
+       import
+      </h3>
       <p>
-       None を返す実装の場合、返り値がNone であれば失敗したことがわかり、そうでなければ成功したということが分かります。
-None か否かの判定には is 演算子を使うことが推奨されています。
-理由が高度になるため説明は割愛しますが、== 演算子での判定は推奨されません。
+       モジュールを利用するためにはその宣言が必要です。
+その宣言方法は複数ありますが、最もよく使われるのが「
+       <em>
+        import宣言
+       </em>
+       」です。
+      </p>
+      <p>
+       import宣言は「import文」に続けて、モジュール名を書きます。
+たとえば、数学処理がまとめられたmathモジュールを利用するには以下のようにします。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">return_value</span> <span class="o">=</span> <span class="err">関数</span><span class="p">()</span>
-
-<span class="k">if</span><span class="p">(</span><span class="n">return_value</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">):</span>
-  <span class="err">失敗した際の処理</span>
-<span class="k">else</span><span class="p">:</span>
-  <span class="err">成功した際の処理</span>
+       <pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 </pre>
       </div>
+      <p>
+       import宣言されたモジュールは「モジュール名.モジュールの関数」などとして、
+頭にモジュール名を付けて利用します。
+たとえば、mathモジュールの切り捨て関数であるfloorを使うには以下のようにします。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.floor(5.5)
+5
+</pre>
+      </div>
+      <p>
+       仮にimport文なしにmathモジュールのfloor関数を使おうとすると、
+mathという名前は宣言されていないとエラーが発生します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; math.floor(5.5)
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'math' is not defined
+</pre>
+      </div>
+      <p>
+       モジュールが持つのは関数だけでなく、クラスや定数、変数などもあります。
+それらも共通して「モジュール名.定数」などとして使います。
+      </p>
+      <h3 id="header-5">
+       import A as B
+      </h3>
+      <p>
+       importで読み込むモジュール名が長かったりわかりにくかったりする場合は、
+モジュールにに別名を付けることが可能です。
+      </p>
+      <p>
+       別名をつけてimportするには「import モジュール名 as 別名」とします。
+たとえばGUIのライブラリである「math」を「mathematics」として読み込むには、
+「import math as mathematics」とします。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; import math as mathematics
+&gt;&gt;&gt; mathematics.floor(5.5)
+5
+</pre>
+      </div>
+      <h3 id="header-6">
+       from A import B
+      </h3>
+      <p>
+       モジュール名を書かずにモジュールの関数などを使うこともできます。
+それには「from モジュール名 import 使う関数など」とします。
+      </p>
+      <p>
+       たとえば「from math import floor」とすると、
+floor関数をmathモジュールの後ろに付けずに使うことができるようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">floor</span><span class="p">(</span><span class="mf">5.5</span><span class="p">)</span>
+<span class="mi">5</span>
+</pre>
+      </div>
+      <p>
+       頻繁に使う関数であればこのように使用しても構いませんが、
+一般的にはfromを使わずにimportのみを使うことがよいとされています。
+なぜならその関数がどのモジュールに属しているかひとめで分かるからです。
+      </p>
+      <p>
+       あまり見かけませんが、先ほどの「import A as B」とfromを組み合わせることで、
+あるモジュールに属する関数を別名で使うこともできます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; from math import floor as f
+&gt;&gt;&gt; f(5.5)
+5
+</pre>
+      </div>
+      <h3 id="header-7">
+       from A import *
+      </h3>
+      <p>
+       モジュール内の全ての関数やクラスなどを、モジュール名なしで呼び出すこともできます。
+それには「from モジュール名 import *」という宣言をします。
+      </p>
+      <p>
+       この「*」は「
+       <em>
+        ワイルドカード
+       </em>
+       」と呼ばれており、「全て」を意味しています。
+そのため、モジュールの全てに対してfrom宣言で利用するという意味になります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">floor</span><span class="p">(</span><span class="mf">5.5</span><span class="p">)</span>
+<span class="mi">5</span>
+</pre>
+      </div>
+      <p>
+       ただ、このような乱雑なモジュールの利用法は「名前の衝突(同じ名前が２箇所で使われてしまっている)」
+などの問題が発生しかねないので、あまり推奨できません。
+      </p>
+      <p>
+       あるモジュールをテストするといったシナリオでは有効な使い方ですが、
+本番環境用のコードでは使用しないほうがよいです。
+      </p>
+      <h2 id="header-8">
+       pip
+      </h2>
+      <p>
+       Pythonで効率的に開発を行うには既存のライブラリを可能な限り使う姿勢が重要です。
+      </p>
+      <p>
+       全ての細かい処理まで自分で開発すると、その開発にはコスト(時間とお金)がかかります。
+そういった細かい処理をライブラリの関数などで代替できるのであれば、
+自分で開発する必要もなくなり効率的です。
+      </p>
+      <p>
+       Pythonが最初から提供しているライブラリは基本的な機能に限られており、
+多くのユーザーの要望を満たしきれていません。
+そのため、PythonのユーザーはPythonが提供する組み込みライブラリ以外に、
+「
+       <em>
+        pip
+       </em>
+       」と呼ばれるパッケージを任意で追加できる仕組み(「
+       <em>
+        パッケージ管理システム
+       </em>
+       」)を使っています。
+      </p>
+      <p>
+       pipを使うことでデフォルトでは組み込みきれないほどの膨大なライブラリを、
+必要に応じて自分の環境に追加インストールして利用します。
+      </p>
+      <h3 id="header-9">
+       パッケージのインストール
+      </h3>
+      <p>
+       pipはPython3をインストールしていれば自動で一緒にインストールされています。
+(古いPython3だと入っていないかもしれませんので、その場合はアップグレードしてください。)
+      </p>
+      <p>
+       pipを使ってパッケージをインストールするまでは、pipが提供するパッケージは使えません。
+例えば後ほどインストールする「requests」というパッケージはデフォルトではインストールされていないため、
+importしようとすると「そのようなモジュールはない」とエラーが発生します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; import requests
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+ModuleNotFoundError: No module named 'requests'
+</pre>
+      </div>
+      <p>
+       pipでのモジュールのインストールは「pip install モジュール名」というコマンドをコンソールで実行することで行います。
+requestsパッケージをインストールしてみます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>$ pip3 install requests
+Collecting requests
+  Downloading requests-2.18.4-py2.py3-none-any.whl (88kB)
+    100% |████████████████████████████████| 92kB 380kB/s
+Collecting chardet&lt;3.1.0,&gt;=3.0.2 (from requests)
+  Downloading chardet-3.0.4-py2.py3-none-any.whl (133kB)
+    100% |████████████████████████████████| 143kB 936kB/s
+Requirement already satisfied: idna&lt;2.7,&gt;=2.5 in /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages (from requests)
+Collecting certifi&gt;=2017.4.17 (from requests)
+  Downloading certifi-2018.1.18-py2.py3-none-any.whl (151kB)
+    100% |████████████████████████████████| 153kB 873kB/s
+Collecting urllib3&lt;1.23,&gt;=1.21.1 (from requests)
+  Downloading urllib3-1.22-py2.py3-none-any.whl (132kB)
+    100% |████████████████████████████████| 133kB 3.4MB/s
+Installing collected packages: chardet, certifi, urllib3, requests
+Successfully installed certifi-2018.1.18 chardet-3.0.4 requests-2.18.4 urllib3-1.22
+</pre>
+      </div>
+      <p>
+       Macの場合は「python」の利用を「python3」とするように、「pip」の利用も「pip3」とします。
+パッケージファイルをインターネットからダウンロードしてきて、インストールをしています。
+      </p>
+      <p>
+       インストールに成功すると、そのパッケージを利用することができるようになります。
+以下ではrequestsモジュールを使って、yahooのトップページの情報を取得してきて表示しています。
+(ページの都合上、yahooのページ情報の一部を削ったり変更しています。)
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; import requests
+&gt;&gt;&gt; response = requests.get('http://yahoo.co.jp')
+&gt;&gt;&gt; print(response.text)
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;meta http-equiv="content-style-type" content="text/css"&gt;
+&lt;meta http-equiv="content-script-type" content="text/javascript"&gt;
+&lt;meta name="description" content="日本最大級のポータルサイト。検索、オークション、
+ニュース、メール、コミュニティ、ショッピング、など80以上のサービスを展開。
+あなたの生活をより豊かにする「ライフ・エンジン」を目指していきます。"&gt;
+&lt;meta name="robots" content="noodp"&gt;
+&lt;meta name="google-site-verification" content="fsLMOiigp5fIpCDMEVodQnQC7jIY1K3UXW5QkQcBmVs"&gt;
+&lt;link rel="canonical" href="https://www.yahoo.co.jp/" /&gt;
+</pre>
+      </div>
+      <p>
+       これはyahooのページにHTTPというプロトコルを使ってアクセスして、Yahooのサーバーから返されたデータを表示しています。
+このような複雑な処理をpipでインストールしたrequestsパッケージを使うことで、短い2行で実現できています。
+自力で同じ処理をするのは大変なので、パッケージを使う理由が分かって頂けたのではないでしょうか。
+      </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>
@@ -252,12 +540,6 @@ None か否かの判定には is 演算子を使うことが推奨されてい�
         </li>
        </ul>
       </div>
-      <div class="print">
-       <a href="./003_print.html">
-        <img src="./assets/images/print.png"/>
-        印刷する
-       </a>
-      </div>
       <!-- SNS end -->
       <div class="sidebar-module">
        <p class="sidebar-heading">
@@ -288,224 +570,102 @@ None か否かの判定には is 演算子を使うことが推奨されてい�
       </div>
       <div class="sidebar-module">
        <p class="sidebar-heading">
-        初級編
+        Pythonの基礎
        </p>
        <ol class="list-unstyled">
         <li>
          <a href="./001.html">
-          Pythonプログラミング
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
          </a>
         </li>
         <li>
          <a href="./004.html">
-          インストールと実行
+          インタプリタ
          </a>
         </li>
         <li>
          <a href="./005.html">
-          概要
+          Pythonの実行
          </a>
         </li>
         <li>
          <a href="./006.html">
-          型と変数
+          コメント
          </a>
         </li>
         <li>
          <a href="./007.html">
-          最重要な型
+          データと型
          </a>
         </li>
         <li>
          <a href="./008.html">
-          制御構造
+          変数
          </a>
         </li>
         <li>
          <a href="./009.html">
-          関数
+          変数の名前付け
          </a>
         </li>
         <li>
          <a href="./010.html">
-          モジュール
+          定数とマジックナンバー
          </a>
         </li>
         <li>
          <a href="./011.html">
-          オブジェクトとメソッド
+          主要な型と演算子
          </a>
         </li>
         <li>
          <a href="./012.html">
-          テキスト処理
+          条件分岐とコードブロック
          </a>
         </li>
         <li>
          <a href="./013.html">
-          リスト再入門
+          ループ
          </a>
         </li>
         <li>
          <a href="./014.html">
-          タプル
+          関数
          </a>
         </li>
         <li>
          <a href="./015.html">
-          セット
+          名前空間
          </a>
         </li>
         <li>
          <a href="./016.html">
-          辞書型
-         </a>
-        </li>
-        <li>
-         <a href="./017.html">
-          None型
-         </a>
-        </li>
-        <li>
-         <a href="./018.html">
-          ファイル処理
-         </a>
-        </li>
-        <li>
-         <a href="./019.html">
-          基数と文字コード
-         </a>
-        </li>
-        <li>
-         <a href="./020.html">
-          日本語の扱い
-         </a>
-        </li>
-        <li>
-         <a href="./021.html">
-          プログラムへの入力
-         </a>
-        </li>
-        <li>
-         <a href="./022.html">
-          関数の高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./023.html">
-          おわりに
-         </a>
-        </li>
-       </ol>
-      </div>
-      <div class="sidebar-module">
-       <p class="sidebar-heading">
-        中級編
-       </p>
-       <ol class="list-unstyled">
-        <li>
-         <a href="./101.html">
-          前書き
-         </a>
-        </li>
-        <li>
-         <a href="./102.html">
-          目次
-         </a>
-        </li>
-        <li>
-         <a href="./103.html">
           オブジェクト指向を体験
          </a>
         </li>
         <li>
-         <a href="./104.html">
-          データ構造
+         <a href="./017.html">
+          モジュールの利用
          </a>
         </li>
         <li>
-         <a href="./105.html">
-          クラスとインスタンス化
+         <a href="./018.html">
+          モジュールの作成
          </a>
         </li>
         <li>
-         <a href="./106.html">
-          インスタンスとメソッド
-         </a>
-        </li>
-        <li>
-         <a href="./107.html">
-          コンストラクタ
-         </a>
-        </li>
-        <li>
-         <a href="./108.html">
-          self
-         </a>
-        </li>
-        <li>
-         <a href="./109.html">
-          情報の隠蔽
-         </a>
-        </li>
-        <li>
-         <a href="./110.html">
-          オブジェクトの役割
-         </a>
-        </li>
-        <li>
-         <a href="./111.html">
-          関数型プログラミング
-         </a>
-        </li>
-        <li>
-         <a href="./112.html">
-          ゲーム作り
-         </a>
-        </li>
-        <li>
-         <a href="./113.html">
-          クラスの継承
-         </a>
-        </li>
-        <li>
-         <a href="./114.html">
-          メソッドのオーバーライド
-         </a>
-        </li>
-        <li>
-         <a href="./115.html">
-          GUIで継承を学ぶ
-         </a>
-        </li>
-        <li>
-         <a href="./116.html">
-          クラスの高度なトピック
-         </a>
-        </li>
-        <li>
-         <a href="./117.html">
-          ドキュメンテーション
-         </a>
-        </li>
-        <li>
-         <a href="./118.html">
-          例外処理の基礎
-         </a>
-        </li>
-        <li>
-         <a href="./119.html">
-          例外クラス
-         </a>
-        </li>
-        <li>
-         <a href="./120.html">
-          高度な例外処理
-         </a>
-        </li>
-        <li>
-         <a href="./121.html">
-          終わりに
+         <a href="./019.html">
+          プログラムのエラー
          </a>
         </li>
        </ol>
