@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       インタプリタ
+       インタプリタの実行
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,29 +107,22 @@
         </li>
         <li>
          <a href="header-2">
-          インタプリタ
+          インタプリタとは
          </a>
         </li>
         <li>
          <a href="header-3">
-          インタプリタの終了方法
-         </a>
-         <ul>
-          <li>
-           <a href="#header-4">
-            Pythonコマンドのオプション
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="#header-5">
-          コラム: Python2とPython3の違い
+          インタプリタの実行
          </a>
         </li>
         <li>
-         <a href="header-6">
-          用語
+         <a href="header-4">
+          インタプリタの終了
+         </a>
+        </li>
+        <li>
+         <a href="header-5">
+          インタプリタの履歴
          </a>
         </li>
        </ul>
@@ -137,24 +130,60 @@
       <h2 id="header-1">
        概要
       </h2>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0020_image/02.png"/>
+      </p>
       <p>
        WindowsやMacにPythonをインストールすると、Pythonが使えるようになります。
 Pythonを使うにはコンソール(Windowsではパワーシェル、Macではターミナル)で、pythonコマンドを使います。
 そうすることでPythonのプログラムを実行したり、対話式のシェルを使うことができます。
       </p>
       <h2 id="header-2">
-       インタプリタ
+       インタプリタとは
       </h2>
       <p>
-       インストールが完了したので、さっそくPythonを使ってみましょう。
-       <code>
-        --version
-       </code>
-       オプションなしで
-       <code>
-        python
-       </code>
-       と打つと、Pythonのシェルを利用できます。
+       Pythonの利用方法には「
+       <strong>
+        インタプリタ
+       </strong>
+       」と「
+       <strong>
+        プログラムファイルの実行
+       </strong>
+       」があります。
+このページでは前者について説明します。
+      </p>
+      <p>
+       インタプリタでは、Pythonにたいして「1つの命令」を与えて、Pythonがそれを実行して「結果を返す」ということを繰り返します。
+たとえばプログラマがPythonに対して「1 + 1」という計算をする命令を与えれば「2」という結果を返します。
+こういったやりとりを何度か繰り返すことで、Pythonでプログラムを実行します。
+      </p>
+      <h4>
+       図: インタプリタでのやりとり
+      </h4>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0020_image/01.png"/>
+      </p>
+      <p>
+       本格的なシステムやアプリケーションの開発にはインタプリタではなく、
+次のページで扱う「プログラムファイルの実行」という形式をとります。
+      </p>
+      <p>
+       インタプリタはプログラムの開発をする際の「挙動確認」といった補助的な役割で使われることが多いです。
+たとえば今後学ぶ型や関数の動きを調べるときに、わざわざ大きなプログラムファイルを書かなくても、
+インタプリタ上でそれらを試すことができます。
+      </p>
+      <h2 id="header-3">
+       インタプリタの実行
+      </h2>
+      <p>
+       インタプリタの実行はコンソール上で「
+       <strong>
+        pythonコマンド
+       </strong>
+       」を引数(コマンドの後ろに続く他の文字)なしで打つことで始まります。
+Windowsであれば「python」と入力し、Macであれば「python3」と入力します。
+Macで「python」とすると、Python3ではなくPython2のインタプリタがたちあがります。
       </p>
       <h4>
        コンソール: Pythonシェルを起動
@@ -168,19 +197,28 @@ Type "help", "copyright", "credits" or "license" for more information.
 </pre>
       </div>
       <p>
-       画面に以下の「プロンプト」が表示されます。
+       最初にPythonの環境(バージョンやどのOS向けのものかなど)が表示されたあと、
+ユーザーの入力を受け付ける状態になります。
+      </p>
+      <p>
+       画面に表示されている「
+       <strong>
+        &gt;&gt;&gt;
+       </strong>
+       」は「
+       <strong>
+        プロンプト
+       </strong>
+       」と呼ばれるものです。
 これはPythonがユーザにプログラムの入力を求めている状態です。
       </p>
-      <h4>
-       コンソール: Pythonシェルのプロンプト
-      </h4>
-      <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt;
-</pre>
-      </div>
       <p>
-       それに続けてPythonのプログラムを書いて実行させます。
-今回は簡単な計算をさせます。
+       ユーザーがキー入力をすると、プロンプトの後ろにそれが表示されます。
+ユーザーからの入力が終わってエンターキー(リターンキー)を押すと、入力していたプログラムがPythonに渡されます。
+そしてPythonがその入力の処理をして、結果を返します。
+      </p>
+      <p>
+       今回は簡単な計算「1 + 1」をさせます。
       </p>
       <h4>
        コンソール: Pythonシェルで足し算を実行
@@ -192,22 +230,13 @@ Type "help", "copyright", "credits" or "license" for more information.
 </pre>
       </div>
       <p>
-       エンターキー(リターンキー)を押すと、入力していたプログラムをPythonが読み取り、
-その結果を返します。
-今回は
-       <code>
-        1 + 1
-       </code>
-       がユーザの入力で、Pythonがそれを読み取って解釈し、結果である
-       <code>
-        2
-       </code>
-       を返しています。
-計算に使っている「+」は「
-       <em>
-        演算子
-       </em>
-       」と呼ばれており、他には「-」などもあります。
+       「1 + 1」がユーザの入力で、Pythonがそれを読み取って解釈し、結果である「2」を返しています。
+処理が終わって再びユーザーの入力待ちとなっているため、再びプロンプトが表示されています。
+      </p>
+      <p>
+       数値の計算だけでなく、テキストデータの計算もできます。
+プログラミングではテキストデータのことを「文字列」と呼んでいます。
+詳しい話は後のページで扱いますが、クオテーション記号「'」で囲むことで文字列というデータを作れると覚えておいて下さい。
       </p>
       <h4>
        コンソール: Pythonシェルで文字列を出力
@@ -219,19 +248,25 @@ hello python
 </pre>
       </div>
       <p>
-       Pythonのシェルでは、プロンプトを通してPythonと「対話的」にプログラミングを行います。
-簡単なプログラムの挙動確認であればPythonシェルを使うことが多いです。
-Pythonシェルは「インタプリタ」とも呼ばれます。
+       文字列「'hello'」と「' python'」をたすという命令を投げると、
+Pythonはそれを実行して「'hello python'」という文字列を作成しました。
       </p>
       <p>
        Pythonシェルはプログラムのちょっとした挙動確認には便利なのですが、
 プログラムの「ソースコード(コード)」を書くためのものではありません。
       </p>
-      <h2 id="header-3">
-       インタプリタの終了方法
+      <h4>
+       図: インタプリタのサンプル
+      </h4>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0020_image/02.png"/>
+      </p>
+      <h2 id="header-4">
+       インタプリタの終了
       </h2>
       <p>
-       インタプリタを抜けるには「exit()」と入力するか「Ctrl + d　(Controlボタンを押しながらdを押す)」を入力します。
+       インタプリタを抜けるには「exit()」と入力するか
+「Ctrl + d　(Controlボタンを押しながらdを押す)」を入力します。
       </p>
       <div class="codehilite">
        <pre><span></span>&gt;&gt;&gt; 1 + 1
@@ -240,141 +275,24 @@ Pythonシェルは「インタプリタ」とも呼ばれます。
 $
 </pre>
       </div>
-      <h3 id="header-4">
-       Pythonコマンドのオプション
-      </h3>
       <p>
-       先ほどの「-c」オプションと同じように、pythonコマンドに続けてオプションを付けることで、
-特別な動作をさせることができます。
+       インタプリタを抜けるとコンソールに戻ります。
       </p>
-      <p>
-       Pythonコマンドのオプションを確認するオプションとして「-h」があります。
-どのようなオプションが存在するか現時点で覚える必要はありませんが、
-「-h」で「ヘルプ」を確認できることは覚えておいて下さい。
-      </p>
-      <h4>
-       コンソール: pythonコマンドのオプション確認
-      </h4>
-      <div class="codehilite">
-       <pre><span></span>$ python3 -h
-usage: /Library/Frameworks/Python.framework/Versions/3.6/Resources/Python.app/Contents/MacOS/Python [option] ... [-c cmd | -m mod | file | -] [arg] ...
-Options and arguments (and corresponding environment variables):
--b     : issue warnings about str(bytes_instance), str(bytearray_instance)
-         and comparing bytes/bytearray with str. (-bb: issue errors)
--B     : don't write .py[co] files on import; also PYTHONDONTWRITEBYTECODE=x
--c cmd : program passed in as string (terminates option list)
--d     : debug output from parser; also PYTHONDEBUG=x
--E     : ignore PYTHON* environment variables (such as PYTHONPATH)
--h     : print this help message and exit (also --help)
--i     : inspect interactively after running script; forces a prompt even
-         if stdin does not appear to be a terminal; also PYTHONINSPECT=x
--I     : isolate Python from the user's environment (implies -E and -s)
--m mod : run library module as a script (terminates option list)
--O     : optimize generated bytecode slightly; also PYTHONOPTIMIZE=x
--OO    : remove doc-strings in addition to the -O optimizations
--q     : don't print version and copyright messages on interactive startup
--s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE
--S     : don't imply 'import site' on initialization
--u     : unbuffered binary stdout and stderr, stdin always buffered;
-         also PYTHONUNBUFFERED=x
-         see man page for details on internal buffering relating to '-u'
--v     : verbose (trace import statements); also PYTHONVERBOSE=x
-         can be supplied multiple times to increase verbosity
--V     : print the Python version number and exit (also --version)
-         when given twice, print more information about the build
--W arg : warning control; arg is action:message:category:module:lineno
-         also PYTHONWARNINGS=arg
--x     : skip first line of source, allowing use of non-Unix forms of #!cmd
--X opt : set implementation-specific option
-file   : program read from script file
--      : program read from stdin (default; interactive mode if a tty)
-arg ...: arguments passed to program in sys.argv[1:]
-
-Other environment variables:
-PYTHONSTARTUP: file executed on interactive startup (no default)
-PYTHONPATH   : ':'-separated list of directories prefixed to the
-               default module search path.  The result is sys.path.
-PYTHONHOME   : alternate &lt;prefix&gt; directory (or &lt;prefix&gt;:&lt;exec_prefix&gt;).
-               The default module search path uses &lt;prefix&gt;/pythonX.X.
-PYTHONCASEOK : ignore case in 'import' statements (Windows).
-PYTHONIOENCODING: Encoding[:errors] used for stdin/stdout/stderr.
-PYTHONFAULTHANDLER: dump the Python traceback on fatal errors.
-PYTHONHASHSEED: if this variable is set to 'random', a random value is used
-   to seed the hashes of str, bytes and datetime objects.  It can also be
-   set to an integer in the range [0,4294967295] to get hash values with a
-   predictable seed.
-PYTHONMALLOC: set the Python memory allocators and/or install debug hooks
-   on Python memory allocators. Use PYTHONMALLOC=debug to install debug
-   hooks.
-</pre>
-      </div>
       <h2 id="header-5">
-       コラム: Python2とPython3の違い
+       インタプリタの履歴
       </h2>
       <p>
-       Python2とPytho3のプログラムには一部互換性がありません。
-そのため、Python2で作ったコードをPython3で使うことや、
-その逆ができないことが多々ありますので注意してください。
+       インタプリタに過去に入力した内容はPythonが覚えています。
+矢印キーの上を1回押すと、1回前に実行した入力を画面に表示します。
       </p>
       <p>
-       もし仮にPython2のプログラムを書く場合であっても、それがPython3で動くように書く癖をつけておいてください。
-完全に互換性をもたせるのは大変なのでおすすめしませんが、
-Python3で廃止される古いPython2の書き方に固執するのはよくありません。
+       矢印キーの上をもう一度押せば、今表示されている入力よりももう一つ前の内容を表示し、
+矢印キーの下を押せば新しい入力を表示します。
       </p>
       <p>
-       ちなみにPython 2と3の両方をインストールして使い分けることも可能ですので、
-最終的に2.xを使いたいかたも、3.xをインストールして大丈夫です。
+       Pythonに実行させる処理を間違えた場合は、矢印キーの上を押して、
+間違えた箇所を修正してから再実行することがよくあります。
       </p>
-      <h2 id="header-6">
-       用語
-      </h2>
-      <ul>
-       <li>
-        Python2 : 古いPythonの種類。2.X として様々なバージョンがあるが、2.7が最後
-       </li>
-       <li>
-        Python3 : 新しいPythonの種類。3.X として開発中。
-       </li>
-       <li>
-        パスを通す
-       </li>
-       <li>
-        環境変数
-       </li>
-       <li>
-        コンソール
-       </li>
-       <li>
-        パワーシェル(PowerShell)
-       </li>
-       <li>
-        ターミナル(Terminal)
-       </li>
-       <li>
-        Pythonシェル
-       </li>
-       <li>
-        プログラムファイル
-       </li>
-       <li>
-        コメント
-       </li>
-       <li>
-        #(ハッシュ、シャープ)
-       </li>
-       <li>
-        シングルクオテーション
-       </li>
-       <li>
-        ダブルクオテーション
-       </li>
-       <li>
-        トリプルクオテーション
-       </li>
-       <li>
-        エラー(例外)
-       </li>
-      </ul>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>
@@ -517,12 +435,12 @@ Python3で廃止される古いPython2の書き方に固執するのはよくあ
         </li>
         <li>
          <a href="./004.html">
-          インタプリタ
+          インタプリタの実行
          </a>
         </li>
         <li>
          <a href="./005.html">
-          Pythonの実行
+          プログラムファイルの実行
          </a>
         </li>
         <li>
