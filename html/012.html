@@ -135,21 +135,6 @@
           elif
          </a>
         </li>
-        <li>
-         <a href="header-8">
-          3項演算子
-         </a>
-        </li>
-        <li>
-         <a href="header-9">
-          1ライナーの条件式
-         </a>
-        </li>
-        <li>
-         <a href="header-10">
-          コラム: 多くの言語のコードブロック
-         </a>
-        </li>
        </ul>
       </div>
       <h2 id="header-1">
@@ -185,9 +170,9 @@ C言語やJavaのように中括弧「{}」でコードブロックを書くの�
 「今日が晴れなら晴れマークを表示、雨なら雨マークを表示」といった具合に
 「あるものがAならBをする。そうでないならCをする」という「条件」に応じて処理が「分岐」します。
 こういった処理のことを「
-       <em>
+       <strong>
         条件分岐
-       </em>
+       </strong>
        」と呼び、多くのプログラミング言語でサポートされます。
       </p>
       <p>
@@ -200,14 +185,14 @@ Bool型の値が条件判定に利用され、それがTrueなら処理Aをし�
       </h2>
       <p>
        Pythonだけでなく多くのプログラミング言語は条件分岐を「
-       <em>
+       <strong>
         if文
-       </em>
+       </strong>
        」で実現します。
 if文のあとに「
-       <em>
+       <strong>
         条件式
-       </em>
+       </strong>
        」を書き、その条件式が満たされる場合にif文の処理が実行されます。
       </p>
       <p>
@@ -268,16 +253,16 @@ aには5が代入されているため、「10 &gt; 5」はTrueとなり、そ�
       <p>
        その際にif文が「どこからどこまでをカバーしているか」をプログラムに教えてあげる必要があります。
 プログラミングでは条件分岐といったある特定の処理の「対象範囲」を「
-       <em>
+       <strong>
         コードブロック
-       </em>
+       </strong>
        」で示します。
       </p>
       <p>
        Pythonではコードブロックを「
-       <em>
+       <strong>
         インデント(字下げ)
-       </em>
+       </strong>
        」を揃えることで実現しています。
 具体的には以下のようなものです。
       </p>
@@ -353,9 +338,9 @@ if 条件式:
        コードブロックの中にコードブロックを作ることも可能です。
 たとえばif文による条件分岐の中に、さらにif文の条件分岐を作るといった具合です。
 コードブロックに限らず、プログラミングで「入れ子」構造にすることを一般的に「
-       <em>
+       <strong>
         ネスト
-       </em>
+       </strong>
        」すると言います。
       </p>
       <p>
@@ -408,7 +393,7 @@ if 条件式:
       <p>
        コードブロックのネストは深くなるとプログラムが読みにくくなります。
 深いレベルのネストが必要な状況になってきたら、
-アルゴリズムそのものを見直すか後のページで扱う「関数」に処理を分割するなどして、
+アルゴリズムそのものを見直すか後のページで扱う関数に処理を分割するなどして、
 ネストのレベルを下げるようにしてください。
       </p>
       <h2 id="header-6">
@@ -417,9 +402,9 @@ if 条件式:
       <p>
        ある条件を満たす場合の処理だけでなく、条件を満たさない場合の処理を定義することもできます。
 if文のコードブロックに続けて「
-       <em>
+       <strong>
         else文
-       </em>
+       </strong>
        」を書くことで、
 if文の条件に合致しなかった場合にelse文のコードブロックの処理が実行されます。
 elseのコードブロックはif文に合致した場合は実行されません。
@@ -445,9 +430,9 @@ elseのコードブロックはif文に合致した場合は実行されませ�
       <p>
        if文の条件に合致しない場合でも、別の条件式に合致するか確認したい場合があります。
 そのような場合に「
-       <em>
+       <strong>
         elif文
-       </em>
+       </strong>
        」を使えます。
       </p>
       <p>
@@ -478,100 +463,6 @@ elif文に続けられた条件式が満たされれば、elif文のコードブ
       </p>
       <p>
        elseを書く場合は必ずelifの後に続きます。
-      </p>
-      <h2 id="header-8">
-       3項演算子
-      </h2>
-      <p>
-       今まで扱ってきた if 文や ループに比べてあまり利用されないため後にもってきましたが、
-実は if 文の亜種の3項演算子というものも存在します。
-      </p>
-      <p>
-       例えば以下のプログラムがあるとしましょう。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>a = 5
-
-if(a % 2 == 0):
-  is_even = True
-else:
-  is_even = False
-
-print(is_even)
-# False
-</pre>
-      </div>
-      <p>
-       上記プログラムは a という変数に格納されている値が偶数であれば is_even という変数に True をいれ、
-そうでなければ False をいれるというものです。
-プログラムを書いていると、時々こういうような if 文の結果に応じて同じ変数に入れる値が変わるという場面に出くわします。
-      </p>
-      <p>
-       3項演算子はまさにこういった処理をするために用意された文法で、以下のように書きます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="c1"># (Trueのときに返る値) if (条件式) else (Falseのときに返る値)</span>
-<span class="n">is_even</span> <span class="o">=</span> <span class="bp">True</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="bp">False</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">is_even</span><span class="p">)</span>
-<span class="c1"># False</span>
-</pre>
-      </div>
-      <h2 id="header-9">
-       1ライナーの条件式
-      </h2>
-      <p>
-       最後に1ライナーと呼ばれるテクニックを紹介します。
-インデントとコードブロックで説明したように、基本的には if や for の処理は字下げして書きます。
-ただ、1行だけの処理であれば条件式の直後に処理を書くことができます。
-      </p>
-      <p>
-       例えば以下のようなものになります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="mi">5</span><span class="p">):</span> <span class="k">print</span><span class="p">(</span><span class="s1">'a == 5'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s1">'a != 5'</span><span class="p">)</span>
-<span class="c1"># a == 5</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="c1"># 1</span>
-<span class="c1"># 2</span>
-<span class="c1"># 3</span>
-</pre>
-      </div>
-      <p>
-       Python の分かりやすさは綺麗なインデントにあるといっても過言ではないので、
-乱用は避けたほうがいいです。
-ただ、あまりにも短い単純なコードであれば1ライナーで書いてしまったほうが見やすい場合もあります。
-      </p>
-      <h2 id="header-10">
-       コラム: 多くの言語のコードブロック
-      </h2>
-      <p>
-       Pythonはコードブロックをインデントで示します。
-これは他のプログラミング言語ではあまり見られない記述方法です。
-      </p>
-      <p>
-       多くのプログラミング言語では中括弧「{}」を使ってコードブロックを書きます。
-たとえばJavaだと以下のようなものとなります。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>処理1
-if(条件A){    
-  処理2
-  処理3
-}else{
-  処理4
-}
-処理5
-</pre>
-      </div>
-      <p>
-       Javaのプログラムであっても、コードブロックがどこからどこまでかを分かりやすくするためにインデントをするのが一般的です。
-ただ、プログラムの文法としてはインデントは必須ではないため、やらなくてもエラーにはなりません。
       </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->

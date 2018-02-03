@@ -183,9 +183,9 @@
       <p>
        関数はプログラマが自分で作るものと、プログラミング言語の環境(Python)が提供するものがあり、
 後者を特に「
-       <em>
+       <strong>
         組み込み関数
-       </em>
+       </strong>
        」と呼びます。
       </p>
       <p>
@@ -202,9 +202,9 @@
       </div>
       <p>
        この関数の「()」にいれる値を「
-       <em>
+       <strong>
         引数
-       </em>
+       </strong>
        」と呼んでいます。
 関数の目線で「引き込む値」で、関数を使う側が関数に渡す値です。
 上記の例では「'Hello Python'」という文字列が引数であり、
@@ -220,7 +220,11 @@
        別の関数len()はリストの長さを確認するための関数です。
 この関数は引数としてリストを受け取ると、リストの長さを求めるという処理をします。
 ただ、先ほどのprint関数と異なり、この関数はリストの長さをプログラムの呼び出し側に「返す」という動きをします。
-この返す値のことを「返り値」と呼びます。
+この返す値のことを「
+       <strong>
+        返り値
+       </strong>
+       」と呼びます。
       </p>
       <div class="codehilite">
        <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'h'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'l'</span><span class="p">,</span> <span class="s1">'l'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">]</span>
@@ -255,9 +259,9 @@
       <p>
        組み込み関数を使うだけでなく、関数を自分で作って使うこともできます。
 関数の定義もif文やfor文と同じように、「
-       <em>
+       <strong>
         def文
-       </em>
+       </strong>
        」を使って宣言し、コードブロックで処理を書きます。
       </p>
       <p>
@@ -274,9 +278,9 @@
       <p>
        コードブロック内にその処理を書き、ここではfor文を使って要素を全てループして数を数えています。
 求めた値を呼び出し側に返すには「
-       <em>
+       <strong>
         return文
-       </em>
+       </strong>
        」を使います。
       </p>
       <p>
@@ -349,6 +353,18 @@ TypeError: myfunction1() takes 0 positional arguments but 1 was given
 引数がない関数を引数を与えて呼び出すと「関数myfunction1は引数を0受け取るが、1つ与えられている」としてエラーになっています。
       </p>
       <p>
+       なお、関数で定義している引数を「
+       <strong>
+        仮引数
+       </strong>
+       」と呼び、関数を呼び出す側で与える引数を「
+       <strong>
+        実引数
+       </strong>
+       」といいます。
+たんに引数といった場合はいずれかを意味しています。
+      </p>
+      <p>
        Pythonの関数の引数には中級者向けの様々なテクニックがあります。
 それらを使えば上記の引数の数が違う問題なども回避できます。
 これらについては関数の引数の詳細を扱うページにて解説します。
@@ -358,9 +374,9 @@ TypeError: myfunction1() takes 0 positional arguments but 1 was given
       </h3>
       <p>
        返り値がない関数があると先ほど説明しましたが、厳密にいうとそれらの関数は「
-       <em>
+       <strong>
         None
-       </em>
+       </strong>
        」という値を返り値として返しています。
 Noneは日本語でいうと「何もない」ですので、何もないということを明示的に返しています。
       </p>
