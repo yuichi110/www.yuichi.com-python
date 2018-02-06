@@ -137,10 +137,22 @@
       <h2 id="header-1">
        概要
       </h2>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0040_image/03.jpg"/>
+      </p>
       <p>
        「変数」は様々なデータを保存したり取り出したりすることができる容器のようなものです。
 変数を使うことで複数行に及ぶ複雑なプログラムで、
 前の行で得た結果を後ろの行で使うといったことができます。
+      </p>
+      <p>
+       変数の値は参照(取り出し)されても変わりません。
+たとえば変数abcに数値123が代入されているとすると、
+それを「abc + 456」としても「print(abc)」としても、変数abcの中身は123です。
+ただ、その変数に値を再代入すると中身は上書きされます。
+      </p>
+      <p>
+       代入と演算を同時に行う「複合代入演算」と呼ばれる処理もあります。
       </p>
       <h2 id="header-2">
        変数の目的と利用方法
@@ -163,7 +175,7 @@
 そして後ろの行で変数から値を取り出して利用することで、複数行にまたがる処理を書くことができます。
       </p>
       <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0030_image/02.jpg"/>
+       <img alt="image" class="img-responsive" src="./0040_image/01.png"/>
       </p>
       <p>
        変数には何回でも値を格納することができますが、
@@ -217,14 +229,14 @@
 一方、プログラミングにおける代入演算子は右辺を左辺に代入することに使われます。
       </p>
       <p>
-       たとえば変数abを宣言し、数値の5で初期化するとすれば以下のようになります。
-このように書けば、左辺にある変数abの中身は右辺の5となります。
+       たとえば変数abcを宣言し、数値の123で初期化するとすれば以下のようになります。
+このように書けば、左辺にある変数abcの中身は右辺の5となります。
       </p>
       <h4>
        インタプリタ: 変数の宣言と初期化(代入)
       </h4>
       <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; ab = 5
+       <pre><span></span>&gt;&gt;&gt; abc = 123
 </pre>
       </div>
       <p>
@@ -234,16 +246,19 @@
        インタプリタ: 変数からの値の取り出し(直前のプログラムの続き)
       </h4>
       <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; 10 + ab
-15
-&gt;&gt;&gt; print(ab)
-5
+       <pre><span></span>&gt;&gt;&gt; 10 + abc
+133
+&gt;&gt;&gt; print(abc)
+123
 </pre>
       </div>
       <p>
        ここでは変数abから値を2回取り出していますが、
-いずれも代入されている5を返していることがわかります。
+いずれも代入されている123を返していることがわかります。
 変数から値を取り出しても中身はなくなりません。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0040_image/02.png"/>
       </p>
       <p>
        すでに宣言されている変数に値をもういちど代入する(「
@@ -296,6 +311,12 @@
        代入演算子の右側でなんらかの処理が書かれていれば、その処理がされた結果が変数に代入されます。
 変数に代入されてから代入演算子の右側の処理がされることはありません。
       </p>
+      <p>
+       ここまでの話をまとめた図を示します。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0040_image/03.png"/>
+      </p>
       <h3 id="header-5">
        変数に同じ変数の値を加工して代入
       </h3>
@@ -308,23 +329,23 @@
       </h4>
       <div class="codehilite">
        <pre><span></span>&gt;&gt;&gt; a = 'hello'
-&gt;&gt;&gt; a = a + 'python'
+&gt;&gt;&gt; a = a + ' python'
 &gt;&gt;&gt; print(a)
-hellopython
+hello python
 </pre>
       </div>
       <p>
-       上記の「a = a + 'python'」は以下の動きをします。
+       上記の「a = a + ' python'」は以下の動きをします。
       </p>
       <ol>
        <li>
         代入演算子の右にあるaが'hello'という文字列を返す
        </li>
        <li>
-        それに'python'が結合されて'hellopython'になる
+        それに' python'が結合されて'hello python'になる
        </li>
        <li>
-        代入演算子の右の結果である'hellopython'が左の変数aに再代入される
+        代入演算子の右の結果である'hello python'が左の変数aに再代入される
        </li>
       </ol>
       <p>
@@ -349,6 +370,24 @@ hellopython
       <p>
        他には「-=」や「*=」などもありますが、それぞれ「引いて代入」「かけて代入」となります。
       </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = 'hello'
+&gt;&gt;&gt; a += ' python'
+&gt;&gt;&gt; print(a)
+hello python
+</pre>
+      </div>
+      <p>
+       複合代入演算子は変数の中身を利用しますので、その変数は事前に初期化されている必要があります。
+初期化されていない変数で複合代入演算子を使うとエラーになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; b += 'python'
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'b' is not defined
+</pre>
+      </div>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>

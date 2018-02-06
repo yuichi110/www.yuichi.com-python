@@ -166,11 +166,11 @@
       </p>
       <p>
        たとえば、数字の5や10は「整数型」という型です。
-一方、"Hello"や"Python"といったテキスト(文字列と呼ばれる)は「文字列型」という型です。
+一方、'Hello'や'Python'といったテキスト(文字列と呼ばれる)は「文字列型」という型です。
 型という抽象的な概念があって、それに実際の値となる数値5や文字列"Hello"が属しているということです。
       </p>
-      <p>
-       &lt;&lt; 図 &gt;&gt;
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0035_image/01.png"/>
       </p>
       <h3 id="header-3">
        型と密接に結びつく処理
@@ -248,6 +248,9 @@ TypeError: unsupported operand type(s) for -: 'str' and 'str'
 例えば「アルファベットを全て大文字にする」という処理が文字列型ではできますが、
 これを数値型ではできません。
       </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0035_image/02.png"/>
+      </p>
       <p>
        「どの型がどのような処理をすることができるか」ということを覚えると、
 「自分が実現したい処理をするにはどういう書き方をすればいいか」ということが分かってきます。
@@ -259,12 +262,6 @@ TypeError: unsupported operand type(s) for -: 'str' and 'str'
        どの型がどのような処理をできるかということは、プログラミング言語ごとに若干異なります。
 ただ、どの言語でもそれほど大きな違いはありませんので、
 型と処理の関係の知識がたまるとそのプログラミング言語だけでなく、プログラミング全般の自体の知識が向上します。
-      </p>
-      <p>
-       以下に型と処理の関係を示す図を記載します。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0030_image/01.jpg"/>
       </p>
       <h3 id="header-4">
        数値 vs 文字列型の数字
@@ -297,9 +294,9 @@ TypeError: unsupported operand type(s) for -: 'str' and 'str'
       </h2>
       <p>
        あるデータがどの型のものかは「
-       <em>
+       <strong>
         type関数
-       </em>
+       </strong>
        」にデータを引数として渡すと分かります。
       </p>
       <h4>
@@ -383,6 +380,9 @@ TypeError: cannot concatenate 'str' and 'int' objects
       <p>
        プログラムの処理をコンソールに出力したりするために文字列を作ることはよくあります。
 キャストを駆使して文字列を作る以外にも、文字列のフォーマットといったテクニックもあります。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0035_image/03.png"/>
       </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
