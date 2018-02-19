@@ -142,11 +142,19 @@
           関数内の関数
          </a>
         </li>
+        <li>
+         <a href="header-9">
+          組み込み関数
+         </a>
+        </li>
        </ul>
       </div>
       <h2 id="header-1">
        概要
       </h2>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0070_image/02.png"/>
+      </p>
       <p>
        Pythonに限らず、多くのプログラミング言語には「関数」という概念があります。
 関数は呼び出し元から「引数」として値を受けとり、
@@ -188,6 +196,9 @@
        </strong>
        」と呼びます。
       </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0070_image/01.png"/>
+      </p>
       <p>
        たとえば出力をコンソールにするprint文も組み込み関数です。
 この関数に値を与えると、それがコンソールに表示されます。
@@ -212,9 +223,6 @@
       </p>
       <p>
        関数はそれぞれ役割を持っていて、print関数は引数をコンソールに表示することが役割です。
-      </p>
-      <p>
-       &lt;&lt;図&gt;&gt;
       </p>
       <p>
        別の関数len()はリストの長さを確認するための関数です。
@@ -247,11 +255,11 @@
 そのため、呼び出し元に返り値を返します。
       </p>
       <p>
-       &lt;&lt;図&gt;&gt;
-      </p>
-      <p>
        関数は突き詰めると「呼び出し元が引数で値を関数に渡す」「関数の処理のなかで引数を使ってなにかをする」
 「関数が返り値として処理した結果を呼び出し側に返す」という3つの流れに集約されます。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0070_image/02.png"/>
       </p>
       <h2 id="header-3">
        関数の定義と利用
@@ -267,9 +275,14 @@
       <p>
        リスト長を求めるlen()関数と同じことをする「mylen()」関数を定義します。
       </p>
-      <p>
-       &lt;&lt;図&gt;&gt;
-      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">mylen</span><span class="p">(</span><span class="n">list_</span><span class="p">):</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="n">list_</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">count</span>
+</pre>
+      </div>
       <p>
        def文に続けて自分がつけたい関数名を書き、それに続けて()に囲まれた引数を書きます。
 関数名や引数名は変数と同じように自分の好きな名前をつけられます。
@@ -313,6 +326,21 @@ return文がない、もしくはif文の関係で実行されなかったとい
 上記ではmylenの定義をしたあとで、それを使っています。
 もしこの順序が逆になれば「mylenは定義されていない」としてエラーが発生します。
       </p>
+      <p>
+       なお、関数で定義している引数を「
+       <strong>
+        仮引数
+       </strong>
+       」と呼び、関数を呼び出す側で与える引数を「
+       <strong>
+        実引数
+       </strong>
+       」といいます。
+たんに引数といった場合はいずれかを意味しています。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0070_image/03.png"/>
+      </p>
       <h3 id="header-4">
        引数
       </h3>
@@ -351,18 +379,6 @@ TypeError: myfunction1() takes 0 positional arguments but 1 was given
       <p>
        引数の数を揃えた1番めと2番めの呼び出しは成功していますが、
 引数がない関数を引数を与えて呼び出すと「関数myfunction1は引数を0受け取るが、1つ与えられている」としてエラーになっています。
-      </p>
-      <p>
-       なお、関数で定義している引数を「
-       <strong>
-        仮引数
-       </strong>
-       」と呼び、関数を呼び出す側で与える引数を「
-       <strong>
-        実引数
-       </strong>
-       」といいます。
-たんに引数といった場合はいずれかを意味しています。
       </p>
       <p>
        Pythonの関数の引数には中級者向けの様々なテクニックがあります。
@@ -485,6 +501,12 @@ None
        上記の例では関数 test1() の中で関数 test2() を定義し、それを使っています。
 今回のサンプルのような短い関数であればこのような使い方は不要ですが、
 より複雑な処理を関数で行う場合は処理を綺麗に分類するために内部で関数を定義して使うことがあります。
+      </p>
+      <h2 id="header-9">
+       組み込み関数
+      </h2>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0070_image/04.png"/>
       </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
