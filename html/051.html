@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       Python3のインストール
+       数値型
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,35 +107,54 @@
         </li>
         <li>
          <a href="header-2">
-          Pythonのインストール
+          演算子
          </a>
          <ul>
           <li>
            <a href="#header-3">
-            Windows10へのインストール
-           </a>
-          </li>
-          <li>
-           <a href="#header-4">
-            Windows10でPythonの動作確認
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            Macへのインストールと動作確認
+            数値を扱う関数
            </a>
           </li>
          </ul>
         </li>
         <li>
-         <a href="#header-6">
-          コラム: Python2とPython3の違い
+         <a href="#header-4">
+          数値の範囲と型
          </a>
+         <ul>
+          <li>
+           <a href="#header-5">
+            整数型(int)
+           </a>
+          </li>
+          <li>
+           <a href="#header-6">
+            少数型(float)
+           </a>
+          </li>
+         </ul>
         </li>
         <li>
-         <a href="header-7">
-          用語
+         <a href="#header-7">
+          基数
          </a>
+         <ul>
+          <li>
+           <a href="#header-8">
+            2進数と16進数
+           </a>
+          </li>
+          <li>
+           <a href="#header-9">
+            基数の変換
+           </a>
+          </li>
+          <li>
+           <a href="#header-10">
+            基数の変換のプログラム
+           </a>
+          </li>
+         </ul>
         </li>
        </ul>
       </div>
@@ -143,220 +162,199 @@
        概要
       </h2>
       <p>
-       Pythonを使うには、そのコンピュータにPythonがインストールされている必要があります。
-Pythonには「Python2」と「Python3」があり、2017年現在はPython2からPython3に主流が移る過渡期にいます。
-そのため、特別な理由などがなければPython3を学ぶことが、今後のことを考えると望ましいです。
-      </p>
-      <p>
-       WindowsにはPython2もPython3も、デフォルトではインストールされていません。
-そのため、Pythonを使うにはインストールが必要です。
-      </p>
-      <p>
-       MacにはPython2のみデフォルトでインストールされています。
-Python3を使いたければ、Python3をインストールする必要があります。
+       あいうえお
       </p>
       <h2 id="header-2">
-       Pythonのインストール
+       演算子
       </h2>
       <h3 id="header-3">
-       Windows10へのインストール
+       数値を扱う関数
       </h3>
       <p>
-       WindowsにはデフォルトでPythonがインストールされていません。
-Pythonを使うためにはインストールが必須です。
+       | 利用可能な演算子 | 説明 |
+|:-------------:|:---:|
+| M + N | 足し算 |
+| M - N | 引き算 |
+| M * N | 掛け算 |
+| M / N | 割り算 |
+| M % N | 剰余(あまり) |
+| M ** N | べき乗(M * M * M.. を N回) |
       </p>
       <p>
-       インストールにはPythonの公式サイト(https://www.python.org/)から、
-実行環境にあったPythonのインストールイメージをダウンロードしてきます。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/01.png"/>
-      </p>
-      <p>
-       Pythonのバージョンには現在2.xと3.xがあります。
-両者を区別する場合は前者を「
+       | 利用可能な演算子 | 説明 |
+| M += N | M = M + N |
+| M -= N | M = M - N |
+| M *= N | M = M * N |
+| M /= N | M = M / N |
+| M %= N | M = M % N |
+| M
        <strong>
-        Python2
+        = N | M = M
        </strong>
-       」と呼び、後者を「
-       <strong>
-        Python3
-       </strong>
-       」と呼びます。
+       N |
       </p>
       <p>
-       新しくPythonを学ぶのであれば、現在主流になりつつある3.Xの最新版をインストールしてください。
-本サイトでは「3.X」にて解説をしております。
+       数値を扱う関数も多数用意されており、
+例えば前章にて扱った絶対値を得る関数やリスト(後述)の合計値を得る関数があります。
       </p>
-      <p>
-       上記ページから落としてきたイメージからインストーラーを立ち上げると以下のような画面が現れると思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/02.png"/>
-      </p>
-      <p>
-       この選択画面で赤の枠囲みがされている場所をチェックすると、
-「環境変数」と呼ばれるアプリケーションの所在地を示す情報が自動で登録されますのでチェックをして下さい。
-環境変数への登録は後ほど説明するコンソールでpythonコマンドを使うために必要となります。
-      </p>
-      <p>
-       環境変数に登録しないと、コンソールがPythonがどこに存在するか知らないため、
-Pythonを使おうとした際に「そんなものはない」と怒られてしまいます。
-仮にこの選択画面でチェックを忘れた場合は、「パスを通す」という作業をする必要があります。
-面倒な場合はもう一度Pythonをインストールしなおして、その際に環境変数の登録をすれば大丈夫です。
-      </p>
-      <p>
-       「Install Now」と「Customize installation」の選択肢がありますが、
-一般的には「Install Now」で構いません。
-いま操作しているユーザー以外がPythonを利用したり、
-凝った使い方をしたりしたい場合は「Customize Installation」が必要となります。
-      </p>
-      <h3 id="header-4">
-       Windows10でPythonの動作確認
-      </h3>
-      <p>
-       Pythonは「コンソール」と呼ばれるアプリケーションから利用します。
-Windowsで利用されるコンソールは「パワーシェル」もしくは「コマンドプロンプト」が一般的です。
-パワーシェル及びコマンドプロンプトは場所がわからなくてもWindows の検索機能を使うことで見つけられるかと思います。
-参考のために以下に画像を記載します。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/03.png"/>
-      </p>
-      <p>
-       パワーシェルやコマンドプロンプトは何度も使うことになるので、
-タスクバーにピン留めしてすぐに使えるようにしておくと今後が楽です。
-      </p>
-      <p>
-       プロンプトから以下のように「python --version」と打ってPythonを起動してみてください。
-先ほどのインストール作業時にパスが登録されていれば、以下のような出力が得られると思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/04.png"/>
-      </p>
-      <p>
-       そのようなものがないと怒られた場合はインストールができていないかパスが通っていません。
-パスの通し方は検索してもらえればすぐに分かるはずです。
-      </p>
-      <p>
-       なお、本サイトのプログラムはMacで書いて実行しているため、微妙にWindowsと食い違いが発生するかもしれません。
-大きな差ですと明記しますが、コマンド名やOSのディレクトリ構造といった小さい箇所は適時読み変えて下さい。
-      </p>
-      <p>
-       また、「ターミナル」と言った場合はパワーシェルやコマンドプロンプトのことを指します。
-      </p>
-      <h3 id="header-5">
-       Macへのインストールと動作確認
-      </h3>
-      <p>
-       Windowsと異なり、MacにはデフォルトでPythonがインストールされています。
-ただ、インストールされているものはPython2のため、Python3はインストールが必要です。
-Windowsへのインストールと同じように公式サイト(https://www.python.org/)へ行き、
-Python3のイメージをダウンロードしてきてインストールを行って下さい。
-      </p>
-      <p>
-       MacでのPython3のインストールは非常に簡単なため、割愛します。
-Windowsで行ったパスを通すなどの作業は、自動で行われるため不要です。
-      </p>
-      <p>
-       MacでのPythonの実行も、Windowsと同じコンソールを使います。
-Macのコンソールアプリケーションはターミナル(コマンドライン)で、
-それは「アプリケーション」フォルダ配下の「ユーティリティ(Utilities)」の下にあります。
-      </p>
-      <p>
-       ターミナルは今後頻繁に使うことになるので、ドラッグ&amp;ドロップでDockに登録しておいたほうがよいと思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/05.png"/>
-      </p>
-      <p>
-       ターミナルを起動して、「python --version」と打つと、
-おそらくPython2のバージョンが表示されます。
-      </p>
-      <p>
-       Python3のバージョンを確認するには「python3 --version」と打つ必要があります。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/06.png"/>
-      </p>
-      <p>
-       Macには複数のバージョンのPythonがインストールされています。
-デフォルトのPythonはPython2であるため、「python」とだけ入力するとpython2が使われます。
-python3を使うためには、「python3」と明示的にバージョンを指定する必要があります。
-      </p>
-      <p>
-       ちなみに、ターミナルにて「python」に続いてtabボタンを打つと、
-MacにインストールされているPythonのバージョン一覧が確認できます。
-      </p>
-      <h4>
-       MAC: pythonのバージョン一覧を確認
-      </h4>
       <div class="codehilite">
-       <pre><span></span>$ python
-python             python2.7-config   python3.5-32       pythonw2.6
-python-config      python3            python3.5-config   pythonw2.7
-python2.6          python3-32         python3.5m
-python2.6-config   python3-config     python3.5m-config
-python2.7          python3.5          pythonw
+       <pre><span></span>&gt;&gt;&gt; abs(-3)
+3
+&gt;&gt;&gt; sum([1,3,5])
+9
 </pre>
       </div>
       <p>
-       上記の例ではPython2として、python2.6と2.7がインストールされており、
-Python3としてpython3.5がインストールされています。
+       数値の操作はさまざまな処理で利用されます。
+たとえば解析ツールや統計処理を行うアプリケーションを作るのであれば、数学的な処理をする必要があります。
+演算子と数学的知識を使って、それを自力で実装する方法もありますが、
+可能であれば実装の労力と実効速度およびバグの少なさを考慮して「標準ライブラリ」や「外部のライブラリ」を使うべきです。
+ライブラリ(モジュール)の使いかたは本書で扱いますが、個別ライブラリに関しては主に下編で扱います。
       </p>
-      <p>
-       Python3 を使うつもりで間違えてPython2を使ったり、
-その逆が発生したりしないように注意をしてください。
-      </p>
-      <h2 id="header-6">
-       コラム: Python2とPython3の違い
+      <h2 id="header-4">
+       数値の範囲と型
       </h2>
-      <p>
-       Python2とPytho3のプログラムには一部互換性がありません。
-そのため、Python2で作ったコードをPython3で使うことや、
-その逆ができないことが多々ありますので注意してください。
-      </p>
-      <p>
-       もし仮にPython2のプログラムを書く場合であっても、それがPython3で動くように書く癖をつけておいてください。
-完全に互換性をもたせるのは大変なのでおすすめしませんが、
-Python3で廃止される古いPython2の書き方に固執するのはよくありません。
-      </p>
-      <p>
-       ちなみにPython 2と3の両方をインストールして使い分けることも可能ですので、
-最終的に2.xを使いたいかたも、3.xをインストールして大丈夫です。
-      </p>
+      <h3 id="header-5">
+       整数型(int)
+      </h3>
+      <h3 id="header-6">
+       少数型(float)
+      </h3>
       <h2 id="header-7">
-       用語
+       基数
       </h2>
-      <ul>
-       <li>
-        Python2 : 古いPythonの種類。2.X として様々なバージョンがあるが、2.7が最後
-       </li>
-       <li>
-        Python3 : 新しいPythonの種類。3.X として開発中。
-       </li>
-       <li>
-        パスを通す
-       </li>
-       <li>
-        環境変数
-       </li>
-       <li>
-        コンソール
-       </li>
-       <li>
-        パワーシェル(PowerShell)
-       </li>
-       <li>
-        ターミナル(Terminal)
-       </li>
-      </ul>
+      <p>
+       私たちが普段使う10進数を思い出してください。0、1、2…… と数が大きくなっていき、8、9となると次は桁があがって10になります。
+このとき、ひとつの桁で表現できる数は0～9の10個であり、この1桁で表現できる数を「基数」と呼びます。
+そしてその基数Nで表現される数え方を「N進数」と呼びます。
+たとえば、0～9の10個であれば10進数、0～7の8個であれば8進数になります。
+      </p>
+      <h3 id="header-8">
+       2進数と16進数
+      </h3>
+      <p>
+       では、0～1で表現されるのは、基数が何で何進数と呼ばれているでしょうか。
+基数が2なので、2進数です。コンピュータが理解可能なのは01だけという話を何度もしていますが、
+要するにコンピュータは2進数を使うということです。
+      </p>
+      <p>
+       ただ、人間は01だけで構成された数字を見せられても、あまりピンときません。
+たとえば、適当に打った01000100010011110010という2進数の大きさがどれほどなのか、一瞬では把握できません。
+これを10進数に直すと279794になり、およそ28万であるということがわかります。
+      </p>
+      <p>
+       2進数を人が読みやすい10進数に変換するのは結構骨が折れます。
+たとえば、01001101という2進数を10進数に変換するには、
+2進数の各桁の値(0 or 1)に2 の“桁－1”乗をかけた値を足しあわせていくという処理を行います。
+試しに低い桁から順に足しあわせて計算してみます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>(1 x 2^0) + (0 x 2^1) + (1 x 2^3) + (1 x 2^4) + (0 x 2^5) + (0 x 2^6) + (1 x 2^7) + (0 x 2^8)
+ = 1 + 0 + 4 + 8 + 0 + 0 + 64 + 0
+ = 77
+
+# 補足
+# N^MはNのM乗という意味。べき乗をテキストで表現できるので便利な書き方
+# Python的に書くとN ** M
+# 2^0 は1, 2^1は2, 2^2は4,……, 2^8は128
+</pre>
+      </div>
+      <p>
+       2進数 01001101 から 10進数の 77 を求められています。
+疑い深い人は2進数から10進数に変換できるアプリケーションの電卓などもあるでしょうから、確認してみてもいいかもしれません。
+0進数から2進数への変換はこの逆で、割り算を繰り返すようなことをします。
+      </p>
+      <p>
+       以上のように「2進数は桁が大きくなりわかりづらい」ものの「10進数は2進数と相性が悪い(変換しにくい)」という問題があるので、
+コンピュータでは2進数と相性がよい16進数がよく使われます。
+16進数は0～9までの数字だと16パターンを表現できないので、
+アルファベットを使って、0から15までを1桁で表現します。
+具体的には以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="mi">16</span><span class="err">進数</span> <span class="o">:</span> <span class="mi">10</span><span class="err">進数</span>
+<span class="mi">0</span>  <span class="o">:</span>  <span class="mi">0</span>
+<span class="mi">1</span>  <span class="o">:</span>  <span class="mi">1</span>
+<span class="mi">2</span>  <span class="o">:</span>  <span class="mi">2</span>
+<span class="err">…</span>
+<span class="mi">8</span>  <span class="o">:</span>  <span class="mi">8</span>
+<span class="mi">9</span>  <span class="o">:</span>  <span class="mi">9</span>
+<span class="n">A</span>  <span class="o">:</span> <span class="mi">10</span>
+<span class="n">B</span>  <span class="o">:</span> <span class="mi">11</span>
+<span class="n">C</span>  <span class="o">:</span> <span class="mi">12</span>
+<span class="n">D</span>  <span class="o">:</span> <span class="mi">13</span>
+<span class="n">E</span>  <span class="o">:</span> <span class="mi">14</span>
+<span class="n">F</span>  <span class="o">:</span> <span class="mi">15</span>
+<span class="mi">10</span> <span class="o">:</span> <span class="mi">16</span>   <span class="err">#</span> <span class="err">桁が増える</span>
+<span class="mi">11</span> <span class="o">:</span> <span class="mi">17</span>
+<span class="err">…</span>
+</pre>
+      </div>
+      <p>
+       この16進数は2進数と非常に相性がよく、2進数の4桁をちょうど16進数だと1桁で表現できます。
+0000～1111は10進数でいうと0～15なので、ちょうど16進数の0～Fにピッタリあてはまるのです。
+1バイト(0から255)は8ビット、つまり2進数が8桁なので、ちょうど16進数2桁で表現できます。
+      </p>
+      <h3 id="header-9">
+       基数の変換
+      </h3>
+      <p>
+       基数変換に便利なPythonの関数を紹介します。10進数から2進数、8進数、16進数への変換は専用の関数を使います。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>  <span class="c1"># 2進数</span>
+<span class="c1"># 0b1100100</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">oct</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>  <span class="c1"># 8進数</span>
+<span class="c1"># 0144</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>  <span class="c1"># 16進数</span>
+<span class="c1"># 0x64</span>
+</pre>
+      </div>
+      <p>
+       先頭に何かついていますが、0bは2進数、0xは16進数という表明に使います。
+8進数は0だけを先頭につけるというルールもありますが、桁埋めの0と混同しないように注意してください。
+      </p>
+      <p>
+       次に、N進数から10進数への変換です。実はこれはすでに使ったことがある関数 int を使います。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">'100'</span><span class="p">))</span>
+<span class="c1"># 100</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">'1100100'</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># 2進数</span>
+<span class="c1"># 100</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">'0144'</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>  <span class="c1"># 8進数</span>
+<span class="c1"># 100</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">'64'</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>   <span class="c1"># 16進数</span>
+<span class="c1"># 100</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">'6B'</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>   <span class="c1"># A,B,C……も使える</span>
+<span class="c1"># 107</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">'212'</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>      <span class="c1"># あまり使わないN進数も一応使える</span>
+<span class="c1"># 23</span>
+</pre>
+      </div>
+      <p>
+       intの第一引数に数字のもとになる文字列を入れ、第二引数に基数を指定します。
+第二引数を省略すると10進数として扱われます。基数とN進数に関しては以上です。
+      </p>
+      <h3 id="header-10">
+       基数の変換のプログラム
+      </h3>
+      <p>
+       コメント: アルゴリズムの説明とサンプルコードを書くこと
+      </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>
        <ul class="pager">
         <li id="previous-li">
-         <a href="./002.html" id="previous-a">
+         <a href="./019.html" id="previous-a">
           ← Previous
          </a>
         </li>
@@ -366,7 +364,7 @@ Python3で廃止される古いPython2の書き方に固執するのはよくあ
          </a>
         </li>
         <li class="pager-next" id="next-li">
-         <a href="./004.html" id="next-a">
+         <a href="./052.html" id="next-a">
           Next →
          </a>
         </li>

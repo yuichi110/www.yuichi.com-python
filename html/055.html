@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Sample Description" name="description"/>
+  <meta content="Yuichi Ito" name="author"/>
+  <title>
+   Python入門
+  </title>
+  <link href="/img/favicon.ico" rel="shortcut icon"/>
+  <!-- Bootstrap -->
+  <link href="./assets/css/bootstrap.css" rel="stylesheet">
+   <link href="./assets/css/bootstrap-theme.css" rel="stylesheet"/>
+   <link href="./assets/css/bootstrap_u1.css" rel="stylesheet"/>
+   <!-- Font -->
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+   <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+    <!-- Code Highlight -->
+    <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+    <!-- Custom -->
+    <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="./assets/icomoon/style.css" rel="stylesheet"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+   </link>
+  </link>
+ </head>
+ <body>
+  <div class="backgroundLayer">
+   <!-- Fixed navbar -->
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+     <div class="navbar-header">
+      <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+       <span class="sr-only">
+        Toggle navigation
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+      </button>
+      <a class="navbar-brand " href="./">
+       Python
+      </a>
+     </div>
+     <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav">
+       <li class="">
+        <a href="./navi.html">
+         Navi
+        </a>
+       </li>
+       <li class="">
+        <a href="./qa.html">
+         QA
+        </a>
+       </li>
+       <li class="">
+        <a href="./books.html">
+         Books
+        </a>
+       </li>
+       <li style="font-family: avenger">
+        <a href="/">
+         GC
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </nav>
+   <div class="container">
+    <div class="u1-header">
+     <a href="./" style=" text-decoration: none;">
+      <div class="u1-title">
+       Python Boot Camp
+      </div>
+      <p class="lead u1-description">
+       プログラミング言語Python訓練プログラム
+      </p>
+     </a>
+    </div>
+    <div class="row">
+     <div class="col-sm-8 u1-main">
+      <!-- GENERATED HTML START -->
+      <!-- GENERATED HTML START -->
+      <h1>
+       リスト
+      </h1>
+      <div class="no_bullets" id="toc_container">
+       <p class="toc_title">
+        本記事の内容
+       </p>
+       <ul class="toc_list">
+        <li>
+         <a href="#header-1">
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="header-2">
+          リストの使い方
+         </a>
+         <ul>
+          <li>
+           <a href="#header-3">
+            初期化とインデックスを使った操作
+           </a>
+          </li>
+          <li>
+           <a href="#header-4">
+            要素の取得と代入
+           </a>
+          </li>
+          <li>
+           <a href="#header-5">
+            要素をリスト末尾を基準に参照
+           </a>
+          </li>
+          <li>
+           <a href="#header-6">
+            リストの切り出し:スライス
+           </a>
+          </li>
+          <li>
+           <a href="#header-7">
+            リスト長
+           </a>
+          </li>
+          <li>
+           <a href="#header-8">
+            in演算子
+           </a>
+          </li>
+          <li>
+           <a href="#header-9">
+            del演算子
+           </a>
+          </li>
+          <li>
+           <a href="#header-10">
+            +演算子
+           </a>
+          </li>
+          <li>
+           <a href="#header-11">
+            リストの中のリスト
+           </a>
+          </li>
+          <li>
+           <a href="#header-12">
+            range関数を使った連番リストの作成
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-13">
+          リストのメソッド
+         </a>
+         <ul>
+          <li>
+           <a href="#header-14">
+            append : リスト末尾への要素の追加
+           </a>
+          </li>
+          <li>
+           <a href="#header-15">
+            insert : リストへの要素の挿入
+           </a>
+          </li>
+          <li>
+           <a href="#header-16">
+            pop : 要素の取り出し
+           </a>
+          </li>
+          <li>
+           <a href="#header-17">
+            count : 引数で指定した値と同じ値を持つ要素数を数える
+           </a>
+          </li>
+          <li>
+           <a href="#header-18">
+            index : 引数でした値と同じ値を持つ要素のインデックス番号を得る
+           </a>
+          </li>
+          <li>
+           <a href="#header-19">
+            remove : 要素を指定した要素の削除
+           </a>
+          </li>
+          <li>
+           <a href="#header-20">
+            リストの結合 : +演算子, extendメソッド
+           </a>
+          </li>
+          <li>
+           <a href="#header-21">
+            リストの反転: reverse
+           </a>
+          </li>
+          <li>
+           <a href="#header-22">
+            リストのソート: sort
+           </a>
+          </li>
+          <li>
+           <a href="#header-23">
+            リストの初期化
+           </a>
+          </li>
+          <li>
+           <a href="#header-24">
+            リストのコピー
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-25">
+          キュー(Queue)とスタック(Stack)
+         </a>
+        </li>
+       </ul>
+      </div>
+      <h2 id="header-1">
+       概要
+      </h2>
+      <p>
+       Pythonなどのプログラミング言語ではデータを管理するための様々な型を持っています。
+プログラミング言語が異なっても、提供される型やその使い方に大差はありません。
+      </p>
+      <p>
+       リストはそのようなデータを管理するための型のなかで、最もよく利用される型のひとつです。
+      </p>
+      <h2 id="header-2">
+       リストの使い方
+      </h2>
+      <p>
+       オブジェクト指向のプログラミング言語では、クラスからインスタンスを作成することで処理やデータを実現します。
+リストはよく利用される型ですので、クラス名を使った初期化やメソッドだけでなく、
+リストのための特別なインスタンスを作成する構文や、要素を操作する構文があります。
+      </p>
+      <h3 id="header-3">
+       初期化とインデックスを使った操作
+      </h3>
+      <p>
+       リストの初期化には様々な手法があります。
+よく利用されるのは「[]」にリストの要素をコンマで並べるという方法です。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; [1, 2, 3]
+[1, 2, 3]
+&gt;&gt;&gt; []
+[]
+</pre>
+      </div>
+      <p>
+       他にはあまり利用されませんが、listのコンストラクタを使うという方法もあります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; list()
+[]
+</pre>
+      </div>
+      <p>
+       コンストラクタはリスト型へのキャストにも使えます。
+キャストできる型はイテレート処理できる型ですので、文字列や辞書型などはリスト型へキャストできます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; list('hello')
+['h', 'e', 'l', 'l', 'o']
+</pre>
+      </div>
+      <h3 id="header-4">
+       要素の取得と代入
+      </h3>
+      <p>
+       リストのインスタンスに続けて「[]」でインデックス番号を指定することで、要素を取得できます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; print(a[0])
+1
+</pre>
+      </div>
+      <p>
+       取得と同様に代入も可能です。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; a[0] = 100
+&gt;&gt;&gt; print(a)
+[100, 2, 3]
+</pre>
+      </div>
+      <p>
+       インデックスの範囲外を参照しようとすると、エラーが発生します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; a[100]
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+IndexError: list index out of range
+</pre>
+      </div>
+      <h3 id="header-5">
+       要素をリスト末尾を基準に参照
+      </h3>
+      <p>
+       要素の指定はインデックス番号の指定だけでなく、
+マイナス記号を使うことで後ろから何番目という指定もできます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; a[-1]
+5
+&gt;&gt;&gt; a[-3]
+3
+</pre>
+      </div>
+      <p>
+       後ろからの参照も範囲外へのアクセスはエラーとなります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; a[-100]
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+IndexError: list index out of range
+</pre>
+      </div>
+      <h3 id="header-6">
+       リストの切り出し:スライス
+      </h3>
+      <p>
+       リストの一部をリストとして抜き出すこともできます。
+たとえば長さ10のリストから、要素3から要素8までを抜き出すといったようなものです。
+切り出された元のリストには変化はありません。
+      </p>
+      <p>
+       これは範囲を「[前のインデックス番号:後ろのインデックス番号]」として指定します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3,4,5,6,7,8,9,10]
+&gt;&gt;&gt; a[2:8]
+[3, 4, 5, 6, 7, 8]
+print(a)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</pre>
+      </div>
+      <p>
+       要素の指定は0をベースに数えますが、後ろの数は「指定した値-1」までを取得してきます。
+上記の例ではインデックス番号2(前から3個め)からインデックス番号7(前から8番め)まで取得しています。
+境界を間違いやすいので注意をしてください。
+      </p>
+      <p>
+       前のインデックス番号を省略すると、リストの先頭から指定したインデックス番号までを切り出します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a[:5]
+[1, 2, 3, 4, 5]
+</pre>
+      </div>
+      <p>
+       これとは逆に後ろを省略すると指定したインデックス番号から最後までを切り出します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a[5:]
+[6, 7, 8, 9, 10]
+</pre>
+      </div>
+      <p>
+       前のインデックス番号も後ろのインデックス番号も省略すると、そのリストをそのまま「コピー」します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a[:]
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</pre>
+      </div>
+      <p>
+       同じ内容のインスタンスを新しく作られるので、参照渡しによる副作用を防ぐためなどに利用したりします。
+ただし、いわゆる「浅いコピー」なので注意をしてください。
+      </p>
+      <h3 id="header-7">
+       リスト長
+      </h3>
+      <p>
+       複雑なプログラムではリストに対してインデックス番号を基準とした処理を書くことがよくあります。
+その際にリストの範囲外へのアクセスを防ぐためにリスト長を確認することが必要です。
+      </p>
+      <p>
+       リスト長をを得るには組み込み関数のlenを使います。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3]
+&gt;&gt;&gt; len(a)
+3
+&gt;&gt;&gt; a = []
+&gt;&gt;&gt; len(a)
+0
+</pre>
+      </div>
+      <p>
+       インデックスを指定できるのは0から「リスト長-1」までとなります。
+リスト長が0のリストは中身が何もないので、インデックス番号を指定して要素を参照することはできません。
+      </p>
+      <h3 id="header-8">
+       in演算子
+      </h3>
+      <p>
+       リストの中に要素が含まれているかは「in演算子」で確認します。
+要素が含まれていればTrueを返し、含まれていなければFalseを返します。
+      </p>
+      <p>
+       使い方は「要素 in リスト」となります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [5,7,3,9]
+&gt;&gt;&gt; 3 in a
+True
+&gt;&gt;&gt; 8 in a
+False
+</pre>
+      </div>
+      <p>
+       これとは逆に「含まれないこと」を確認するためには「not in」とします。
+含まれていなければTrueを返し、含まれていればFalseを返します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [5,7,3,9]
+&gt;&gt;&gt; 3 not in a
+False
+&gt;&gt;&gt; 8 not in a
+True
+</pre>
+      </div>
+      <h3 id="header-9">
+       del演算子
+      </h3>
+      <p>
+       リストの要素をインデックス番号を指定して削除するには「del演算子」を使います。
+del演算子に続けてインスタンスとインデックス番号を指定します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3,4,5]
+&gt;&gt;&gt; print(a[3])
+4
+&gt;&gt;&gt; del a[3]
+&gt;&gt;&gt; print(a)
+[1, 2, 3, 5]
+</pre>
+      </div>
+      <p>
+       マイナスを使った指定や、スライスを使った範囲指定で要素を消すこともできます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3,4,5]
+&gt;&gt;&gt; del a[1:3]
+&gt;&gt;&gt; print(a)
+[1, 4, 5]
+&gt;&gt;&gt; del a[-1]
+&gt;&gt;&gt; print(a)
+[1, 4]
+</pre>
+      </div>
+      <h3 id="header-10">
+       +演算子
+      </h3>
+      <p>
+       リストとリストを結合するには+演算子を使います。
+結合のベースとなるリストには変化はなく、新しく結合されたリストが作成されます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3]
+&gt;&gt;&gt; b = [4,5,6]
+&gt;&gt;&gt; print(a + b)
+[1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; print(a)
+[1, 2, 3]
+</pre>
+      </div>
+      <h3 id="header-11">
+       リストの中のリスト
+      </h3>
+      <p>
+       リストは入れ子構造にすることができます。
+リストの要素としてリストを使うということです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [[1,2,3], [4,5,6], [7,8,9]]
+</pre>
+      </div>
+      <p>
+       上記では外側のリストが要素として[1,2,3]と[4,5,6]及び[7,8,9]を持っています。
+要素を指定するには「インスタンス[インデックス番号]」としますが、
+入れ子のリストではこの指定をすると内側のリストのインスタンスを返します。
+そのため「インスタンス[外側のリストのインデックス番号][内側のリストのインデックス番号]」とすることで、
+内側のリストの要素を取得できます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [[1,2,3], [4,5,6], [7,8,9]]
+&gt;&gt;&gt; a[1]
+[4, 5, 6]
+&gt;&gt;&gt; a[1][1]
+5
+</pre>
+      </div>
+      <p>
+       a[1][1]はaというリストから1番目の要素のリストをとりだし、
+その取り出したリストから1番目の要素を取り出すということです。
+      </p>
+      <h3 id="header-12">
+       range関数を使った連番リストの作成
+      </h3>
+      <p>
+       プログラムの中で数値の連番を持つリストを作りたいことがあります。
+whileなどを使ってインクリメントとループで作成することもできますが、
+range関数を使うと簡単です。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; range(10)
+range(0, 10)
+&gt;&gt;&gt; list(range(10))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre>
+      </div>
+      <p>
+       range関数に引数を与えると、0からその数値までの数列をrange型のインスタンスとして返します。
+これをリスト型にキャストすると0から指定した値までのリストを得ることができます。
+      </p>
+      <p>
+       ある値からある値までの連番のリストを作りたい場合はrange関数に引数を2つ与えます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; list(range(5, 10))
+[5, 6, 7, 8, 9]
+</pre>
+      </div>
+      <h2 id="header-13">
+       リストのメソッド
+      </h2>
+      <h3 id="header-14">
+       append : リスト末尾への要素の追加
+      </h3>
+      <p>
+       リストの末尾への要素の追加はappendメソッドを使います。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3]
+&gt;&gt;&gt; a.append(4)
+&gt;&gt;&gt; print(a)
+[1, 2, 3, 4]
+</pre>
+      </div>
+      <h3 id="header-15">
+       insert : リストへの要素の挿入
+      </h3>
+      <p>
+       末尾以外への要素の追加(挿入)にはinsertを使います。
+insertメソッドで末尾に挿入することもできますが、インデックス番号を意識しないのであればappendを使うようにしてください。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3]
+&gt;&gt;&gt; a.insert(0, 100)
+&gt;&gt;&gt; print(a)
+[100, 1, 2, 3]
+
+&gt;&gt;&gt; a.insert(3, 200)
+&gt;&gt;&gt; print(a)
+[100, 1, 2, 200, 3]
+
+&gt;&gt;&gt; a.insert(5, 300)
+&gt;&gt;&gt; print(a)
+[100, 1, 2, 200, 3, 300]
+</pre>
+      </div>
+      <h3 id="header-16">
+       pop : 要素の取り出し
+      </h3>
+      <p>
+       リストの要素をインデックス番号を指定して取得するには「インスタンス[インデックス番号]」とします。
+      </p>
+      <p>
+       参照するだけでなく、その要素を同時に消したい場合は「参照した後にdel演算子で消す」のではなく、
+popメソッドを使うことが一般的です。
+      </p>
+      <p>
+       popメソッドの引数でインデックス番号を指定された要素はリストから削除され、
+返り値として返されます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3,4,5]
+&gt;&gt;&gt; a.pop(3)
+4
+&gt;&gt;&gt; print(a)
+[1, 2, 3, 5]
+</pre>
+      </div>
+      <p>
+       メソッドに与えるインデックス番号を省略した場合はリストの末尾の要素が取り出されます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3,4,5]
+&gt;&gt;&gt; a.pop()
+5
+&gt;&gt;&gt; print(a)
+[1, 2, 3, 4]
+</pre>
+      </div>
+      <h3 id="header-17">
+       count : 引数で指定した値と同じ値を持つ要素数を数える
+      </h3>
+      <h3 id="header-18">
+       index : 引数でした値と同じ値を持つ要素のインデックス番号を得る
+      </h3>
+      <h3 id="header-19">
+       remove : 要素を指定した要素の削除
+      </h3>
+      <p>
+       del演算子を使うことでインデックス番号を指定して要素を削除することができました。
+要素の中身を指定して、その要素を消すことはremoveメソッドでできます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = ['a', 'b', 'c', 'd']
+&gt;&gt;&gt; a.remove('b')
+&gt;&gt;&gt; print(a)
+['a', 'c', 'd']
+</pre>
+      </div>
+      <p>
+       存在しない要素をremoveしようとするとエラーが発生します。
+存在するか分からない要素を消す場合はin演算子で存在を確認してから消して下さい。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = ['a', 'b', 'c', 'd']
+&gt;&gt;&gt; a.remove('hello')
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+ValueError: list.remove(x): x not in list
+</pre>
+      </div>
+      <p>
+       このremoveメソッドで消される要素は1つです。
+引数で与えた値と同じ要素が複数ある場合は前に存在するものが消されます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = ['a', 'b', 'c', 'd', 'b']
+&gt;&gt;&gt; a.remove('b')
+&gt;&gt;&gt; print(a)
+['a', 'c', 'd', 'b']
+</pre>
+      </div>
+      <h3 id="header-20">
+       リストの結合 : +演算子, extendメソッド
+      </h3>
+      <p>
+       リストとリストの結合には+演算子を使った新しいリストの作成方法だけでなく、
+あるリストのインスタンスに別のリストを繋げるextendメソッドもあります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3,4]
+&gt;&gt;&gt; b = [5,6,7,8]
+&gt;&gt;&gt; a.extend(b)
+&gt;&gt;&gt; print(a)
+[1, 2, 3, 4, 5, 6, 7, 8]
+</pre>
+      </div>
+      <p>
+       +演算子を使った場合は結合されるリストがそのままですが、
+extendメソッドを使った場合は呼び出し元のインスタンスが変化しています。
+      </p>
+      <p>
+       リストに別のリストをappendしても、リストは結合されないので注意をしてください。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3,4]
+&gt;&gt;&gt; b = [5,6,7,8]
+&gt;&gt;&gt; a.append(b)
+&gt;&gt;&gt; print(a)
+[1, 2, 3, 4, [5, 6, 7, 8]]
+</pre>
+      </div>
+      <h3 id="header-21">
+       リストの反転: reverse
+      </h3>
+      <p>
+       リストの並びを逆順にするためにはreverseメソッドを呼び出します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3,4,5]
+&gt;&gt;&gt; a.reverse()
+&gt;&gt;&gt; print(a)
+[5, 4, 3, 2, 1]
+</pre>
+      </div>
+      <h3 id="header-22">
+       リストのソート: sort
+      </h3>
+      <p>
+       リストの要素を昇順(小さいものから大きいものへ)に並び変えるには、sortメソッドを使います。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,3,5,2,4]
+&gt;&gt;&gt; a.sort()
+&gt;&gt;&gt; print(a)
+[1, 2, 3, 4, 5]
+</pre>
+      </div>
+      <p>
+       降順(大きいものから小さいものへ)に並び替えたい場合は、
+メソッドのオプション引数で「reverse=True」を与えて下さい。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,3,5,2,4]
+&gt;&gt;&gt; a.sort(reverse=True)
+&gt;&gt;&gt; print(a)
+[5, 4, 3, 2, 1]
+</pre>
+      </div>
+      <h3 id="header-23">
+       リストの初期化
+      </h3>
+      <p>
+       リストのインスタンスを初期化する(空にする)には、clearメソッドを呼び出します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a.clear()
+&gt;&gt;&gt; print(a)
+[]
+</pre>
+      </div>
+      <p>
+       新しく変数に空のリストを代入しても変数レベルでは初期化できます。
+      </p>
+      <h3 id="header-24">
+       リストのコピー
+      </h3>
+      <p>
+       リストのコピーはスライシングで「インスタンス[:]」とすることでもできますが、
+copyメソッドを使うことでもできます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre>
+      </div>
+      <p>
+       これは「浅いコピー」と呼ばれるもので、リストの要素のインスタンスはコピー元とコピー先で共有されています。
+要素のインスタンスまで新しく作成しなおすのは「深いコピー」と呼ばれており、copyモジュールを使います。
+      </p>
+      <h2 id="header-25">
+       キュー(Queue)とスタック(Stack)
+      </h2>
+      <p>
+       「
+       <strong>
+        キュー
+       </strong>
+       」及び「
+       <strong>
+        スタック
+       </strong>
+       」は複数のデータを管理するためのデータ構造です。
+これらはモジュールを使うことで利用できますが、簡単な用途であればリストで実現できます。
+      </p>
+      <p>
+       キューは別名「
+       <strong>
+        FIFO (First In First Out)
+       </strong>
+       」とも呼ばれており、
+最初にいれたデータを最初に取り出すというデータ構造です。
+要素を追加するときは最後にappendし、要素を取り出す時はindexが0のものをpopします。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; queue = [1,2,3]
+&gt;&gt;&gt; queue.append(4)
+&gt;&gt;&gt; print(queue)
+[1, 2, 3, 4]
+&gt;&gt;&gt; a = queue.pop(0)
+&gt;&gt;&gt; print(a)
+1
+&gt;&gt;&gt; print(queue)
+[2, 3, 4]
+</pre>
+      </div>
+      <p>
+       キューはリストで管理されているタスクを順に処理していくような場合に使うと便利です。
+      </p>
+      <p>
+       一方、スタックは「
+       <strong>
+        LIFO(Last In First Out)
+       </strong>
+       」と呼ばれており、
+その名前が示すように最後にいれたデータを最初に取り出すというデータ構造です。
+      </p>
+      <p>
+       追加するときはリストに最後の要素としてappendし、
+取り出す時は末尾をpopします。
+popメソッドを引数なしで呼び出せば常にリスト末尾の要素を抜き出します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; stack = [1,2,3]
+&gt;&gt;&gt; stack.append(4)
+&gt;&gt;&gt; print(stack)
+[1, 2, 3, 4]
+&gt;&gt;&gt; a = stack.pop()
+&gt;&gt;&gt; print(a)
+4
+&gt;&gt;&gt; print(stack)
+[1, 2, 3]
+</pre>
+      </div>
+      <p>
+       スタックは後に入ってきたタスクほど優先して処理していく場合に使います。
+ただ、スタックの中の要素が貯まり続けて空にならないような場合は、
+スタックに最初の方にいれられた要素は残り続けてしまいます。
+      </p>
+      <!-- GENERATED HTML END -->
+      <!-- GENERATED HTML END -->
+      <nav>
+       <ul class="pager">
+        <li id="previous-li">
+         <a href="./054.html" id="previous-a">
+          ← Previous
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          Page Top
+         </a>
+        </li>
+        <li class="pager-next" id="next-li">
+         <a href="./056.html" id="next-a">
+          Next →
+         </a>
+        </li>
+       </ul>
+      </nav>
+     </div>
+     <!-- /.blog-main -->
+     <div class="col-sm-3 col-sm-offset-1 u1-sidebar">
+      <!-- SNS start -->
+      <div class="sidebar-module">
+       <ul class="social-buttons">
+        <li>
+         <!-- hatena -->
+         <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
+          <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
+         </a>
+         <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
+         </script>
+        </li>
+        <li>
+         <!-- FB -->
+         <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
+         </div>
+         <div id="fb-root">
+         </div>
+         <script>
+          (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }(document, 'script', 'facebook-jssdk'));
+         </script>
+        </li>
+        <li>
+         <!-- twitter -->
+         <a class="twitter-share-button" href="https://twitter.com/share">
+          Tweet
+         </a>
+         <script>
+          ! function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                      p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = p + '://platform.twitter.com/widgets.js';
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }
+                  }(document, 'script', 'twitter-wjs');
+         </script>
+        </li>
+        <li>
+         <!-- G+ -->
+         <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
+         <script async="" defer="" src="https://apis.google.com/js/platform.js">
+          {
+                    lang: 'ja'
+                  }
+         </script>
+         <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+         <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
+         </div>
+        </li>
+        <li>
+         <!-- IN/Share -->
+         <script src="//platform.linkedin.com/in.js" type="text/javascript">
+          lang: ja_JP
+         </script>
+         <script data-counter="right" type="IN/Share">
+         </script>
+        </li>
+       </ul>
+      </div>
+      <!-- SNS end -->
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Python入門
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./">
+          トップページ
+         </a>
+        </li>
+        <li>
+         <a href="./navi.html">
+          目次
+         </a>
+        </li>
+        <li>
+         <a href="./qa.html">
+          質問と回答
+         </a>
+        </li>
+        <li>
+         <a href="./books.html">
+          おすすめPython書籍
+         </a>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Pythonの基礎
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./001.html">
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
+         </a>
+        </li>
+        <li>
+         <a href="./004.html">
+          インタプリタの実行
+         </a>
+        </li>
+        <li>
+         <a href="./005.html">
+          プログラムファイルの実行
+         </a>
+        </li>
+        <li>
+         <a href="./006.html">
+          コメント
+         </a>
+        </li>
+        <li>
+         <a href="./007.html">
+          データと型
+         </a>
+        </li>
+        <li>
+         <a href="./008.html">
+          変数
+         </a>
+        </li>
+        <li>
+         <a href="./009.html">
+          変数の名前付け
+         </a>
+        </li>
+        <li>
+         <a href="./010.html">
+          定数とマジックナンバー
+         </a>
+        </li>
+        <li>
+         <a href="./011.html">
+          主要な型と演算子
+         </a>
+        </li>
+        <li>
+         <a href="./012.html">
+          条件分岐とコードブロック
+         </a>
+        </li>
+        <li>
+         <a href="./013.html">
+          ループ
+         </a>
+        </li>
+        <li>
+         <a href="./014.html">
+          関数
+         </a>
+        </li>
+        <li>
+         <a href="./015.html">
+          名前空間
+         </a>
+        </li>
+        <li>
+         <a href="./016.html">
+          オブジェクト指向を体験
+         </a>
+        </li>
+        <li>
+         <a href="./017.html">
+          モジュールの利用
+         </a>
+        </li>
+        <li>
+         <a href="./018.html">
+          モジュールの作成
+         </a>
+        </li>
+        <li>
+         <a href="./019.html">
+          プログラムのエラー
+         </a>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Pythonの基本的な型
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         数値型
+        </li>
+        <li>
+         文字列型
+        </li>
+        <li>
+         ブール型
+        </li>
+        <li>
+         None型
+        </li>
+        <li>
+         <a href="./055.html">
+          リスト型
+         </a>
+        </li>
+        <li>
+         <a href="./056.html">
+          タプル型
+         </a>
+        </li>
+        <li>
+         レンジ型
+        </li>
+        <li>
+         バイト型
+        </li>
+        <li>
+         <a href="./059.html">
+          セット型
+         </a>
+        </li>
+        <li>
+         <a href="./060.html">
+          辞書型
+         </a>
+        </li>
+       </ol>
+      </div>
+      <!-- amazon -->
+      <div class="sidebar-module">
+       <script type="text/javascript">
+        amazon_ad_tag = "grit-22";
+              amazon_ad_width = "300";
+              amazon_ad_height = "250";
+              amazon_ad_link_target = "new";
+       </script>
+       <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
+       </script>
+      </div>
+      <!-- amazon end-->
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Python入門
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="https://github.com/yuichi110/www.yuichi.com-python" target="_blank">
+          <span class="fa fa-github">
+          </span>
+          GitHub Repository
+         </a>
+        </li>
+        <li>
+         <a href="https://twitter.com/yuichi110" target="_blank">
+          <i class="fa fa-twitter">
+          </i>
+          Twitter
+         </a>
+        </li>
+        <li>
+         <a href="https://www.linkedin.com/in/yuichiito/" target="_blank">
+          <span class="fa fa-linkedin">
+          </span>
+          Linkedin (英語)
+         </a>
+        </li>
+        <li class="li-none">
+         <a href="#" id="rw_email_contact">
+          <span class="fa fa-envelope">
+           Mail
+          </span>
+         </a>
+         <script type="text/javascript">
+          var _rwObsfuscatedHref0 = "mai";
+                  var _rwObsfuscatedHref1 = "lto";
+                  var _rwObsfuscatedHref2 = ":yu";
+                  var _rwObsfuscatedHref3 = "ich";
+                  var _rwObsfuscatedHref4 = "i@y";
+                  var _rwObsfuscatedHref5 = "uic";
+                  var _rwObsfuscatedHref6 = "hi.";
+                  var _rwObsfuscatedHref7 = "com";
+                  var _rwObsfuscatedHref = _rwObsfuscatedHref0 + _rwObsfuscatedHref1 + _rwObsfuscatedHref2 + _rwObsfuscatedHref3 + _rwObsfuscatedHref4 + _rwObsfuscatedHref5 + _rwObsfuscatedHref6 + _rwObsfuscatedHref7;
+                  document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
+         </script>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <!-- padding for side bar -->
+       <div class="hidden-xs">
+        <p style="height:500px">
+        </p>
+       </div>
+      </div>
+     </div>
+     <!-- /.blog-sidebar -->
+    </div>
+    <!-- /.row -->
+   </div>
+   <!-- /.container -->
+   <footer>
+    <div class="u1-footer-top">
+    </div>
+    <div class="u1-footer">
+     <p>
+      Copyright © 2017 Yuichi Ito All Rights Reserved.
+     </p>
+     <p align="center">
+      修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
+      <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
+       <span class="fa fa-github">
+       </span>
+       Git Hub Issues
+      </a>
+     </p>
+    </div>
+   </footer>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+   </script>
+   <script src="./assets/js/bootstrap.min.js">
+   </script>
+   <script src="./assets/js/delete_useless_dom.js">
+   </script>
+   <!-- GOOGLE ANALYTICS -->
+   <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-4830860-7', 'auto');
+      ga('send', 'pageview');
+   </script>
+  </div>
+  <!-- end of background -->
+ </body>
+</html>

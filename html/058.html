@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       Python3のインストール
+       バイト型
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,35 +107,64 @@
         </li>
         <li>
          <a href="header-2">
-          Pythonのインストール
+          タプル型の特徴
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          タプルの基本操作
          </a>
          <ul>
           <li>
-           <a href="#header-3">
-            Windows10へのインストール
-           </a>
-          </li>
-          <li>
            <a href="#header-4">
-            Windows10でPythonの動作確認
+            作成
            </a>
           </li>
           <li>
            <a href="#header-5">
-            Macへのインストールと動作確認
+            要素の取得
+           </a>
+          </li>
+          <li>
+           <a href="#header-6">
+            要素の上書きはできない
            </a>
           </li>
          </ul>
         </li>
         <li>
-         <a href="#header-6">
-          コラム: Python2とPython3の違い
+         <a href="#header-7">
+          タプルの便利な使い方
+         </a>
+         <ul>
+          <li>
+           <a href="#header-8">
+            関数の返り値
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-9">
+          タプルの演算子
          </a>
         </li>
         <li>
-         <a href="header-7">
-          用語
+         <a href="header-10">
+          タプルのメソッド
          </a>
+         <ul>
+          <li>
+           <a href="#header-11">
+            count : 引数と同じ値を持つ要素の数を数える
+           </a>
+          </li>
+          <li>
+           <a href="#header-12">
+            index : 引数と同じ値を持つ要素のインデックス番号を得る
+           </a>
+          </li>
+         </ul>
         </li>
        </ul>
       </div>
@@ -143,220 +172,224 @@
        概要
       </h2>
       <p>
-       Pythonを使うには、そのコンピュータにPythonがインストールされている必要があります。
-Pythonには「Python2」と「Python3」があり、2017年現在はPython2からPython3に主流が移る過渡期にいます。
-そのため、特別な理由などがなければPython3を学ぶことが、今後のことを考えると望ましいです。
-      </p>
-      <p>
-       WindowsにはPython2もPython3も、デフォルトではインストールされていません。
-そのため、Pythonを使うにはインストールが必要です。
-      </p>
-      <p>
-       MacにはPython2のみデフォルトでインストールされています。
-Python3を使いたければ、Python3をインストールする必要があります。
+       あとでかく
       </p>
       <h2 id="header-2">
-       Pythonのインストール
+       タプル型の特徴
       </h2>
-      <h3 id="header-3">
-       Windows10へのインストール
-      </h3>
       <p>
-       WindowsにはデフォルトでPythonがインストールされていません。
-Pythonを使うためにはインストールが必須です。
+       「
+       <strong>
+        タプル
+       </strong>
+       」はPythonの型の一つであり、リストと似ています。
+リストはひとつのインスタンスの中に複数の要素を持ち、それをインデックス番号で操作します。
+タプルもそれと全く同じで、ひとつのインスタンスの中にインデックス番号で管理される要素が複数あります。
       </p>
       <p>
-       インストールにはPythonの公式サイト(https://www.python.org/)から、
-実行環境にあったPythonのインストールイメージをダウンロードしてきます。
+       ただ、両者の大きな違いは「リストは要素の数が変わることを前提とした型」であるのに対し、
+「タプルは構成が全く変わらない」ということです。
+言い換えると、リストは初期化した後に要素を追加したり削除したりすることができますが、
+タプルは初期化後に要素数が変わることはなく、
+要素を上書き(インデックス番号を指定して代入)することもできません。
+      </p>
+      <p>
+       タプルが利用されるのはデータ構造の構成要素が明確な場合です。
+たとえばあるお店の会員情報があるとし、それが「氏名、生年月日、住所」から構成されているとします。
+タプルでこの構造を作れば要素の1つめは必ず氏名で、2つめは生年月日となります。
+      </p>
+      <p>
+       一方、リストで会員情報のデータ構造を作れば「氏名、生年月日、住所」と並んでいる前に、
+いきなり新しく会員IDを追加するといったことができますし、住所がいらなくなったから消すといったこともできます。
+これは便利なように見えるかもしれませんが、会員データを扱うプログラムが様々な箇所に及んでいると、
+名前を参照したつもりが会員IDを得てしまったり、住所を得るつもりだったのにそれが消失している可能性があります。
+      </p>
+      <p>
+       リストはこういった決められたデータ構造自体よりも、増減する会員数を管理する型として使うと便利です。
+タプルの要素はそれぞれが全く異なる情報であるのに対して、
+リストの要素は値こそ違っても使われ方は全く同じものとなるのが一般的です。
       </p>
       <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/01.png"/>
+       <img alt="image" class="img-responsive" src="./0070_image/01.jpg"/>
       </p>
-      <p>
-       Pythonのバージョンには現在2.xと3.xがあります。
-両者を区別する場合は前者を「
-       <strong>
-        Python2
-       </strong>
-       」と呼び、後者を「
-       <strong>
-        Python3
-       </strong>
-       」と呼びます。
-      </p>
-      <p>
-       新しくPythonを学ぶのであれば、現在主流になりつつある3.Xの最新版をインストールしてください。
-本サイトでは「3.X」にて解説をしております。
-      </p>
-      <p>
-       上記ページから落としてきたイメージからインストーラーを立ち上げると以下のような画面が現れると思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/02.png"/>
-      </p>
-      <p>
-       この選択画面で赤の枠囲みがされている場所をチェックすると、
-「環境変数」と呼ばれるアプリケーションの所在地を示す情報が自動で登録されますのでチェックをして下さい。
-環境変数への登録は後ほど説明するコンソールでpythonコマンドを使うために必要となります。
-      </p>
-      <p>
-       環境変数に登録しないと、コンソールがPythonがどこに存在するか知らないため、
-Pythonを使おうとした際に「そんなものはない」と怒られてしまいます。
-仮にこの選択画面でチェックを忘れた場合は、「パスを通す」という作業をする必要があります。
-面倒な場合はもう一度Pythonをインストールしなおして、その際に環境変数の登録をすれば大丈夫です。
-      </p>
-      <p>
-       「Install Now」と「Customize installation」の選択肢がありますが、
-一般的には「Install Now」で構いません。
-いま操作しているユーザー以外がPythonを利用したり、
-凝った使い方をしたりしたい場合は「Customize Installation」が必要となります。
-      </p>
+      <h2 id="header-3">
+       タプルの基本操作
+      </h2>
       <h3 id="header-4">
-       Windows10でPythonの動作確認
+       作成
       </h3>
       <p>
-       Pythonは「コンソール」と呼ばれるアプリケーションから利用します。
-Windowsで利用されるコンソールは「パワーシェル」もしくは「コマンドプロンプト」が一般的です。
-パワーシェル及びコマンドプロンプトは場所がわからなくてもWindows の検索機能を使うことで見つけられるかと思います。
-参考のために以下に画像を記載します。
+       タプルの初期化はカッコ「()」の中に要素をコンマ区切りで並べることでおこないます。
       </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/03.png"/>
-      </p>
-      <p>
-       パワーシェルやコマンドプロンプトは何度も使うことになるので、
-タスクバーにピン留めしてすぐに使えるようにしておくと今後が楽です。
-      </p>
-      <p>
-       プロンプトから以下のように「python --version」と打ってPythonを起動してみてください。
-先ほどのインストール作業時にパスが登録されていれば、以下のような出力が得られると思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/04.png"/>
-      </p>
-      <p>
-       そのようなものがないと怒られた場合はインストールができていないかパスが通っていません。
-パスの通し方は検索してもらえればすぐに分かるはずです。
-      </p>
-      <p>
-       なお、本サイトのプログラムはMacで書いて実行しているため、微妙にWindowsと食い違いが発生するかもしれません。
-大きな差ですと明記しますが、コマンド名やOSのディレクトリ構造といった小さい箇所は適時読み変えて下さい。
-      </p>
-      <p>
-       また、「ターミナル」と言った場合はパワーシェルやコマンドプロンプトのことを指します。
-      </p>
-      <h3 id="header-5">
-       Macへのインストールと動作確認
-      </h3>
-      <p>
-       Windowsと異なり、MacにはデフォルトでPythonがインストールされています。
-ただ、インストールされているものはPython2のため、Python3はインストールが必要です。
-Windowsへのインストールと同じように公式サイト(https://www.python.org/)へ行き、
-Python3のイメージをダウンロードしてきてインストールを行って下さい。
-      </p>
-      <p>
-       MacでのPython3のインストールは非常に簡単なため、割愛します。
-Windowsで行ったパスを通すなどの作業は、自動で行われるため不要です。
-      </p>
-      <p>
-       MacでのPythonの実行も、Windowsと同じコンソールを使います。
-Macのコンソールアプリケーションはターミナル(コマンドライン)で、
-それは「アプリケーション」フォルダ配下の「ユーティリティ(Utilities)」の下にあります。
-      </p>
-      <p>
-       ターミナルは今後頻繁に使うことになるので、ドラッグ&amp;ドロップでDockに登録しておいたほうがよいと思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/05.png"/>
-      </p>
-      <p>
-       ターミナルを起動して、「python --version」と打つと、
-おそらくPython2のバージョンが表示されます。
-      </p>
-      <p>
-       Python3のバージョンを確認するには「python3 --version」と打つ必要があります。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/06.png"/>
-      </p>
-      <p>
-       Macには複数のバージョンのPythonがインストールされています。
-デフォルトのPythonはPython2であるため、「python」とだけ入力するとpython2が使われます。
-python3を使うためには、「python3」と明示的にバージョンを指定する必要があります。
-      </p>
-      <p>
-       ちなみに、ターミナルにて「python」に続いてtabボタンを打つと、
-MacにインストールされているPythonのバージョン一覧が確認できます。
-      </p>
-      <h4>
-       MAC: pythonのバージョン一覧を確認
-      </h4>
       <div class="codehilite">
-       <pre><span></span>$ python
-python             python2.7-config   python3.5-32       pythonw2.6
-python-config      python3            python3.5-config   pythonw2.7
-python2.6          python3-32         python3.5m
-python2.6-config   python3-config     python3.5m-config
-python2.7          python3.5          pythonw
+       <pre><span></span>&gt;&gt;&gt; a = ('taro', '1986', 'tokyo')
+&gt;&gt;&gt; print(type(a))
+&lt;class 'tuple'&gt;
 </pre>
       </div>
       <p>
-       上記の例ではPython2として、python2.6と2.7がインストールされており、
-Python3としてpython3.5がインストールされています。
+       要素を持たないタプルを作るには単に「()」とします。
       </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = ()
+&gt;&gt;&gt; print(type(a))
+&lt;class 'tuple'&gt;
+</pre>
+      </div>
       <p>
-       Python3 を使うつもりで間違えてPython2を使ったり、
-その逆が発生したりしないように注意をしてください。
+       見た目に分かりにくいのであまり推奨はしませんが、
+カッコで囲まずにコンマで要素を並べるだけでもタプルは作成できます。
       </p>
-      <h2 id="header-6">
-       コラム: Python2とPython3の違い
-      </h2>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = 1,2,3
+&gt;&gt;&gt; print(a)
+(1, 2, 3)
+&gt;&gt;&gt; print(type(a))
+&lt;class 'tuple'&gt;
+</pre>
+      </div>
+      <h3 id="header-5">
+       要素の取得
+      </h3>
       <p>
-       Python2とPytho3のプログラムには一部互換性がありません。
-そのため、Python2で作ったコードをPython3で使うことや、
-その逆ができないことが多々ありますので注意してください。
+       インデックス番号を使った要素へのアクセスはリストと全く同じです。
+「タプルのインスタンス[インデックス番号]」とすることで、特定の要素を取得することができます。
       </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = ('taro','1986','tokyo')
+&gt;&gt;&gt; print(a[0])
+taro
+</pre>
+      </div>
       <p>
-       もし仮にPython2のプログラムを書く場合であっても、それがPython3で動くように書く癖をつけておいてください。
-完全に互換性をもたせるのは大変なのでおすすめしませんが、
-Python3で廃止される古いPython2の書き方に固執するのはよくありません。
+       あるタプルを「別のタプルとそのなかにある要素となる変数」に代入させることで、
+要素をまとめて取り出すこともできます。
       </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = ('taro','1986','tokyo')
+&gt;&gt;&gt; (b,c,d) = a
+&gt;&gt;&gt; print(b)
+taro
+&gt;&gt;&gt; print(c)
+1986
+&gt;&gt;&gt; print(d)
+tokyo
+</pre>
+      </div>
+      <h3 id="header-6">
+       要素の上書きはできない
+      </h3>
       <p>
-       ちなみにPython 2と3の両方をインストールして使い分けることも可能ですので、
-最終的に2.xを使いたいかたも、3.xをインストールして大丈夫です。
+       リストと異なり、タプルは要素を変更することはできません。
+これはappendメソッドやdel演算子などが使えないというだけでなく、
+インデックス番号を指定した要素の上書きもできないということです。
       </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = ('taro','1986','tokyo')
+&gt;&gt;&gt; a[1] = '1886'
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: 'tuple' object does not support item assignment
+</pre>
+      </div>
+      <p>
+       ただ、タプルが要素としてインスタンスを保つ場合は、
+そのインスタンスの中身は変わる可能性があります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1]
+&gt;&gt;&gt; b = ('hello', a)
+&gt;&gt;&gt; print(b)
+('hello', [1])
+&gt;&gt;&gt; a.append(2)
+&gt;&gt;&gt; print(b)
+('hello', [1, 2])
+</pre>
+      </div>
       <h2 id="header-7">
-       用語
+       タプルの便利な使い方
       </h2>
-      <ul>
-       <li>
-        Python2 : 古いPythonの種類。2.X として様々なバージョンがあるが、2.7が最後
-       </li>
-       <li>
-        Python3 : 新しいPythonの種類。3.X として開発中。
-       </li>
-       <li>
-        パスを通す
-       </li>
-       <li>
-        環境変数
-       </li>
-       <li>
-        コンソール
-       </li>
-       <li>
-        パワーシェル(PowerShell)
-       </li>
-       <li>
-        ターミナル(Terminal)
-       </li>
-      </ul>
+      <h3 id="header-8">
+       関数の返り値
+      </h3>
+      <p>
+       複雑な関数を作成した場合に、返り値として複数の値を返したい場合があります。
+他のプログラミング言語であれば複数のデータを格納するための構造体やクラスをそのためだけに定義することがありますが、
+Pythonであれば返したい複数の値をタプル化して返せます。
+      </p>
+      <p>
+       呼び出し元はタプルで返された値をそのまま変数に代入しても構いませんし、
+タプルで返り値を受けて要素を各変数に代入させることもできます。
+      </p>
+      <p>
+       たとえばfor文でリストの要素の最小値と最大値を取得する関数を作るとしましょう。
+返り値となる最大値と最小値をタプルで囲んで返せば、
+関数の呼び出し元は最大値と最小値を同時に得られます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">get_min_max</span><span class="p">(</span><span class="n">list_</span><span class="p">):</span>
+  <span class="n">min_</span> <span class="o">=</span> <span class="n">list_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">max_</span> <span class="o">=</span> <span class="n">list_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_</span><span class="p">:</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">min_</span><span class="p">):</span> <span class="n">min_</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">max_</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">):</span> <span class="n">max_</span> <span class="o">=</span> <span class="n">i</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="p">(</span><span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="p">)</span> <span class="o">=</span> <span class="n">get_min_max</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'min: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_</span><span class="p">))</span>
+<span class="c1"># 1</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'max: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_</span><span class="p">))</span>
+<span class="c1"># 10</span>
+</pre>
+      </div>
+      <p>
+       プログラマーによっては複数の返り値を返す際にタプルだということをあまり意識せずに、
+カッコで囲まない書き方をする場合もあります。
+以下のコードもカッコを省略したタプルですので、上記と同じです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">get_min_max</span><span class="p">(</span><span class="n">list_</span><span class="p">):</span>
+  <span class="n">min_</span> <span class="o">=</span> <span class="n">list_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">max_</span> <span class="o">=</span> <span class="n">list_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_</span><span class="p">:</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">min_</span><span class="p">):</span> <span class="n">min_</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">max_</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">):</span> <span class="n">max_</span> <span class="o">=</span> <span class="n">i</span>
+  <span class="k">return</span> <span class="n">min_</span><span class="p">,</span> <span class="n">max_</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">min_</span><span class="p">,</span> <span class="n">max_</span> <span class="o">=</span> <span class="n">get_min_max</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre>
+      </div>
+      <p>
+       なお、返り値をタプルにした場合は、タプルの要素数の変更には気をつけて利用してください。
+関数の定義と関数を使う側の定義が合致していないと、実行時にエラーが発生します。
+      </p>
+      <h2 id="header-9">
+       タプルの演算子
+      </h2>
+      <p>
+       inが使える
+      </p>
+      <h2 id="header-10">
+       タプルのメソッド
+      </h2>
+      <p>
+       タプルのメソッドはほとんど利用されません。
+インスタンスの変更ができないため、変更をするためのメソッドが全く存在しないリストに似たメソッドだけを持っています。
+      </p>
+      <h3 id="header-11">
+       count : 引数と同じ値を持つ要素の数を数える
+      </h3>
+      <h3 id="header-12">
+       index : 引数と同じ値を持つ要素のインデックス番号を得る
+      </h3>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>
        <ul class="pager">
         <li id="previous-li">
-         <a href="./002.html" id="previous-a">
+         <a href="./057.html" id="previous-a">
           ← Previous
          </a>
         </li>
@@ -366,7 +399,7 @@ Python3で廃止される古いPython2の書き方に固執するのはよくあ
          </a>
         </li>
         <li class="pager-next" id="next-li">
-         <a href="./004.html" id="next-a">
+         <a href="./059.html" id="next-a">
           Next →
          </a>
         </li>

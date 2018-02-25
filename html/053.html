@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       Python3のインストール
+       ブール型
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -104,38 +104,23 @@
          <a href="#header-1">
           概要
          </a>
-        </li>
-        <li>
-         <a href="header-2">
-          Pythonのインストール
-         </a>
          <ul>
           <li>
+           <a href="#header-2">
+            比較演算子
+           </a>
+          </li>
+          <li>
            <a href="#header-3">
-            Windows10へのインストール
+            Bool型の演算子
            </a>
           </li>
           <li>
            <a href="#header-4">
-            Windows10でPythonの動作確認
-           </a>
-          </li>
-          <li>
-           <a href="#header-5">
-            Macへのインストールと動作確認
+            in 演算子
            </a>
           </li>
          </ul>
-        </li>
-        <li>
-         <a href="#header-6">
-          コラム: Python2とPython3の違い
-         </a>
-        </li>
-        <li>
-         <a href="header-7">
-          用語
-         </a>
         </li>
        </ul>
       </div>
@@ -143,220 +128,109 @@
        概要
       </h2>
       <p>
-       Pythonを使うには、そのコンピュータにPythonがインストールされている必要があります。
-Pythonには「Python2」と「Python3」があり、2017年現在はPython2からPython3に主流が移る過渡期にいます。
-そのため、特別な理由などがなければPython3を学ぶことが、今後のことを考えると望ましいです。
+       あいうえお
       </p>
-      <p>
-       WindowsにはPython2もPython3も、デフォルトではインストールされていません。
-そのため、Pythonを使うにはインストールが必要です。
-      </p>
-      <p>
-       MacにはPython2のみデフォルトでインストールされています。
-Python3を使いたければ、Python3をインストールする必要があります。
-      </p>
-      <h2 id="header-2">
-       Pythonのインストール
-      </h2>
-      <h3 id="header-3">
-       Windows10へのインストール
+      <h3 id="header-2">
+       比較演算子
       </h3>
       <p>
-       WindowsにはデフォルトでPythonがインストールされていません。
-Pythonを使うためにはインストールが必須です。
+       Boolは「比較演算子」と呼ばれる記号で2つの値を比較した際に返されます。
+例として数字の大小を比較してみます。
       </p>
-      <p>
-       インストールにはPythonの公式サイト(https://www.python.org/)から、
-実行環境にあったPythonのインストールイメージをダウンロードしてきます。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/01.png"/>
-      </p>
-      <p>
-       Pythonのバージョンには現在2.xと3.xがあります。
-両者を区別する場合は前者を「
-       <strong>
-        Python2
-       </strong>
-       」と呼び、後者を「
-       <strong>
-        Python3
-       </strong>
-       」と呼びます。
-      </p>
-      <p>
-       新しくPythonを学ぶのであれば、現在主流になりつつある3.Xの最新版をインストールしてください。
-本サイトでは「3.X」にて解説をしております。
-      </p>
-      <p>
-       上記ページから落としてきたイメージからインストーラーを立ち上げると以下のような画面が現れると思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/02.png"/>
-      </p>
-      <p>
-       この選択画面で赤の枠囲みがされている場所をチェックすると、
-「環境変数」と呼ばれるアプリケーションの所在地を示す情報が自動で登録されますのでチェックをして下さい。
-環境変数への登録は後ほど説明するコンソールでpythonコマンドを使うために必要となります。
-      </p>
-      <p>
-       環境変数に登録しないと、コンソールがPythonがどこに存在するか知らないため、
-Pythonを使おうとした際に「そんなものはない」と怒られてしまいます。
-仮にこの選択画面でチェックを忘れた場合は、「パスを通す」という作業をする必要があります。
-面倒な場合はもう一度Pythonをインストールしなおして、その際に環境変数の登録をすれば大丈夫です。
-      </p>
-      <p>
-       「Install Now」と「Customize installation」の選択肢がありますが、
-一般的には「Install Now」で構いません。
-いま操作しているユーザー以外がPythonを利用したり、
-凝った使い方をしたりしたい場合は「Customize Installation」が必要となります。
-      </p>
-      <h3 id="header-4">
-       Windows10でPythonの動作確認
-      </h3>
-      <p>
-       Pythonは「コンソール」と呼ばれるアプリケーションから利用します。
-Windowsで利用されるコンソールは「パワーシェル」もしくは「コマンドプロンプト」が一般的です。
-パワーシェル及びコマンドプロンプトは場所がわからなくてもWindows の検索機能を使うことで見つけられるかと思います。
-参考のために以下に画像を記載します。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/03.png"/>
-      </p>
-      <p>
-       パワーシェルやコマンドプロンプトは何度も使うことになるので、
-タスクバーにピン留めしてすぐに使えるようにしておくと今後が楽です。
-      </p>
-      <p>
-       プロンプトから以下のように「python --version」と打ってPythonを起動してみてください。
-先ほどのインストール作業時にパスが登録されていれば、以下のような出力が得られると思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/04.png"/>
-      </p>
-      <p>
-       そのようなものがないと怒られた場合はインストールができていないかパスが通っていません。
-パスの通し方は検索してもらえればすぐに分かるはずです。
-      </p>
-      <p>
-       なお、本サイトのプログラムはMacで書いて実行しているため、微妙にWindowsと食い違いが発生するかもしれません。
-大きな差ですと明記しますが、コマンド名やOSのディレクトリ構造といった小さい箇所は適時読み変えて下さい。
-      </p>
-      <p>
-       また、「ターミナル」と言った場合はパワーシェルやコマンドプロンプトのことを指します。
-      </p>
-      <h3 id="header-5">
-       Macへのインストールと動作確認
-      </h3>
-      <p>
-       Windowsと異なり、MacにはデフォルトでPythonがインストールされています。
-ただ、インストールされているものはPython2のため、Python3はインストールが必要です。
-Windowsへのインストールと同じように公式サイト(https://www.python.org/)へ行き、
-Python3のイメージをダウンロードしてきてインストールを行って下さい。
-      </p>
-      <p>
-       MacでのPython3のインストールは非常に簡単なため、割愛します。
-Windowsで行ったパスを通すなどの作業は、自動で行われるため不要です。
-      </p>
-      <p>
-       MacでのPythonの実行も、Windowsと同じコンソールを使います。
-Macのコンソールアプリケーションはターミナル(コマンドライン)で、
-それは「アプリケーション」フォルダ配下の「ユーティリティ(Utilities)」の下にあります。
-      </p>
-      <p>
-       ターミナルは今後頻繁に使うことになるので、ドラッグ&amp;ドロップでDockに登録しておいたほうがよいと思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/05.png"/>
-      </p>
-      <p>
-       ターミナルを起動して、「python --version」と打つと、
-おそらくPython2のバージョンが表示されます。
-      </p>
-      <p>
-       Python3のバージョンを確認するには「python3 --version」と打つ必要があります。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/06.png"/>
-      </p>
-      <p>
-       Macには複数のバージョンのPythonがインストールされています。
-デフォルトのPythonはPython2であるため、「python」とだけ入力するとpython2が使われます。
-python3を使うためには、「python3」と明示的にバージョンを指定する必要があります。
-      </p>
-      <p>
-       ちなみに、ターミナルにて「python」に続いてtabボタンを打つと、
-MacにインストールされているPythonのバージョン一覧が確認できます。
-      </p>
-      <h4>
-       MAC: pythonのバージョン一覧を確認
-      </h4>
       <div class="codehilite">
-       <pre><span></span>$ python
-python             python2.7-config   python3.5-32       pythonw2.6
-python-config      python3            python3.5-config   pythonw2.7
-python2.6          python3-32         python3.5m
-python2.6-config   python3-config     python3.5m-config
-python2.7          python3.5          pythonw
+       <pre><span></span>&gt;&gt;&gt; 10 &gt; 5
+True
+&gt;&gt;&gt; 10 &lt; 5
+False
+&gt;&gt;&gt; a = 10 &gt; 5
+&gt;&gt;&gt; a
+True
 </pre>
       </div>
       <p>
-       上記の例ではPython2として、python2.6と2.7がインストールされており、
-Python3としてpython3.5がインストールされています。
+       特に難しいことはありませんね。「10は5より大きい -&gt; True(YES)」とされていますし、
+「10は5より小さい -&gt; False(NO)」とされています。Boolを変数に格納することも当然できます。
       </p>
       <p>
-       Python3 を使うつもりで間違えてPython2を使ったり、
-その逆が発生したりしないように注意をしてください。
-      </p>
-      <h2 id="header-6">
-       コラム: Python2とPython3の違い
-      </h2>
-      <p>
-       Python2とPytho3のプログラムには一部互換性がありません。
-そのため、Python2で作ったコードをPython3で使うことや、
-その逆ができないことが多々ありますので注意してください。
+       比較演算子の一覧を以下に記載します。
       </p>
       <p>
-       もし仮にPython2のプログラムを書く場合であっても、それがPython3で動くように書く癖をつけておいてください。
-完全に互換性をもたせるのは大変なのでおすすめしませんが、
-Python3で廃止される古いPython2の書き方に固執するのはよくありません。
+       | 利用可能な演算子 | 説明 |
+| A == B | AとBが同一ならTrue |
+| A != B | AとBが異なればTrue |
+| A &gt; B | A が B より大きければ True |
+| A &gt;= B | A が B 以上なら True |
+| A &lt; B | A が B より小さければ True |
+| A &lt;= B | A が B 以下なら True |
       </p>
       <p>
-       ちなみにPython 2と3の両方をインストールして使い分けることも可能ですので、
-最終的に2.xを使いたいかたも、3.xをインストールして大丈夫です。
+       以下に例を書いてみます。
       </p>
-      <h2 id="header-7">
-       用語
-      </h2>
-      <ul>
-       <li>
-        Python2 : 古いPythonの種類。2.X として様々なバージョンがあるが、2.7が最後
-       </li>
-       <li>
-        Python3 : 新しいPythonの種類。3.X として開発中。
-       </li>
-       <li>
-        パスを通す
-       </li>
-       <li>
-        環境変数
-       </li>
-       <li>
-        コンソール
-       </li>
-       <li>
-        パワーシェル(PowerShell)
-       </li>
-       <li>
-        ターミナル(Terminal)
-       </li>
-      </ul>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; 'hello' == 'world'
+False
+&gt;&gt;&gt; 'hello' != 'world'
+True
+&gt;&gt;&gt; 5 &gt; 4
+True
+&gt;&gt;&gt; 5 &gt; 5
+False
+&gt;&gt;&gt; 5 &gt;= 5
+True
+</pre>
+      </div>
+      <h3 id="header-3">
+       Bool型の演算子
+      </h3>
+      <p>
+       それほど難しくありませんね。
+以下のようなブール代数(True/False)も使えます。
+これは中学や高校の数学あたりで学んだものかと思います。
+      </p>
+      <p>
+       | 利用可能な演算子 | 説明 |
+| not A | AがFalseならTrue |
+| A and B | AもBもTrueならTrue |
+| A or B | AかBがTrue |
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; not True
+False
+&gt;&gt;&gt; True and False
+False
+&gt;&gt;&gt; True or False
+True
+&gt;&gt;&gt; not (5&gt;4)
+False
+</pre>
+      </div>
+      <h3 id="header-4">
+       in 演算子
+      </h3>
+      <p>
+       他には集合やオブジェクトのチェックの演算子もあります。
+これらは追って説明します。
+      </p>
+      <p>
+       | A is B | A と B は同一オブジェクト |
+| A is not B | A と B は異なるオブジェクト |
+| A in B | A は B に含まれる |
+| A not in B | A は B に含まれない |
+      </p>
+      <p>
+       また、返り値がBool値である関数などもよく利用されます。
+      </p>
+      <p>
+       Bool型は後の章で扱う「ifやfor」といった制御文で利用されることが多いです。
+条件分岐のif文では、たとえば変数aがTrueなら処理Aを実行し、Falseなら処理Bをするといった使い方をします。
+具体的にBoolをどのように使うかは制御文を学ぶ際に理解できると思いますので、今回はここで解説を切り上げます。
+      </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>
        <ul class="pager">
         <li id="previous-li">
-         <a href="./002.html" id="previous-a">
+         <a href="./052.html" id="previous-a">
           ← Previous
          </a>
         </li>
@@ -366,7 +240,7 @@ Python3で廃止される古いPython2の書き方に固執するのはよくあ
          </a>
         </li>
         <li class="pager-next" id="next-li">
-         <a href="./004.html" id="next-a">
+         <a href="./054.html" id="next-a">
           Next →
          </a>
         </li>

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Sample Description" name="description"/>
+  <meta content="Yuichi Ito" name="author"/>
+  <title>
+   Python入門
+  </title>
+  <link href="/img/favicon.ico" rel="shortcut icon"/>
+  <!-- Bootstrap -->
+  <link href="./assets/css/bootstrap.css" rel="stylesheet">
+   <link href="./assets/css/bootstrap-theme.css" rel="stylesheet"/>
+   <link href="./assets/css/bootstrap_u1.css" rel="stylesheet"/>
+   <!-- Font -->
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+   <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+    <!-- Code Highlight -->
+    <link href="./assets/css/codehilite_colorful.css" rel="stylesheet"/>
+    <!-- Custom -->
+    <link href="./assets/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="./assets/icomoon/style.css" rel="stylesheet"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+   </link>
+  </link>
+ </head>
+ <body>
+  <div class="backgroundLayer">
+   <!-- Fixed navbar -->
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+     <div class="navbar-header">
+      <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+       <span class="sr-only">
+        Toggle navigation
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+      </button>
+      <a class="navbar-brand " href="./">
+       Python
+      </a>
+     </div>
+     <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav">
+       <li class="">
+        <a href="./navi.html">
+         Navi
+        </a>
+       </li>
+       <li class="">
+        <a href="./qa.html">
+         QA
+        </a>
+       </li>
+       <li class="">
+        <a href="./books.html">
+         Books
+        </a>
+       </li>
+       <li style="font-family: avenger">
+        <a href="/">
+         GC
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </nav>
+   <div class="container">
+    <div class="u1-header">
+     <a href="./" style=" text-decoration: none;">
+      <div class="u1-title">
+       Python Boot Camp
+      </div>
+      <p class="lead u1-description">
+       プログラミング言語Python訓練プログラム
+      </p>
+     </a>
+    </div>
+    <div class="row">
+     <div class="col-sm-8 u1-main">
+      <!-- GENERATED HTML START -->
+      <!-- GENERATED HTML START -->
+      <h1>
+       辞書型(マップ)
+      </h1>
+      <div class="no_bullets" id="toc_container">
+       <p class="toc_title">
+        本記事の内容
+       </p>
+       <ul class="toc_list">
+        <li>
+         <a href="#header-1">
+          概要
+         </a>
+        </li>
+        <li>
+         <a href="header-2">
+          辞書型の特徴
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          基礎
+         </a>
+         <ul>
+          <li>
+           <a href="#header-4">
+            初期化
+           </a>
+          </li>
+          <li>
+           <a href="#header-5">
+            辞書型の中身の確認
+           </a>
+          </li>
+          <li>
+           <a href="#header-6">
+            キーを指定したバリューの取得
+           </a>
+          </li>
+          <li>
+           <a href="#header-7">
+            キーとバリューの更新
+           </a>
+          </li>
+          <li>
+           <a href="#header-8">
+            キーとバリューの追加
+           </a>
+          </li>
+          <li>
+           <a href="#header-9">
+            キーの存在確認
+           </a>
+          </li>
+          <li>
+           <a href="#header-10">
+            for 文の利用
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-11">
+          辞書型のメソッド
+         </a>
+         <ul>
+          <li>
+           <a href="#header-12">
+            keys : キーの一覧を取得
+           </a>
+          </li>
+          <li>
+           <a href="#header-13">
+            values : バリューの一覧を取得
+           </a>
+          </li>
+          <li>
+           <a href="#header-14">
+            items : キーとバリューのペアの一覧を取得
+           </a>
+          </li>
+          <li>
+           <a href="#header-15">
+            pop : キーを指定したバリューの取り出し
+           </a>
+          </li>
+          <li>
+           <a href="#header-16">
+            get : デフォルト値を指定してバリューを取得
+           </a>
+          </li>
+          <li>
+           <a href="#header-17">
+            setdefault : 存在しない場合はデフォルト値のペアを作ってバリューを取得
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-18">
+          辞書型の仕組み
+         </a>
+        </li>
+       </ul>
+      </div>
+      <h2 id="header-1">
+       概要
+      </h2>
+      <h2 id="header-2">
+       辞書型の特徴
+      </h2>
+      <p>
+       辞書型はセットを拡張したデータ型で、セットの要素にあたる「キー」が「バリュー」という値を持っている構造です。
+仕組みとしてはセットに似ていますが、その使い方はセットというよりもリストに似ていて、
+辞書型のインスタンスが持つバリューを、キーを指定して取得するというものです。
+インデックス番号を指定して要素を取得する代わりに、キーを指定してバリューを取得します。
+      </p>
+      <p>
+       たとえば、果物をキーとして、その色をバリューとした辞書型のインスタンスを作るとします。
+そのインスタンスには以下のようなキーとバリューの組合せが存在します。
+もちろんこれより多くの組合せを登録できます。
+      </p>
+      <p>
+       | キー | バリュー |
+|:-------------:|:---:|
+| りんご | 赤 |
+| レモン | 黄 |
+| ぶどう | 紫 |
+| さくらんぼ | 赤 |
+      </p>
+      <p>
+       辞書型のインスタンスに対して「キーであるりんごに対応するバリューを返せ」とすると、赤が返されます。
+同様にレモンを指定すれば黄が返されます。
+      </p>
+      <p>
+       キーはセットと同様に重複が許されないため、「りんご:赤」のペアと「りんご:緑」のペアは共存できません。
+ただ、バリューは重複していてもかまわないため、「りんご:赤」と「さくらんぼ:赤」は同時に存在できます。
+      </p>
+      <h2 id="header-3">
+       基礎
+      </h2>
+      <h3 id="header-4">
+       初期化
+      </h3>
+      <p>
+       辞書型のインスタンスを作成するにはdict関数を呼び出します。
+こうすると、空のインスタンスが作成されます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = dict()
+&gt;&gt;&gt; print(type(a))
+&lt;class 'dict'&gt;
+</pre>
+      </div>
+      <p>
+       ただ、dict関数よりも中括弧「{}」を使った初期化のほうがよく利用されます。
+中括弧を使った初期化では、カッコのなかに「キー:バリュー」というコロンで結ばれたペアが、
+コンマで必要なだけ繰り返されます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; print(type(a))
+&lt;class 'dict'&gt;
+</pre>
+      </div>
+      <p>
+       こうすると、「キー'apple'とバリュー'red'」のペアと、
+「キー'lemon'とバリュー'yellow'」のペアが作成されます。
+      </p>
+      <p>
+       | キー | バリュー |
+|:-------------:|:---:|
+| 'apple' | 'red' |
+| 'lemon' | 'yellow' |
+      </p>
+      <p>
+       キー及びバリューの型はなんでも構いませんが、キーには文字列型を使うことが多いです。
+バリューは数値や文字列だけでなく様々な型を状況に応じて使い分けます。
+自作のクラスのインスタンスをバリューとすることもあります。
+      </p>
+      <p>
+       空のインスタンスを中括弧で作ることもできます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {}
+&gt;&gt;&gt; print(type(a))
+&lt;class 'dict'&gt;
+</pre>
+      </div>
+      <p>
+       中括弧でインスタンスを作るというのはセットと辞書型で同じです。
+そのため、中身をどのように書くかでPythonはそれがセットか辞書型かを判別しています。
+空だとどちらか特定できないので、辞書型にするという決まりになっています。
+      </p>
+      <h3 id="header-5">
+       辞書型の中身の確認
+      </h3>
+      <p>
+       print関数に辞書型のインスタンスを与えることで、
+辞書型にどのようなキーとペアの組合せがあるか確認できます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; print(a)
+{'apple': 'red', 'lemon': 'yellow'}
+</pre>
+      </div>
+      <p>
+       セット型と同じく辞書型のペアにも順序はありません。
+そのため、printの出力で表示された組合せの並びでペアが存在していると思わないでください。
+      </p>
+      <h3 id="header-6">
+       キーを指定したバリューの取得
+      </h3>
+      <p>
+       辞書型のインスタンスにたいして大カッコでキーを指定すると、
+そのキーのペアとなるバリューを得ることができます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; b = a['apple']
+&gt;&gt;&gt; print(b)
+red
+&gt;&gt;&gt; print(a['lemon'])
+yellow
+</pre>
+      </div>
+      <p>
+       この辞書型でのキーを指定してバリューを得る手法は、
+リストでインデックス番号を指定して要素を得るのと似ています。
+そのため辞書型に相当する仕組みを提供するいくつかの言語では、これを「
+       <strong>
+        連想配列
+       </strong>
+       」と呼んでいます。
+      </p>
+      <p>
+       なお、存在しないキーを参照しようとするとエラーとなります。
+これもリストのインデックス範囲外へのアクセスと似ています。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; b = a['banana']
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+KeyError: 'banana'
+</pre>
+      </div>
+      <h3 id="header-7">
+       キーとバリューの更新
+      </h3>
+      <p>
+       リストでインデックスの要素を更新するには、インデックス番号を指定して要素を代入していました。
+辞書型でのバリューの更新もほとんどこれとほとんど同じで、
+辞書型のインスタンスに対してキーでバリューを指定して代入をします。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; a['apple'] = 'green'
+&gt;&gt;&gt; print(a['apple'])
+green
+</pre>
+      </div>
+      <p>
+       変更前は以下のような辞書型のペアを持っていました。
+      </p>
+      <p>
+       | キー | バリュー |
+|:-------------:|:---:|
+| 'apple' | 'red' |
+| 'lemon' | 'yellow' |
+      </p>
+      <p>
+       キー'apple'のバリューを更新すると、以下のようになりました。
+      </p>
+      <p>
+       | キー | バリュー |
+|:-------------:|:---:|
+| 'apple' | 'green' |
+| 'lemon' | 'yellow' |
+      </p>
+      <h3 id="header-8">
+       キーとバリューの追加
+      </h3>
+      <p>
+       リストにappendメソッドやinsertメソッドで要素を追加できるように、
+辞書型でもキーとバリューのペアを追加できます。
+ただ、辞書型ではメソッドでの追加よりも更新と同じ記法を使ったペアの追加が一般的です。
+      </p>
+      <p>
+       更新をするように新しいキーにたいしてバリューを代入すると、キーとバリューのペアが追加されます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; a['grape'] = 'purple'
+&gt;&gt;&gt; print(a['grape'])
+purple
+&gt;&gt;&gt; print(a)
+{'apple': 'red', 'lemon': 'yellow', 'grape': 'purple'}
+</pre>
+      </div>
+      <h3 id="header-9">
+       キーの存在確認
+      </h3>
+      <p>
+       辞書型のインスタンスのなかに指定したキーがあるかを確認するにはin演算子を使います。
+「キー in 辞書型のインスタンス」とすれば、キーがインスタンスに存在すればTrueが返され、
+存在していなければFalseが返されます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; print('apple' in a)
+True
+&gt;&gt;&gt; print('banana' in a)
+False
+</pre>
+      </div>
+      <p>
+       存在するキー'apple'を指定した場合はTrueを得ており、
+存在しないキー'banana'ではFalseとなっています。
+      </p>
+      <p>
+       大カッコを使ってキーのバリューを取得するコードにおいて、
+存在しないキーを指定する可能性がある場合はif文と組み合わせてエラーにならないようにしてください。
+      </p>
+      <p>
+       この仕組を使ったよくみかけるコードとしては「キーがあればバリューを取得し、
+なければ新しくキーとバリュー(デフォルト値)を追加する」というものがあります。
+このようなシナリオではin演算子でキーの有無を調べ、その結果に応じて条件分岐をさせます。
+      </p>
+      <p>
+       サンプルプログラムとしてテキスト内にあるアルファベットの数を数えるプログラムを記載します。
+テキストを1文字ごとにループし、すでに存在した文字(in演算がTrue)であればカウントを1増やし、
+新しい文字(in演算がFalse)であれば新しくキーとバリューを登録という流れです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'hello world'</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+    <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre>
+      </div>
+      <p>
+       このプログラムの出力は以下のようになります。
+アルファベットごとの出現数をカウントできています。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>{'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
+</pre>
+      </div>
+      <h3 id="header-10">
+       for 文の利用
+      </h3>
+      <p>
+       辞書型のインスタンスにたいしてfor文を使うと、インスガンスが持つキーを使ってループを回すことができます。
+セットのループと同じく、順序は保証されないためランダムだと考えてください。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'apple'</span><span class="p">:</span><span class="s1">'red'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">:</span><span class="s1">'yellow'</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+  <span class="n">value</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'key:{}, value:{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>key:apple, value:red
+key:lemon, value:yellow
+</pre>
+      </div>
+      <p>
+       辞書型のメソッドであるkeys、values、itemsを使ってもforループを回すことができます。
+keysの返り値でループを回すと、インスタンスで直接ループを回したのと同じ結果になります。
+ただ、valuesだとキーを使わずにバリューだけでループを回すことができ、
+itemsを使えばキーとバリューをペアで取得してループを回すことができます。
+      </p>
+      <h2 id="header-11">
+       辞書型のメソッド
+      </h2>
+      <h3 id="header-12">
+       keys : キーの一覧を取得
+      </h3>
+      <p>
+       キーの一覧を取得するのであれば、辞書型のインスタンスに対してkeysメソッドを呼び出します。
+返り値にキーの一覧をdict_keysという型で返します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow', 'cherry':'red'}
+&gt;&gt;&gt; b = a.keys()
+&gt;&gt;&gt; print(b)
+dict_keys(['apple', 'lemon', 'cherry'])
+</pre>
+      </div>
+      <p>
+       キーの一覧でループをするのであればこのままでも使えますが、
+リストとして使いたいのであればキャストをしてください。
+      </p>
+      <h3 id="header-13">
+       values : バリューの一覧を取得
+      </h3>
+      <p>
+       バリューの一覧を取得するにはvaluesメソッドを呼び出します。
+このメソッドの返り値はdict_valuesという型で、dict_keysと大差はありません。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow', 'cherry':'red'}
+&gt;&gt;&gt; b = a.values()
+&gt;&gt;&gt; print(b)
+dict_values(['red', 'yellow', 'red'])
+</pre>
+      </div>
+      <p>
+       この型もループに使うこともでき、キャストでリスト型にもできます。
+      </p>
+      <h3 id="header-14">
+       items : キーとバリューのペアの一覧を取得
+      </h3>
+      <p>
+       キーだけ、バリューだけの一覧ではなく、ペアの一覧を得たい場合はitemsメソッドを使います。
+このメソッドを呼び出すとdict_itemsというリストに似た型を返して、
+そのなかにはタプルでまとめられたキーとバリューのペアが要素として存在します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; b = a.items()
+&gt;&gt;&gt; print(b)
+dict_items([('apple', 'red'), ('lemon', 'yellow')])
+</pre>
+      </div>
+      <p>
+       辞書型のキーでforループを回して、キーとバリュー(参照で取得)のペアを使うコードを書くのであれば、
+このitemsメソッドを使うほうが綺麗になります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'apple'</span><span class="p">:</span><span class="s1">'red'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">:</span><span class="s1">'yellow'</span><span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">'key:{}, value:{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</pre>
+      </div>
+      <div class="codehilite">
+       <pre><span></span>key:apple, value:red
+key:lemon, value:yellow
+</pre>
+      </div>
+      <h3 id="header-15">
+       pop : キーを指定したバリューの取り出し
+      </h3>
+      <p>
+       辞書型のバリューを参照したあとで、そのキーとペアのバリューがいらなくなる(消したい)場合は、
+popメソッドを使うと便利です。
+      </p>
+      <p>
+       popメソッドの引数にキーを指定すると、そのバリューを返り値として返して、
+キーとバリューのペアをインスタンスから削除します。
+これはリストのpopメソッドでインデックス番号を指定した際の挙動と似ています。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; b = a.pop('apple')
+&gt;&gt;&gt; print(b)
+red
+&gt;&gt;&gt; print(a)
+{'lemon': 'yellow'}
+</pre>
+      </div>
+      <p>
+       存在しないキーでpopメソッドを呼び出してもエラーとなります。
+      </p>
+      <p>
+       リストのpopメソッドと異なり、辞書型のpopメソッドでは引数でキーを指定することが必要です。
+指定しないとエラーとなります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; b = a.pop()
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: pop expected at least 1 arguments, got 0
+</pre>
+      </div>
+      <h3 id="header-16">
+       get : デフォルト値を指定してバリューを取得
+      </h3>
+      <p>
+       中括弧を利用したバリューの参照ではキーが存在しないとエラーとなります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; b = a['banana']
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+KeyError: 'banana'
+</pre>
+      </div>
+      <p>
+       キーが存在しない場合にデフォルト値を返したいという場合は、
+getメソッドを引数付きで使うのが便利です。
+      </p>
+      <p>
+       このメソッドでは第一引数にキーを指定し、第二引数にデフォルト値を指定します。
+バリューを取得する際は「キーが存在すればバリューを返す」という動きをします。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; b = a.get('apple', 'green')
+&gt;&gt;&gt; print(b)
+red
+</pre>
+      </div>
+      <p>
+       ただ、キーが存在しない場合もエラーとはならず、
+「キーが存在しない場合はデフォルト値を返す」という動作をします。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; b = a.get('banana', 'green')
+&gt;&gt;&gt; print(b)
+green
+&gt;&gt;&gt; print(a)
+{'apple': 'red', 'lemon': 'yellow'}
+</pre>
+      </div>
+      <p>
+       もともと存在する辞書型のインスタンスに変化はありません。
+      </p>
+      <p>
+       なお、getメソッドの第二引数を省略した場合は「None」をデフォルト値とします。
+      </p>
+      <h3 id="header-17">
+       setdefault : 存在しない場合はデフォルト値のペアを作ってバリューを取得
+      </h3>
+      <p>
+       setdefaultメソッドはほとんどgetメソッドと同一です。
+バリューを取得する際は「キーが存在すればバリューを返す」
+「キーが存在しない場合はデフォルト値を返す」という動きをします。
+      </p>
+      <p>
+       ただ、存在しないキーのバリューを取得した場合は、
+getメソッドでは「辞書型のインスタンスに変化なし」という動きなのにたいし、
+setdefaultメソッドでは「辞書型のインスタンスにキーとバリューのペアを追加」という動きをします。
+      </p>
+      <p>
+       setdefaultメソッドで存在するキーを指定した場合は、インスタンスはもとのままです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; b = a.setdefault('apple', 'green')
+&gt;&gt;&gt; print(b)
+red
+&gt;&gt;&gt; print(a)
+{'apple': 'red', 'lemon': 'yellow'}
+</pre>
+      </div>
+      <p>
+       一方、存在しないキーを指定した場合は、
+インスタンスにキーとバリュー(デフォルト値)のペアが追加されていることがわかります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'apple':'red', 'lemon':'yellow'}
+&gt;&gt;&gt; b = a.setdefault('banana', 'green')
+&gt;&gt;&gt; print(b)
+green
+&gt;&gt;&gt; print(a)
+{'apple': 'red', 'lemon': 'yellow', 'banana': 'green'}
+</pre>
+      </div>
+      <h2 id="header-18">
+       辞書型の仕組み
+      </h2>
+      <p>
+       勘のいいかたであれば辞書型のしくみの想像がついたかもしれませんが、
+簡単にいってしまうと、セットにおけるハッシュの使い方に「Valueも追加」しているだけです。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0080_image/01.jpg"/>
+      </p>
+      <p>
+       「John Smith」をキーとして指定するとハッシュ関数で「02」が得られ、
+「02」のなかから「John Smith」のValueを取得してきます。
+      </p>
+      <!-- GENERATED HTML END -->
+      <!-- GENERATED HTML END -->
+      <nav>
+       <ul class="pager">
+        <li id="previous-li">
+         <a href="./059.html" id="previous-a">
+          ← Previous
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          Page Top
+         </a>
+        </li>
+        <li class="pager-next" id="next-li">
+         <a href="#" id="next-a">
+          Next →
+         </a>
+        </li>
+       </ul>
+      </nav>
+     </div>
+     <!-- /.blog-main -->
+     <div class="col-sm-3 col-sm-offset-1 u1-sidebar">
+      <!-- SNS start -->
+      <div class="sidebar-module">
+       <ul class="social-buttons">
+        <li>
+         <!-- hatena -->
+         <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="basic-label-counter" href="http://b.hatena.ne.jp/entry/" title="このエントリーをはてなブックマークに追加">
+          <img alt="このエントリーをはてなブックマークに追加" height="20" src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20"/>
+         </a>
+         <script async="async" charset="utf-8" src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript">
+         </script>
+        </li>
+        <li>
+         <!-- FB -->
+         <div class="fb-like" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" data-size="small">
+         </div>
+         <div id="fb-root">
+         </div>
+         <script>
+          (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.9";
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }(document, 'script', 'facebook-jssdk'));
+         </script>
+        </li>
+        <li>
+         <!-- twitter -->
+         <a class="twitter-share-button" href="https://twitter.com/share">
+          Tweet
+         </a>
+         <script>
+          ! function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                      p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = p + '://platform.twitter.com/widgets.js';
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }
+                  }(document, 'script', 'twitter-wjs');
+         </script>
+        </li>
+        <li>
+         <!-- G+ -->
+         <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
+         <script async="" defer="" src="https://apis.google.com/js/platform.js">
+          {
+                    lang: 'ja'
+                  }
+         </script>
+         <!-- 共有ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+         <div class="g-plus" data-action="share" data-annotation="none" data-height="24">
+         </div>
+        </li>
+        <li>
+         <!-- IN/Share -->
+         <script src="//platform.linkedin.com/in.js" type="text/javascript">
+          lang: ja_JP
+         </script>
+         <script data-counter="right" type="IN/Share">
+         </script>
+        </li>
+       </ul>
+      </div>
+      <!-- SNS end -->
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Python入門
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./">
+          トップページ
+         </a>
+        </li>
+        <li>
+         <a href="./navi.html">
+          目次
+         </a>
+        </li>
+        <li>
+         <a href="./qa.html">
+          質問と回答
+         </a>
+        </li>
+        <li>
+         <a href="./books.html">
+          おすすめPython書籍
+         </a>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Pythonの基礎
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="./001.html">
+          プログラミングとは
+         </a>
+        </li>
+        <li>
+         <a href="./002.html">
+          なぜPythonを学ぶのか
+         </a>
+        </li>
+        <li>
+         <a href="./003.html">
+          Python3のインストール
+         </a>
+        </li>
+        <li>
+         <a href="./004.html">
+          インタプリタの実行
+         </a>
+        </li>
+        <li>
+         <a href="./005.html">
+          プログラムファイルの実行
+         </a>
+        </li>
+        <li>
+         <a href="./006.html">
+          コメント
+         </a>
+        </li>
+        <li>
+         <a href="./007.html">
+          データと型
+         </a>
+        </li>
+        <li>
+         <a href="./008.html">
+          変数
+         </a>
+        </li>
+        <li>
+         <a href="./009.html">
+          変数の名前付け
+         </a>
+        </li>
+        <li>
+         <a href="./010.html">
+          定数とマジックナンバー
+         </a>
+        </li>
+        <li>
+         <a href="./011.html">
+          主要な型と演算子
+         </a>
+        </li>
+        <li>
+         <a href="./012.html">
+          条件分岐とコードブロック
+         </a>
+        </li>
+        <li>
+         <a href="./013.html">
+          ループ
+         </a>
+        </li>
+        <li>
+         <a href="./014.html">
+          関数
+         </a>
+        </li>
+        <li>
+         <a href="./015.html">
+          名前空間
+         </a>
+        </li>
+        <li>
+         <a href="./016.html">
+          オブジェクト指向を体験
+         </a>
+        </li>
+        <li>
+         <a href="./017.html">
+          モジュールの利用
+         </a>
+        </li>
+        <li>
+         <a href="./018.html">
+          モジュールの作成
+         </a>
+        </li>
+        <li>
+         <a href="./019.html">
+          プログラムのエラー
+         </a>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Pythonの基本的な型
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         数値型
+        </li>
+        <li>
+         文字列型
+        </li>
+        <li>
+         ブール型
+        </li>
+        <li>
+         None型
+        </li>
+        <li>
+         <a href="./055.html">
+          リスト型
+         </a>
+        </li>
+        <li>
+         <a href="./056.html">
+          タプル型
+         </a>
+        </li>
+        <li>
+         レンジ型
+        </li>
+        <li>
+         バイト型
+        </li>
+        <li>
+         <a href="./059.html">
+          セット型
+         </a>
+        </li>
+        <li>
+         <a href="./060.html">
+          辞書型
+         </a>
+        </li>
+       </ol>
+      </div>
+      <!-- amazon -->
+      <div class="sidebar-module">
+       <script type="text/javascript">
+        amazon_ad_tag = "grit-22";
+              amazon_ad_width = "300";
+              amazon_ad_height = "250";
+              amazon_ad_link_target = "new";
+       </script>
+       <script src="http://ir-jp.amazon-adsystem.com/s/ads.js">
+       </script>
+      </div>
+      <!-- amazon end-->
+      <div class="sidebar-module">
+       <p class="sidebar-heading">
+        Python入門
+       </p>
+       <ol class="list-unstyled">
+        <li>
+         <a href="https://github.com/yuichi110/www.yuichi.com-python" target="_blank">
+          <span class="fa fa-github">
+          </span>
+          GitHub Repository
+         </a>
+        </li>
+        <li>
+         <a href="https://twitter.com/yuichi110" target="_blank">
+          <i class="fa fa-twitter">
+          </i>
+          Twitter
+         </a>
+        </li>
+        <li>
+         <a href="https://www.linkedin.com/in/yuichiito/" target="_blank">
+          <span class="fa fa-linkedin">
+          </span>
+          Linkedin (英語)
+         </a>
+        </li>
+        <li class="li-none">
+         <a href="#" id="rw_email_contact">
+          <span class="fa fa-envelope">
+           Mail
+          </span>
+         </a>
+         <script type="text/javascript">
+          var _rwObsfuscatedHref0 = "mai";
+                  var _rwObsfuscatedHref1 = "lto";
+                  var _rwObsfuscatedHref2 = ":yu";
+                  var _rwObsfuscatedHref3 = "ich";
+                  var _rwObsfuscatedHref4 = "i@y";
+                  var _rwObsfuscatedHref5 = "uic";
+                  var _rwObsfuscatedHref6 = "hi.";
+                  var _rwObsfuscatedHref7 = "com";
+                  var _rwObsfuscatedHref = _rwObsfuscatedHref0 + _rwObsfuscatedHref1 + _rwObsfuscatedHref2 + _rwObsfuscatedHref3 + _rwObsfuscatedHref4 + _rwObsfuscatedHref5 + _rwObsfuscatedHref6 + _rwObsfuscatedHref7;
+                  document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;
+         </script>
+        </li>
+       </ol>
+      </div>
+      <div class="sidebar-module">
+       <!-- padding for side bar -->
+       <div class="hidden-xs">
+        <p style="height:500px">
+        </p>
+       </div>
+      </div>
+     </div>
+     <!-- /.blog-sidebar -->
+    </div>
+    <!-- /.row -->
+   </div>
+   <!-- /.container -->
+   <footer>
+    <div class="u1-footer-top">
+    </div>
+    <div class="u1-footer">
+     <p>
+      Copyright © 2017 Yuichi Ito All Rights Reserved.
+     </p>
+     <p align="center">
+      修正依頼がある場合は右ページよりページURLと問題箇所を指摘願います。
+      <a href="https://github.com/yuichi110/www.yuichi.com-python/issues">
+       <span class="fa fa-github">
+       </span>
+       Git Hub Issues
+      </a>
+     </p>
+    </div>
+   </footer>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+   </script>
+   <script src="./assets/js/bootstrap.min.js">
+   </script>
+   <script src="./assets/js/delete_useless_dom.js">
+   </script>
+   <!-- GOOGLE ANALYTICS -->
+   <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-4830860-7', 'auto');
+      ga('send', 'pageview');
+   </script>
+  </div>
+  <!-- end of background -->
+ </body>
+</html>

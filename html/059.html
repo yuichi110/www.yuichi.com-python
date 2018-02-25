@@ -93,7 +93,7 @@
       <!-- GENERATED HTML START -->
       <!-- GENERATED HTML START -->
       <h1>
-       Python3のインストール
+       セット
       </h1>
       <div class="no_bullets" id="toc_container">
        <p class="toc_title">
@@ -107,34 +107,73 @@
         </li>
         <li>
          <a href="header-2">
-          Pythonのインストール
+          基礎
          </a>
          <ul>
           <li>
            <a href="#header-3">
-            Windows10へのインストール
+            セット型の特徴
            </a>
           </li>
           <li>
            <a href="#header-4">
-            Windows10でPythonの動作確認
+            初期化
            </a>
           </li>
           <li>
            <a href="#header-5">
-            Macへのインストールと動作確認
+            セットへのキャスト
            </a>
           </li>
          </ul>
         </li>
         <li>
          <a href="#header-6">
-          コラム: Python2とPython3の違い
+          セットの演算子
          </a>
+         <ul>
+          <li>
+           <a href="#header-7">
+            in演算子
+           </a>
+          </li>
+          <li>
+           <a href="#header-8">
+            比較演算子
+           </a>
+          </li>
+         </ul>
         </li>
         <li>
-         <a href="header-7">
-          用語
+         <a href="#header-9">
+          セットのメソッド
+         </a>
+         <ul>
+          <li>
+           <a href="#header-10">
+            add : 集合への要素の追加
+           </a>
+          </li>
+          <li>
+           <a href="#header-11">
+            remove : 集合から要素を削除
+           </a>
+          </li>
+          <li>
+           <a href="#header-12">
+            pop : 要素の取得
+           </a>
+          </li>
+          <li>
+           <a href="#header-13">
+            union : 2つのセットの結合
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-14">
+          ハッシュの仕組み
          </a>
         </li>
        </ul>
@@ -143,220 +182,270 @@
        概要
       </h2>
       <p>
-       Pythonを使うには、そのコンピュータにPythonがインストールされている必要があります。
-Pythonには「Python2」と「Python3」があり、2017年現在はPython2からPython3に主流が移る過渡期にいます。
-そのため、特別な理由などがなければPython3を学ぶことが、今後のことを考えると望ましいです。
-      </p>
-      <p>
-       WindowsにはPython2もPython3も、デフォルトではインストールされていません。
-そのため、Pythonを使うにはインストールが必要です。
-      </p>
-      <p>
-       MacにはPython2のみデフォルトでインストールされています。
-Python3を使いたければ、Python3をインストールする必要があります。
+       あとでかく
       </p>
       <h2 id="header-2">
-       Pythonのインストール
+       基礎
       </h2>
       <h3 id="header-3">
-       Windows10へのインストール
+       セット型の特徴
       </h3>
       <p>
-       WindowsにはデフォルトでPythonがインストールされていません。
-Pythonを使うためにはインストールが必須です。
-      </p>
-      <p>
-       インストールにはPythonの公式サイト(https://www.python.org/)から、
-実行環境にあったPythonのインストールイメージをダウンロードしてきます。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/01.png"/>
-      </p>
-      <p>
-       Pythonのバージョンには現在2.xと3.xがあります。
-両者を区別する場合は前者を「
+       セットは数学の「
        <strong>
-        Python2
+        集合
        </strong>
-       」と呼び、後者を「
-       <strong>
-        Python3
-       </strong>
-       」と呼びます。
+       」という概念を実現するための型です。
+かなり大雑把にいってしまうと「同じ要素の重複がなく、順番がないリスト」という性質をもつデータ構造の型だと思って下さい。
       </p>
       <p>
-       新しくPythonを学ぶのであれば、現在主流になりつつある3.Xの最新版をインストールしてください。
-本サイトでは「3.X」にて解説をしております。
+       たとえば、なにも要素を持たない(このことを「空(から)」といいます)セットにたいして、Aを追加したとします。
+そのセットの中には要素Aがあります。
+このセットにBを追加すると、セットの中にはAとBの2つが存在するようになります。
       </p>
       <p>
-       上記ページから落としてきたイメージからインストーラーを立ち上げると以下のような画面が現れると思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/02.png"/>
+       しかし、ここにさらにAを追加しても、「A、A、B」とはならずに「A、B」のままです。
+これはセットの「同じ要素の重複はない」という性質からきています。
       </p>
       <p>
-       この選択画面で赤の枠囲みがされている場所をチェックすると、
-「環境変数」と呼ばれるアプリケーションの所在地を示す情報が自動で登録されますのでチェックをして下さい。
-環境変数への登録は後ほど説明するコンソールでpythonコマンドを使うために必要となります。
+       また、セットの要素には順序はないので、「AとB」と「BとA」に違いはありません。
+リストのようなインデックス番号を使った操作は一切できないため、最初にいれた要素を取り出したり、
+最後にいれた要素を更新するといったこともできません。
       </p>
       <p>
-       環境変数に登録しないと、コンソールがPythonがどこに存在するか知らないため、
-Pythonを使おうとした際に「そんなものはない」と怒られてしまいます。
-仮にこの選択画面でチェックを忘れた場合は、「パスを通す」という作業をする必要があります。
-面倒な場合はもう一度Pythonをインストールしなおして、その際に環境変数の登録をすれば大丈夫です。
+       できるのはある値と同じ値を持つ要素が存在するかを確認したり、
+無作為に要素を取り出したりするといったことです。
       </p>
       <p>
-       「Install Now」と「Customize installation」の選択肢がありますが、
-一般的には「Install Now」で構いません。
-いま操作しているユーザー以外がPythonを利用したり、
-凝った使い方をしたりしたい場合は「Customize Installation」が必要となります。
+       セットはリストより制限が多いですが、要素数が多くなっても動作が非常に高速という強みもあります。
+セットでもリストでもどちらでもよい場合はセットを利用します。
       </p>
       <h3 id="header-4">
-       Windows10でPythonの動作確認
+       初期化
       </h3>
       <p>
-       Pythonは「コンソール」と呼ばれるアプリケーションから利用します。
-Windowsで利用されるコンソールは「パワーシェル」もしくは「コマンドプロンプト」が一般的です。
-パワーシェル及びコマンドプロンプトは場所がわからなくてもWindows の検索機能を使うことで見つけられるかと思います。
-参考のために以下に画像を記載します。
+       何も要素を持たないセットのインスタンスを作るにはset関数を使います。
       </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/03.png"/>
-      </p>
-      <p>
-       パワーシェルやコマンドプロンプトは何度も使うことになるので、
-タスクバーにピン留めしてすぐに使えるようにしておくと今後が楽です。
-      </p>
-      <p>
-       プロンプトから以下のように「python --version」と打ってPythonを起動してみてください。
-先ほどのインストール作業時にパスが登録されていれば、以下のような出力が得られると思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/04.png"/>
-      </p>
-      <p>
-       そのようなものがないと怒られた場合はインストールができていないかパスが通っていません。
-パスの通し方は検索してもらえればすぐに分かるはずです。
-      </p>
-      <p>
-       なお、本サイトのプログラムはMacで書いて実行しているため、微妙にWindowsと食い違いが発生するかもしれません。
-大きな差ですと明記しますが、コマンド名やOSのディレクトリ構造といった小さい箇所は適時読み変えて下さい。
-      </p>
-      <p>
-       また、「ターミナル」と言った場合はパワーシェルやコマンドプロンプトのことを指します。
-      </p>
-      <h3 id="header-5">
-       Macへのインストールと動作確認
-      </h3>
-      <p>
-       Windowsと異なり、MacにはデフォルトでPythonがインストールされています。
-ただ、インストールされているものはPython2のため、Python3はインストールが必要です。
-Windowsへのインストールと同じように公式サイト(https://www.python.org/)へ行き、
-Python3のイメージをダウンロードしてきてインストールを行って下さい。
-      </p>
-      <p>
-       MacでのPython3のインストールは非常に簡単なため、割愛します。
-Windowsで行ったパスを通すなどの作業は、自動で行われるため不要です。
-      </p>
-      <p>
-       MacでのPythonの実行も、Windowsと同じコンソールを使います。
-Macのコンソールアプリケーションはターミナル(コマンドライン)で、
-それは「アプリケーション」フォルダ配下の「ユーティリティ(Utilities)」の下にあります。
-      </p>
-      <p>
-       ターミナルは今後頻繁に使うことになるので、ドラッグ&amp;ドロップでDockに登録しておいたほうがよいと思います。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/05.png"/>
-      </p>
-      <p>
-       ターミナルを起動して、「python --version」と打つと、
-おそらくPython2のバージョンが表示されます。
-      </p>
-      <p>
-       Python3のバージョンを確認するには「python3 --version」と打つ必要があります。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0015_image/06.png"/>
-      </p>
-      <p>
-       Macには複数のバージョンのPythonがインストールされています。
-デフォルトのPythonはPython2であるため、「python」とだけ入力するとpython2が使われます。
-python3を使うためには、「python3」と明示的にバージョンを指定する必要があります。
-      </p>
-      <p>
-       ちなみに、ターミナルにて「python」に続いてtabボタンを打つと、
-MacにインストールされているPythonのバージョン一覧が確認できます。
-      </p>
-      <h4>
-       MAC: pythonのバージョン一覧を確認
-      </h4>
       <div class="codehilite">
-       <pre><span></span>$ python
-python             python2.7-config   python3.5-32       pythonw2.6
-python-config      python3            python3.5-config   pythonw2.7
-python2.6          python3-32         python3.5m
-python2.6-config   python3-config     python3.5m-config
-python2.7          python3.5          pythonw
+       <pre><span></span>&gt;&gt;&gt; a = set()
+&gt;&gt;&gt; print(type(a))
+&lt;class 'set'&gt;
 </pre>
       </div>
       <p>
-       上記の例ではPython2として、python2.6と2.7がインストールされており、
-Python3としてpython3.5がインストールされています。
+       空でないセットを作る場合は中括弧「{}」に要素をコンマ区切りで並べることで作れます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {3, 1, 2, 1}
+&gt;&gt;&gt; print(type(a))
+&lt;class 'set'&gt;
+&gt;&gt;&gt; print(a)
+{1, 2, 3}
+</pre>
+      </div>
+      <p>
+       初期化をする際に2つの1を要素としていますが、
+要素は重複できないためセットの中身を確認した際に1はひとつしか表示されていません。
       </p>
       <p>
-       Python3 を使うつもりで間違えてPython2を使ったり、
-その逆が発生したりしないように注意をしてください。
+       空のセットは「{}」としても作成されないので注意をしてください。
+これは空のセットではなく、空の辞書型をつくります。
       </p>
+      <h3 id="header-5">
+       セットへのキャスト
+      </h3>
+      <p>
+       set関数を使うことでリストや辞書型をセットにすることができます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = [1,2,3,1,5,4]
+&gt;&gt;&gt; b = set(a)
+&gt;&gt;&gt; print(b)
+{1, 2, 3, 4, 5}
+</pre>
+      </div>
+      <p>
+       リストでは重複していた1という要素が、セットにすると重複しなくなっています。
+ただ、順序も変わっていることが分かります。
+      </p>
+      <p>
+       辞書型のキーのみが必要な場合はセットにキャストできます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = {'a':1, 'b':2, 'c':3}
+&gt;&gt;&gt; set(a)
+{'c', 'a', 'b'}
+&gt;&gt;&gt; b = set(a)
+&gt;&gt;&gt; print(b)
+{'c', 'a', 'b'}
+</pre>
+      </div>
       <h2 id="header-6">
-       コラム: Python2とPython3の違い
+       セットの演算子
+      </h2>
+      <h3 id="header-7">
+       in演算子
+      </h3>
+      <div class="codehilite">
+       <pre><span></span># in, not in を使える
+a = {1,3,5,7}
+print(1 in a)
+# True
+print(2 in a)
+# False
+</pre>
+      </div>
+      <h3 id="header-8">
+       比較演算子
+      </h3>
+      <p>
+       あまり利用場面は多くないかもしれませんが、集合特有の演算をすることもできます。
+      </p>
+      <div class="codehilite">
+       <pre><span></span># 比較
+print({1,2,3} &lt; {1,2,3,4})
+# True
+
+# AND(両方含むもののみ)
+print({1,2,3} &amp; {3,4,5})
+# {3}
+
+# OR(結合)
+print({1,2,3} | {3,4,5})
+# {1, 2, 3, 4, 5}
+</pre>
+      </div>
+      <h2 id="header-9">
+       セットのメソッド
+      </h2>
+      <h3 id="header-10">
+       add : 集合への要素の追加
+      </h3>
+      <p>
+       セットへの要素の追加や削除にはメソッドを使います。
+追加をするにはセットのインスタンスにたいしてaddメソッドを呼び出します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>a = {1, 2, 3}
+a.add(4)
+print(a)
+# {1, 2, 3, 4}
+</pre>
+      </div>
+      <p>
+       addメソッドですでに存在している要素を追加しようとしても、何も変わりません。
+エラーにもならないのでin演算子で存在の有無を確認する必要はないです。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>a.add(2)
+print(a)
+# {1, 2, 3, 4}
+</pre>
+      </div>
+      <h3 id="header-11">
+       remove : 集合から要素を削除
+      </h3>
+      <p>
+       削除にはremoveメソッドを使います。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>a.remove(1)
+print(a)
+# {2, 3, 4}
+</pre>
+      </div>
+      <p>
+       存在しない要素をremoveメソッドで消そうとするとエラーになるので注意してください。
+      </p>
+      <h3 id="header-12">
+       pop : 要素の取得
+      </h3>
+      <p>
+       セットから要素を一つ抜き出すにはpopメソッドを使います。
+このメソッドを呼ぶとセットからランダムに要素を一つ削除して、それを返り値として返します。
+セットには順番がないため、引数にインデックス番号は指定しません。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># {3, 5, 7}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1"># 1</span>
+</pre>
+      </div>
+      <h3 id="header-13">
+       union : 2つのセットの結合
+      </h3>
+      <p>
+       リストと若干異なるのはセットの結合です。
+先程説明したようにセットは重複した要素を持たないため、
+結合される2つのセットが同じものを持っていれば1つだけになります。
+プラス記号を使った結合はできません。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">union</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">})</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># {1, 2, 3, 4, 5}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">})</span>
+<span class="c1"># Traceback (most recent call last):</span>
+<span class="c1"># ...</span>
+<span class="c1"># TypeError: unsupported operand type(s) for +: 'set' and 'set'</span>
+</pre>
+      </div>
+      <h2 id="header-14">
+       ハッシュの仕組み
       </h2>
       <p>
-       Python2とPytho3のプログラムには一部互換性がありません。
-そのため、Python2で作ったコードをPython3で使うことや、
-その逆ができないことが多々ありますので注意してください。
+       セットで使われている重要なコンピュータ技術に、ハッシュ(Hash)と呼ばれているものがあります。
+集合はハッシュを使わずにでも実現できるでしょうが、
+PythonのセットはJavaでいうところのHashSetに近いです。
+このハッシュの概念図を以下に示します。
+      </p>
+      <p class="blog-img">
+       <img alt="image" class="img-responsive" src="./0075_image/01.jpg"/>
       </p>
       <p>
-       もし仮にPython2のプログラムを書く場合であっても、それがPython3で動くように書く癖をつけておいてください。
-完全に互換性をもたせるのは大変なのでおすすめしませんが、
-Python3で廃止される古いPython2の書き方に固執するのはよくありません。
+       ハッシュは「ハッシュ関数」と呼ばれるものに特定の値(キー)を与えて「ハッシュ値」を得ることで実現されています。
+ハッシュ値はある範囲のなかの数値(一般的には0からN)のどれかとなり、
+同じキーから生成されるハッシュ値は常に同じです。
       </p>
       <p>
-       ちなみにPython 2と3の両方をインストールして使い分けることも可能ですので、
-最終的に2.xを使いたいかたも、3.xをインストールして大丈夫です。
+       上記の図でいうと、キーとして「John Smith」をハッシュ関数にかけるとハッシュ値「02」が得られています。
+同様に「Lisa Smith」をハッシュ関数にかけると「01」となります。
+そしてハッシュ値の範囲は00から15です。
+この性質を考慮したうえで「ある集合に要素Xはあるか」ということをどのようにして実現するか想像してください。
       </p>
-      <h2 id="header-7">
-       用語
-      </h2>
-      <ul>
-       <li>
-        Python2 : 古いPythonの種類。2.X として様々なバージョンがあるが、2.7が最後
-       </li>
-       <li>
-        Python3 : 新しいPythonの種類。3.X として開発中。
-       </li>
-       <li>
-        パスを通す
-       </li>
-       <li>
-        環境変数
-       </li>
-       <li>
-        コンソール
-       </li>
-       <li>
-        パワーシェル(PowerShell)
-       </li>
-       <li>
-        ターミナル(Terminal)
-       </li>
-      </ul>
+      <p>
+       ハッシュを使う場合、たとえば「John Smith」を集合に加える際には、
+ハッシュ値「02」の場所に「John Smith」を格納します。
+そして「John Smith」が存在するかどうかのチェックはハッシュ値「02」の場所に「John Smith」がいるかどうか確認すればいいのです。
+一方、リストの探索であれば「先頭から末尾まで順に「John Smith」かどうかを確認していく」ことが必要です。
+リストのサイズが大きければこの探索コストは非常に大きくなります。
+「要素」の探索という面においてハッシュはリストに比べるとであるのに比べると随分スマートだと思いませんか。
+実際、ハッシュを使った要素の探索は非常に高速です。
+      </p>
+      <p>
+       ただ、ハッシュも使い方を間違えると効率が悪くなります。もう一度図を見てください。
+よく見ると「John Smith」と「Sandra Dee」は同じハッシュ値に割り当てられています。
+これはいわゆる「ハッシュの衝突」と呼ばれており、これが多発すると探索のスピードが遅くなります。
+なぜなら「Sandra Dee」の有無の確認をする際に「01」を見にいって、
+そこに「John Smith」やほかの要素がたくさん入っていると、
+「01」のなかで「リストの探索」のようにして全部をチェックしていかないといけないからです。
+      </p>
+      <p>
+       この問題を防ぐためにハッシュ値の範囲は十分な広さを持たせる必要があります。
+たとえば今回のように00から15などという範囲は狭すぎるので、これをもっと広げます。
+そうすると確率的には衝突は発生しにくくなります。
+ただ、通常はこんなことを気にしなくてもPythonがよしなに処理してくれるので大丈夫です。
+      </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>
        <ul class="pager">
         <li id="previous-li">
-         <a href="./002.html" id="previous-a">
+         <a href="./058.html" id="previous-a">
           ← Previous
          </a>
         </li>
@@ -366,7 +455,7 @@ Python3で廃止される古いPython2の書き方に固執するのはよくあ
          </a>
         </li>
         <li class="pager-next" id="next-li">
-         <a href="./004.html" id="next-a">
+         <a href="./060.html" id="next-a">
           Next →
          </a>
         </li>
