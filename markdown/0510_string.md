@@ -35,7 +35,8 @@ hello world
 <class 'str'>
 ```
 
-両者に違いはありませんので、特に理由がないかぎりはシングルクオートを利用します。
+シングルクオートとダブルクオートで作成された文字列に違いはありませんので、
+特に理由がないかぎりはシングルクオートを利用します。
 
 シングルクオートとダブルクオートを使い分ける場面は、
 文字列内にシングルクオートかダブルクオートが文字として出現する場合です。
@@ -44,6 +45,8 @@ hello world
 
 たとえば「I'm Taro」というテキストを文字列にする場合、
 シングルクオートで文字列を宣言するのであれば内部のシングルクオートをエスケープ処理する必要があります。
+これは文字列内にシングルクオートが文字として含まれているため、それを文字列を作る特別な記号としてではなく、
+文字としてPythonに認識させる必要があるためです。
 
 ```text
 >>> a = 'I\'m Taro'
@@ -51,7 +54,7 @@ hello world
 I'm Taro
 ```
 
-一方、ダブルクオートで囲むのであればエスケープは不要です。
+一方、ダブルクオートで囲むのであれば、その中にあるシングルクオートは文字として扱われるためエスケープは不要です。
 
 ```text
 >>> a = "I'm Taro"
@@ -72,8 +75,10 @@ line2"""
 print(text)
 ```
 
-トリプルクオテーションの中ではトリプルクオテーションと同じ記号が3つ続かない限りは使えます。
-そのため、文字列の中でシングルクオテーションやダブルクオテーションを複雑に使いたい場合は1行であってもトリプルクオテーションを使ってもよいかもしれません。
+トリプルクオテーションの中ではトリプルクオテーションと同じ記号が3つ続かない限り、
+シングルクオテーションとダブルクオテーションのどちらでも使えます。
+そのため、文字列の中でシングルクオテーションやダブルクオテーションを複雑に使いたい場合は、
+1行であってもトリプルクオテーションを使ってもよいかもしれません。
 
 ```python
 text = '''I'm Taro. "Hello World"'''
@@ -101,7 +106,7 @@ hello
  world
 ```
 
-複合代入演算子を使うことで既存の文字列の後ろに新しい文字列を加えることもよくあります。
+複合代入演算子を使うことで既存の文字列の後ろに新しい文字列を加えることもできます。
 
 ```text
 >>> a = 'hello'
@@ -115,6 +120,46 @@ hello world
 実行後に変数aに代入されている「複合代入演算子で文字列が付け加えられた文字列のインスタンス」はメモリ上では別物になっています。
 これは他の型の複合代入演算子の動きでも同じです。
 
+
+### \*演算子
+
+\*演算子を使うことで、文字列を指定した回数繰り返すことができます。
+
+```text
+>>> a = 'python'
+>>> print(a * 3)
+pythonpythonpython
+```
+
+複合代入演算子も使えます。
+
+```text
+>>> a = 'python'
+>>> a *= 3
+>>> print(a)
+pythonpythonpython
+```
+
+
+### in演算子
+
+in演算子を使うことである文字列のなかに指定した文字列があるか判定できます。
+「含まれる文字列 in 含む文字列」とすると、文字列が含まれていればTrueが返り、
+含まれていなければFalseが返ります。
+
+```text
+>>> text = 'hello python'
+>>> print('pyt' in text)
+True
+>>> print('PYT' in text)
+False
+```
+
+アルファベッドの大文字小文字は区別されます。
+文字列のin演算は厳密に合致するかの判定をしますが、
+あるパターンに合致するかを調べるのであれば正規表現を使います。
+
+
 ### 文字列長の取得
 
 文字列型はリストと同じシーケンス型に分類されます。
@@ -126,280 +171,567 @@ hello world
 11
 ```
 
-### in 演算子
+日本語などのマルチバイト文字もきちんと1文字で1つカウントされます。
 
-検索には「存在の確認」と「位置の確認」の2つの使い方があり、それぞれ次のようになります。
-
-```python
-text = 'hello world python'
-print('wor' in text)
-# True
-
-print('w0r' in text)
-# False
+```text
+>>> length = len('こんにちは')
+>>> print(length)
+5
 ```
 
-inについてはlistでの使い方と同じで、「A in B」の場合は「AがBに含まれていれば Trueを返す」という動きをします。
-’hello world python’ というテキストに ‘wor’ は含まれているので True となっています。
 
-### 文字列の部分取得
+### for文で1文字単位でループ
 
-文字列中の「文字」の取得は以下のように [X] で位置を指定して行います。
+文字列はシーケンス型なので、for文で使うことができます。
+リストで要素単位でループを回すように、文字列は1文字単位でループを回します。
 
 ```python
-text = 'hello world python'
-print(text[4])
-# o
-
-print(text[-4])
-# t
-
-print(text[100])
-# Traceback (most recent call last):
-#  ...
-# IndexError: string index out of range
+text = 'hello'
+for c in text:
+  print(c)
 ```
 
-この位置の指定はリストの要素の数え方と同じで0から始まります。
-先頭から0、1、2……と数えていくと4はoに対応しています。
-面白いのがこの値をマイナスにできるところです。
-このように指定すると後ろ側から取得してきます。
-この際、0からではなく-1、-2、-3……とカウントすることに注意してください。
-文字列の範囲を超えてアクセスしようとするとエラーになります。
+```text
+h
+e
+l
+l
+o
+```
+
+
+### 文字列内の文字の取得
+
+文字列はリストと同じように「先頭から何番目」と指定することで、文字を抜き出すことができます。
+指定方法は大カッコのなかにインデックス番号を書くというものです。
+
+```text
+>>> text = 'hello'
+>>> print(text[0])
+h
+>>> print(text[3])
+l
+>>> print(text[5])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: string index out of range
+```
+
+範囲外へのアクセスはエラーとなります。
+
+
+### 範囲を指定して文字列内の文字列を抜き出し
+
+リストのスライスと同じようにして、
+文字列内から「ここからここまで」と指定して文字列を抜き出すことができます。
+「抜き出すもとの文字列[始まり:終わり]」とすると、
+もとの文字列の始まりのインデックスから終わりのインデックスまでを抜き出して返します。
+
 
 文字列から「文字列」を取得するには、以下のように行います。
 
 ```python
-text = 'hello world python'
-print(text[6:11])
-# world
-
-print(text[-12:-7])
-# world
+>>> text = 'hello python'
+>>> print(text[3:8])
+lo py
 ```
 
-これは「スライシング」と呼ばれるテクニックで、
-[X:Y]とあるとXからYまで取得という意味になります。
-[X:Y] と指定する際はX < Yとなるようにしてください。
-先ほどと同じように、範囲指定にもマイナス値を利用できます。
-
-前と後ろを指定するのではなく、Xより前、Xより後という指定の仕方も可能です。
+指定部分の前後を省略すると、それぞれ「文字列の最初から(0指定と同じ)」
+「文字列の最後まで(最大のインデックス値と同じ)」という意味になります。
+両方を省略すれば最初から最後までという意味になるので、完全に文字列がコピーされます。
 
 ```python
-print(text[6:])
-# world python
-
-print(text[:11])
-# hello world
-
-print(text[:])
-# hello world python
+>>> text = 'hello python'
+>>> print(text[:8])
+hello py
+>>> print(text[3:])
+lo python
+>>> print(text[:])
+hello python
 ```
 
-見ていただくとわかるように [X:Y] の片方を省略しています。
-そうすると先頭から、もしくは末尾までという意味になります。
-あまり使いどころはありませんが、両方とも省略すると、文字列のすべてが取得されます。
-このスライシングはリストから複数の要素を取り出す際にも使えます。
-
-
-## 文字列型のメソッド
-
-### 文字列のデータは決して変わらない
-
-先にお伝えしたように文字列型もオブジェクトであるためメソッドが利用できます。
-ただ、文字列型に対してメソッドを呼び出した場合は
-「呼び出し元の文字列オブジェクトは変更されない」という規則があります。
-例えば次にお話する文字列の置き換えも、置き換えメソッドを呼び出した文字列は変更されず、
-メソッドの返り値として変更された文字列オブジェクトがかえってくるという動きをします。
-これは全ての文字列型のメソッドに共通した特徴なので必ず覚えておいて下さい。
-
-### 文字列の部分置き換えと削除 : replace メソッド
-
-文字列型のメソッドを使ってテキストの置き換え処理をしてみます。
-テキストエディタなどである特定のキーワードを別のキーワードに置き換えることがあるかと思いますが、それと同じ要領です。
-サンプルコードを以下に記載します。
-
-```python
-text = 'hello world python'
-text1 = text.replace('o', '0')
-print(text)
-# hello world python
-
-print(text1)
-# hell0 w0rld pyth0n
-
-print(text.replace('world', 'WORLD'))
-# hello WORLD python
-```
-
-文字列.replace(置き換える文字列, 置き換えられる文字列)とすると、変換された文字列が返されます。
-例にもあるように、元の文字列自体は変化していません。
-1文字だけを変更することもできますし、文字列を変更することもできます。
-不要かもしれませんが、上記のコードのオブジェクトとメソッドの関係を図に示します。
-
-![image](./0060_image/01.png)
-
-‘hello world python’ という文字列型のオブジェクトを変数 text に格納し、
-そのオブジェクトに対してメソッド replace を呼び出しています。
-そのメソッドは変換した文字列を返り値として返しますが、
-元のデータ(オブジェクトが持つ’hello world python’ というテキストデータ自体)は変更を加えません。
-
-文字列中の特定の文字列を消したい場合は、replaceメソッドの置き換え対象の文字列を空文字(`''`)にします。
-そうすることで、置き換え対象の文字列が空文字になるため、実質的に削除されます。
-
-```python
-text = 'hello world python'
-text1 = text.replace('o', '')
-print(text1)
-# hell wrld pythn
-```
-
-### 文字列の検索 : startswith, endswith, find
-
-文字列の検索もそれほど難しくはありません。
-
-find メソッドについては最も左側にあるマッチした位置を返します。
-そのため、'o'は何個もありますが、一番左の位置となっています。
-マッチしない場合は-1が返ってきます。
-
-```python
-print(text.find('wor'))
-# 6
-
-print(text.find('w0r'))
-# -1
-
-print(text.find('o'))
-# 4
-```
-
-find メソッドに似たメソッドで startswith と endswith があります。
-名前から分かるかもしれませんが、前者は「この文字列から始まっていればTrue」、
-後者は「この文字列で終わっていればTrue」という動きをします。
-
-```python
-text = 'hello world python'
-print(text.startswith('hell'))
-# True
-
-print(text.startswith('hell0'))
-# False
-
-print(text.endswith('hon'))
-# True
-
-print(text.endswith('h0n'))
-# False
-```
-
-それほど使う場面は多くないのですが、
-find メソッドのオプションである第二引数を指定することで前側を指定した数だけ飛ばして途中から検索することもできます。
-右側から探索をする rfind というメソッドも利用できます。
-
-```python
-text = 'hello world python'
-print(text.find('o', 10))
-# 16
-
-print(text.rfind('o'))
-# 16
-```
-
-### 文字列の前後の削除 : strip, rstrip, lstrip
-
-次に文字列の前後からの特定の文字の削除メソッド stripです。
-よく利用するのは、前後の空白や改行コード、タブなどを取り除く場合などでしょう。
-
-```python
-text = ' hello world \n'
-print(text.strip())
-# 'hello world'
-
-print(text.strip(' hell'))
-# 'o world \n'
-```
-
-strip関数に引数を指定しないと文字列の前後の空白文字(空白とタブ、改行)が取り除かれます。
-引数に文字列を指定すると、その文字列が取り除かれます。
-この strip() 関数はファイル読み込み処理とともに「改行コードを取り除く」ことによく使われることがありますので、
-覚えておいて頂いたほうがいいかもしれません。
-左側の文字だけを取り除く場合は lstrip、右側だけの場合は rstrip メソッドを使います。
-
-```python
-text = ' hello world \n'
-print(text.strip())
-# 'hello world'
-
-print(text.lstrip())
-# 'hello world \n'
-
-print(text.rstrip())
-# ' hello world'
-```
-
-また、文字列を split メソッドで特定の区切り文字で分割して文字列のリストにすることもできます。
-改行コードで分割する場合は split(‘\n’) とすることもできますし、
-splitlines() という専用のメソッドもあります。
-
-```python
-text = '1, taro, 35, male'
-print(text.split(','))
-# ['1', ' taro', ' 35', ' male']
-
-text = 'hello\nworld\npython'
-print(text.splitlines())
-# ['hello', 'world', 'python']
-
-print(text.split('\n'))
-# ['hello', 'world', 'python']
-```
-
-上記サンプルにあるようなコンマ「,」記号での文字列の分割は CSV(Excel出力)やログの解析あたりでよく使うテクニックです。
-たとえば以下ではトリプルくおテーションで作ったCSV形式のテキストを、
-まず改行コードで分割して1行ずつににして、各行においてコンマでテキストを区切っています。
-
-```python
-text = '''1, taro, 35, male
-2, jiro, 29, male
-3, hanako, 23, female'''
-
-for line in text.split('\n'):
-  elems = line.split(',')
-  print(elems[1].strip() + ':' + elems[2].strip())
-
-# taro:35
-# jiro:29
-# hanako:23
-```
-
-この例のように CSV の要素に空白が含まれているのであれば、
-先ほどの strip 関数と組み合わせて前後の空白を取り除いて整形してあげてもいいかもしれません。
-
+リストと文字列は似ていますが、インスタンス自体が変化することはないので、
+「del演算子(インスタンス内の要素を削除)」は使えません。
+文字列から
 
 ## 文字列のエスケープ
 
-最後に文字列で使われる特殊記号についてお話します。
-特殊記号はプログラム中で意味を持ってしまう特別な記号のことです。
-たとえば「'」という記号は文字列を作成する際に利用する特別な記号です。
-そのほかにはビープ音なども記号に分類されます。
-これらは文法的な理由やそもそもそれを表現する記号がキーボードのキーにないことから、
-「これは XX ですよ」という特別なルールにもとづいて文字列に表記します。
-そのルールに利用されるのがエスケープ記号と呼ばれるもので半角のバックスラッシュ「\」(英語キーボード)か、
-半角の円記号「¥」(日本語キーボード)を利用します。
-このエスケープ記号の後に特別な文字を続けることで、それが特別な意味を持つのです。
-
-たとえば「'」とビープ音は以下のように記載できます。
-
-```python
-print('escape sample1 \'.')
-print('escape sample2 \a.')
+```
+\\	バックスラッシュ (\)	 
+\'	一重引用符 (')	 
+\"	二重引用符 (")	 
+\a	ASCII 端末ベル (BEL)	 
+\b	ASCII バックスペース (BS)	 
+\f	ASCII フォームフィード (FF)	 
+\n	ASCII 行送り (LF)	 
+\r	ASCII 復帰 (CR)	 
+\t	ASCII 水平タブ (TAB)	 
+\v	ASCII 垂直タブ (VT)
 ```
 
-ほかには改行とエスケープ記号自身あたりをよく使います。
+## 文字列型のメソッド
 
-```python
-print('escape sample1 \n.')
-print('escape sample1 \\.')
+### replace : 文字列の部分置き換えと削除
+
+replaceメソッドは呼び出し元の文字列にある第一引数の文字列を第二引数の文字列に置き換えた文字列を作成します。
+たとえば「text.replace('o', '0')」とすればtextという変数に含まれる文字列'o'を'0'に置き換えた文字列を返します。
+第一引数に合致する文字列が呼び出し元に複数あった場合、それは全て置き換えられます。
+
+```text
+>>> text = 'hello world python'
+>>> a = text.replace('o', '0')
+>>> print(a)
+hell0 w0rld pyth0n
+>>> print(text)
+hello world python
 ```
 
-エスケープ記号一覧は調べてもらえればすぐに出てきますので、興味がある人は検索してみてください。
+文字列のメソッドを呼び出しても、呼び出し元のインスタンスに変化はおきません。
+返り値として新しい文字列を作るのであり、呼び出し元の文字列に手を加えるわけではないことは注意をしてください。
+
+置き換える文字列を空文字「''」とすれば、置き換えられる文字が消された文字列が返されます。
+
+```text
+>>> text = 'hello world python'
+>>> a = text.replace('ll', '')
+>>> print(a)
+heo world python
+```
+
+
+### find : 引数の文字列と合致したインデックスの取得
+
+文字列のfindメソッドはin演算子に似ています。
+インスタンスの文字列内に、引数で与えた文字列が含まれていればインデックス番号を返します。
+含まれていなければ「-1」を返します。
+
+```text
+>>> text = 'hello python'
+>>> a = text.find('llo')
+>>> print(a)
+2
+
+>>> b = text.find('PYTHON')
+>>> print(b)
+-1
+```
+
+返り値が-1か否かで、文字列中の特定文字列の存在の確認をできます。
+ただ、オプションなどを必要としないのであればin演算子を使うほうが明確です。
+同じ文字列が複数含まれていれば、一番最初に合致したインデックス番号を返します。
+
+このメソッドにはオプションの引数があり、文字列のどこからどこまでをチェックするかを指定できます。
+第二引数(start)が開始位置で第三引数(end)が検索対象の終了位置です。
+
+```text
+>>> text = 'hello python'
+>>> a = text.find('llo', 5)
+>>> print(a)
+-1
+```
+
+上記のサンプルでは検索対象が5文字め以降になっているため、
+'llo'が文字列に含まれているにも関わらず、
+返り値が-1(含まれていなかった)となっています。
+
+
+### rfind : findを文字列末尾から実施
+
+findは文字列の先頭側から合致した箇所を探します。
+rfindはこの逆で、文字列の末尾側から合致した箇所を探します。
+
+```text
+>>> text = '01234567890123456789'
+>>> text.find('9')
+9
+>>> text.rfind('9')
+19
+```
+
+
+### index : findメソッドとほぼ同じ
+
+文字列のindexメソッドは文字列のfindメソッドとほとんど同じです。
+findメソッドが文字列が見つからなかった場合にインデックス位置を-1として返すのに対し、
+indexメソッドでは例外を発生させます。
+
+```text
+>>> text = 'hello python'
+>>> a = text.index('llo')
+>>> print(a)
+2
+```
+
+文字列中に指定した文字列が存在しない場合は「ValueError」が発生します。
+
+```text
+>>> b = text.index('PYTHON')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+```
+
+
+### rindex : indexメソッドを文字列末尾から実施
+
+rindexメソッドはindexメソッドの文字列末尾から検索する版です。
+findとrfindの関係と全く同じです。
+
+```text
+>>> text = '01234567890123456789'
+>>> text.rindex('9')
+19
+
+>>> text.rindex('A')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+```
+
+
+### startswith : 文字列が特定文字列から始まるか
+
+startswithメソッドは文字列が引数でした文字列から始まるかを判定します。
+引数で与えた文字列から始まればTrueが返され、そうでなければFalseが返ります。
+in演算子での判定ををより限定的にしたようなものです。
+
+```text
+>>> text = 'hello python'
+>>> a = text.startswith('hello')
+>>> print(a)
+True
+
+>>> b = text.startswith('python')
+>>> print(b)
+False
+```
+
+
+### endswith : 文字列が特定文字列で終わるか
+
+endswithメソッドは文字列が引数でした文字列で終わるかを判定します。
+引数で与えた文字列から始まればTrueが返され、そうでなければFalseが返ります。
+startswithメソッドと似ています。
+
+```text
+>>> text = 'hello python'
+>>> a = text.endswith('hello')
+>>> print(a)
+False
+
+>>> b = text.endswith('python')
+>>> print(b)
+True
+```
+
+
+### strip : 文字列の前後の削除
+
+stripメソッドを使うことで文字列の前後にある特定文字列(第一引数で指定)を省くことができます。
+メソッド呼び出し元の文字列の前後に省かれる文字列がなければ、省かれずに無視されるだけです。
+
+第一引数を省略した場合はデフォルトの「空白文字列(スペースだけでなくタブや改行も含む)」を省きます。
+
+```text
+>>> text = ' hello world \n'
+>>> a = text.strip()
+>>> print(a)
+hello world
+>>>
+```
+
+上記では先頭の空白と最後の空白及び改行コードが削られています。
+
+第一引数を指定した場合はそれを削ります。
+同じパターンが続く限りは何度でもそれを削ります。
+
+```text
+>>> text = '123123456123'
+>>> a = text.strip('123')
+>>> print(a)
+456
+```
+
+
+### lstrip : 文字列の前部の削除
+
+stripメソッドは文字列の前後から特定文字列を削ります。
+lstripメソッドは「left」の「l」がついているように、左側(つまり前部)のみを削ります。
+
+引数を省略した場合のデフォルトはstripと同じく空白文字の削除です。
+
+```python
+>>> text = ' hello world \n'
+>>> a = text.lstrip()
+>>> print(a)
+hello world
+
+>>>
+```
+
+上記の結果では、前部の空白は削られているのに対して後部の改行はそのまま残っています。
+
+第一引数で文字列をしても前部のみを削ります。
+
+```text
+>>> text = '123123456123'
+>>> a = text.lstrip('123')
+>>> print(a)
+456123
+```
+
+
+### rstrip : 文字列の後部の削除
+
+rstripは「right strip」ですので、文字列の右側(後部)のみ削ります。
+
+引数を省略した場合のデフォルトはstripやlstripと同じく空白文字の削除です。
+
+```text
+>>> a = text.rstrip()
+>>> print(a)
+ hello world
+>>>
+```
+
+前部の空白が残っているのに対し、後者の改行文字及び空白が削除されています。
+
+第一引数で文字列をしても後部のみを削ります。
+
+```text
+>>> text = '123123456123'
+>>> a = text.rstrip('123')
+>>> print(a)
+123123456
+```
+
+
+### split : 文字列の分割
+
+splitメソッドを使うことで文字列を第一引数で指定した区切り文字で分割できます。
+分割された文字列はリストに前から順につめられて返されます。
+
+```text
+>>> text = '1, taro, 35, male'
+>>> a = text.split(',')
+>>> print(a)
+['1', ' taro', ' 35', ' male']
+```
+
+上記ではCSV形式で使われるコンマ区切りのデータをコンマで区切ってリストにまとめています。
+今回であれば返り値であるリストの各要素にたいしてstripメソッドを適用して空白を削除してもよいかもしれません。
+
+区切り文字が2つ以上連続で続く場合は、そのあいだの要素は空文字になります。
+
+```text
+>>> text = '1, taro,, male'
+>>> a = text.split(',')
+>>> print(a)
+['1', ' taro', '', ' male']
+```
+
+
+### splitlines : 文字列を改行コードで分割
+
+splitlinesメソッドは文字列を改行コード系で区切ります。
+改行コードだけでなく改ページなどのコードでも区切られますので、splitメソッドに「'\\n'」を与えた場合と厳密には違った動きをします。
+
+```text
+>>> text = '1\ntaro\n35\nmale'
+>>> a = text.splitlines()
+>>> print(a)
+['1', 'taro', '35', 'male']
+```
+
+
+### join : 文字列でリストを連結
+
+joinメソッドは呼び出し元の文字列で引数のリストを1つの文字列に連結します。
+splitメソッドの反対です。
+
+```text
+>>> text = ' ,'
+>>> a = text.join(['1', 'taro', '35', 'male'])
+>>> print(a)
+1 ,taro ,35 ,male
+```
+
+連結されるリスト内の要素は文字列である必要があります。
+たとえば、上記の'35'が数値の35であればエラーになります。
+
+```text
+>>> text = ' ,'
+>>> a = text.join(['1', 'taro', 35, 'male'])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: sequence item 2: expected str instance, int found
+```
+
+
+### lower : アルファベットを小文字にする
+
+lowerメソッドを呼び出すことで、文字列のアルファベットを全て小文字にできます。
+
+```text
+>>> text = 'HeLlO wOrLd'
+>>> a = text.lower()
+>>> print(a)
+hello world
+```
+
+アルファベット以外の文字が含まれていてもエラーにはならず、無視されます。
+
+```text
+>>> text = '123 ABC 456 あいうえお'
+>>> a = text.lower()
+>>> print(a)
+123 abc 456 あいうえお
+```
+
+### upper : アルファベットを大文字にする
+
+upperメソッドを呼び出すことで、文字列のアルファベットを全て小文字にできます。
+
+```text
+>>> text = 'HeLlO wOrLd'
+>>> a = text.upper()
+>>> print(a)
+HELLO WORLD
+```
+
+### title : 区切り文字を大文字にする
+
+英文などでは単語の区切り文字のみを大文字にすることがよくあります。
+titleメソッドを呼び出すことで、文字列の単語の頭だけを大文字にできます。
+
+```text
+>>> text = 'HeLlO wOrLd'
+>>> a = text.title()
+>>> print(a)
+Hello World
+```
+
+### zfill : 数値の左に0をつめる
+
+zfillメソッドを使うことで、数字を持つ文字列の先頭に0をつめることができます。
+引数で指定した文字列長になるように0をつめます。
+
+```text
+>>> text = '123'
+>>> a = text.zfill(5)
+>>> print(a)
+00123
+>>> a = text.zfill(6)
+>>> print(a)
+000123
+```
+
+使う用途はあまりないと思いますが、数字以外に対しても0をつめることができます。
+
+```text
+>>> text = 'ABC あいうえお'
+>>> a = text.zfill(15)
+>>> print(a)
+000000ABC あいうえお
+```
+
+### isalnum
+
+isalnumメソッドは文字列が空でなく、数値とアルファベットのみから構成されているかを調べます。
+条件を満たしていればTrueが返り、そうでなければFalseが返ります。
+
+```text
+>>> text = '012345abcDE'
+>>> print(text.isalnum())
+True
+>>> text = '012345 abcDE'
+>>> print(text.isalnum())
+False
+```
+
+### isalpha
+
+isalphaメソッドは文字列が空でなく、アルファベットのみから構成されているかを調べます。
+条件を満たしていればTrueが返り、そうでなければFalseが返ります。
+
+```text
+>>> text = 'abcdeFGHIJ'
+>>> print(text.isalpha())
+True
+>>> text = 'abcDE12345'
+>>> print(text.isalpha())
+False
+```
+
+### isdigit
+
+isdeigtメソッドは文字列が空でなく、数値のみから構成されているかを調べます。
+ここでいう数値は「0123456789」のことであり、小数点「.」や16進数の「ABCDEF」は含みません。
+条件を満たしていればTrueが返り、そうでなければFalseが返ります。
+
+```text
+>>> text = '0123456789'
+>>> print(text.isdigit())
+True
+>>> text = '012345.6789'
+>>> print(text.isdigit())
+False
+```
+
+### islower
+
+islowerメソッドは文字列が小文字であるかを調べます。
+条件を満たしていればTrueが返り、そうでなければFalseが返ります。
+
+```text
+>>> text = 'abcde'
+>>> print(text.islower())
+True
+>>> text = 'abcdeFGHIJ'
+>>> print(text.islower())
+False
+```
+
+正確に言えば「1文字以上の小文字があるか」「大文字はひとつもないか」を調べるので、
+空白や数値、日本語といったアルファベットと異なる文字は無視します。
+
+```text
+>>> text = 'abcde12345'
+>>> print(text.islower())
+True
+```
+
+### isupper
+
+islowerメソッドは文字列が大文字であるか(「1文字以上の大文字があるか」「小文字はひとつもないか」)を調べます。
+条件を満たしていればTrueが返り、そうでなければFalseが返ります。
+
+```text
+>>> text = 'ABCDE'
+>>> print(text.isupper())
+True
+
+>>> text = 'ABCDEfghij'
+>>> print(text.isupper())
+False
+
+>>> text = 'ABCDE12345'
+>>> print(text.isupper())
+True
+```
+
+### istitle
+
+```text
+>>> text = 'Hello World'
+>>> print(text.istitle())
+True
+
+>>> text = 'hello world'
+>>> print(text.istitle())
+False
+
+>>> text = 'Hello 12345 World'
+>>> print(text.istitle())
+True
+```
