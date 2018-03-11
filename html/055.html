@@ -107,125 +107,172 @@
         </li>
         <li>
          <a href="header-2">
-          リストの使い方
+          リスト型の特徴
+         </a>
+        </li>
+        <li>
+         <a href="header-3">
+          リストの基本操作
          </a>
          <ul>
           <li>
-           <a href="#header-3">
+           <a href="#header-4">
             初期化とインデックスを使った操作
            </a>
           </li>
           <li>
-           <a href="#header-4">
+           <a href="#header-5">
             要素の取得と代入
            </a>
           </li>
           <li>
-           <a href="#header-5">
+           <a href="#header-6">
             要素をリスト末尾を基準に参照
            </a>
           </li>
           <li>
-           <a href="#header-6">
+           <a href="#header-7">
             リストの切り出し:スライス
            </a>
           </li>
           <li>
-           <a href="#header-7">
+           <a href="#header-8">
             リスト長
            </a>
           </li>
           <li>
-           <a href="#header-8">
+           <a href="#header-9">
             in演算子
            </a>
           </li>
           <li>
-           <a href="#header-9">
+           <a href="#header-10">
             del演算子
            </a>
           </li>
           <li>
-           <a href="#header-10">
+           <a href="#header-11">
             +演算子
            </a>
           </li>
           <li>
-           <a href="#header-11">
-            リストの中のリスト
-           </a>
-          </li>
-          <li>
            <a href="#header-12">
-            range関数を使った連番リストの作成
+            リストの中のリスト
            </a>
           </li>
          </ul>
         </li>
         <li>
          <a href="#header-13">
-          リストのメソッド
+          リストでつかう関数
          </a>
          <ul>
           <li>
            <a href="#header-14">
-            append : リスト末尾への要素の追加
+            all
            </a>
           </li>
           <li>
            <a href="#header-15">
-            insert : リストへの要素の挿入
+            any
            </a>
           </li>
           <li>
            <a href="#header-16">
-            pop : 要素の取り出し
+            filter
            </a>
           </li>
           <li>
            <a href="#header-17">
-            count : 引数で指定した値と同じ値を持つ要素数を数える
+            map
            </a>
           </li>
           <li>
            <a href="#header-18">
-            index : 引数でした値と同じ値を持つ要素のインデックス番号を得る
+            max
            </a>
           </li>
           <li>
            <a href="#header-19">
-            remove : 要素を指定した要素の削除
+            min
            </a>
           </li>
           <li>
            <a href="#header-20">
-            リストの結合 : +演算子, extendメソッド
+            sum
            </a>
           </li>
           <li>
            <a href="#header-21">
-            リストの反転: reverse
+            zip
            </a>
           </li>
-          <li>
-           <a href="#header-22">
-            リストのソート: sort
-           </a>
-          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#header-22">
+          リストのメソッド
+         </a>
+         <ul>
           <li>
            <a href="#header-23">
-            リストの初期化
+            append : リスト末尾への要素の追加
            </a>
           </li>
           <li>
            <a href="#header-24">
+            insert : リストへの要素の挿入
+           </a>
+          </li>
+          <li>
+           <a href="#header-25">
+            pop : 要素の取り出し
+           </a>
+          </li>
+          <li>
+           <a href="#header-26">
+            count : 引数で指定した値と同じ値を持つ要素数を数える
+           </a>
+          </li>
+          <li>
+           <a href="#header-27">
+            index : 引数でした値と同じ値を持つ要素のインデックス番号を得る
+           </a>
+          </li>
+          <li>
+           <a href="#header-28">
+            remove : 要素を指定した要素の削除
+           </a>
+          </li>
+          <li>
+           <a href="#header-29">
+            リストの結合 : +演算子, extendメソッド
+           </a>
+          </li>
+          <li>
+           <a href="#header-30">
+            リストの反転: reverse
+           </a>
+          </li>
+          <li>
+           <a href="#header-31">
+            リストのソート: sort
+           </a>
+          </li>
+          <li>
+           <a href="#header-32">
+            リストの初期化
+           </a>
+          </li>
+          <li>
+           <a href="#header-33">
             リストのコピー
            </a>
           </li>
          </ul>
         </li>
         <li>
-         <a href="#header-25">
+         <a href="#header-34">
           キュー(Queue)とスタック(Stack)
          </a>
         </li>
@@ -242,14 +289,17 @@
        リストはそのようなデータを管理するための型のなかで、最もよく利用される型のひとつです。
       </p>
       <h2 id="header-2">
-       リストの使い方
+       リスト型の特徴
       </h2>
       <p>
        オブジェクト指向のプログラミング言語では、クラスからインスタンスを作成することで処理やデータを実現します。
 リストはよく利用される型ですので、クラス名を使った初期化やメソッドだけでなく、
 リストのための特別なインスタンスを作成する構文や、要素を操作する構文があります。
       </p>
-      <h3 id="header-3">
+      <h2 id="header-3">
+       リストの基本操作
+      </h2>
+      <h3 id="header-4">
        初期化とインデックスを使った操作
       </h3>
       <p>
@@ -280,7 +330,7 @@
 ['h', 'e', 'l', 'l', 'o']
 </pre>
       </div>
-      <h3 id="header-4">
+      <h3 id="header-5">
        要素の取得と代入
       </h3>
       <p>
@@ -313,7 +363,7 @@ Traceback (most recent call last):
 IndexError: list index out of range
 </pre>
       </div>
-      <h3 id="header-5">
+      <h3 id="header-6">
        要素をリスト末尾を基準に参照
       </h3>
       <p>
@@ -339,7 +389,7 @@ Traceback (most recent call last):
 IndexError: list index out of range
 </pre>
       </div>
-      <h3 id="header-6">
+      <h3 id="header-7">
        リストの切り出し:スライス
       </h3>
       <p>
@@ -391,7 +441,7 @@ print(a)
        同じ内容のインスタンスを新しく作られるので、参照渡しによる副作用を防ぐためなどに利用したりします。
 ただし、いわゆる「浅いコピー」なので注意をしてください。
       </p>
-      <h3 id="header-7">
+      <h3 id="header-8">
        リスト長
       </h3>
       <p>
@@ -414,7 +464,7 @@ print(a)
        インデックスを指定できるのは0から「リスト長-1」までとなります。
 リスト長が0のリストは中身が何もないので、インデックス番号を指定して要素を参照することはできません。
       </p>
-      <h3 id="header-8">
+      <h3 id="header-9">
        in演算子
       </h3>
       <p>
@@ -444,7 +494,7 @@ False
 True
 </pre>
       </div>
-      <h3 id="header-9">
+      <h3 id="header-10">
        del演算子
       </h3>
       <p>
@@ -473,7 +523,7 @@ del演算子に続けてインスタンスとインデックス番号を指定�
 [1, 4]
 </pre>
       </div>
-      <h3 id="header-10">
+      <h3 id="header-11">
        +演算子
       </h3>
       <p>
@@ -489,7 +539,7 @@ del演算子に続けてインスタンスとインデックス番号を指定�
 [1, 2, 3]
 </pre>
       </div>
-      <h3 id="header-11">
+      <h3 id="header-12">
        リストの中のリスト
       </h3>
       <p>
@@ -519,37 +569,37 @@ del演算子に続けてインスタンスとインデックス番号を指定�
        a[1][1]はaというリストから1番目の要素のリストをとりだし、
 その取り出したリストから1番目の要素を取り出すということです。
       </p>
-      <h3 id="header-12">
-       range関数を使った連番リストの作成
-      </h3>
-      <p>
-       プログラムの中で数値の連番を持つリストを作りたいことがあります。
-whileなどを使ってインクリメントとループで作成することもできますが、
-range関数を使うと簡単です。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; range(10)
-range(0, 10)
-&gt;&gt;&gt; list(range(10))
-[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-</pre>
-      </div>
-      <p>
-       range関数に引数を与えると、0からその数値までの数列をrange型のインスタンスとして返します。
-これをリスト型にキャストすると0から指定した値までのリストを得ることができます。
-      </p>
-      <p>
-       ある値からある値までの連番のリストを作りたい場合はrange関数に引数を2つ与えます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; list(range(5, 10))
-[5, 6, 7, 8, 9]
-</pre>
-      </div>
       <h2 id="header-13">
-       リストのメソッド
+       リストでつかう関数
       </h2>
       <h3 id="header-14">
+       all
+      </h3>
+      <h3 id="header-15">
+       any
+      </h3>
+      <h3 id="header-16">
+       filter
+      </h3>
+      <h3 id="header-17">
+       map
+      </h3>
+      <h3 id="header-18">
+       max
+      </h3>
+      <h3 id="header-19">
+       min
+      </h3>
+      <h3 id="header-20">
+       sum
+      </h3>
+      <h3 id="header-21">
+       zip
+      </h3>
+      <h2 id="header-22">
+       リストのメソッド
+      </h2>
+      <h3 id="header-23">
        append : リスト末尾への要素の追加
       </h3>
       <p>
@@ -562,7 +612,7 @@ range(0, 10)
 [1, 2, 3, 4]
 </pre>
       </div>
-      <h3 id="header-15">
+      <h3 id="header-24">
        insert : リストへの要素の挿入
       </h3>
       <p>
@@ -584,7 +634,7 @@ insertメソッドで末尾に挿入することもできますが、インデ�
 [100, 1, 2, 200, 3, 300]
 </pre>
       </div>
-      <h3 id="header-16">
+      <h3 id="header-25">
        pop : 要素の取り出し
       </h3>
       <p>
@@ -617,13 +667,13 @@ popメソッドを使うことが一般的です。
 [1, 2, 3, 4]
 </pre>
       </div>
-      <h3 id="header-17">
+      <h3 id="header-26">
        count : 引数で指定した値と同じ値を持つ要素数を数える
       </h3>
-      <h3 id="header-18">
+      <h3 id="header-27">
        index : 引数でした値と同じ値を持つ要素のインデックス番号を得る
       </h3>
-      <h3 id="header-19">
+      <h3 id="header-28">
        remove : 要素を指定した要素の削除
       </h3>
       <p>
@@ -660,7 +710,7 @@ ValueError: list.remove(x): x not in list
 ['a', 'c', 'd', 'b']
 </pre>
       </div>
-      <h3 id="header-20">
+      <h3 id="header-29">
        リストの結合 : +演算子, extendメソッド
       </h3>
       <p>
@@ -690,7 +740,7 @@ extendメソッドを使った場合は呼び出し元のインスタンスが�
 [1, 2, 3, 4, [5, 6, 7, 8]]
 </pre>
       </div>
-      <h3 id="header-21">
+      <h3 id="header-30">
        リストの反転: reverse
       </h3>
       <p>
@@ -703,7 +753,7 @@ extendメソッドを使った場合は呼び出し元のインスタンスが�
 [5, 4, 3, 2, 1]
 </pre>
       </div>
-      <h3 id="header-22">
+      <h3 id="header-31">
        リストのソート: sort
       </h3>
       <p>
@@ -727,7 +777,7 @@ extendメソッドを使った場合は呼び出し元のインスタンスが�
 [5, 4, 3, 2, 1]
 </pre>
       </div>
-      <h3 id="header-23">
+      <h3 id="header-32">
        リストの初期化
       </h3>
       <p>
@@ -742,7 +792,7 @@ extendメソッドを使った場合は呼び出し元のインスタンスが�
       <p>
        新しく変数に空のリストを代入しても変数レベルでは初期化できます。
       </p>
-      <h3 id="header-24">
+      <h3 id="header-33">
        リストのコピー
       </h3>
       <p>
@@ -760,7 +810,7 @@ copyメソッドを使うことでもできます。
        これは「浅いコピー」と呼ばれるもので、リストの要素のインスタンスはコピー元とコピー先で共有されています。
 要素のインスタンスまで新しく作成しなおすのは「深いコピー」と呼ばれており、copyモジュールを使います。
       </p>
-      <h2 id="header-25">
+      <h2 id="header-34">
        キュー(Queue)とスタック(Stack)
       </h2>
       <p>
@@ -1057,16 +1107,24 @@ popメソッドを引数なしで呼び出せば常にリスト末尾の要素�
        </p>
        <ol class="list-unstyled">
         <li>
-         数値型
+         <a href="./051.html">
+          数値型
+         </a>
         </li>
         <li>
-         文字列型
+         <a href="./052.html">
+          文字列型
+         </a>
         </li>
         <li>
-         ブール型
+         <a href="./053.html">
+          ブール型
+         </a>
         </li>
         <li>
-         None型
+         <a href="./054.html">
+          None型
+         </a>
         </li>
         <li>
          <a href="./055.html">
@@ -1079,10 +1137,14 @@ popメソッドを引数なしで呼び出せば常にリスト末尾の要素�
          </a>
         </li>
         <li>
-         レンジ型
+         <a href="./057.html">
+          レンジ型
+         </a>
         </li>
         <li>
-         バイト型
+         <a href="./058.html">
+          バイト型
+         </a>
         </li>
         <li>
          <a href="./059.html">

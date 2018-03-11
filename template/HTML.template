@@ -314,16 +314,24 @@
             </p>
             <ol class="list-unstyled">
               <li>
+                <a href="./051.html">
          数値型
+         </a>
               </li>
               <li>
+                <a href="./052.html">
          文字列型
+         </a>
               </li>
               <li>
+                <a href="./053.html">
            ブール型
+           </a>
               </li>
               <li>
+                <a href="./054.html">
          None型
+         </a>
               </li>
               <li>
                 <a href="./055.html">
@@ -336,10 +344,14 @@
         </a>
               </li>
               <li>
+              <a href="./057.html">
            レンジ型
+           </a>
               </li>
               <li>
+              <a href="./058.html">
          バイト型
+         </a>
               </li>
               <li>
                 <a href="./059.html">

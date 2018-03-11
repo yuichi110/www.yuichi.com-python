@@ -107,12 +107,27 @@
         </li>
         <li>
          <a href="header-2">
-          None型とは
+          None型の特徴
          </a>
         </li>
         <li>
          <a href="header-3">
+          None型の基本操作
+         </a>
+        </li>
+        <li>
+         <a href="header-4">
           None型の判定
+         </a>
+        </li>
+        <li>
+         <a href="header-5">
+          Ellipsis オブジェクト
+         </a>
+        </li>
+        <li>
+         <a href="header-6">
+          pass文
          </a>
         </li>
        </ul>
@@ -121,45 +136,155 @@
        概要
       </h2>
       <p>
-       あとで書く
+       None型は値がないことを示すための型です。
+None型には型名と同じNoneという値しかありません。
+Noneは他のプログラミング型言語で使われる「null」や「void」と似ています。
+      </p>
+      <p>
+       返り値がない関数の返り値をあえて得るとNoneを得ることができます。
+また、関数の処理が失敗したことを示したい場合などにNoneを返すことがあります。
+関数から返された値をis演算子でNoneか否かを判定し、
+Noneでない場合のみ処理を続行するといった使い方をします。
+      </p>
+      <p>
+       None型ににたEllipsis型というものもあり、こちらは「何かがある」ということ示すための型です。
+Noneよりも使いみちがありませんが、開発中のプログラムでコードブロックになにも処理がない場合にEllipsisを使ったりします。
+何もコードブロックに書かないと文法エラーになるため、とりあえず何かを書かないといけないということでEllipsisを書いておきます。
+そのような場合はEllipsisの値である「...」を使います。
       </p>
       <h2 id="header-2">
-       None型とは
+       None型の特徴
       </h2>
       <p>
-       None 型は「値がない」ということを表明する特別な型です。
-たとえば返り値がない関数の結果を取得しようとしたら、以下のように None 型が取得できます。
+       None型は「値がない」ということを表明するための特別な型です。
+None型は型名と同じ「None」という値しか持っていません。
+ブール型にはTrueとFalseの2値しか持っていないのと似ています。
+      </p>
+      <p>
+       「値がない」ということを示すための型ですので、
+返り値が定義されていない関数やメソッドを呼び出した場合などに使われます。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
-<span class="c1"># hello</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># None</span>
+       <pre><span></span>&gt;&gt;&gt; a = print('hello')
+hello
+&gt;&gt;&gt; print(a)
+None
 </pre>
       </div>
       <p>
-       None は C 言語や Java の null に相当するもので、
-たまに関数やメソッドから期待されるオブジェクトの代わりに返されることがあります。
-少し高度になるのですが、たとえばある関数内の複雑な処理(例えばネットワークやデータベースへの接続など)に失敗した際に、
-「Noneを返す」もしくは「例外を発生させる」とことで処理が失敗したことを示すことができます。
+       プログラミング言語によっては返り値がない関数の返り値を代入しようとするとエラーとなります。
+Pythonはそうはならずに「何もない」という「None」を返り値として返しているためエラーとなりません。
+Noneは別名「
+       <strong>
+        ヌルオブジェクト
+       </strong>
+       」とも呼ばれており、
+他のプログラミング言語では「null」と表記されることがよくあります。
       </p>
       <h2 id="header-3">
+       None型の基本操作
+      </h2>
+      <p>
+       複雑な関数やメソッドによっては、処理が失敗した場合にNoneを返すものがあります。
+たとえばネットワークやデータベースに接続する処理に成功した場合は、それを操作するためのオブジェクトを返して、
+失敗した際はNoneを返すといったものになります。
+      </p>
+      <p>
+       返り値がNoneか否かを判定することで、関数やメソッドの処理が成功したか失敗したかを判定できます。
+      </p>
+      <p>
+       自分でプログラムを書く際はこのNoneを使って成否を示す方法は簡単に実装できます。
+ただ、失敗をした際は例外(エラー)を発生させ、関数を利用する側で例外処理で対応をするのが一般的な実装方法です。
+      </p>
+      <h2 id="header-4">
        None型の判定
       </h2>
       <p>
-       None を返す実装の場合、返り値がNone であれば失敗したことがわかり、そうでなければ成功したということが分かります。
-None か否かの判定には is 演算子を使うことが推奨されています。
-理由が高度になるため説明は割愛しますが、== 演算子での判定は推奨されません。
+       値がNoneか否かを判定するには「is演算子」を使うことが推奨されています。
+値がNoneであった場合はTrueを返します。
+「not is」とすることで、Noneでなかった場合にTrueを返すこともできます。
       </p>
       <div class="codehilite">
-       <pre><span></span><span class="n">return_value</span> <span class="o">=</span> <span class="err">関数</span><span class="p">()</span>
+       <pre><span></span>&gt;&gt;&gt; a = None
+&gt;&gt;&gt; a is None
+True
 
-<span class="k">if</span><span class="p">(</span><span class="n">return_value</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">):</span>
-  <span class="err">失敗した際の処理</span>
-<span class="k">else</span><span class="p">:</span>
-  <span class="err">成功した際の処理</span>
+&gt;&gt;&gt; a = 0
+&gt;&gt;&gt; a is None
+False
+
+&gt;&gt;&gt; a is not None
+True
 </pre>
       </div>
+      <p>
+       is演算子の代わりに「==演算子」を使っても判定はできます。
+ただ、==演算子の挙動はプログラマが定義することができるため、100%正しい動きをする保証はできません。
+is演算子を使うことを推奨します。
+      </p>
+      <h2 id="header-5">
+       Ellipsis オブジェクト
+      </h2>
+      <p>
+       None型に似た「
+       <strong>
+        Ellipsis型
+       </strong>
+       」というものも存在します。
+この型も値を一つしか持っておらず、Ellipsisという同名の値となります。
+Ellipsisには別の書き方もあり「
+       <strong>
+        ...
+       </strong>
+       」と書くと、それはEllipsisとして扱われます。
+      </p>
+      <p>
+       Noneは「何もない」ということを表明するためのものですが、
+Ellipsisはその逆で「何かある」ということを表明するためのものです。
+      </p>
+      <p>
+       使う箇所は限定的ですが、処理がなにもない関数や条件分岐及びループのコードブロックで使われます。
+「何かある」ということなので、今は実装はないが後で実装する予定といった場合に使います。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+  <span class="o">...</span>
+
+<span class="n">function</span><span class="p">()</span>
+</pre>
+      </div>
+      <p>
+       上記のようにEllipsisとではなく、「...」と書くと「省略」というようにも見えるため、
+後で書きますという意図が伝わりやすいはずです。
+コードブロックにはなにか1行は書かないと文法エラーになってしまいますので、
+Ellipsisを書くようにしてください。
+      </p>
+      <h2 id="header-6">
+       pass文
+      </h2>
+      <p>
+       Ellipsisオブジェクトが使われるようになる前は、その代わりに「
+       <strong>
+        pass文
+       </strong>
+       」が使われていました。
+passはifやforと同じく予約語で、何もしないことを表記するために使います。
+      </p>
+      <p>
+       先のEllipsisを使った書き方は、pass文を使うと以下のようになります。
+      </p>
+      <div class="codehilite">
+       <pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+  <span class="k">pass</span>
+
+<span class="n">function</span><span class="p">()</span>
+</pre>
+      </div>
+      <p>
+       使われ方は両者に大差はありませんが、passは文法であり、Ellipsisは値です。
+どちらを使うかはプログラマ次第ですが、Elllipsisの「...」という書き方は省略という意図が明確に伝わるため、
+私は「...」を好んで使っています。
+      </p>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
       <nav>
@@ -388,16 +513,24 @@ None か否かの判定には is 演算子を使うことが推奨されてい�
        </p>
        <ol class="list-unstyled">
         <li>
-         数値型
+         <a href="./051.html">
+          数値型
+         </a>
         </li>
         <li>
-         文字列型
+         <a href="./052.html">
+          文字列型
+         </a>
         </li>
         <li>
-         ブール型
+         <a href="./053.html">
+          ブール型
+         </a>
         </li>
         <li>
-         None型
+         <a href="./054.html">
+          None型
+         </a>
         </li>
         <li>
          <a href="./055.html">
@@ -410,10 +543,14 @@ None か否かの判定には is 演算子を使うことが推奨されてい�
          </a>
         </li>
         <li>
-         レンジ型
+         <a href="./057.html">
+          レンジ型
+         </a>
         </li>
         <li>
-         バイト型
+         <a href="./058.html">
+          バイト型
+         </a>
         </li>
         <li>
          <a href="./059.html">

@@ -107,61 +107,64 @@
         </li>
         <li>
          <a href="header-2">
-          タプル型の特徴
+          バイト型の特徴
          </a>
         </li>
         <li>
          <a href="header-3">
-          タプルの基本操作
+          バイト型の基本操作
          </a>
          <ul>
           <li>
            <a href="#header-4">
-            作成
+            宣言
            </a>
           </li>
           <li>
            <a href="#header-5">
-            要素の取得
+            生成
            </a>
           </li>
           <li>
            <a href="#header-6">
-            要素の上書きはできない
+            演算
            </a>
           </li>
-         </ul>
-        </li>
-        <li>
-         <a href="#header-7">
-          タプルの便利な使い方
-         </a>
-         <ul>
           <li>
-           <a href="#header-8">
-            関数の返り値
+           <a href="#header-7">
+            バイト長の確認
            </a>
           </li>
          </ul>
         </li>
         <li>
-         <a href="#header-9">
-          タプルの演算子
+         <a href="#header-8">
+          bytesとbytearrayの違い
+         </a>
+        </li>
+        <li>
+         <a href="header-9">
+          バイト型のメソッド
          </a>
         </li>
         <li>
          <a href="header-10">
-          タプルのメソッド
+          ビットとバイトの関係
+         </a>
+        </li>
+        <li>
+         <a href="header-11">
+          2進数と16進数及びASCIIの関係
+         </a>
+        </li>
+        <li>
+         <a href="header-12">
+          バイト型の基本操作
          </a>
          <ul>
           <li>
-           <a href="#header-11">
-            count : 引数と同じ値を持つ要素の数を数える
-           </a>
-          </li>
-          <li>
-           <a href="#header-12">
-            index : 引数と同じ値を持つ要素のインデックス番号を得る
+           <a href="#header-13">
+            宣言
            </a>
           </li>
          </ul>
@@ -171,218 +174,236 @@
       <h2 id="header-1">
        概要
       </h2>
-      <p>
-       あとでかく
-      </p>
       <h2 id="header-2">
-       タプル型の特徴
+       バイト型の特徴
       </h2>
       <p>
-       「
+       バイト型(bytes)はバイト列を扱うための型です。
+      </p>
+      <p>
+       コンピューターは2進数で動作するため、全てのデータはつきつめるとバイト列にたどり着きます。
+ただ、それでは扱いにくいので文字列型やリスト型などが作られました。
+      </p>
+      <p>
+       バイト型はそれらの人間に扱いやすいデータではなく、生のバイトの配列を操作するための型です。
+使う場面は少ないとはいえ、「テキスト以外のファイル処理」や「文字コードの変換処理」
+といった低いレイヤでの処理ではバイト列の操作が必要となります。
+Pythonのバイト型は「
        <strong>
-        タプル
+        アスキーコード
        </strong>
-       」はPythonの型の一つであり、リストと似ています。
-リストはひとつのインスタンスの中に複数の要素を持ち、それをインデックス番号で操作します。
-タプルもそれと全く同じで、ひとつのインスタンスの中にインデックス番号で管理される要素が複数あります。
+       」のみが使える文字列に似ていて、
+実際にバイト型の値の宣言やメソッドなどは文字列型のそれと酷似しています。
       </p>
       <p>
-       ただ、両者の大きな違いは「リストは要素の数が変わることを前提とした型」であるのに対し、
-「タプルは構成が全く変わらない」ということです。
-言い換えると、リストは初期化した後に要素を追加したり削除したりすることができますが、
-タプルは初期化後に要素数が変わることはなく、
-要素を上書き(インデックス番号を指定して代入)することもできません。
-      </p>
-      <p>
-       タプルが利用されるのはデータ構造の構成要素が明確な場合です。
-たとえばあるお店の会員情報があるとし、それが「氏名、生年月日、住所」から構成されているとします。
-タプルでこの構造を作れば要素の1つめは必ず氏名で、2つめは生年月日となります。
-      </p>
-      <p>
-       一方、リストで会員情報のデータ構造を作れば「氏名、生年月日、住所」と並んでいる前に、
-いきなり新しく会員IDを追加するといったことができますし、住所がいらなくなったから消すといったこともできます。
-これは便利なように見えるかもしれませんが、会員データを扱うプログラムが様々な箇所に及んでいると、
-名前を参照したつもりが会員IDを得てしまったり、住所を得るつもりだったのにそれが消失している可能性があります。
-      </p>
-      <p>
-       リストはこういった決められたデータ構造自体よりも、増減する会員数を管理する型として使うと便利です。
-タプルの要素はそれぞれが全く異なる情報であるのに対して、
-リストの要素は値こそ違っても使われ方は全く同じものとなるのが一般的です。
-      </p>
-      <p class="blog-img">
-       <img alt="image" class="img-responsive" src="./0070_image/01.jpg"/>
+       バイト型とそのメソッドを使うことで直接バイト列を操作することもできますが、
+たいていはなんらかの別の処理のデータとしてバイト型のデータを使うだけです。
+バイト型の詳細な理解が必要となる場面は限られます。
+初心者はより抽象度が高い便利な型から学ぶのがよいです。
       </p>
       <h2 id="header-3">
-       タプルの基本操作
+       バイト型の基本操作
       </h2>
       <h3 id="header-4">
-       作成
+       宣言
       </h3>
       <p>
-       タプルの初期化はカッコ「()」の中に要素をコンマ区切りで並べることでおこないます。
+       1バイトは「0から255」までの値です。
+アルファベットと数値から構成されるアスキーコードは1文字1バイトですので、
+アスキーコードを使ってバイト列の宣言をすることができます。
+      </p>
+      <p>
+       宣言をする際に通常の文字列と区別をするために、
+シングルクオテーションかダブルクオテーションの前に「b」という目印をつけます。
       </p>
       <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; a = ('taro', '1986', 'tokyo')
+       <pre><span></span>&gt;&gt;&gt; a = b'hello'
 &gt;&gt;&gt; print(type(a))
-&lt;class 'tuple'&gt;
+&lt;class 'bytes'&gt;
+
+&gt;&gt;&gt; b = 'hello'
+&gt;&gt;&gt; print(type(b))
+&lt;class 'str'&gt;
 </pre>
       </div>
       <p>
-       要素を持たないタプルを作るには単に「()」とします。
+       アスキーコードに含まれない文字を使ってバイト値の宣言をすると、
+エラーとなります。
       </p>
       <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; a = ()
-&gt;&gt;&gt; print(type(a))
-&lt;class 'tuple'&gt;
-</pre>
-      </div>
-      <p>
-       見た目に分かりにくいのであまり推奨はしませんが、
-カッコで囲まずにコンマで要素を並べるだけでもタプルは作成できます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; a = 1,2,3
-&gt;&gt;&gt; print(a)
-(1, 2, 3)
-&gt;&gt;&gt; print(type(a))
-&lt;class 'tuple'&gt;
+       <pre><span></span>&gt;&gt;&gt; a = b'あいうえお'
+  File "&lt;stdin&gt;", line 1
+SyntaxError: bytes can only contain ASCII literal characters.
 </pre>
       </div>
       <h3 id="header-5">
-       要素の取得
+       生成
       </h3>
       <p>
-       インデックス番号を使った要素へのアクセスはリストと全く同じです。
-「タプルのインスタンス[インデックス番号]」とすることで、特定の要素を取得することができます。
+       バイト列は文字列から生成することもできます。
+文字列のencodeメソッドを使うと、その文字列を指定した文字コードでバイナリ化した値を返します。
+デフォルトの文字コードはUTF-8です。
+      </p>
+      <p>
+       UTF-8はアスキーコードを拡張した文字コードなので、
+文字列がアルファベットと数値だけで構成されていればアスキーコードのバイト値と全く同じになります。
       </p>
       <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; a = ('taro','1986','tokyo')
-&gt;&gt;&gt; print(a[0])
-taro
+       <pre><span></span>&gt;&gt;&gt; a = 'hello'
+&gt;&gt;&gt; b = a.encode('UTF-8')
+&gt;&gt;&gt; print(b)
+b'hello'
+
+&gt;&gt;&gt; c = 'あいうえお'
+&gt;&gt;&gt; d = c.encode('UTF-8')
+&gt;&gt;&gt; print(d)
+b'\xe3\x81\x82\xe3\x81\x84\xe3\x81\x86\xe3\x81\x88\xe3\x81\x8a'
 </pre>
       </div>
       <p>
-       あるタプルを「別のタプルとそのなかにある要素となる変数」に代入させることで、
-要素をまとめて取り出すこともできます。
+       日本語をバイト値に変換(エンコード)した際に表示されている「\xe3」などは、
+1バイト(0-255)を16進数2桁(16 x 16 = 256)であらわしたものです。
+「\xHH」という形式で「\x00」から「\xff」まで使えます。
+10進数に直すと「0」から「16 x 15 + 15 = 255」までです。
+複数バイトが日本語の1文字に対応しています。
+      </p>
+      <p>
+       バイト型のインスタンスでdecodeメソッドを呼び出すと、
+バイナリ値を引数で与えた文字コードで解釈して、文字列を返します。
       </p>
       <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; a = ('taro','1986','tokyo')
-&gt;&gt;&gt; (b,c,d) = a
+       <pre><span></span>&gt;&gt;&gt; a = b'hello'
+&gt;&gt;&gt; b = a.decode('UTF-8')
 &gt;&gt;&gt; print(b)
-taro
-&gt;&gt;&gt; print(c)
-1986
+hello
+
+&gt;&gt;&gt; c = b'\xe3\x81\x82\xe3\x81\x84\xe3\x81\x86\xe3\x81\x88\xe3\x81\x8a'
+&gt;&gt;&gt; d = c.decode('UTF-8')
 &gt;&gt;&gt; print(d)
-tokyo
+あいうえお
 </pre>
       </div>
       <h3 id="header-6">
-       要素の上書きはできない
+       演算
       </h3>
+      <h3 id="header-7">
+       バイト長の確認
+      </h3>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = len(b'hello')
+&gt;&gt;&gt; print(a)
+5
+
+&gt;&gt;&gt; b = 'あいうえお'.encode()
+&gt;&gt;&gt; c = len(b)
+&gt;&gt;&gt; print(c)
+15
+</pre>
+      </div>
+      <h2 id="header-8">
+       bytesとbytearrayの違い
+      </h2>
       <p>
-       リストと異なり、タプルは要素を変更することはできません。
-これはappendメソッドやdel演算子などが使えないというだけでなく、
-インデックス番号を指定した要素の上書きもできないということです。
+       バイト型とひとくくりにしていますが、Pythonには「
+       <strong>
+        bytes型
+       </strong>
+       」と「
+       <strong>
+        bytearray型
+       </strong>
+       」の2種類があります。
+どちらもバイトデータを操作するという点は同じですが、前者は文字列のようにインスタンスが持つデータが変化せず、
+後者はリストのようにデータが変わります。
+      </p>
+      <p>
+       bytearrayの値の作成はbytesの値をbytearray関数でキャストすることで作成できます。
       </p>
       <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; a = ('taro','1986','tokyo')
-&gt;&gt;&gt; a[1] = '1886'
+       <pre><span></span>&gt;&gt;&gt; a = bytearray(b'hello')
+&gt;&gt;&gt; print(a)
+bytearray(b'hello')
+
+&gt;&gt;&gt; b = bytearray('あいうえお'.encode())
+&gt;&gt;&gt; print(b)
+bytearray(b'\xe3\x81\x82\xe3\x81\x84\xe3\x81\x86\xe3\x81\x88\xe3\x81\x8a')
+</pre>
+      </div>
+      <p>
+       バイト型のデータをバイト単位で操作するのであれば、bytearray型を使う必要があります。
+インデックスで位置を指定して要素を「0から255までの値」で上書きすることで、bytearray型の値を更新できます。
+bytesの値は文字列と同じように不変であるため、bytearrayと同じ手法で更新しようとするとエラーが発生します。
+      </p>
+      <div class="codehilite">
+       <pre><span></span>&gt;&gt;&gt; a = bytearray(b'hello')
+&gt;&gt;&gt; a[0] = 97
+&gt;&gt;&gt; print(a)
+bytearray(b'aello')
+
+&gt;&gt;&gt; b = b'hello'
+&gt;&gt;&gt; b[0] = 97
 Traceback (most recent call last):
   File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-TypeError: 'tuple' object does not support item assignment
+TypeError: 'bytes' object does not support item assignment
 </pre>
       </div>
       <p>
-       ただ、タプルが要素としてインスタンスを保つ場合は、
-そのインスタンスの中身は変わる可能性があります。
+       ただ、要素を変更するような細かい操作をしないのであれば、両者を区別する必要性はほとんどありません。
+bytesもbytearrayも使えるメソッドは同じですので、標準的に利用されるbytesのみで必要な処理はまかなえます。
       </p>
       <div class="codehilite">
-       <pre><span></span>&gt;&gt;&gt; a = [1]
-&gt;&gt;&gt; b = ('hello', a)
+       <pre><span></span>&gt;&gt;&gt; a = b'hello'
+&gt;&gt;&gt; b = a.decode('UTF-8')
 &gt;&gt;&gt; print(b)
-('hello', [1])
-&gt;&gt;&gt; a.append(2)
-&gt;&gt;&gt; print(b)
-('hello', [1, 2])
-</pre>
-      </div>
-      <h2 id="header-7">
-       タプルの便利な使い方
-      </h2>
-      <h3 id="header-8">
-       関数の返り値
-      </h3>
-      <p>
-       複雑な関数を作成した場合に、返り値として複数の値を返したい場合があります。
-他のプログラミング言語であれば複数のデータを格納するための構造体やクラスをそのためだけに定義することがありますが、
-Pythonであれば返したい複数の値をタプル化して返せます。
-      </p>
-      <p>
-       呼び出し元はタプルで返された値をそのまま変数に代入しても構いませんし、
-タプルで返り値を受けて要素を各変数に代入させることもできます。
-      </p>
-      <p>
-       たとえばfor文でリストの要素の最小値と最大値を取得する関数を作るとしましょう。
-返り値となる最大値と最小値をタプルで囲んで返せば、
-関数の呼び出し元は最大値と最小値を同時に得られます。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">get_min_max</span><span class="p">(</span><span class="n">list_</span><span class="p">):</span>
-  <span class="n">min_</span> <span class="o">=</span> <span class="n">list_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-  <span class="n">max_</span> <span class="o">=</span> <span class="n">list_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_</span><span class="p">:</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">min_</span><span class="p">):</span> <span class="n">min_</span> <span class="o">=</span> <span class="n">i</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">max_</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">):</span> <span class="n">max_</span> <span class="o">=</span> <span class="n">i</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="p">)</span>
+hello
 
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
-<span class="p">(</span><span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="p">)</span> <span class="o">=</span> <span class="n">get_min_max</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'min: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_</span><span class="p">))</span>
-<span class="c1"># 1</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'max: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_</span><span class="p">))</span>
-<span class="c1"># 10</span>
+&gt;&gt;&gt; c = bytearray(b'hello')
+&gt;&gt;&gt; d = c.decode('UTF-8')
+&gt;&gt;&gt; print(d)
+hello
 </pre>
       </div>
-      <p>
-       プログラマーによっては複数の返り値を返す際にタプルだということをあまり意識せずに、
-カッコで囲まない書き方をする場合もあります。
-以下のコードもカッコを省略したタプルですので、上記と同じです。
-      </p>
-      <div class="codehilite">
-       <pre><span></span><span class="k">def</span> <span class="nf">get_min_max</span><span class="p">(</span><span class="n">list_</span><span class="p">):</span>
-  <span class="n">min_</span> <span class="o">=</span> <span class="n">list_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-  <span class="n">max_</span> <span class="o">=</span> <span class="n">list_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_</span><span class="p">:</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">min_</span><span class="p">):</span> <span class="n">min_</span> <span class="o">=</span> <span class="n">i</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">max_</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">):</span> <span class="n">max_</span> <span class="o">=</span> <span class="n">i</span>
-  <span class="k">return</span> <span class="n">min_</span><span class="p">,</span> <span class="n">max_</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
-<span class="n">min_</span><span class="p">,</span> <span class="n">max_</span> <span class="o">=</span> <span class="n">get_min_max</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre>
-      </div>
-      <p>
-       なお、返り値をタプルにした場合は、タプルの要素数の変更には気をつけて利用してください。
-関数の定義と関数を使う側の定義が合致していないと、実行時にエラーが発生します。
-      </p>
       <h2 id="header-9">
-       タプルの演算子
+       バイト型のメソッド
       </h2>
-      <p>
-       inが使える
-      </p>
       <h2 id="header-10">
-       タプルのメソッド
+       ビットとバイトの関係
       </h2>
       <p>
-       タプルのメソッドはほとんど利用されません。
-インスタンスの変更ができないため、変更をするためのメソッドが全く存在しないリストに似たメソッドだけを持っています。
+       電気のoff/onに相当する2進数の0/1はビットと表現されます。
+2進数の「0101」は0/1が4桁あるため、4ビットです。
       </p>
-      <h3 id="header-11">
-       count : 引数と同じ値を持つ要素の数を数える
-      </h3>
-      <h3 id="header-12">
-       index : 引数と同じ値を持つ要素のインデックス番号を得る
+      <p>
+       私達が普段慣れ親しんでいる10進数でも同じですが、数値が表現できるパターン数は「基数の桁数乗」というルールがあります。
+基数は2進数や10進数の2や10のことで、1桁で何種類の数を表現できるかという値です。
+2進数は「0,1」の2種類で、10進数は「0,1,2,3,4,5,6,7,8,9」の10種類です。
+つまり、2進数の基数は2で、10進数の基数は10となります。
+      </p>
+      <p>
+       数値が表現できるパターン数は「基数の桁数乗」ということですが、
+たとえば10進数2桁であれば「0 - 99」の100パターンで「10の2乗」になっています。
+同様に10進数4桁であれば「0 - 9999」の10000パターンで「10の4乗」になっています。
+2進数もこれと同じで、2進数2桁であれば「00 - 11」の4パターンで「2の2乗」になっています。
+同様に2進数4桁であれば「0000 - 1111」の16パターンで「2の4乗」となっています。
+これは「2パターン x 2パターン x 2パターン x 2パターン」と考えると分かりやすいかもしれません。
+      </p>
+      <p>
+       2進数4桁は16パターンですので、16進数であれば1桁で表現できます。
+16進数は「0,1...8,9,A,B,C,D,E,F」と数字の0から9にアルファベットを足して16個の値を1桁で表現します。
+      </p>
+      <h2 id="header-11">
+       2進数と16進数及びASCIIの関係
+      </h2>
+      <p>
+       バイト列は「01」で表現される2進数です。
+ただ、01の羅列が続く2進数は人間にとって判別がし辛いです。
+たとえば「110100101100010101001010」と「110100101100010101001010」
+      </p>
+      <h2 id="header-12">
+       バイト型の基本操作
+      </h2>
+      <h3 id="header-13">
+       宣言
       </h3>
       <!-- GENERATED HTML END -->
       <!-- GENERATED HTML END -->
@@ -612,16 +633,24 @@ Pythonであれば返したい複数の値をタプル化して返せます。
        </p>
        <ol class="list-unstyled">
         <li>
-         数値型
+         <a href="./051.html">
+          数値型
+         </a>
         </li>
         <li>
-         文字列型
+         <a href="./052.html">
+          文字列型
+         </a>
         </li>
         <li>
-         ブール型
+         <a href="./053.html">
+          ブール型
+         </a>
         </li>
         <li>
-         None型
+         <a href="./054.html">
+          None型
+         </a>
         </li>
         <li>
          <a href="./055.html">
@@ -634,10 +663,14 @@ Pythonであれば返したい複数の値をタプル化して返せます。
          </a>
         </li>
         <li>
-         レンジ型
+         <a href="./057.html">
+          レンジ型
+         </a>
         </li>
         <li>
-         バイト型
+         <a href="./058.html">
+          バイト型
+         </a>
         </li>
         <li>
          <a href="./059.html">
